@@ -46,6 +46,7 @@ Use the built-in continuous integration in GitLab.
 
 ***test***
 ***hi***
+***test***
 
 # Editing this README
 
