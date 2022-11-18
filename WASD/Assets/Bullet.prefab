@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1949196024205229631}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 1904945899944968184, guid: 4ecf7d941f90ca1479011d52ac92ae89, type: 3}
   fadeOutTime: 0.25
+  bulletDamage: 5
