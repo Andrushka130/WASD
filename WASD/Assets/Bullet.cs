@@ -18,5 +18,6 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);
         }
+        //test
     }
 }
