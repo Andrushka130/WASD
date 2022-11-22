@@ -14,6 +14,27 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection;
     Vector2 mousePosition;
 
+    private PlayerData _playerData;
+    private Datenbank db;
+
+    void Start()
+    {
+        db = Datenbank.Instance;
+        _playerData = new PlayerData();
+        _playerData.playerTag = "Test1";
+        _playerData.highscore = 1;
+
+        StartCoroutine(db.DownloadOne(_playerData.playerTag, result => {
+            Debug.Log(result.playerTag);
+        }));
+        StartCoroutine(db.DownloadAll(result => {
+            Debug.Log(result.Items[0].highscore);
+        }));
+        /*StartCoroutine(db.Upload(_playerData.Stringify(), result => {
+            Debug.Log(result);
+        }));*/
+    }
+
     // Update is called once per frame
     void Update()
     {
