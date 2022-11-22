@@ -1,0 +1,21 @@
+@host = http://127.0.0.1:3000
+
+GET {{host}}/create HTTP/1.1
+
+###
+
+POST {{host}}/playerdata HTTP/1.1
+Content-Type: application/json
+
+{
+    "highscore": 6,
+    "playerTag": "Test2"
+}
+
+###
+
+GET {{host}}/playerdata HTTP/1.1
+
+###
+
+GET {{host}}/playerdata/Test2 HTTP/1.1
