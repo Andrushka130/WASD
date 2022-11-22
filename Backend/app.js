@@ -33,7 +33,7 @@ app.route(routePD)
 .get(async (req, res, next) => {
   try {
     const data = await db.collection(dbName).find().toArray();
-    const item = {item: data}
+    const item = {Items: data}
     if(!data) {
       res.status(400).send("PlayerData not found");
       return;
