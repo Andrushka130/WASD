@@ -78,47 +78,34 @@ app.route(`${routePD}${paramPD}`)
 })
 .patch(async (req, res, next) => {
   try{
-
+    const {playerTag} = req.params;
+    const {highscore} = req.body;
+    await db.collection(dbName).findOneAndUpdate({playerTag: `${playerTag}`}, {$set: {highscore: `${highscore}`}});
   } catch (err) {
     next(err);
   }
 })
 .delete(async (req, res, next) => {
   try{
-
+    const {playerTag} = req.params;
+    await db.collection(dbName).findOneAndDelete({playerTag: `${playerTag}`});
+    res.status(200).send("PlayerData deleted");
   } catch (err) {
     next(err);
   }
 });
 
-
-app.route(routeAC)
-.get(async (req, res, next) => {
-  try {
-    const data = await db.collection(dbName).find().toArray();
-    if(!data) {
-      res.status(400).send("PlayerData not found");
-      return;
-    }
-    res.status(200).send({data});
-  } catch (err) {
-    next(err);
-  }
-})
-.post(async (req, res) => {
-  try  {
-    await db.collection(dbName).insertOne(req.body);
-    console.log(`${req.body.playerTag} inserted ...`)
-    res.status(201).send(`${req.body.playerTag} inserted ...`);
-  } catch (err) {
-    next(err);
-  }
-});
 
 app.route(`${routeAC}${paramPD}`)
 .get(async (req, res, next) => {
   try{
-
+    const {playerTag} = req.params;
+    const data = await db.collection(dbName).findOne({playerTag});
+    if(!data) {
+      res.status(400).send("PlayerData not found");
+      return;
+    }
+    res.status(200).send({playerTag: data.playerTag, highscore: data.highscore});
   } catch (err) {
     next(err);
   }
