@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+
+public class PlayerController : PlayerAttribute1
 {
-    public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Weapon weapon;
 
-    public float timer;
-    public float cooldown = 1f;
+    private float timer;
     
     Vector2 moveDirection;
     Vector2 mousePosition;
@@ -21,7 +20,8 @@ public class PlayerController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         timer += Time.deltaTime;
-        if(timer > cooldown)
+        
+        if(timer > (10 / attackSpeed.GetValue()))
         {
             weapon.Fire();
             timer = 0;
@@ -33,10 +33,34 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-
+        rb.velocity = new Vector2(moveDirection.x * movementSpeed.GetValue(), moveDirection.y * movementSpeed.GetValue());
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
     }
+
+    /* Hier muss die Konnection zum Inventar gezogen werden
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
+    }
+
+    void OnEquipmentChanged (Equipment newItem, Equipment oldItem)
+    {
+        if (newItem != null)
+        {
+            armor.AddModifier(newItem.armorModifier);
+            damage.AddModifier(newItem.damageModifier);
+        }
+        
+        if (oldItem != null)
+        {
+            armor.RemoveModifier(oldItem.armorModifier);
+            damage.RemoveModifier(oldItem.damageModifier);
+        }
+    }
+    */
+
 }
