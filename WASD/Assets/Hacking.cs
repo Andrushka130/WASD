@@ -15,9 +15,14 @@ public class Hacking : RangedWeapon, IUpgradable, IAttackable
 
     protected override bool BulletIsTravelthrough => false;
 
-    public GameObject bulletPrefab;
+    protected GameObject bulletPrefab;
     public Transform firePoint;
     public float fireForce = 20f;
+
+    public void Start()
+    {
+        bulletPrefab = Resources.Load("Bullets/Bullet") as GameObject;
+    }
     public void attack()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
