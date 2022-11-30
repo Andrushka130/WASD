@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Weapon weapon;
+    public Hacking hacking;
 
     public float timer;
     public float cooldown = 1f;
@@ -17,13 +18,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hacking = GameObject.Find("Weapon").GetComponent<Hacking>();
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
         timer += Time.deltaTime;
         if(timer > cooldown)
         {
-            weapon.Fire();
+            hacking.attack();
             timer = 0;
         }
 
