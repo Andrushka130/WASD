@@ -2,7 +2,6 @@ const db = require("../db/index");
 
 const dbName = "playerdata";
 
-
 async function getAccounts(req, res, next) {
   const connection = db.getConnection();
 
@@ -25,7 +24,6 @@ async function getAccounts(req, res, next) {
   }
 }
 
-
 async function createAccount(req, res, next) {
   const connection = db.getConnection();
 
@@ -36,7 +34,6 @@ async function createAccount(req, res, next) {
     next(err);
   }
 }
-
 
 async function login(req, res, next) {
   const connection = db.getConnection();
@@ -52,15 +49,12 @@ async function login(req, res, next) {
       res.status(400).send("Account not found or invalid password");
       return;
     }
-    res
-      .status(200)
-      .send("true");
+    res.status(200).send("true");
     return;
   } catch (err) {
     next(err);
   }
 }
-
 
 async function changeAccount(req, res, next) {
   const connection = db.getConnection();
@@ -68,10 +62,8 @@ async function changeAccount(req, res, next) {
   try {
     const { playerTag } = req.params;
     const data = req.body;
-    if(data.hasOwnProperty("password")) {
-        await connection
-      .collection(dbName)
-      .findOneAndUpdate(
+    if (data.hasOwnProperty("password")) {
+      await connection.collection(dbName).findOneAndUpdate(
         { playerTag: `${playerTag}` },
         {
           $set: {
@@ -80,10 +72,8 @@ async function changeAccount(req, res, next) {
         }
       );
     }
-    if(data.hasOwnProperty("email")) {
-        await connection
-      .collection(dbName)
-      .findOneAndUpdate(
+    if (data.hasOwnProperty("email")) {
+      await connection.collection(dbName).findOneAndUpdate(
         { playerTag: `${playerTag}` },
         {
           $set: {
@@ -92,10 +82,8 @@ async function changeAccount(req, res, next) {
         }
       );
     }
-    if(data.hasOwnProperty("playerTag")) {
-        await connection
-      .collection(dbName)
-      .findOneAndUpdate(
+    if (data.hasOwnProperty("playerTag")) {
+      await connection.collection(dbName).findOneAndUpdate(
         { playerTag: `${playerTag}` },
         {
           $set: {
@@ -104,13 +92,12 @@ async function changeAccount(req, res, next) {
         }
       );
     }
-    
+
     res.status(200).send(`PlayerData of ${playerTag} updated`);
   } catch (err) {
     next(err);
   }
 }
-
 
 async function deleteAccount(req, res, next) {
   const connection = db.getConnection();
@@ -126,11 +113,10 @@ async function deleteAccount(req, res, next) {
   }
 }
 
-
 module.exports = {
   getAccounts,
   createAccount,
   login,
   changeAccount,
-  deleteAccount
+  deleteAccount,
 };

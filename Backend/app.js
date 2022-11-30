@@ -1,14 +1,12 @@
 const express = require("express");
 const AccountController = require("./controllers/account");
-const PlayerDataController = require("./controllers/playerData")
+const PlayerDataController = require("./controllers/playerData");
 const ErrorMiddleware = require("./middleware/error.middleware");
 const Database = require("./db");
-
 
 const PORT = 3000;
 const dbName = "playerdata";
 const param = "/:playerTag";
-
 
 async function run() {
   const app = express();
@@ -23,7 +21,6 @@ async function run() {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
-
   const accountsRouter = express.Router();
   accountsRouter.get("", AccountController.getAccounts);
   accountsRouter.post("", AccountController.createAccount);
@@ -37,7 +34,6 @@ async function run() {
   playerDataRouter.get(param, PlayerDataController.getPlayerData);
   playerDataRouter.put(param, PlayerDataController.changePlayerData);
   playerDataRouter.patch(param, PlayerDataController.changePlayerData);
-
 
   app.use("/account", accountsRouter);
   app.use("/playerData", playerDataRouter);

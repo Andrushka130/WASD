@@ -4,10 +4,10 @@ function handleServerErrors(err, req, res, next) {
 }
 
 function handleNotFoundErrors(req, res) {
-  res.status(404).send({ message: 'Not found' });
+  res.status(404).send({ message: "Not found" });
 }
 
 module.exports = {
   handleServerErrors,
-  handleNotFoundErrors
+  handleNotFoundErrors,
 };
