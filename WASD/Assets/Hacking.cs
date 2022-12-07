@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hacking : RangedWeapon, IUpgradable, IAttackable
+public class Hacking : RangedWeapon
 {
     protected override string Name => "Hacking";
     protected override float Dmg => 5;
@@ -16,20 +16,21 @@ public class Hacking : RangedWeapon, IUpgradable, IAttackable
     protected override bool BulletIsTravelthrough => false;
 
     protected GameObject bulletPrefab;
-    public Transform firePoint;
-    public float fireForce = 20f;
+    protected Transform firePoint;
+    private float fireForce = 20f;
 
     public void Start()
     {
         bulletPrefab = Resources.Load("Bullets/Bullet") as GameObject;
+        firePoint = GameObject.Find("Firepoint").transform;
     }
-    public void attack()
+    public override void attack()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
     }    
 
-    public void upgradeWeapon(rarity rarityType)
+    public override void upgradeWeapon(rarity rarityType)
     {
         Debug.Log("Upgrade");
     }

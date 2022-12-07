@@ -13,6 +13,9 @@ public abstract class WeaponClass : MonoBehaviour
     protected abstract int UpgradeLevel { get; }
     protected abstract rarity RarityType { get; }
 
+    public abstract void attack();
+    public abstract void upgradeWeapon(rarity rarityType);
+
     public enum rarity
     {
         common,
