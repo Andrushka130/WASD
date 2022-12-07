@@ -688,7 +688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272910519}
   - component: {fileID: 272910520}
-  - component: {fileID: 272910521}
+  - component: {fileID: 272910518}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -696,6 +696,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &272910518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272910517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018f36a9bf89d6242b2aa1ffdfcd2c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8921957754178053307, guid: c16f6039ce6c56a44968858a69cf6ef2, type: 3}
+  firePoint: {fileID: 650163679}
+  fireForce: 20
 --- !u!4 &272910519
 Transform:
   m_ObjectHideFlags: 0
@@ -764,21 +779,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &272910521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272910517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f36a9bf89d6242b2aa1ffdfcd2c1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8921957754178053307, guid: c16f6039ce6c56a44968858a69cf6ef2, type: 3}
-  firePoint: {fileID: 650163679}
-  fireForce: 20
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,23 +1286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1498408806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498408805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bc935b16a236014d8bc55ff6ada56ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rb: {fileID: 1498408807}
-  weapon: {fileID: 0}
-  timer: 0
-  cooldown: 0.3
 --- !u!50 &1498408807
 Rigidbody2D:
   serializedVersion: 4
