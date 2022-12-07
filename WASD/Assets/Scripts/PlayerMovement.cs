@@ -12,23 +12,23 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+    public SpriteRenderer spriteRenderer;
+
     // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+        
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if (Input.GetKeyDown("a"))
+        if(movement.x < 0)
         {
-            animator.SetBool("leftOrRight", true);
+            spriteRenderer.flipX = true;
         }
-        if (Input.GetKeyDown("d"))
+        if (movement.x > 0)
         {
-            animator.SetBool("leftOrRight", false);
+            spriteRenderer.flipX = false;
         }
     }
 

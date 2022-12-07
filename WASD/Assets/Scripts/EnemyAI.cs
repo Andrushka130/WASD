@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
         Collider2D[] detectColliderArray = Physics2D.OverlapCircleAll(transform.position, checkRadius);
         foreach (Collider2D collider2D in detectColliderArray)
         {
-            if (collider2D.TryGetComponent<PlayerController>(out PlayerController playerController))
+            if (collider2D.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
             {
                 inChaseRange = true;
             }
@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
         Collider2D[] attackColliderArray = Physics2D.OverlapCircleAll(transform.position, attackRadius);
         foreach (Collider2D collider2D in attackColliderArray)
         {
-            if (collider2D.TryGetComponent<PlayerController>(out PlayerController playerController))
+            if (collider2D.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
             {
                 inAttackRange = true;
             }

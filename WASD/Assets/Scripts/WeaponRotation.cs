@@ -9,7 +9,7 @@ public class WeaponRotation : MonoBehaviour
     //pivot point
     private Camera mainCam;
     private Vector3 mousePos;
-    public Weapon weapon;
+    private Weapon weapon;
     public float timer;
     public float cooldown = 1f;
 
