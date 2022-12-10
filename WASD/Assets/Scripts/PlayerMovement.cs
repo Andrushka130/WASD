@@ -6,30 +6,20 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
+    public Rigidbody2D rb;   
 
-    public Animator animator;
+    Vector2 movement;    
 
-    Vector2 movement;
-
-    public SpriteRenderer spriteRenderer;
-
-    // Update is called once per frame
+    public PlayerAnimationManager playerAnimationManager;
+    
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        
-        animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if(movement.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        if (movement.x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
+        playerAnimationManager.setSpeed(movement);
+        playerAnimationManager.flipSprite(movement);
+        
     }
 
     private void FixedUpdate()

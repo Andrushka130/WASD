@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponRotation : MonoBehaviour
-{
-    //Mouse position
-    //Reference to the weapon/firepoint
-    //pivot point
+{    
     private Camera mainCam;
     private Vector3 mousePos;
     private Weapon weapon;
@@ -16,10 +13,9 @@ public class WeaponRotation : MonoBehaviour
     private void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    }
-    
+    }    
 
-    // Update is called once per frame
+    
     void Update()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
