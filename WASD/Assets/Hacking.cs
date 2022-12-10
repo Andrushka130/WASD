@@ -8,15 +8,15 @@ public class Hacking : RangedWeapon
     protected override float Dmg => 5;
     protected override float CritDmg => 0.5f;
     protected override float CritChance => 0.15f;
-    protected override float Lifesteal => 3;
+    protected override float Lifesteal => 0;
     protected override float AtkSpeed => 0.2f;
     protected override int UpgradeLevel => 1;
     protected override rarity RarityType => rarity.common;    
 
     protected override bool BulletIsTravelthrough => false;
 
-    protected GameObject bulletPrefab;
-    protected Transform firePoint;
+    private GameObject bulletPrefab;
+    private Transform firePoint;
     private float fireForce = 20f;
 
     public void Start()
