@@ -11,4 +11,29 @@ Our game stands out with simplicity in gameplay and our varierty of items and we
 Your **goal** is to survive all enemy waves as long as you can to get the best highscore among all players. <br>
 
 ## Features
+- autofiring weapons with the ability to aim in mouse direction
+- infinte run (highscore based game)
+- every run is individual because of different combinations
+- survive enemy waves that longs 60 seconds
+- try to kill as many enemies in a wave to maximize your currency and level
 
+<br>
+
+## Installation
+
+<br>
+
+## Controls
+
+**Keyboard:**
+
+W - move forward
+A - move left
+S - move down
+D - move right
+Esc - Pauase/Menu
+Mouse - fire directions
+
+<br>
+
+## Dependencies
