@@ -27,11 +27,11 @@ Your **goal** is to survive all enemy waves as long as you can to get the best h
 
 **Keyboard:**
 
-W - move forward
-A - move left
-S - move down
-D - move right
-Esc - Pauase/Menu
+W - move forward <br>
+A - move left <br>
+S - move down <br>
+D - move right <br>
+Esc - Pauase/Menu <br>
 Mouse - fire directions
 
 <br>
