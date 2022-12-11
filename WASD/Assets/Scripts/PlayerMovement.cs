@@ -8,22 +8,16 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;   
 
-    Vector2 movement;    
-
-    public PlayerAnimationManager playerAnimationManager;
-    
-    void Update()
+    public Vector2 movementVector;       
+       
+    public void getMovementInput()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        playerAnimationManager.setSpeed(movement);
-        playerAnimationManager.flipSprite(movement);
-        
+        movementVector.x = Input.GetAxisRaw("Horizontal");
+        movementVector.y = Input.GetAxisRaw("Vertical");
     }
 
-    private void FixedUpdate()
+    public void movePlayer()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movementVector * moveSpeed * Time.fixedDeltaTime);
     }
 }
