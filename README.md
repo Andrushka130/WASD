@@ -8,7 +8,9 @@
 Our game stands out with simplicity in gameplay and our varierty of items and weapons combinations. You are playing an "Mercenary" called "hier könnte ihr Werbung stehen". She is able to handle up to 6 weapons at the same time and she gets continuous upgrades through items, like implementable Brainsystem or Inner Eye.<br>
 
 **BUT** watch out if you substitute to much of your human body you will go insane and turn into a Cyberpsycho. <br>
-Your **goal** is to survive all enemy waves as long as you can to get the best highscore among all players. <br>
+Your **goal** is to survive all enemy waves as long as you can to get the best highscore among all players. 
+
+<br>
 
 ## Features
 - autofiring weapons with the ability to aim in mouse direction
