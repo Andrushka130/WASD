@@ -5,8 +5,7 @@ using UnityEngine;
 public class WeaponRotation : MonoBehaviour
 {    
     private Camera mainCam;
-    private Vector3 mousePos;
-    private Weapon weapon;
+    private Vector3 mousePos;    
     public float timer;
     public float cooldown = 1f;
 
@@ -25,16 +24,7 @@ public class WeaponRotation : MonoBehaviour
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
-        weapon = GameObject.Find("Weapon").GetComponent<Weapon>();
-
-        timer += Time.deltaTime;
-        if (timer > cooldown)
-        {
-            weapon.Fire();
-            timer = 0;
-        }
+        
     }
-
 
 }
