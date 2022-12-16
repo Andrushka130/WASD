@@ -2,7 +2,7 @@ const express = require("express");
 const AccountController = require("./controllers/account");
 const PlayerDataController = require("./controllers/playerData");
 const ErrorMiddleware = require("./middleware/error.middleware");
-const Database = require("./db");
+const Database = require("./db/db");
 
 const PORT = 3000;
 const dbName = "playerdata";

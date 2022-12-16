@@ -1,4 +1,4 @@
-const db = require("../db/index");
+const db = require("../db/db");
 
 const dbName = "playerdata";
 
@@ -6,19 +6,21 @@ async function getAccounts(req, res, next) {
   const connection = db.getConnection();
 
   try {
-    const data = await connection.collection(dbName).find().toArray();
+    const query = {};
+    const fields = {
+      projection: { _id: 0, playerTag: 1, password: 1, email: 1 },
+    };
+    const data = await connection
+      .collection(dbName)
+      .find(query, fields)
+      .toArray();
     if (!data) {
       res.status(400).send("Account could not be found");
       return;
     }
 
-    const filter = data.map((o) => ({
-      playerTag: o.playerTag,
-      password: o.password,
-      email: o.email,
-    }));
-
-    res.status(200).send({ Items: filter });
+    const items = { Items: data };
+    res.status(200).send(items);
   } catch (err) {
     next(err);
   }
@@ -28,6 +30,20 @@ async function createAccount(req, res, next) {
   const connection = db.getConnection();
 
   try {
+    const { playerTag, email } = req.body;
+    const query = { $or: [{ playerTag }, { email }] };
+    const fields = { projection: { _id: 0, playerTag: 1, email: 1 } };
+    const account = await connection.collection(dbName).findOne(query, fields);
+    if (account) {
+      if (account.playerTag === playerTag) {
+        res.status(400).send("Player name already exists!");
+        return;
+      }
+      if (account.email === email) {
+        res.status(400).send("Email already exists!");
+        return;
+      }
+    }
     await connection.collection(dbName).insertOne(req.body);
     res.status(201).send(`${req.body.playerTag} inserted ...`);
   } catch (err) {
@@ -41,7 +57,11 @@ async function login(req, res, next) {
   try {
     const { playerTag } = req.params;
     const body = req.body;
-    const data = await connection.collection(dbName).findOne({ playerTag });
+    const query = { playerTag };
+    const fields = {
+      projection: { _id: 0, playerTag: 0, email: 0, highscore: 0 },
+    };
+    const data = await connection.collection(dbName).findOne(query, fields);
     if (
       !data ||
       (data.playerTag === playerTag && !(body.password === data.password))
@@ -62,35 +82,22 @@ async function changeAccount(req, res, next) {
   try {
     const { playerTag } = req.params;
     const data = req.body;
+    const query = { playerTag };
+
     if (data.hasOwnProperty("password")) {
-      await connection.collection(dbName).findOneAndUpdate(
-        { playerTag: `${playerTag}` },
-        {
-          $set: {
-            password: `${data.password}`,
-          },
-        }
-      );
+      const password = req.body.password;
+      const update = { $set: { password } };
+      await connection.collection(dbName).updateOne(query, update);
     }
     if (data.hasOwnProperty("email")) {
-      await connection.collection(dbName).findOneAndUpdate(
-        { playerTag: `${playerTag}` },
-        {
-          $set: {
-            email: `${data.email}`,
-          },
-        }
-      );
+      const email = req.body.email;
+      const update = { $set: { email } };
+      await connection.collection(dbName).updateOne(query, update);
     }
     if (data.hasOwnProperty("playerTag")) {
-      await connection.collection(dbName).findOneAndUpdate(
-        { playerTag: `${playerTag}` },
-        {
-          $set: {
-            playerTag: `${data.playerTag}`,
-          },
-        }
-      );
+      const newPlayerTag = req.body.playerTag;
+      const update = { $set: { newPlayerTag } };
+      await connection.collection(dbName).updateOne(query, update);
     }
 
     res.status(200).send(`PlayerData of ${playerTag} updated`);
@@ -104,9 +111,14 @@ async function deleteAccount(req, res, next) {
 
   try {
     const { playerTag } = req.params;
-    await connection
+    const remove = {playerTag};
+    const account = await connection
       .collection(dbName)
-      .findOneAndDelete({ playerTag: `${playerTag}` });
+      .findOneAndDelete(remove);
+    if(!account.value){
+      res.status(400).send(`Account ${playerTag} doesnt exist!`);
+      return;
+    }
     res.status(200).send(`PlayerData of ${playerTag} deleted`);
   } catch (err) {
     next(err);
