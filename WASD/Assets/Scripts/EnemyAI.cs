@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (collider2D.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
             {
-                inChaseRange = true;
+                inChaseRange = true;               
             }
 
         }

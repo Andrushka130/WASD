@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 5f;   
 
-    public Rigidbody2D rb;   
+    public Vector2 movementVector;
 
-    public Vector2 movementVector;       
-       
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+    }
+
     public void getMovementInput()
     {
         movementVector.x = Input.GetAxisRaw("Horizontal");

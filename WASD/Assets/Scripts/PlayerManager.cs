@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public PlayerAnimationManager playerAnimationManager;   
+    public PlayerAnimationManager playerAnimationManager;    
     
     void Update()
     {
