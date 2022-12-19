@@ -7,7 +7,7 @@ async function getAllPlayerData(req, res, next) {
 
   try {
     const query = {};
-    const fields = { projection: { _id: 0, playerTag: 1, highscore: 1} };
+    const fields = { projection: { _id: 0, playerTag: 1, highscore: 1 } };
     const sorting = { highscore: 1 };
     const data = await connection
       .collection(dbName)
@@ -31,9 +31,8 @@ async function getPlayerData(req, res, next) {
   try {
     const { playerTag } = req.params;
     const query = { playerTag };
-    const fields = { projection: { _id: 0, playerTag: 1, highscore: 1} };
+    const fields = { projection: { _id: 0, playerTag: 1, highscore: 1 } };
     const data = await connection.collection(dbName).findOne(query, fields);
-    console.log(data)
     if (!data) {
       res.status(400).send("PlayerData not found");
       return;
@@ -44,7 +43,7 @@ async function getPlayerData(req, res, next) {
   }
 }
 
-async function changePlayerData(req, res, next) {
+async function updateHighscore(req, res, next) {
   const connection = db.getConnection();
 
   try {
@@ -62,5 +61,5 @@ async function changePlayerData(req, res, next) {
 module.exports = {
   getAllPlayerData,
   getPlayerData,
-  changePlayerData,
+  updateHighscore,
 };

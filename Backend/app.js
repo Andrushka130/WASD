@@ -32,9 +32,13 @@ async function run() {
   const playerDataRouter = express.Router();
   playerDataRouter.get("", PlayerDataController.getAllPlayerData);
   playerDataRouter.get(param, PlayerDataController.getPlayerData);
-  playerDataRouter.put(param, PlayerDataController.changePlayerData);
-  playerDataRouter.patch(param, PlayerDataController.changePlayerData);
+  playerDataRouter.put(param, PlayerDataController.updateHighscore);
+  playerDataRouter.patch(param, PlayerDataController.updateHighscore);
 
+  app.use((req, res, next) => {
+    console.log(`${new Date()}: ${req.method} ${req.url}`);
+    next();
+  });
   app.use("/account", accountsRouter);
   app.use("/playerData", playerDataRouter);
   app.use(ErrorMiddleware.handleServerErrors);

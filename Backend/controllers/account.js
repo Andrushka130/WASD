@@ -59,23 +59,24 @@ async function login(req, res, next) {
     const body = req.body;
     const query = { playerTag };
     const fields = {
-      projection: { _id: 0, playerTag: 0, email: 0, highscore: 0 },
+      projection: { _id: 0, password: 1 },
     };
     const data = await connection.collection(dbName).findOne(query, fields);
-    if (
-      !data ||
-      (data.playerTag === playerTag && !(body.password === data.password))
-    ) {
-      res.status(400).send("Account not found or invalid password");
+    if (!data) {
+      res.status(400).send("Account not found!");
+      return;
+    }
+    if (body.password != data.password) {
+      res.status(400).send("Invalid password!");
       return;
     }
     res.status(200).send("true");
-    return;
   } catch (err) {
     next(err);
   }
 }
 
+//überprüfen ob gleiche playertag und email schon vorhanden
 async function changeAccount(req, res, next) {
   const connection = db.getConnection();
 
@@ -84,7 +85,23 @@ async function changeAccount(req, res, next) {
     const data = req.body;
     const query = { playerTag };
 
-    if (data.hasOwnProperty("password")) {
+    if (data.password != "") {
+      const password = req.body.password;
+      const update = { $set: { password } };
+      await connection.collection(dbName).updateOne(query, update);
+    }
+    if (data.email != "") {
+      const email = req.body.email;
+      const update = { $set: { email } };
+      await connection.collection(dbName).updateOne(query, update);
+    }
+    if (data.playerTag != "") {
+      const newPlayerTag = req.body.playerTag;
+      const update = { $set: { playerTag: newPlayerTag } };
+      await connection.collection(dbName).updateOne(query, update);
+    }
+
+    /*if (data.hasOwnProperty("password")) {
       const password = req.body.password;
       const update = { $set: { password } };
       await connection.collection(dbName).updateOne(query, update);
@@ -98,7 +115,7 @@ async function changeAccount(req, res, next) {
       const newPlayerTag = req.body.playerTag;
       const update = { $set: { newPlayerTag } };
       await connection.collection(dbName).updateOne(query, update);
-    }
+    }*/
 
     res.status(200).send(`PlayerData of ${playerTag} updated`);
   } catch (err) {
@@ -111,11 +128,11 @@ async function deleteAccount(req, res, next) {
 
   try {
     const { playerTag } = req.params;
-    const remove = {playerTag};
+    const remove = { playerTag };
     const account = await connection
       .collection(dbName)
       .findOneAndDelete(remove);
-    if(!account.value){
+    if (!account.value) {
       res.status(400).send(`Account ${playerTag} doesnt exist!`);
       return;
     }
