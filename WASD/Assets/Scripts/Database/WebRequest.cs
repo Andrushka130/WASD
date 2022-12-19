@@ -3,17 +3,17 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Datenbank
+public class WebRequest
 {
-    private static string url = "http://127.0.0.1:3000/playerdata/";
-    private static Datenbank instance = null;
+
+    private static WebRequest instance = null;
     private static readonly object padlock = new object();
 
-    private Datenbank()
+    private WebRequest()
     {
     }
 
-    public static Datenbank Instance
+    public static WebRequest Instance
     {
         get
         {
@@ -21,18 +21,33 @@ public class Datenbank
             {
                 if (instance == null)
                 {
-                    instance = new Datenbank();
+                    instance = new WebRequest();
                 }
                 return instance;
             }
         }
     }
 
-    public IEnumerator DownloadOne(string id, System.Action<PlayerData> callback = null)
+    public IEnumerator Download(string url, string method, System.Action<string> callback = null)
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(url + id))
+        using (UnityWebRequest request = new UnityWebRequest(url, method))
         {
+            request.downloadHandler = new DownloadHandlerBuffer();
             yield return request.SendWebRequest();
+            // UnityWebRequestAsyncOperation handler = request.SendWebRequest();
+
+            // float startTime = 0.0f;
+            // while(!handler.isDone)
+            // {
+            //     startTime += Time.deltaTime;
+
+            //     if(startTime > 10.0f)
+            //     {
+            //         break;
+            //     }
+
+            //     yield return null;
+            // }
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
@@ -46,39 +61,16 @@ public class Datenbank
             {
                 if (callback != null)
                 {
-                    callback.Invoke(PlayerData.Parse(request.downloadHandler.text));
+                    callback.Invoke(request.downloadHandler.text);
                 }
             }
+            //yield return null;
         }
     }
 
-    public IEnumerator DownloadAll(System.Action<PlayerDataList> callback = null)
+    public IEnumerator Upload(string profile, string url, string method, System.Action<string> callback = null)
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
-        {
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-            {
-                Debug.Log(request.error);
-                if (callback != null)
-                {
-                    callback.Invoke(null);
-                }
-            }
-            else
-            {
-                if (callback != null)
-                {
-                    callback.Invoke(PlayerData.ParseAll(request.downloadHandler.text));
-                }
-            }
-        }
-    }
-
-    public IEnumerator Upload(string profile, System.Action<bool> callback = null)
-    {
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        using (UnityWebRequest request = new UnityWebRequest(url, method))
         {
             request.SetRequestHeader("Content-Type", "application/json");
             byte[] bodyRaw = Encoding.UTF8.GetBytes(profile);
@@ -91,14 +83,14 @@ public class Datenbank
                 Debug.Log(request.error);
                 if(callback != null) 
                 {
-                    callback.Invoke(false);
+                    callback.Invoke(request.downloadHandler.text);
                 }
             }
             else
             {
                 if(callback != null) 
                 {
-                    callback.Invoke(request.downloadHandler.text != "{}");
+                    callback.Invoke(request.downloadHandler.text);
                 }
             }
         }

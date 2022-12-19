@@ -5,7 +5,31 @@ using UnityEngine;
 public class PlayerData
 {
     public string playerTag;
+    public string password;
+    public string email;
     public ulong highscore;
+
+    private static PlayerData instance = null;
+    private static readonly object padlock = new object();
+
+    private PlayerData()
+    {
+    }
+
+    public static PlayerData Instance
+    {
+        get
+        {
+            lock (padlock)
+            {
+                if (instance == null)
+                {
+                    instance = new PlayerData();
+                }
+                return instance;
+            }
+        }
+    }
 
     public string Stringify() 
     {

@@ -4,37 +4,35 @@ using UnityEngine;
 
 public class PlayerController : PlayerAttribute1
 {
-    public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Weapon weapon;
 
-    public float timer;
-    public float cooldown = 1f;
+    private float timer;
+
+    WebRequest test = WebRequest.Instance;
     
     Vector2 moveDirection;
     Vector2 mousePosition;
 
     private PlayerData _playerData;
-    private Datenbank db;
 
     void Start()
-    {
-        db = Datenbank.Instance;
-        _playerData = new PlayerData();
-        _playerData.playerTag = "Test1";
-        _playerData.highscore = 1;
+{
+    // _playerData = PlayerData.Instance;
+    // _playerData.playerTag = "Test2";
+    // _playerData.password = "1234";
+    // _playerData.email = "adfdf";
+    // _playerData.highscore = 16;
 
-        StartCoroutine(db.DownloadOne(_playerData.playerTag, result => {
-            Debug.Log(result.playerTag);
-        }));
-        StartCoroutine(db.DownloadAll(result => {
-            Debug.Log(result.Items[0].highscore);
-        }));
-        /*StartCoroutine(db.Upload(_playerData.Stringify(), result => {
-            Debug.Log(result);
-        }));*/
-    }
-    
+    //StartCoroutine(Database.CreateAccount(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.GetHighscore(result => {Debug.Log(result);}));
+    //StartCoroutine(_db.GetHighscore(_playerData.playerTag, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.UpdateHighscore(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(Database.Login(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.ChangeAccount(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.DeleteAccount(_playerData.playerTag, result => {Debug.Log(result);}));
+}
+
     // Update is called once per frame
     void Update()
     {
@@ -43,11 +41,11 @@ public class PlayerController : PlayerAttribute1
 
         timer += Time.deltaTime;
         
-        if(timer > (10 / attackSpeed.GetValue()))
+        /*if(timer > (10 / attackSpeed.GetValue()))
         {
             weapon.Fire();
             timer = 0;
-        }
+        }*/
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -55,20 +53,19 @@ public class PlayerController : PlayerAttribute1
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * movementSpeed.GetValue(), moveDirection.y * movementSpeed.GetValue());
+        rb.velocity = new Vector2(moveDirection.x * 5, moveDirection.y * 5);
+        //rb.velocity = new Vector2(moveDirection.x * movementSpeed.GetValue(), moveDirection.y * movementSpeed.GetValue());
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
     }
 
     /* Hier muss die Konnection zum Inventar gezogen werden
-
     // Start is called before the first frame update
     void Start()
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
     }
-
     void OnEquipmentChanged (Equipment newItem, Equipment oldItem)
     {
         if (newItem != null)
