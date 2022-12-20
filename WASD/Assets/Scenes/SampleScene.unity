@@ -1323,16 +1323,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1498408810}
   - component: {fileID: 1498408807}
-<<<<<<< HEAD
-  - component: {fileID: 1498408806}
-=======
   - component: {fileID: 1498408817}
   - component: {fileID: 1498408811}
   - component: {fileID: 1498408813}
   - component: {fileID: 1498408814}
   - component: {fileID: 1498408815}
   - component: {fileID: 1498408816}
->>>>>>> develop
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
