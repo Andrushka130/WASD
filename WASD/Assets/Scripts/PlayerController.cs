@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class PlayerController : PlayerAttribute1
 {
     public Rigidbody2D rb;
@@ -36,16 +38,18 @@ public class PlayerController : PlayerAttribute1
     // Update is called once per frame
     void Update()
     {
+        weapon = GameObject.Find("Weapon").GetComponent<Weapon>();
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
         timer += Time.deltaTime;
         
-        /*if(timer > (10 / attackSpeed.GetValue()))
+        if(timer > (10 / attackSpeed.GetValue()))
+
         {
             weapon.Fire();
             timer = 0;
-        }*/
+        }
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -53,12 +57,14 @@ public class PlayerController : PlayerAttribute1
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * 5, moveDirection.y * 5);
-        //rb.velocity = new Vector2(moveDirection.x * movementSpeed.GetValue(), moveDirection.y * movementSpeed.GetValue());
+
+        rb.velocity = new Vector2(moveDirection.x * movementSpeed.GetValue(), moveDirection.y * movementSpeed.GetValue());
+
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
     }
+
 
     /* Hier muss die Konnection zum Inventar gezogen werden
     // Start is called before the first frame update
