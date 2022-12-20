@@ -7,12 +7,7 @@ public class Database
     private static WebRequest _webRequest = WebRequest.Instance;
     private static string urlPlayerData = "http://127.0.0.1:3000/playerdata/";
     private static string urlAccount = "http://127.0.0.1:3000/account/";
-    private static Database instance = null;
     private static readonly object padlock = new object();
-
-    private Database()
-    {
-    }
 
     public static IEnumerator Login(PlayerData _playerData, System.Action<string> callback = null)
     {
