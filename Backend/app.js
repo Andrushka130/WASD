@@ -2,6 +2,7 @@ const express = require("express");
 const AccountController = require("./controllers/account");
 const PlayerDataController = require("./controllers/playerData");
 const ErrorMiddleware = require("./middleware/error.middleware");
+const Log = require("./middleware/log.middleware");
 const Database = require("./db/db");
 
 const PORT = 3000;
@@ -35,14 +36,11 @@ async function run() {
   playerDataRouter.put(param, PlayerDataController.updateHighscore);
   playerDataRouter.patch(param, PlayerDataController.updateHighscore);
 
-  app.use((req, res, next) => {
-    console.log(`${new Date()}: ${req.method} ${req.url}`);
-    next();
-  });
   app.use("/account", accountsRouter);
   app.use("/playerData", playerDataRouter);
   app.use(ErrorMiddleware.handleServerErrors);
   app.use(ErrorMiddleware.handleNotFoundErrors);
+  app.use(Log.logRequests);
 
   app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
