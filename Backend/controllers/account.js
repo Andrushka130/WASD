@@ -76,30 +76,61 @@ async function login(req, res, next) {
   }
 }
 
-//überprüfen ob gleiche playertag und email schon vorhanden
 async function changeAccount(req, res, next) {
   const connection = db.getConnection();
 
   try {
-    const { playerTag } = req.params;
-    const data = req.body;
-    const query = { playerTag };
+    // const { playerTag } = req.params;
+    // const data = req.body;
+    // const query = { playerTag };
 
-    if (data.password != "") {
+    const { playerTag, email, password } = req.body;
+    const query = { $or: [{ playerTag }, { email }] };
+    const fields = { projection: { _id: 0, playerTag: 1, email: 1 } };
+    const account = await connection.collection(dbName).findOne(query, fields);
+
+    if (account) {
+      if (account.playerTag === playerTag) {
+        res.status(400).send("Player name already exists!");
+        return;
+      }
+      if (account.email === email) {
+        res.status(400).send("Email already exists!");
+        return;
+      }
+    }
+
+    if (password != "") {
       const password = req.body.password;
       const update = { $set: { password } };
       await connection.collection(dbName).updateOne(query, update);
     }
-    if (data.email != "") {
+    if (email != "") {
       const email = req.body.email;
       const update = { $set: { email } };
       await connection.collection(dbName).updateOne(query, update);
     }
-    if (data.playerTag != "") {
+    if (playerTag != "") {
       const newPlayerTag = req.body.playerTag;
       const update = { $set: { playerTag: newPlayerTag } };
       await connection.collection(dbName).updateOne(query, update);
     }
+
+    // if (data.password != "") {
+    //   const password = req.body.password;
+    //   const update = { $set: { password } };
+    //   await connection.collection(dbName).updateOne(query, update);
+    // }
+    // if (data.email != "") {
+    //   const email = req.body.email;
+    //   const update = { $set: { email } };
+    //   await connection.collection(dbName).updateOne(query, update);
+    // }
+    // if (data.playerTag != "") {
+    //   const newPlayerTag = req.body.playerTag;
+    //   const update = { $set: { playerTag: newPlayerTag } };
+    //   await connection.collection(dbName).updateOne(query, update);
+    // }
 
     /*if (data.hasOwnProperty("password")) {
       const password = req.body.password;
