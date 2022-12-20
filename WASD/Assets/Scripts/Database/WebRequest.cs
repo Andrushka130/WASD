@@ -34,20 +34,6 @@ public class WebRequest
         {
             request.downloadHandler = new DownloadHandlerBuffer();
             yield return request.SendWebRequest();
-            // UnityWebRequestAsyncOperation handler = request.SendWebRequest();
-
-            // float startTime = 0.0f;
-            // while(!handler.isDone)
-            // {
-            //     startTime += Time.deltaTime;
-
-            //     if(startTime > 10.0f)
-            //     {
-            //         break;
-            //     }
-
-            //     yield return null;
-            // }
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
@@ -64,7 +50,6 @@ public class WebRequest
                     callback.Invoke(request.downloadHandler.text);
                 }
             }
-            //yield return null;
         }
     }
 
