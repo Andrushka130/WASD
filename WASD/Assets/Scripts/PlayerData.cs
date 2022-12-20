@@ -7,7 +7,10 @@ public class PlayerData
     public string playerTag;
     public string password;
     public string email;
+
     public ulong highscore;
+
+    public bool loggedIn;
 
     private static PlayerData instance = null;
     private static readonly object padlock = new object();

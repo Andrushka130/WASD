@@ -8,6 +8,7 @@ public class Login : MonoBehaviour
     [SerializeField] private TMP_InputField passwordInputField;
     [SerializeField] private TextMeshProUGUI alertText;
     [SerializeField] private GameObject loginImage;
+    //[SerializeField] private GameObject logoutImage;
     
 
     private static PlayerData _playerData;
@@ -40,7 +41,16 @@ public class Login : MonoBehaviour
                 alertText.text = result;
                 return;
             }
+            _playerData.loggedIn = true;
             loginImage.SetActive(false);
+            //logoutImage.SetActive(true);
         }));
+    }
+
+    public void OnLogoutClick()
+    {
+        _playerData.loggedIn = false;
+        //logoutImage.SetActive(false);
+        loginImage.SetActive(true);
     }
 }
