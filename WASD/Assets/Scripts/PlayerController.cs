@@ -10,8 +10,6 @@ public class PlayerController : PlayerAttribute1
     public Weapon weapon;
 
     private float timer;
-
-    WebRequest test = WebRequest.Instance;
     
     Vector2 moveDirection;
     Vector2 mousePosition;
