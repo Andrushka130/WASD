@@ -6,8 +6,7 @@ public class Login : MonoBehaviour
 {
     [SerializeField] private TMP_InputField usernameInputField;
     [SerializeField] private TMP_InputField passwordInputField;
-    [SerializeField] private TextMeshProUGUI usernameAlertText;
-    [SerializeField] private TextMeshProUGUI passwordAlertText;
+    [SerializeField] private TextMeshProUGUI alertText;
     [SerializeField] private GameObject loginImage;
     
 
@@ -15,17 +14,16 @@ public class Login : MonoBehaviour
 
     public void OnLoginClick()
     {
-        usernameAlertText.text = "";
-        passwordAlertText.text = "";
+        alertText.text = "";
 
         if(usernameInputField.text == "")
         {
-            usernameAlertText.text = "Please enter username!";
+            alertText.text = "Please enter username!";
             return;
         }
         if(passwordInputField.text == "")
         {
-            passwordAlertText.text = "Please enter password!";
+            alertText.text = "Please enter password!";
             return;
         }
 
@@ -39,16 +37,8 @@ public class Login : MonoBehaviour
             
             if(result != "true")
             {
-                if(result == "Account not found!")
-                {
-                    usernameAlertText.text = result;
-                    return;
-                }
-                if(result == "Invalid password!")
-                {
-                    passwordAlertText.text = result;
-                    return;
-                }
+                alertText.text = result;
+                return;
             }
             loginImage.SetActive(false);
         }));
