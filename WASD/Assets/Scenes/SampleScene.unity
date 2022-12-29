@@ -1438,7 +1438,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 1498408807}
   movementVector: {x: 0, y: 0}
 --- !u!95 &1498408814
 Animator:
@@ -1483,7 +1482,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498408805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-
   m_Script: {fileID: 11500000, guid: 26fdc28e7e61f584498b30d7fe060f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
