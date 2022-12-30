@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     public float timer;
     private float cooldown = 1f;
 
-    public void Fire()
+    public void FireBullet()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > cooldown)
         {
-            Fire();
+            FireBullet();
             timer = 0;
         }
     }

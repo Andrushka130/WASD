@@ -26,7 +26,7 @@ public class PlayerController : PlayerAttribute1
         if(timer > (10 / attackSpeed.GetValue()))
 
         {
-            weapon.Fire();
+            weapon.FireBullet();
             timer = 0;
         }
 

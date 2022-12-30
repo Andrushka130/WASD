@@ -11,10 +11,7 @@ public abstract class WeaponClass : MonoBehaviour
     protected abstract float Lifesteal { get; }
     protected abstract float AtkSpeed { get; }
     protected abstract int UpgradeLevel { get; }
-    protected abstract rarity RarityType { get; }
-
-    public abstract void attack();
-    public abstract void upgradeWeapon(rarity rarityType);
+    protected abstract rarity RarityType { get; }    
 
     public enum rarity
     {
