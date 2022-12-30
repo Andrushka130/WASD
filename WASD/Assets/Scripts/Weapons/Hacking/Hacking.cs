@@ -15,10 +15,17 @@ public class Hacking : WeaponClass, IRangedWeapon
     public bool BulletIsTravelthrough { get; } = false;
     public float timer { get; set; }
     public float cooldown { get; set; } = 1f;   
-    public GameObject bulletPrefab { get; } = Resources.Load("Bullets/Bullet") as GameObject;
-    public Transform firePoint { get; } = GameObject.Find("Firepoint").transform;
+    public GameObject bulletPrefab { get; set; }
+    public Transform firePoint { get; set; } 
     public float fireForce => 20f;
-    
+
+
+    private void Start()
+    {
+        bulletPrefab = Resources.Load("Bullets/Bullet") as GameObject;
+        firePoint = GameObject.Find("Firepoint").transform;
+    }
+
     public void FireBullet()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
