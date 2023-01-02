@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    private WeaponClass[] weapons;
-    private Hacking hack;    
+    private IRangedWeapon[] rangedWeapons;     
     public float timer;
 
     // Start is called before the first frame update
     void Start()
     {
-        weapons = gameObject.GetComponents<WeaponClass>();
-        hack = (Hacking)GameObject.Find("Weapon").GetComponent("Hacking");
-        
+        rangedWeapons = gameObject.GetComponents<IRangedWeapon>();             
     }
 
     // Update is called once per frame
     void Update()
     {
-        hack.automaticShooting();
+        foreach(var weapon in rangedWeapons)
+        {
+            weapon.automaticShooting();            
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class WeaponClass : MonoBehaviour
 {
     protected abstract string Name { get; }
-    protected abstract float Dmg { get; }
+    public abstract float Dmg { get; }
     protected abstract float CritDmg { get; }
     protected abstract float CritChance { get; }
     protected abstract float Lifesteal { get; }

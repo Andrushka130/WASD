@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hacking : WeaponClass, IRangedWeapon
 {
     protected override string Name => "Hacking";
-    protected override float Dmg => 5;
+    public override float Dmg => 5;
     protected override float CritDmg => 0.5f;
     protected override float CritChance => 0.15f;
     protected override float Lifesteal => 0;
@@ -22,14 +22,14 @@ public class Hacking : WeaponClass, IRangedWeapon
 
     private void Start()
     {
-        bulletPrefab = Resources.Load("Bullets/Bullet") as GameObject;
-        firePoint = GameObject.Find("Firepoint").transform;
+        bulletPrefab = Resources.Load("Bullets/HackingBullets/HackingBullet_1") as GameObject;
+        firePoint = GameObject.Find("firePoint").transform;
     }
 
     public void FireBullet()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
     }
 
     public void automaticShooting()
