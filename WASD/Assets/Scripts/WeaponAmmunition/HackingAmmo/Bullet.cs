@@ -12,7 +12,14 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         hacking = GameObject.Find("Weapon").GetComponent<Hacking>();
-        bulletDamage = hacking.Dmg;        
+        bulletDamage = hacking.Dmg;
+        ignorePhysicsOfPlayerAndAttacks();
+    }
+
+    private void ignorePhysicsOfPlayerAndAttacks()
+    {
+        Physics2D.IgnoreLayerCollision(6, 7);
+        Physics2D.IgnoreLayerCollision(7, 7);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

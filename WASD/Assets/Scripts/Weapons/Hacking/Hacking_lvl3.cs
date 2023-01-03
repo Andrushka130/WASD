@@ -43,7 +43,6 @@ public class Hacking_lvl3 : WeaponClass, IRangedWeapon
         bulletLeft.GetComponent<Rigidbody2D>().AddForce(-firePointLeft.right * fireForce, ForceMode2D.Impulse);
         bulletUp.GetComponent<Rigidbody2D>().AddForce(firePointUp.up * fireForce, ForceMode2D.Impulse);
         bulletDown.GetComponent<Rigidbody2D>().AddForce(-firePoint.up * fireForce, ForceMode2D.Impulse);
-
     }
 
     public void automaticShooting()

@@ -4,7 +4,11 @@ using UnityEngine;
 
 interface IMeleeWeapon 
 {
-    protected abstract float AtkRange { get; }   
-    
-   
+    GameObject attackPrefab { get; }
+    public void swingWeapon();
+
+    Transform firePoint { get; }
+
+    public void automaticAttack();
+
 }
