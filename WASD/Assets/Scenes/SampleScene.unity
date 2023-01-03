@@ -244,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 42968168}
   m_Layer: 6
-  m_Name: firePoint 2
+  m_Name: firePointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150135801}
   m_Layer: 6
-  m_Name: firePoint 3
+  m_Name: firePointUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 583703756}
   m_Layer: 6
-  m_Name: firePoint 4
+  m_Name: firePointDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471735675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c1e775f7412ff449151d0a3c3544e4, type: 3}
+  m_Script: {fileID: 11500000, guid: f30f2dc4ef7b2b740a184acbec19ecb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1498408805
