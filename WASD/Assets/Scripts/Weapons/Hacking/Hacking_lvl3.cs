@@ -20,7 +20,7 @@ public class Hacking_lvl3 : WeaponClass, IRangedWeapon
     public Transform firePointLeft { get; set; }
     public Transform firePointUp { get; set; }
     public Transform firePointDown { get; set; }
-    public float fireForce => 20f;
+    public float fireForce => 8f;
 
 
     private void Start()

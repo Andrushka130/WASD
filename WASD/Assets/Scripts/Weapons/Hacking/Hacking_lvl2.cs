@@ -18,7 +18,7 @@ public class Hacking_lvl2 : WeaponClass, IRangedWeapon
     public GameObject bulletPrefab { get; set; }
     public Transform firePoint { get; set; }
     public Transform firePointLeft { get; set; }    
-    public float fireForce => 20f;
+    public float fireForce => 6f;
 
 
     private void Start()

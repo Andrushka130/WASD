@@ -27,17 +27,15 @@ public class Bullet3 : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);
-            Destroy(effect, fadeOutTime);
+            
+            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);            
             Destroy(gameObject);
 
         }
 
         if (collision.gameObject.tag == "Object")
         {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, fadeOutTime);
+            
             Destroy(gameObject);
         }
 

@@ -17,7 +17,7 @@ public class Hacking : WeaponClass, IRangedWeapon
     public float cooldown { get; set; } = 1f;   
     public GameObject bulletPrefab { get; set; }
     public Transform firePoint { get; set; } 
-    public float fireForce => 20f;
+    public float fireForce => 5f;
 
 
     private void Start()
