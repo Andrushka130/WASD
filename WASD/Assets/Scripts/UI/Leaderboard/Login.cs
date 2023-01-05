@@ -29,10 +29,10 @@ public class Login : MonoBehaviour
         }
 
         _playerData = PlayerData.Instance;
-        _playerData.playerTag = usernameInputField.text;
-        _playerData.password = passwordInputField.text;
+        _playerData.PlayerTag = usernameInputField.text;
+        _playerData.Password = passwordInputField.text;
 
-        Debug.Log($"{_playerData.playerTag}:{_playerData.password}");
+        Debug.Log($"{_playerData.PlayerTag}:{_playerData.Password}");
 
         StartCoroutine(Database.Login(_playerData, result => {
             
@@ -41,7 +41,7 @@ public class Login : MonoBehaviour
                 alertText.text = result;
                 return;
             }
-            _playerData.loggedIn = true;
+            _playerData.LoggedIn = true;
             loginImage.SetActive(false);
             //logoutImage.SetActive(true);
         }));
@@ -49,7 +49,7 @@ public class Login : MonoBehaviour
 
     public void OnLogoutClick()
     {
-        _playerData.loggedIn = false;
+        _playerData.LoggedIn = false;
         //logoutImage.SetActive(false);
         loginImage.SetActive(true);
     }

@@ -4,13 +4,11 @@ using UnityEngine;
 [Serializable]
 public class PlayerData
 {
-    public string playerTag;
-    public string password;
-    public string email;
-
-    public ulong highscore;
-
-    public bool loggedIn;
+    [SerializeField] private string playerTag;
+    [SerializeField] private string password;
+    [SerializeField] private string email;
+    [SerializeField] private ulong highscore;
+    [SerializeField] private bool loggedIn;
 
     private static PlayerData instance = null;
     private static readonly object padlock = new object();
@@ -18,6 +16,36 @@ public class PlayerData
     private PlayerData()
     {
     }
+
+    public string PlayerTag
+  {
+    get { return playerTag; }
+    set { playerTag = value; }
+  }
+
+  public string Password
+  {
+    get { return password; }
+    set { password = value; }
+  }
+
+  public string Email
+  {
+    get { return email; }
+    set { email = value; }
+  }
+
+  public ulong Highscore
+  {
+    get { return highscore; }
+    set { highscore = value; }
+  }
+
+  public bool LoggedIn
+  {
+    get { return loggedIn; }
+    set { loggedIn = value; }
+  }
 
     public static PlayerData Instance
     {

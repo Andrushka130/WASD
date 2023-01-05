@@ -5,30 +5,7 @@ using UnityEngine.Networking;
 
 public class WebRequest
 {
-
-    private static WebRequest instance = null;
-    private static readonly object padlock = new object();
-
-    private WebRequest()
-    {
-    }
-
-    public static WebRequest Instance
-    {
-        get
-        {
-            lock (padlock)
-            {
-                if (instance == null)
-                {
-                    instance = new WebRequest();
-                }
-                return instance;
-            }
-        }
-    }
-
-    public IEnumerator Download(string url, string method, System.Action<string> callback = null)
+    public static IEnumerator Download(string url, string method, System.Action<string> callback = null)
     {
         using (UnityWebRequest request = new UnityWebRequest(url, method))
         {
@@ -53,7 +30,7 @@ public class WebRequest
         }
     }
 
-    public IEnumerator Upload(string profile, string url, string method, System.Action<string> callback = null)
+    public static IEnumerator Upload(string profile, string url, string method, System.Action<string> callback = null)
     {
         using (UnityWebRequest request = new UnityWebRequest(url, method))
         {
