@@ -167,5 +167,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a2d09694c7a484ca12255c4305d56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 0}
   fadeOutTime: 0.25

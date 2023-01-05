@@ -1316,8 +1316,7 @@ GameObject:
   - component: {fileID: 1471735676}
   - component: {fileID: 1471735678}
   - component: {fileID: 1471735680}
-  - component: {fileID: 1471735682}
-  - component: {fileID: 1471735683}
+  - component: {fileID: 1471735681}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -1410,7 +1409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
---- !u!114 &1471735682
+--- !u!114 &1471735681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1419,19 +1418,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471735675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30f2dc4ef7b2b740a184acbec19ecb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1471735683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471735675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f57d3467274f80340b69695166148960, type: 3}
+  m_Script: {fileID: 11500000, guid: 10346f9695cd30a449aab5d6192dba3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1498408805
