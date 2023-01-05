@@ -6,6 +6,7 @@ public class WeaponManager : MonoBehaviour
 {
     private IRangedWeapon[] rangedWeapons;
     private IMeleeWeapon[] meleeWeapons;
+    private IProjectileLaunchWeapon[] p;
     public float timer;
 
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class WeaponManager : MonoBehaviour
     {
         rangedWeapons = gameObject.GetComponents<IRangedWeapon>();
         meleeWeapons = gameObject.GetComponents<IMeleeWeapon>();
+        p = gameObject.GetComponents<IProjectileLaunchWeapon>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,11 @@ public class WeaponManager : MonoBehaviour
         foreach(var weapon in meleeWeapons)
         {
             weapon.automaticAttack();
+        }
+
+        foreach(var weapon in p)
+        {
+            weapon.automaticShooting();
         }
     }
 }

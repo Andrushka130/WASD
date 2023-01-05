@@ -27,8 +27,9 @@ public class ProjectileLaunchSystem_lvl1 : WeaponClass, IProjectileLaunchWeapon
     public void FireBullet()
     {
         Collider2D enemy;
-        enemy = enemyDetectionCircle.getFirstEnemyAroundPlayer(10f);
-        GameObject explosion = Instantiate(bulletPrefab, enemy.transform.position, enemy.transform.rotation);
+        enemy = enemyDetectionCircle.getFirstEnemyAroundPlayer(50f);
+        GameObject bullet = Instantiate(bulletPrefab, enemy.transform.position, enemy.transform.rotation);
+        Destroy(bullet, 0.25f);
     }
 
     public void automaticShooting()
