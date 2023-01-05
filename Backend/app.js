@@ -21,6 +21,7 @@ async function run() {
 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
+  app.use(Log.logRequests);
 
   const accountsRouter = express.Router();
   accountsRouter.get("", AccountController.getAccounts);
@@ -40,7 +41,7 @@ async function run() {
   app.use("/playerData", playerDataRouter);
   app.use(ErrorMiddleware.handleServerErrors);
   app.use(ErrorMiddleware.handleNotFoundErrors);
-  app.use(Log.logRequests);
+  
 
   app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);

@@ -63,7 +63,7 @@ async function login(req, res, next) {
     };
     const data = await connection.collection(dbName).findOne(query, fields);
     if (!data) {
-      res.status(400).send("Account not found!");
+      res.status(400).send("Username not found!");
       return;
     }
     if (body.password != data.password) {
