@@ -63,7 +63,6 @@ public class PlayerController : PlayerAttribute1
         rb.rotation = aimAngle;
     }
 
-
     /* Hier muss die Konnection zum Inventar gezogen werden
     // Start is called before the first frame update
     void Start()
