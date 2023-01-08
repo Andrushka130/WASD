@@ -50,7 +50,7 @@ public class SpawnManager : MonoBehaviour
             spawnsPerWave += spawnIncrease;
 
             currentWave++;
-            Debug.Log(currentWave);
+            Debug.Log("Current wave:" + currentWave);
 
             bossCountDown -= 1;
 

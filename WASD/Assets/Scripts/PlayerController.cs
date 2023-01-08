@@ -14,6 +14,25 @@ public class PlayerController : PlayerAttribute1
     Vector2 moveDirection;
     Vector2 mousePosition;
 
+    private PlayerData _playerData;
+
+    void Start()
+{
+    // _playerData = PlayerData.Instance;
+    // _playerData.playerTag = "Test2";
+    // _playerData.password = "1234";
+    // _playerData.email = "adfdf";
+    // _playerData.highscore = 16;
+
+    //StartCoroutine(Database.CreateAccount(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.GetHighscore(result => {Debug.Log(result);}));
+    //StartCoroutine(_db.GetHighscore(_playerData.playerTag, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.UpdateHighscore(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(Database.Login(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.ChangeAccount(_playerData, result => {Debug.Log(result);}));
+    //StartCoroutine(_db.DeleteAccount(_playerData.playerTag, result => {Debug.Log(result);}));
+}
+
     // Update is called once per frame
     void Update()
     {
@@ -44,15 +63,12 @@ public class PlayerController : PlayerAttribute1
         rb.rotation = aimAngle;
     }
 
-
     /* Hier muss die Konnection zum Inventar gezogen werden
-
     // Start is called before the first frame update
     void Start()
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
     }
-
     void OnEquipmentChanged (Equipment newItem, Equipment oldItem)
     {
         if (newItem != null)
@@ -68,5 +84,4 @@ public class PlayerController : PlayerAttribute1
         }
     }
     */
-
 }
