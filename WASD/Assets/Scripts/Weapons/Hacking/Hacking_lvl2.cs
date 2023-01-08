@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hacking_lvl2 : WeaponClass, IRangedWeapon
+public class Hacking_lvl2 : Weapon, IRangedWeapon
 {
     protected override string Name => "Hacking_2";
     public override float Dmg => 10;
@@ -40,7 +40,7 @@ public class Hacking_lvl2 : WeaponClass, IRangedWeapon
 
     }
 
-    public void automaticShooting()
+    public override void attack()
     {
         timer += Time.deltaTime;
         if (timer > cooldown)

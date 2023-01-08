@@ -9,8 +9,7 @@ using UnityEngine;
     float cooldown { get; set; }
     GameObject bulletPrefab { get; }
     Transform firePoint { get; }
-    float fireForce { get; }
-    public void automaticShooting();
+    float fireForce { get; }    
     public void FireBullet();
 
 }

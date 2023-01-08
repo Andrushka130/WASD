@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Katana_lvl2 : WeaponClass, IMeleeWeapon
+public class Katana_lvl2 : Weapon, IMeleeWeapon
 {
     protected override string Name => "Katana_lvl2";
     public override float Dmg => 6;
@@ -16,7 +16,7 @@ public class Katana_lvl2 : WeaponClass, IMeleeWeapon
     public Transform firePoint { get; set; }
 
     public float timer { get; set; }
-    public float cooldown { get; set; } = 2f;
+    public float cooldown { get; set; } = 1f;
 
     private float lifeTime = 0.25f;
 
@@ -33,7 +33,7 @@ public class Katana_lvl2 : WeaponClass, IMeleeWeapon
         Destroy(blade, lifeTime);
     }
 
-    public void automaticAttack()
+    public override void attack()
     {
         timer += Time.deltaTime;
         if (timer > cooldown)

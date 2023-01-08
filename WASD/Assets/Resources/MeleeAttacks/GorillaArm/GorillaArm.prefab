@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7484113388323454496}
   - component: {fileID: -211047518775242108}
   - component: {fileID: -2504480116475079818}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GorillaArm
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

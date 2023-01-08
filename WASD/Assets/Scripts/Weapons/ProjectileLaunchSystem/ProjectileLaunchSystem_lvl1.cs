@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLaunchSystem_lvl1 : WeaponClass, IProjectileLaunchWeapon
+public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
 {
     protected override string Name => "ProjectileLaunchSystem";
     public override float Dmg => 4;
@@ -32,7 +32,7 @@ public class ProjectileLaunchSystem_lvl1 : WeaponClass, IProjectileLaunchWeapon
         Destroy(bullet, 0.25f);
     }
 
-    public void automaticShooting()
+    public override void attack()
     {
         timer += Time.deltaTime;
         if (timer > cooldown)

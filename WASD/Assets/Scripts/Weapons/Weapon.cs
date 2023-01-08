@@ -2,32 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-    private float fireForce = 20f;
-    public float timer;
-    private float cooldown = 1f;
+    protected abstract string Name { get; }
+    public abstract float Dmg { get; }
+    protected abstract float CritDmg { get; }
+    protected abstract float CritChance { get; }
+    protected abstract float Lifesteal { get; }
+    protected abstract float AtkSpeed { get; }
+    protected abstract int UpgradeLevel { get; }
+    protected abstract rarity RarityType { get; }
 
-    public void FireBullet()
-    {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
-    }
+    public abstract void attack();
 
-    public void automaticShooting()
+    public enum rarity
     {
-        timer += Time.deltaTime;
-        if (timer > cooldown)
-        {
-            FireBullet();
-            timer = 0;
-        }
+        common,
+        uncommon,
+        rare,
+        epic,
+        legendary
     }
-
-    public void Update()
-    {
-        automaticShooting();
-    }
+    
 }

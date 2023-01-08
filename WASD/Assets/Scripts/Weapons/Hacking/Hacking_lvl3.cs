@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hacking_lvl3 : WeaponClass, IRangedWeapon
+public class Hacking_lvl3 : Weapon, IRangedWeapon
 {
     protected override string Name => "Hacking_3";
     public override float Dmg => 15;
@@ -45,7 +45,7 @@ public class Hacking_lvl3 : WeaponClass, IRangedWeapon
         bulletDown.GetComponent<Rigidbody2D>().AddForce(-firePoint.up * fireForce, ForceMode2D.Impulse);
     }
 
-    public void automaticShooting()
+    public override void attack()
     {
         timer += Time.deltaTime;
         if (timer > cooldown)

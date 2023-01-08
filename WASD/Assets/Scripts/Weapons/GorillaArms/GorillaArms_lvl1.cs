@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GorillaArms_lvl1 : WeaponClass, IMeleeWeapon
+public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
 {
     protected override string Name => "GorillaArms";
     public override float Dmg => 0;
@@ -33,7 +33,7 @@ public class GorillaArms_lvl1 : WeaponClass, IMeleeWeapon
         Destroy(gorillaArm, lifeTime);
     }
 
-    public void automaticAttack()
+    public override void attack()
     {
         timer += Time.deltaTime;
         if (timer > cooldown)

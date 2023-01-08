@@ -3,36 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
-{
-    private IRangedWeapon[] rangedWeapons;
-    private IMeleeWeapon[] meleeWeapons;
-    private IProjectileLaunchWeapon[] p;
+{    
+    private Weapon[] weapons;
     public float timer;
 
     // Start is called before the first frame update
     void Start()
-    {
-        rangedWeapons = gameObject.GetComponents<IRangedWeapon>();
-        meleeWeapons = gameObject.GetComponents<IMeleeWeapon>();
-        p = gameObject.GetComponents<IProjectileLaunchWeapon>();
+    {        
+        weapons = gameObject.GetComponents<Weapon>();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        foreach(var weapon in rangedWeapons)
+    {        
+        foreach(var weapon in weapons)
         {
-            weapon.automaticShooting();            
-        }
-
-        foreach(var weapon in meleeWeapons)
-        {
-            weapon.automaticAttack();
-        }
-
-        foreach(var weapon in p)
-        {
-            weapon.automaticShooting();
+            weapon.attack();
         }
     }
 }

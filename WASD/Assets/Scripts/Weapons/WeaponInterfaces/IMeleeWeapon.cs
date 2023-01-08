@@ -8,7 +8,6 @@ interface IMeleeWeapon
     public void swingWeapon();
 
     Transform firePoint { get; }
-
-    public void automaticAttack();
+   
 
 }

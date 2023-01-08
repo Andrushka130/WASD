@@ -1316,7 +1316,7 @@ GameObject:
   - component: {fileID: 1471735676}
   - component: {fileID: 1471735678}
   - component: {fileID: 1471735680}
-  - component: {fileID: 1471735681}
+  - component: {fileID: 1471735682}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
---- !u!114 &1471735681
+--- !u!114 &1471735682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Katana_lvl1 : WeaponClass, IMeleeWeapon
+public class Katana_lvl1 : Weapon, IMeleeWeapon
 {
     protected override string Name => "Katana_lvl1";
     public override float Dmg => 3;
@@ -33,7 +33,7 @@ public class Katana_lvl1 : WeaponClass, IMeleeWeapon
         Destroy(blade, lifeTime);
     }
 
-    public void automaticAttack()
+    public override void attack()
     {
         timer += Time.deltaTime;
         if (timer > cooldown)
