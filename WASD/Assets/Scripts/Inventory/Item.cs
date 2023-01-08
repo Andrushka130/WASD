@@ -4,8 +4,9 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     new public string name = "New Item";
+    public ItemType type;
     public Sprite icon = null;
-    public string description;
+    public rarity RarityType;
 
     // Attributes for every item
     public int damage;
@@ -21,6 +22,19 @@ public class Item : ScriptableObject
     public int movementSpeed;
     public int range;
     public int psychoLevel;
-
-
 }
+
+public enum ItemType
+    {
+        passiveItem,
+        weapon
+    }
+
+public enum rarity
+    {
+        common,
+        uncommon,
+        rare,
+        epic,
+        legendary
+    }
