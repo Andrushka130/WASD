@@ -22,7 +22,7 @@ public class Katana_lvl3 : WeaponClass, IMeleeWeapon
     private float lifeTime = 0.25f;
     private void Start()
     {
-        attackPrefab = Resources.Load("MeleeSwipes/KatanaSwipes/KatanaSwipe_3") as GameObject;
+        attackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_3") as GameObject;
         firePoint = GameObject.Find("firePointMelee").transform;
         firePointBack = GameObject.Find("firePointLeft").transform;
     }

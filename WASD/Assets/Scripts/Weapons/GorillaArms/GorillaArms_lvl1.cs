@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Katana_lvl1 : WeaponClass, IMeleeWeapon
+public class GorillaArms_lvl1 : WeaponClass, IMeleeWeapon
 {
-    protected override string Name => "Katana_lvl1";
-    public override float Dmg => 3;
+    protected override string Name => "GorillaArms";
+    public override float Dmg => 0;
     protected override float CritDmg => 0.5f;
     protected override float CritChance => 0.15f;
     protected override float Lifesteal => 0;
@@ -23,14 +23,14 @@ public class Katana_lvl1 : WeaponClass, IMeleeWeapon
 
     private void Start()
     {
-        attackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_1") as GameObject;
+        attackPrefab = Resources.Load("MeleeAttacks/GorillaArm/GorillaArm") as GameObject;
         firePoint = GameObject.Find("firePointMelee").transform;
     }
 
     public void swingWeapon()
     {
-        GameObject blade = Instantiate(attackPrefab, firePoint.position, firePoint.rotation);
-        Destroy(blade, lifeTime);
+        GameObject gorillaArm = Instantiate(attackPrefab, firePoint.position, firePoint.rotation);
+        Destroy(gorillaArm, lifeTime);
     }
 
     public void automaticAttack()
@@ -42,5 +42,4 @@ public class Katana_lvl1 : WeaponClass, IMeleeWeapon
             timer = 0;
         }
     }
-
 }

@@ -23,7 +23,7 @@ public class Katana_lvl2 : WeaponClass, IMeleeWeapon
 
     private void Start()
     {
-        attackPrefab = Resources.Load("MeleeSwipes/KatanaSwipes/KatanaSwipe_2") as GameObject;
+        attackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_2") as GameObject;
         firePoint = GameObject.Find("firePointMelee").transform;
     }
 
