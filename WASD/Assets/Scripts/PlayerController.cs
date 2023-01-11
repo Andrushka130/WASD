@@ -16,22 +16,22 @@ public class PlayerController : PlayerAttribute1
 
     private PlayerData _playerData;
 
-    void Start()
+    /* void Start()
 {
-    // _playerData = PlayerData.Instance;
-    // _playerData.playerTag = "Test2";
-    // _playerData.password = "1234";
-    // _playerData.email = "adfdf";
-    // _playerData.highscore = 16;
+    _playerData = PlayerData.Instance;
+    _playerData.PlayerTag = "Test2";
+    _playerData.Password = "1234";
+    _playerData.Email = "adfdf";
+    _playerData.Highscore = 16;
 
     //StartCoroutine(Database.CreateAccount(_playerData, result => {Debug.Log(result);}));
-    //StartCoroutine(_db.GetHighscore(result => {Debug.Log(result);}));
-    //StartCoroutine(_db.GetHighscore(_playerData.playerTag, result => {Debug.Log(result);}));
+    //StartCoroutine(Database.GetHighscore(result => {Debug.Log(PlayerData.ParseAll(result));}));
+    //StartCoroutine(Database.GetHighscore(_playerData.PlayerTag, result => {Debug.Log(PlayerData.Parse(result).Highscore);}));
     //StartCoroutine(_db.UpdateHighscore(_playerData, result => {Debug.Log(result);}));
     //StartCoroutine(Database.Login(_playerData, result => {Debug.Log(result);}));
     //StartCoroutine(_db.ChangeAccount(_playerData, result => {Debug.Log(result);}));
     //StartCoroutine(_db.DeleteAccount(_playerData.playerTag, result => {Debug.Log(result);}));
-}
+} */
 
     // Update is called once per frame
     void Update()
