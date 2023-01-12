@@ -1442,6 +1442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499394225}
   - component: {fileID: 1499394224}
+  - component: {fileID: 1499394226}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -1456,7 +1457,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499394223}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5afa233170e599743bedf2773b78fbee, type: 3}
   m_Name: 
@@ -1483,6 +1484,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499394226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499394223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beca4d243c814fa4cb3b08464601a817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpawnRadius: 20
+  minPlayerDistance: 5
+  meleeSpawnRate: 10
+  rangedSpawnRate: 5
+  waveCoolDown: 10
+  startWaveSpawn: 10
+  waveSpawn: 0
+  spawnIncrease: 1.2
+  waveCounter: 0
+  currentWave: 0
+  enemySpawning: 0
 --- !u!1 &1825756930
 GameObject:
   m_ObjectHideFlags: 0

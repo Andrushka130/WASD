@@ -16,8 +16,8 @@ public class Bullet : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(bulletDamage);
         }
-        //test
+        
     }
 }
