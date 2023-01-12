@@ -1275,7 +1275,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 916969986}
-  - component: {fileID: 916969985}
   - component: {fileID: 916969987}
   m_Layer: 0
   m_Name: GameManager
@@ -1284,19 +1283,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &916969985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916969984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ae81c5c4b04c3478dd7da8575abc5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items: []
 --- !u!4 &916969986
 Transform:
   m_ObjectHideFlags: 0
@@ -1321,10 +1307,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 916969984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aba9128763ea2ac40a668b917f58d172, type: 3}
+  m_Script: {fileID: 11500000, guid: ebcd74dcc071460468c3f8c2e8a564a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  space: 6
+  weaponInventorySize: 6
+  passiveItems: []
   weapons: []
 --- !u!1 &1498408805
 GameObject:
@@ -1464,7 +1451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  damage:
+  attack:
     baseValue: 0
   critChance:
     baseValue: 0

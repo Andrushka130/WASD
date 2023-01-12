@@ -20,10 +20,8 @@ public class Inventory : MonoBehaviour
     
     #endregion
 
-    public Item item;
-
     // The maximum number of items that can be held in the weapon inventory
-    public int weaponInventorySize = 5;
+    public int weaponInventorySize = 6;
 
     // The list of passive items in the inventory
     public List<Item> passiveItems;
@@ -41,13 +39,13 @@ public class Inventory : MonoBehaviour
     // Adds an item to the inventory
     public bool AddItem(Item item)
     {
-        if ((int)item.type == 0)
+        if (item.isPassiveItem)
         {
             // Add the passive item to the list
             passiveItems.Add(item);
             return true;
         }
-        else if ((int)item.type == 1)
+        else
         {
             // If the weapon inventory is full, send message
             if(weapons.Count >= weaponInventorySize)
@@ -62,16 +60,11 @@ public class Inventory : MonoBehaviour
                 return true;
             }
         }
-        else{
-            // Item type is not in the permitted range
-            Debug.LogWarning("Type of Item is not defined");
-            return false;
-        }
     }
 
     public void Remove (Item item)
     {
-        if ((int)item.type == 1)
+        if (!item.isPassiveItem)
         {
             weapons.Remove(item);
         }
