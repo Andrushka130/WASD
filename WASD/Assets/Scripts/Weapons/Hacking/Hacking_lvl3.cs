@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Hacking_lvl3 : Weapon, IRangedWeapon
 {
-    protected override string Name => "Hacking_3";
+    public override string Name => "Hacking";
     public override float Dmg => 15;
     protected override float CritDmg => 0.5f;
     protected override float CritChance => 0.15f;
     protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.2f;
-    protected override int UpgradeLevel => 1;
+    protected override float AtkSpeed => 0.2f;    
     protected override rarity RarityType => rarity.common;
+    public override int WeaponLevel => 3;
     public bool BulletIsTravelthrough { get; } = false;
     public float timer { get; set; }
     public float cooldown { get; set; } = 1f;

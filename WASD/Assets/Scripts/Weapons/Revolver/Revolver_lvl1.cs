@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Revolver_lvl1 : Weapon, IRangedWeapon
 {
-    protected override string Name => "Revolver";
+    public override string Name => "Revolver";
     public override float Dmg => 5;
     protected override float CritDmg => 0.5f;
     protected override float CritChance => 0.15f;
     protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.2f;
-    protected override int UpgradeLevel => 1;
+    protected override float AtkSpeed => 0.2f;    
     protected override rarity RarityType => rarity.common;
+    public override int WeaponLevel => 1;
     public bool BulletIsTravelthrough { get; } = false;
     public float timer { get; set; }
     public float cooldown { get; set; } = 5f;

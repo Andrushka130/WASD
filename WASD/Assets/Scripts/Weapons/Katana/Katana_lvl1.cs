@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Katana_lvl1 : Weapon, IMeleeWeapon
 {
-    protected override string Name => "Katana_lvl1";
+    public override string Name => "Katana";
     public override float Dmg => 3;
     protected override float CritDmg => 0.5f;
     protected override float CritChance => 0.15f;
     protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.2f;
-    protected override int UpgradeLevel => 1;
+    protected override float AtkSpeed => 0.2f;    
     protected override rarity RarityType => rarity.common;
+    public override int WeaponLevel => 1;
     public GameObject attackPrefab { get; set; }
     public Transform firePoint { get; set; }
 

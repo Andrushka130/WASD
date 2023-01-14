@@ -4,14 +4,15 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    protected abstract string Name { get; }
+    public abstract string Name { get; }
+    public abstract int WeaponLevel { get; }
     public abstract float Dmg { get; }
     protected abstract float CritDmg { get; }
     protected abstract float CritChance { get; }
     protected abstract float Lifesteal { get; }
-    protected abstract float AtkSpeed { get; }
-    protected abstract int UpgradeLevel { get; }
+    protected abstract float AtkSpeed { get; }    
     protected abstract rarity RarityType { get; }
+    
 
     public abstract void attack();
 

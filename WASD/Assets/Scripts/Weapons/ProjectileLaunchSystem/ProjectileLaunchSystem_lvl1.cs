@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
 {
-    protected override string Name => "ProjectileLaunchSystem";
+    public override string Name => "ProjectileLaunchSystem";
     public override float Dmg => 4;
     protected override float CritDmg { get; }
     protected override float CritChance { get; }
     protected override float Lifesteal { get; }
-    protected override float AtkSpeed { get; }
-    protected override int UpgradeLevel { get; }
+    protected override float AtkSpeed { get; }   
     protected override rarity RarityType { get; }
+    public override int WeaponLevel => 1;
 
     public GameObject bulletPrefab { get; set; }
     public EnemyDetectionCircle enemyDetectionCircle { get; set; }

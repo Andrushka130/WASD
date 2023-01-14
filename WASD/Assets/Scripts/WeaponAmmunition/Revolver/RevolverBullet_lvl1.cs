@@ -8,6 +8,7 @@ public class RevolverBullet_lvl1 : MonoBehaviour
     private float bulletDamage;
     private Revolver_lvl1 revolver;
 
+
     private void Start()
     {
         revolver = GameObject.Find("Weapon").GetComponent<Revolver_lvl1>();
