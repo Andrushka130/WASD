@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject leaderboard;
-    private bool leaderboardIsNotActive;
+    private bool leaderboardIsNotActive = true;
 
     public void StartGame()
     {
