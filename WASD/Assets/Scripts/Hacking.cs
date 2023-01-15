@@ -11,7 +11,7 @@ public class Hacking : RangedWeapon
     protected override float Lifesteal => 0;
     protected override float AtkSpeed => 0.2f;
     protected override int UpgradeLevel => 1;
-    protected override rarity RarityType => rarity.common;    
+    protected override Rarity RarityType => Rarity.Common;    
 
     protected override bool BulletIsTravelthrough => false;
 
@@ -30,7 +30,7 @@ public class Hacking : RangedWeapon
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
     }    
 
-    public override void upgradeWeapon(rarity rarityType)
+    public override void upgradeWeapon(Rarity rarityType)
     {
         Debug.Log("Upgrade");
     }

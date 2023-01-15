@@ -8,25 +8,100 @@ public class ShopManager : MonoBehaviour
 {
     private static Inventory inventory;
     private static ItemFactory itemFactory;
-    private static List<Item> shopItems;
+    private static WeaponFactory weaponFactory;
+    private static List<Item> items;
+    private static List<List<Weapon>> weapons;
 
     private void Awake()
     {
+        itemFactory = new ItemFactory();
+        weaponFactory = new WeaponFactory();
         inventory = Inventory.Instance;
-        shopItems = itemFactory.GetItems();
+        items = itemFactory.GetItems();
+        weapons = weaponFactory.GetWeapons();
     }
 
-    public void BuyItem(Item item)
+    public void BuyItem(object item)
     {
         if(CoinManager.Coins < item.Price)
         {
             return;
         }
+        
         CoinManager.RemoveCoin(item.Price);
         inventory.AddItem(item);
-        shopItems.Remove(item);
+
+        if(item is Weapon)
+        {
+            foreach(List<Weapon> weapon in weapons)
+            {
+                if (weapon.Contains(item))
+                {
+                    weapon.Remove((Weapon)item);
+                }
+            }
+        }
         Debug.Log("bought Item");
         return;
+    }
+
+    public List<object> GetItems(int ammount)
+    {
+        System.Random rnd = new System.Random();
+
+        int[] probabilities = (int[])Enum.GetValues(typeof(Rarity));
+        int rarityCount = probabilities.Length;
+
+        List<object> shopItems = GetShopItems();
+
+        List<object> randomItems = new List<object>();
+        
+
+        for (int i = 0; i < ammount; i++)
+        {
+            int rarity = rnd.Next(1, 101);
+
+            for(int a = 0; a < rarityCount; a++)
+            {
+                //Example: rarity is 56
+                // first step: 56 is not in range of Common(1 - 40) so 56 - 40 is not smaller then 0
+                // => rarity -= 40
+                // rarity is 16
+                // second step: 16 is in range of Uncommon(1 - 30) so 16 - 30 is smaller then 0
+                // => an item with rarity Uncommon gets selected
+                if(!((rarity - probabilities[a])  < 0))
+                {
+                    rarity -= probabilities[a];
+                } 
+                else 
+                {
+                    List<object> itemsOfSameRarity = shopItems.Select(item => (int) item.RarityType == probabilities[a]);
+                    int randomIndex = rnd.Next(0, itemsOfSameRarity.Count);
+                    randomItems.Add(itemsOfSameRarity[randomIndex]);
+                    break;
+                }
+            }
+        }
+        return randomItems;
+    }
+
+    private List<object> GetShopItems()
+    {
+        List<object> shopItems = (from x in items select (object) x).ToList();
+        shopItems.AddRange((from x in GetNextWeaponLevel() select (object) x).ToList());
+
+        return shopItems;
+    }
+
+    private List<Weapon> GetNextWeaponLevel()
+    {
+        List<Weapon> nextWeaponLevels = new List<Weapon>();
+        foreach(List<Weapon> weapon in weapons)
+        {
+            nextWeaponLevels.Add(weapon[0]);
+        }
+
+        return nextWeaponLevels;
     }
 
 
@@ -44,7 +119,7 @@ public class ShopManager : MonoBehaviour
     //else, subtract 1 from X. If X is now negative, pick event C.
     //else, Pick event D.
 
-    public List<Item> GetShopItems(int number)
+    /* public List<Item> GetShopItems(int number)
     {
         System.Random rnd = new System.Random();
         List<Item> randomItems = new List<Item>();
@@ -72,5 +147,5 @@ public class ShopManager : MonoBehaviour
             }
         }
         return randomItems;
-    } 
+    }  */
 }
