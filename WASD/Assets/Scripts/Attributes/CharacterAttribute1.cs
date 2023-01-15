@@ -7,7 +7,7 @@ public class CharacterAttribute1 : MonoBehaviour
     public int maxHealth;
     public int currentHealth {get; private set; }
     
-    public Attribute attack;
+    public Attribute damage;
     public Attribute critChance;
     public Attribute critDamage;
     public Attribute attackSpeed;
