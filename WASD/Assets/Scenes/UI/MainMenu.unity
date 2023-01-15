@@ -433,7 +433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leaderboard: {fileID: 79123024}
-  leaderboardIsNotActive: 1
 --- !u!1 &180352063
 GameObject:
   m_ObjectHideFlags: 0

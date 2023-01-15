@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class TabSystem : MonoBehaviour
+public class Options : MonoBehaviour
 {
-    public List<GameObject> tabPages;
+    [SerializeField]
+    private List<GameObject> tabPages;
     
     public void SwapPages(TabButton button)
     {
@@ -18,6 +21,11 @@ public class TabSystem : MonoBehaviour
                 tabPages[i].SetActive(false);
             }
         }
+    }
+
+    public void LeaveOptions()
+    {
+        SceneManager.UnloadSceneAsync("Options");
     }
 
 

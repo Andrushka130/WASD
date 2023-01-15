@@ -5,24 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject leaderboard;
-    public bool leaderboardIsNotActive;
+    [SerializeField]
+    private GameObject leaderboard;
+    private bool leaderboardIsNotActive;
 
-    public void StartGame(){
+    public void StartGame()
+    {
         Debug.Log("Started Game");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void ManageLeaderboard(){
+    public void ManageLeaderboard()
+    {
        leaderboard.SetActive(leaderboardIsNotActive);
        leaderboardIsNotActive = !leaderboardIsNotActive;
     }
 
-    public void OpenOptions(){
-        SceneManager.LoadScene("Options");
+    public void OpenOptions()
+    {
+        SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
     }
 
-    public void ExitGame(){
+    public void ExitGame()
+    {
         Debug.Log("Exit Game");
         Application.Quit();
     }

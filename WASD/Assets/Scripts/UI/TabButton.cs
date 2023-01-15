@@ -6,11 +6,13 @@ using UnityEngine.EventSystems;
 
 public class TabButton : MonoBehaviour, IPointerClickHandler
 {
-   public TabSystem tabSystem;
+   [SerializeField]
+   public Options options;
    
-   public void OnPointerClick(PointerEventData eventData){
-    
-    tabSystem.SwapPages(this);
-    
+   public void OnPointerClick(PointerEventData eventData)
+   {
+      options.SwapPages(this);
    }
+   
+
 }
