@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Revolver_lvl2 : Weapon, IRangedWeapon
+public class Revolver_lvl3 : Weapon, IRangedWeapon
 {
     public override string Name => "Revolver";
     public override float Dmg => 5;
     protected override float CritDmg => 0.5f;
     protected override float CritChance => 0.15f;
     protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.2f;    
+    protected override float AtkSpeed => 0.2f;
     protected override rarity RarityType => rarity.common;
-    public override int WeaponLevel => 2;
+    public override int WeaponLevel => 3;
     public bool BulletIsTravelthrough { get; } = false;
     public float timer { get; set; }
     public float cooldown { get; set; } = 3f;

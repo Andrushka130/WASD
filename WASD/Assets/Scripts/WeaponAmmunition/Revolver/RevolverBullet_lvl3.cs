@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RevolverBullet_lvl2 : MonoBehaviour
+public class RevolverBullet_lvl3 : MonoBehaviour
 {
     public float fadeOutTime = 0.25f;
     private float bulletDamage;

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {    
-    private Weapon[] weapons;
-    public float timer;
-
+    private Weapon[] weapons;    
     
     void Start()
-    {        
+    {             
         weapons = gameObject.GetComponents<Weapon>();
     }
 
