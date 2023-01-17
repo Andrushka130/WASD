@@ -6,7 +6,7 @@ using System;
 
 public class ShopManager : MonoBehaviour
 {
-    private static Inventory inventory;
+    /* private static Inventory inventory;
     private static ItemFactory itemFactory;
     private static WeaponFactory weaponFactory;
     private static List<Item> items;
@@ -103,7 +103,7 @@ public class ShopManager : MonoBehaviour
 
         return nextWeaponLevels;
     }
-
+ */
 
     //Say you have 4 events
 

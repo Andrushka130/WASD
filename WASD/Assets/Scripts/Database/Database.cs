@@ -1,11 +1,13 @@
 using System.Collections;
-public class Database
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+
+public class Database : MonoBehaviour
 {
     private static string urlPlayerData = "http://127.0.0.1:3000/playerdata/";
     private static string urlAccount = "http://127.0.0.1:3000/account/";
 
-
-    //TODO Make it that only necessary data is send
     public static IEnumerator Login(PlayerData _playerData, System.Action<string> callback = null)
     {
         string url = urlAccount + _playerData.PlayerTag;
@@ -53,5 +55,19 @@ public class Database
         string url = urlPlayerData + playerTag;
         string method = "GET";
         yield return WebRequest.Download(url, method, callback);
+    }
+
+    public static IEnumerator InitTestData()
+    {
+        using (StreamReader r = new StreamReader("Assets/Scripts/Database/DatabaseTestData.json"))
+        {
+            string json = r.ReadToEnd();
+            PlayerData[] testData = PlayerData.ParseAll(json).Items;
+
+            foreach(PlayerData item in testData)
+            {
+                yield return CreateAccount(item, result => {Debug.Log(result);});
+            }
+        }
     }
 }
