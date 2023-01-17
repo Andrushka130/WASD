@@ -10,25 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
-  m_Name: 5. Test (Legendary)
+  m_Name: Brille
   m_EditorClassIdentifier: 
-  name: Common Test
+  name: Brille
   isPassiveItem: 1
   icon: {fileID: 0}
   RarityType: 0
-  value: 500
-  description: This is an item to test different mechanics.
+  value: 5
+  description: This item harbors secrets that the developer will reveal soon.
   attack: 0
-  critChance: 0
+  critChance: 2
   critDamage: 0
   attackSpeed: 0
   armor: 0
-  dodge: 0
-  shield: 25
-  health: 25
-  healthRegen: 25
+  dodge: 1
+  shield: 0
+  maxHealth: 0
+  healthRegen: 0
   lifesteal: 0
   luck: 0
   movementSpeed: 0
-  range: 0
   psychoLevel: 0

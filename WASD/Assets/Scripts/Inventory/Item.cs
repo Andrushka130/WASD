@@ -18,13 +18,13 @@ public class Item : ScriptableObject
     public int armor;
     public int dodge;
     public int shield;
-    public int health;
+    public int maxHealth;
     public int healthRegen;
     public int lifesteal;
     public int luck;
     public int movementSpeed;
-    public int range;
     public int psychoLevel;
+
 }
 
 public enum rarity

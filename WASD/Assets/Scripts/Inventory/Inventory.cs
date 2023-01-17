@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     #region Singleton
 
     public static Inventory instance;
+    public static PlayerAttribute1 player;
 
     void Awake ()
     {
@@ -43,6 +44,7 @@ public class Inventory : MonoBehaviour
         {
             // Add the passive item to the list
             passiveItems.Add(item);
+            player.OnItemAdded(item);
             return true;
         }
         else

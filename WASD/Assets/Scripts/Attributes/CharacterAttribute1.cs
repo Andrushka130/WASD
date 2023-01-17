@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterAttribute1 : MonoBehaviour
 {
-    public int maxHealth;
+    public Attribute maxHealth;
     public int currentHealth {get; private set; }
     
     public Attribute attack;
@@ -25,7 +25,7 @@ public class CharacterAttribute1 : MonoBehaviour
 
     void Awake()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth.GetValue();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

@@ -10,25 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
-  m_Name: 1. Test (Common)
+  m_Name: Blood Pump
   m_EditorClassIdentifier: 
-  name: Common Test
+  name: Blood Pump
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 0
+  RarityType: 1
   value: 10
-  description: This is an item to test different mechanics.
-  attack: 5
+  description: This item harbors secrets that the developer will reveal soon.
+  attack: 0
   critChance: 0
   critDamage: 0
-  attackSpeed: 5
+  attackSpeed: 0
   armor: 0
   dodge: 0
   shield: 0
-  health: 0
-  healthRegen: 0
-  lifesteal: 5
+  maxHealth: 2
+  healthRegen: 3
+  lifesteal: 0
   luck: 0
   movementSpeed: 0
-  range: 0
-  psychoLevel: 0
+  psychoLevel: 5
