@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
     
 
     public abstract void attack();
+    public abstract void DestroyScript();
 
     public enum rarity
     {

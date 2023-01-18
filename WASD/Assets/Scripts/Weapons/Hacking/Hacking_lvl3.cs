@@ -54,4 +54,8 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
             timer = 0;
         }
     }
+
+    public override void DestroyScript(){
+        Destroy(this);
+    }
 }

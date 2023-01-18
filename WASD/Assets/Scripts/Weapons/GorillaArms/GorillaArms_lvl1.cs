@@ -42,4 +42,8 @@ public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
             timer = 0;
         }
     }
+
+    public override void DestroyScript(){
+        Destroy(this);
+    }
 }

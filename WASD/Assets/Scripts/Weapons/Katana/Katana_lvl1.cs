@@ -43,4 +43,7 @@ public class Katana_lvl1 : Weapon, IMeleeWeapon
         }
     }
 
+    public override void DestroyScript(){
+        Destroy(this);
+    }
 }

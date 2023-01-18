@@ -21,7 +21,7 @@ public class ProjectileLaunchSystem_lvl2 : Weapon, IProjectileLaunchWeapon
     private void Start()
     {
         enemyDetectionCircle = new EnemyDetectionCircle();
-        bulletPrefab = Resources.Load("Bullets/ProjectileLaunchSystemProjectile/ProjectileExplosion_lvl2") as GameObject;
+        bulletPrefab = Resources.Load("Bullets/ProjectileLaunchSystemProjectile/ProjectileExplosion_lvl2") as GameObject;        
     }
 
     public void FireBullet()
@@ -48,4 +48,8 @@ public class ProjectileLaunchSystem_lvl2 : Weapon, IProjectileLaunchWeapon
             timer = 0;
         }
     }  
+
+    public override void DestroyScript(){
+        Destroy(this);
+    }
 }

@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class WeaponGameplayHandler : MonoBehaviour
 {
-    private WeaponStorage storage = new WeaponStorage();
-    private Weapon[] equipedWeapons;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    private WeaponStorage storage = new WeaponStorage();         
+    
     void Update()
     {
-        foreach(var weapon in equipedWeapons)
+        foreach(var weapon in storage.getWeapons())
         {
             weapon.attack();
         } 

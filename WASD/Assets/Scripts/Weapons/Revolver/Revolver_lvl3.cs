@@ -40,4 +40,8 @@ public class Revolver_lvl3 : Weapon, IRangedWeapon
             timer = 0;
         }
     }
+
+    public override void DestroyScript(){
+        Destroy(this);
+    }
 }

@@ -48,4 +48,8 @@ public class ProjectileLaunchSystem_lvl3 : Weapon, IProjectileLaunchWeapon
             timer = 0;
         }
     }  
+
+    public override void DestroyScript(){
+        Destroy(this);
+    }
 }

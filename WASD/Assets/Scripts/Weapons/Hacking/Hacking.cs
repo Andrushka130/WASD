@@ -42,4 +42,8 @@ public class Hacking : Weapon, IRangedWeapon
         }
     }
 
+    public override void DestroyScript(){
+        Destroy(this);
+    }
+
 }

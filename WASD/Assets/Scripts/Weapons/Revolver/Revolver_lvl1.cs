@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Text;
+
 
 public class Revolver_lvl1 : Weapon, IRangedWeapon
 {
@@ -40,4 +43,10 @@ public class Revolver_lvl1 : Weapon, IRangedWeapon
             timer = 0;
         }
     }
+    
+    public override void DestroyScript(){
+        Destroy(this);
+    }
+
 }
+

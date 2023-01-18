@@ -46,5 +46,8 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
         }
     }  
 
+    public override void DestroyScript(){
+        Destroy(this);
+    }
     
 }
