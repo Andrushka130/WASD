@@ -21,7 +21,7 @@ public class Revolver_lvl3 : Weapon, IRangedWeapon
 
     private void Start()
     {
-        bulletPrefab = Resources.Load("Bullets/RevolverBullets/RevolverBullet_lvl2") as GameObject;
+        bulletPrefab = Resources.Load("Bullets/RevolverBullets/RevolverBullet_lvl3") as GameObject;
         firePoint = GameObject.Find("firePoint").transform;
     }
 

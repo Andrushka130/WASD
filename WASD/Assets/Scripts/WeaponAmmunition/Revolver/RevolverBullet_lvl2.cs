@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RevolverBullet_lvl2 : MonoBehaviour
 {
-    public float fadeOutTime = 0.25f;
+    
     private float bulletDamage;
     private Revolver_lvl2 revolver;
     private int life;
@@ -14,7 +14,7 @@ public class RevolverBullet_lvl2 : MonoBehaviour
     {
         revolver = GameObject.Find("Weapon").GetComponent<Revolver_lvl2>();        
         bulletDamage = revolver.Dmg;
-        life = 1;
+        life = 2;
         ignorePhysicsOfPlayerAndAttacks();
         
     }
