@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
+public class ProjectileLaunchSystem_lvl2 : Weapon, IProjectileLaunchWeapon
 {
     public override string Name => "ProjectileLaunchSystem";
     public override float Dmg => 4;
@@ -11,7 +11,7 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
     protected override float Lifesteal { get; }
     protected override float AtkSpeed { get; }   
     protected override rarity RarityType { get; }
-    public override int WeaponLevel => 1;
+    public override int WeaponLevel => 2;
 
     public GameObject bulletPrefab { get; set; }
     public EnemyDetectionCircle enemyDetectionCircle { get; set; }
@@ -21,18 +21,21 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
     private void Start()
     {
         enemyDetectionCircle = new EnemyDetectionCircle();
-        bulletPrefab = Resources.Load("Bullets/ProjectileLaunchSystemProjectile/ProjectileExplosion") as GameObject;
+        bulletPrefab = Resources.Load("Bullets/ProjectileLaunchSystemProjectile/ProjectileExplosion_lvl2") as GameObject;
     }
 
     public void FireBullet()
-    {
-        Collider2D enemy;
-        enemy = enemyDetectionCircle.getFirstEnemyAroundPlayer(10f);       
+    {             
+               
+        Collider2D[] enemys;
+        enemys = enemyDetectionCircle.getEnemysAroundPlayer(20f);                    
 
-        if(enemy.TryGetComponent<EnemyAI>(out EnemyAI enemyAI)){
-            GameObject bullet = Instantiate(bulletPrefab, enemy.transform.position, enemy.transform.rotation);
-            Destroy(bullet, 0.25f);
-        }              
+        for(int numberOfEnemys = 0; numberOfEnemys <= 1; numberOfEnemys++){
+            if(enemys[numberOfEnemys].TryGetComponent<EnemyAI>(out EnemyAI enemyAI)){
+                GameObject bullet = Instantiate(bulletPrefab, enemys[numberOfEnemys].transform.position, enemys[numberOfEnemys].transform.rotation);
+                Destroy(bullet, 0.25f);
+            }
+        }   
         
     }
 
@@ -45,6 +48,4 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
             timer = 0;
         }
     }  
-
-    
 }

@@ -23,8 +23,7 @@ public class GorillaArmAttack_lvl2 : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("hit" + collision.gameObject);
+    {        
         if (collision.gameObject.tag == "Enemy")
         {
             pushVector = transform.right * 100;
