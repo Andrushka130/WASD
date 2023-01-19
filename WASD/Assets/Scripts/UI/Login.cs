@@ -8,6 +8,8 @@ public class Login : MonoBehaviour
     [SerializeField] private TMP_InputField passwordInputField;
     [SerializeField] private TextMeshProUGUI alertText;
     [SerializeField] private GameObject loginImage;
+
+    [SerializeField] private LoginScreen loginScreen;
     //[SerializeField] private GameObject logoutImage;
     
 
@@ -42,7 +44,8 @@ public class Login : MonoBehaviour
                 return;
             }
             _playerData.LoggedIn = true;
-            loginImage.SetActive(false);
+            loginScreen.OpenMainMenu();
+            //loginImage.SetActive(false);
             //logoutImage.SetActive(true);
         }));
     }
