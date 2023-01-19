@@ -5,40 +5,39 @@ using UnityEngine;
 public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
 {
     public override string Name => "ProjectileLaunchSystem";
-    public override float Dmg => 4;
-    protected override float CritDmg { get; }
-    protected override float CritChance { get; }
-    protected override float Lifesteal { get; }
-    protected override float AtkSpeed { get; }   
-    protected override rarity RarityType { get; }
+    public override float Dmg => 10;
+    protected override float CritDmg => 2f;
+    protected override int CritChance => 10;
+    protected override float Lifesteal => 0;
+    protected override float AtkSpeed => 2f;
+    protected override rarity RarityType => rarity.rare;
     public override int WeaponLevel => 1;
 
-    public GameObject bulletPrefab { get; set; }
-    public EnemyDetectionCircle enemyDetectionCircle { get; set; }
-    public float timer { get; set; }
-    public float cooldown { get; set; } = 2f;
+    public GameObject BulletPrefab { get; set; }
+    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }
+    public float Timer { get; set; }
 
     private void Start()
     {
-        enemyDetectionCircle = new EnemyDetectionCircle();
-        bulletPrefab = Resources.Load("Bullets/ProjectileLaunchSystemProjectile/ProjectileExplosion") as GameObject;
+        EnemyDetectionCircle = new EnemyDetectionCircle();
+        BulletPrefab = Resources.Load("Bullets/ProjectileLaunchSystemProjectile/ProjectileExplosion") as GameObject;
     }
 
     public void FireBullet()
     {
         Collider2D enemy;
-        enemy = enemyDetectionCircle.getFirstEnemyAroundPlayer(50f);
-        GameObject bullet = Instantiate(bulletPrefab, enemy.transform.position, enemy.transform.rotation);
+        enemy = EnemyDetectionCircle.getFirstEnemyAroundPlayer(50f);
+        GameObject bullet = Instantiate(BulletPrefab, enemy.transform.position, enemy.transform.rotation);
         Destroy(bullet, 0.25f);
     }
 
-    public override void attack()
+    public override void Attack()
     {
-        timer += Time.deltaTime;
-        if (timer > cooldown)
+        Timer += Time.deltaTime;
+        if (Timer > GetCooldown())
         {
             FireBullet();
-            timer = 0;
+            Timer = 0;
         }
     }  
 

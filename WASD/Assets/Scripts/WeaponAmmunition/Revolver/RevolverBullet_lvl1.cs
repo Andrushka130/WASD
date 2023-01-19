@@ -5,14 +5,12 @@ using UnityEngine;
 public class RevolverBullet_lvl1 : MonoBehaviour
 {    
     public float fadeOutTime = 0.25f;
-    private float bulletDamage;
     private Revolver_lvl1 revolver;
 
 
     private void Start()
     {
         revolver = GameObject.Find("Weapon").GetComponent<Revolver_lvl1>();
-        bulletDamage = revolver.Dmg;
         ignorePhysicsOfPlayerAndAttacks();
     }
 
@@ -26,7 +24,7 @@ public class RevolverBullet_lvl1 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {            
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);            
+            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(revolver.GetDamage());            
             Destroy(gameObject);
         }
 
