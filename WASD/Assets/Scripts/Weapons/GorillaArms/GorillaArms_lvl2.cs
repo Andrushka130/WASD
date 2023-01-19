@@ -6,41 +6,40 @@ using static Weapon;
 public class GorillaArms_lvl2 : Weapon, IMeleeWeapon
 {
     public override string Name => "GorillaArms";
-    public override float Dmg => 0;
-    protected override float CritDmg => 0.5f;
-    protected override float CritChance => 0.15f;
+    public override float Dmg => 12;
+    protected override float CritDmg => 1.75f;
+    protected override int CritChance => 15;
     protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.2f;
-    protected override rarity RarityType => rarity.common;
+    protected override float AtkSpeed => 1.2f;
+    protected override rarity RarityType => rarity.uncommon;
     public override int WeaponLevel => 1;
-    public GameObject attackPrefab { get; set; }
-    public Transform firePoint { get; set; }
+    public GameObject AttackPrefab { get; set; }
+    public Transform FirePoint { get; set; }
 
-    public float timer { get; set; }
-    public float cooldown { get; set; } = 2f;
+    public float Timer { get; set; }
 
     private float lifeTime = 0.25f;
 
 
     private void Start()
     {
-        attackPrefab = Resources.Load("MeleeAttacks/GorillaArm/GorillaArm_lvl2") as GameObject;
-        firePoint = GameObject.Find("firePointMelee").transform;
+        AttackPrefab = Resources.Load("MeleeAttacks/GorillaArm/GorillaArm_lvl2") as GameObject;
+        FirePoint = GameObject.Find("firePointMelee").transform;
     }
 
-    public void swingWeapon()
+    public void SwingWeapon()
     {
-        GameObject gorillaArm = Instantiate(attackPrefab, firePoint.position, firePoint.rotation);
+        GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
         Destroy(gorillaArm, lifeTime);
     }
 
-    public override void attack()
+    public override void Attack()
     {
-        timer += Time.deltaTime;
-        if (timer > cooldown)
+        Timer += Time.deltaTime;
+        if (Timer > GetCooldown())
         {
-            swingWeapon();
-            timer = 0;
+            SwingWeapon();
+            Timer = 0;
         }
     }
     public override void DestroyScript(){

@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    private float projectileLaunchSystemDamage;
     private ProjectileLaunchSystem_lvl1 projectileLaunchSystem;
 
     private void Start()
     {
         projectileLaunchSystem = GameObject.Find("Weapon").GetComponent<ProjectileLaunchSystem_lvl1>();
-        projectileLaunchSystemDamage = projectileLaunchSystem.Dmg;
         ignorePhysicsOfPlayerAndAttacks();
     }
     private void ignorePhysicsOfPlayerAndAttacks()
@@ -23,7 +21,7 @@ public class Explosion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(projectileLaunchSystemDamage);
+            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(projectileLaunchSystem.GetDamage());
         }
     }
 }

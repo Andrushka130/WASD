@@ -6,13 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public GameObject hitEffect;
     public float fadeOutTime = 0.25f;
-    private float bulletDamage;
     private Hacking hacking;    
 
     private void Start()
     {
         hacking = GameObject.Find("Weapon").GetComponent<Hacking>();
-        bulletDamage = hacking.Dmg;
         ignorePhysicsOfPlayerAndAttacks();
     }
 
@@ -28,7 +26,7 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);
+            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(hacking.GetDamage());
             Destroy(effect, fadeOutTime);
             Destroy(gameObject);
         }        

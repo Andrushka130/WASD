@@ -5,11 +5,10 @@ using UnityEngine;
  interface IRangedWeapon
 {
     bool BulletIsTravelthrough { get; }
-    float timer { get; set; }
-    float cooldown { get; set; }
-    GameObject bulletPrefab { get; }
-    Transform firePoint { get; }
-    float fireForce { get; }    
+    float Timer { get; set; }
+    GameObject BulletPrefab { get; }
+    Transform FirePoint { get; }
+    float FireForce { get; }    
     public void FireBullet();
 
 }

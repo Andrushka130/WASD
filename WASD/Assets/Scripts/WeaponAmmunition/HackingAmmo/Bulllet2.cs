@@ -6,14 +6,12 @@ public class Bulllet2 : MonoBehaviour
 {
     
     public float fadeOutTime = 0.25f;
-    private float bulletDamage;
     private Hacking_lvl2 hacking;
     
 
     private void Start()
     {
         hacking = GameObject.Find("Weapon").GetComponent<Hacking_lvl2>();
-        bulletDamage = hacking.Dmg;
         ignorePhysicsOfPlayerAndAttacks();
     }
 
@@ -29,7 +27,7 @@ public class Bulllet2 : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);            
+            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(hacking.GetDamage());            
             Destroy(gameObject);
             
         }

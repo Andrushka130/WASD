@@ -57,10 +57,10 @@ public class RevolverBullet_lvl3 : MonoBehaviour
 
     private void reflectBullet(Collision2D collision)
     {
-        Vector2 inDirection = revolver.bulletPrefab.GetComponent<Rigidbody2D>().velocity;
+        Vector2 inDirection = revolver.BulletPrefab.GetComponent<Rigidbody2D>().velocity;
         Vector2 inNormal = collision.contacts[0].normal;
         Vector2 newReflectedBulletVelocity = Vector2.Reflect(inNormal, inDirection);
-        gameObject.GetComponent<Rigidbody2D>().AddForce(newReflectedBulletVelocity * revolver.fireForce, ForceMode2D.Impulse);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(newReflectedBulletVelocity * revolver.FireForce, ForceMode2D.Impulse);
     }
 
     private void testIfLifeIs0(int life)

@@ -6,42 +6,41 @@ public class Katana_lvl3 : Weapon, IMeleeWeapon
 {
     public override string Name => "Katana";
     public override float Dmg => 10;
-    protected override float CritDmg => 0.5f;
-    protected override float CritChance => 0.15f;
+    protected override float CritDmg => 1.75f;
+    protected override int CritChance => 20;
     protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.2f;    
+    protected override float AtkSpeed => 0.5f;    
     protected override rarity RarityType => rarity.common;
     public override int WeaponLevel => 3;
-    public GameObject attackPrefab { get; set; }
-    public Transform firePoint { get; set; }
-    public Transform firePointBack { get; set; }
+    public GameObject AttackPrefab { get; set; }
+    public Transform FirePoint { get; set; }
+    public Transform FirePointBack { get; set; }
 
-    public float timer { get; set; }
-    public float cooldown { get; set; } = 2f;
+    public float Timer { get; set; }
 
     private float lifeTime = 0.25f;
     private void Start()
     {
-        attackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_3") as GameObject;
-        firePoint = GameObject.Find("firePointMelee").transform;
-        firePointBack = GameObject.Find("firePointLeft").transform;
+        AttackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_3") as GameObject;
+        FirePoint = GameObject.Find("firePointMelee").transform;
+        FirePointBack = GameObject.Find("firePointLeft").transform;
     }
 
-    public void swingWeapon()
+    public void SwingWeapon()
     {
-        GameObject blade = Instantiate(attackPrefab, firePoint.position, firePoint.rotation);
-        GameObject blade2 = Instantiate(attackPrefab, firePointBack.position, firePointBack.rotation);
+        GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
+        GameObject blade2 = Instantiate(AttackPrefab, FirePointBack.position, FirePointBack.rotation);
         Destroy(blade, lifeTime);
         Destroy(blade2, lifeTime);
     }
 
-    public override void attack()
+    public override void Attack()
     {
-        timer += Time.deltaTime;
-        if (timer > cooldown)
+        Timer += Time.deltaTime;
+        if (Timer > GetCooldown())
         {
-            swingWeapon();
-            timer = 0;
+            SwingWeapon();
+            Timer = 0;
         }
     }
 

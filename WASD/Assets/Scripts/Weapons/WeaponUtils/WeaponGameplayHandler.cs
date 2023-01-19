@@ -10,7 +10,7 @@ public class WeaponGameplayHandler : MonoBehaviour
     {
         foreach(var weapon in storage.getWeapons())
         {
-            weapon.attack();
+            weapon.Attack();
         } 
     }
 

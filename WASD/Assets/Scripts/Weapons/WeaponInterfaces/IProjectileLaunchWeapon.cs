@@ -4,10 +4,9 @@ using UnityEngine;
 
 interface IProjectileLaunchWeapon
 {
-    GameObject bulletPrefab { get; set; }
-    public EnemyDetectionCircle enemyDetectionCircle { get; set; }
-    float timer { get; set; }
-    float cooldown { get; set; }    
+    GameObject BulletPrefab { get; set; }
+    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }
+    float Timer { get; set; }  
     public void FireBullet();
     
 }
