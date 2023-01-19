@@ -5,41 +5,40 @@ using UnityEngine;
 public class Katana_lvl1 : Weapon, IMeleeWeapon
 {
     public override string Name => "Katana";
-    public override float Dmg => 3;
-    protected override float CritDmg => 0.5f;
-    protected override float CritChance => 0.15f;
+    public override float Dmg => 2;
+    protected override float CritDmg => 1.2f;
+    protected override int CritChance => 30;
     protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.2f;    
+    protected override float AtkSpeed => 1f;    
     protected override rarity RarityType => rarity.common;
     public override int WeaponLevel => 1;
-    public GameObject attackPrefab { get; set; }
-    public Transform firePoint { get; set; }
+    public GameObject AttackPrefab { get; set; }
+    public Transform FirePoint { get; set; }
 
-    public float timer { get; set; }
-    public float cooldown { get; set; } = 2f;
+    public float Timer { get; set; }
 
     private float lifeTime = 0.25f;
 
 
     private void Start()
     {
-        attackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_1") as GameObject;
-        firePoint = GameObject.Find("firePointMelee").transform;
+        AttackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_1") as GameObject;
+        FirePoint = GameObject.Find("firePointMelee").transform;
     }
 
-    public void swingWeapon()
+    public void SwingWeapon()
     {
-        GameObject blade = Instantiate(attackPrefab, firePoint.position, firePoint.rotation);
+        GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
         Destroy(blade, lifeTime);
     }
 
-    public override void attack()
+    public override void Attack()
     {
-        timer += Time.deltaTime;
-        if (timer > cooldown)
+        Timer += Time.deltaTime;
+        if (Timer > GetCooldown())
         {
-            swingWeapon();
-            timer = 0;
+            SwingWeapon();
+            Timer = 0;
         }
     }
 

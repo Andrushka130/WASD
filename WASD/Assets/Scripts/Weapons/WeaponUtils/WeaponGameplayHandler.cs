@@ -14,7 +14,7 @@ public class WeaponGameplayHandler : MonoBehaviour
     {
         foreach(var weapon in storage.GetWeapons())
         {
-            weapon.attack();
+            weapon.Attack();
         } 
     }
 

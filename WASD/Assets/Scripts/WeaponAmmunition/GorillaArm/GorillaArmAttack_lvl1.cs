@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GorillaArmAttack_lvl1 : MonoBehaviour
 {
-    private float gorillaArmDamage;
     private GorillaArms_lvl1 gorillaArm;
     private Vector2 pushVector;
     private float pushForce;
@@ -12,7 +11,6 @@ public class GorillaArmAttack_lvl1 : MonoBehaviour
     private void Start()
     {
         gorillaArm = GameObject.Find("Weapon").GetComponent<GorillaArms_lvl1>();
-        gorillaArmDamage = gorillaArm.Dmg;
         pushForce = 120f;
         ignorePhysicsOfPlayerAndAttacks();
     }
@@ -29,7 +27,7 @@ public class GorillaArmAttack_lvl1 : MonoBehaviour
         {
             pushVector = transform.right * 80;
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(pushVector * pushForce);
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(gorillaArmDamage);
+            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(gorillaArm.GetDamage());
         }
     }
 

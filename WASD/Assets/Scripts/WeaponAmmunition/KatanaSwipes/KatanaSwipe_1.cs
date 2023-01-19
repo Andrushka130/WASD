@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class KatanaSwipe_1 : MonoBehaviour
 {
-    
-    private float katanaDamage;
     private Katana_lvl1 katana;
 
     private void Start()
     {
         katana = GameObject.Find("Weapon").GetComponent<Katana_lvl1>();
-        katanaDamage = katana.Dmg;
-
         ignorePhysicsOfPlayerAndAttacks();
     }
     private void ignorePhysicsOfPlayerAndAttacks()
@@ -26,7 +22,7 @@ public class KatanaSwipe_1 : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(katanaDamage);
+            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(katana.GetDamage());
         }      
 
         
