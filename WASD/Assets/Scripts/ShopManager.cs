@@ -8,17 +8,18 @@ public class ShopManager : MonoBehaviour
 {
     /* private static Inventory inventory;
     private static ItemFactory itemFactory;
-    private static WeaponFactory weaponFactory;
+    private static WeaponStorage weaponStorage;
+
+    private static WeaponHandler weaponHandler;
     private static List<Item> items;
     private static List<List<Weapon>> weapons;
 
     private void Awake()
     {
         itemFactory = new ItemFactory();
-        weaponFactory = new WeaponFactory();
         inventory = Inventory.Instance;
         items = itemFactory.GetItems();
-        weapons = weaponFactory.GetWeapons();
+        weapons = weaponStorage.GetWeaponTypeList();
     }
 
     public void BuyItem(object item)
@@ -27,20 +28,23 @@ public class ShopManager : MonoBehaviour
         {
             return;
         }
+        if(item is Weapon)
+        {
+            Weapon weapon = (Weapon) item;
+            weaponHandler.InsertNewWeapon(weapon);
+            foreach(List<Weapon> w in weapons)
+            {
+                if (w.Contains(weapon))
+                {
+                    w.Remove(weapon);
+                }
+            }
+        }
         
         CoinManager.RemoveCoin(item.Price);
         inventory.AddItem(item);
 
-        if(item is Weapon)
-        {
-            foreach(List<Weapon> weapon in weapons)
-            {
-                if (weapon.Contains(item))
-                {
-                    weapon.Remove((Weapon)item);
-                }
-            }
-        }
+        
         Debug.Log("bought Item");
         return;
     }
@@ -102,8 +106,7 @@ public class ShopManager : MonoBehaviour
         }
 
         return nextWeaponLevels;
-    }
- */
+    } */
 
     //Say you have 4 events
 
