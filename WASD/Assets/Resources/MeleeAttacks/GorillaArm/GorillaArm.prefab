@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2495526114571199293}
   - component: {fileID: 7484113388323454496}
   - component: {fileID: -211047518775242108}
-  - component: {fileID: -2504480116475079818}
+  - component: {fileID: 1425158109243156332}
   m_Layer: 7
   m_Name: GorillaArm
   m_TagString: Bullet
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.019385792, b: 0, a: 1}
   m_FlipX: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-2504480116475079818
+--- !u!114 &1425158109243156332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 670343423781917296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d330830fbc416d6418929e604ddf01db, type: 3}
+  m_Script: {fileID: 11500000, guid: 063f743937cd1a9458401d5d70fc8020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

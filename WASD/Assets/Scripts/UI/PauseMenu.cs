@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-
-    public GameObject pauseMenuUI;
+    
+    private static bool GameIsPaused = false;
+    [SerializeField]
+    private GameObject pauseMenuUI;
     
     void Start()
     {
@@ -41,4 +43,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
+
+    public void OpenOptions()
+    {
+        SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
+    }
+
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+
 }
+

@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class PlayerAttribute1 : CharacterAttribute1
 {
-    /* Hier muss die Konnection zum Inventar gezogen werden
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
-    }
-
-    void OnEquipmentChanged (Equipment newItem, Equipment oldItem)
+    public void OnItemAdded (Item newItem)
     {
         if (newItem != null)
         {
-            armor.AddModifier(newItem.armorModifier);
-            damage.AddModifier(newItem.damageModifier);
-        }
-        
-        if (oldItem != null)
-        {
-            armor.RemoveModifier(oldItem.armorModifier);
-            damage.RemoveModifier(oldItem.damageModifier);
+            maxHealth.AddModifier(newItem.maxHealth);
+            
+            attack.AddModifier(newItem.attack);
+            critChance.AddModifier(newItem.critChance);
+            critDamage.AddModifier(newItem.critDamage);
+            attackSpeed.AddModifier(newItem.attackSpeed);
+
+            armor.AddModifier(newItem.armor);
+            dodge.AddModifier(newItem.dodge);
+            shield.AddModifier(newItem.shield);
+            healthRegen.AddModifier(newItem.healthRegen);
+            lifesteal.AddModifier(newItem.lifesteal);
+
+            luck.AddModifier(newItem.luck);
+            movementSpeed.AddModifier(newItem.movementSpeed);
+            psychoLevel.AddModifier(newItem.psychoLevel);
         }
     }
-    */
 }
