@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class WeaponGameplayHandler : MonoBehaviour
 {
-    private WeaponStorage storage = new WeaponStorage();         
+    private WeaponStorage storage;
+
+    void Start(){
+        storage = GameObject.Find("WeaponStorage").GetComponent<WeaponStorage>();
+    }      
     
     void Update()
     {
-        foreach(var weapon in storage.getWeapons())
+        foreach(var weapon in storage.GetWeapons())
         {
             weapon.Attack();
         } 

@@ -10,7 +10,7 @@ public class WeaponFetcher
     private Transform parent;    
     private GameObject weapon;    
     
-    public List<List<Weapon>> fillWeaponTypeListFromWeaponStorage (){
+    public List<List<Weapon>> FillWeaponTypeListFromWeaponStorage (){
 
             weaponStorage = GameObject.Find("WeaponStorage");
             
@@ -29,24 +29,13 @@ public class WeaponFetcher
             } 
 
             return weaponTypeList;
-    }
+    }    
 
-    private Weapon[] fillWeaponsArray(){
-        Weapon[] weapons;
-        weapons = GameObject.Find("Weapon").GetComponents<Weapon>();
-        return weapons;
-    }
-
-    public Weapon fillWeaponListWithStartingWeapon(){
-        
+    public Weapon FillWeaponListWithStartingWeapon(){        
         weapon = GameObject.Find("Weapon");
         Weapon starterWeapon;
         starterWeapon = weapon.GetComponent<Weapon>();
         return starterWeapon;
     }
-
-    public bool test(object someObject){
-        
-        return false;
-    }
+    
 }
