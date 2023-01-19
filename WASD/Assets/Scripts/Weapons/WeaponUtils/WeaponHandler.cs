@@ -8,7 +8,7 @@ public class WeaponHandler
     private int maximumSizeOfWeaponInventory = 4;   
     private GameObject weapon;
 
-    public bool InserNewWeapon(Weapon newWeapon){
+    public bool InsertNewWeapon(Weapon newWeapon){
 
         if(CheckWeaponListSize()){            
             InsertWeaponScriptToGameobject(newWeapon);

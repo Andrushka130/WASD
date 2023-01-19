@@ -10,7 +10,7 @@ public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
     protected override int CritChance => 20;
     protected override float Lifesteal => 0;
     protected override float AtkSpeed => 1.5f;    
-    protected override rarity RarityType => rarity.uncommon;
+    protected override Rarity RarityType => Rarity.Uncommon;
     public override int WeaponLevel => 1;   
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
