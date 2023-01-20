@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class WeaponStorage : MonoBehaviour
+public class WeaponInventory
 {    
     private static List<List<Weapon>> weaponTypeList = new List<List<Weapon>>();
-    private WeaponFetcher fetcher = new WeaponFetcher();
+    private WeaponFetcher fetcher;
     private static List<Weapon> equipedWeapons = new List<Weapon>();    
+    private static WeaponInventory instance = new WeaponInventory();
 
-    void Start(){             
+    private WeaponInventory(){
+        fetcher = GameObject.Find("WeaponStorage").GetComponent<WeaponFetcher>();
         weaponTypeList = fetcher.FillWeaponTypeListFromWeaponStorage();        
         equipedWeapons.Add(fetcher.FillWeaponListWithStartingWeapon());
-    }       
+    }        
     
+    public static WeaponInventory getInstance(){
+        return instance;
+    }
+
     public List<List<Weapon>> GetWeaponTypeList(){
         return weaponTypeList;
     }
-
+        
     public List<Weapon> GetWeapons(){      
         return equipedWeapons;
     }

@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponGameplayHandler : MonoBehaviour
-{
-    private WeaponStorage storage;
+{    private WeaponInventory inventory;
 
     void Start(){
-        storage = GameObject.Find("WeaponStorage").GetComponent<WeaponStorage>();
+        inventory = WeaponInventory.getInstance();
     }      
     
     void Update()
     {
-        foreach(var weapon in storage.GetWeapons())
+        foreach(var weapon in inventory.GetWeapons())
         {
             weapon.Attack();
         } 

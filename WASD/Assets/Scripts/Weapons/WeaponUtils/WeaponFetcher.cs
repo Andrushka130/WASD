@@ -4,17 +4,18 @@ using UnityEngine;
 using System.Linq;
 
 
-public class WeaponFetcher 
-{    
-    private GameObject weaponStorage;
+public class WeaponFetcher : MonoBehaviour
+{        
     private Transform parent;    
     private GameObject weapon;    
     
-    public List<List<Weapon>> FillWeaponTypeListFromWeaponStorage (){
+    void Awake(){
+        weapon = GameObject.Find("Weapon");
+    }
 
-            weaponStorage = GameObject.Find("WeaponStorage");
+    public List<List<Weapon>> FillWeaponTypeListFromWeaponStorage (){           
             
-            parent = weaponStorage.transform;
+            parent = gameObject.transform;
 
             List<Weapon> weaponList = new List<Weapon>();
 
@@ -31,8 +32,7 @@ public class WeaponFetcher
             return weaponTypeList;
     }    
 
-    public Weapon FillWeaponListWithStartingWeapon(){        
-        weapon = GameObject.Find("Weapon");
+    public Weapon FillWeaponListWithStartingWeapon(){               
         Weapon starterWeapon;
         starterWeapon = weapon.GetComponent<Weapon>();
         return starterWeapon;
