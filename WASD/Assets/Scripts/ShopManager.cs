@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
         inventory = Inventory.Instance;
         items = itemFactory.GetItems();
         weapons = weaponStorage.GetWeaponTypeList();
+        Debug.Log("Initialized items and weapons list for shop")
     }
 
     public int BuyItem(object item)
@@ -33,8 +34,10 @@ public class ShopManager : MonoBehaviour
             Weapon weapon = (Weapon) item;
             if(!weaponHandler.InsertNewWeapon(weapon))
             {
+                Debug.Log("Weapon inventory is full")
                 return -1;
             }
+            Coinmanager.RemoveCoin(weapon.Value);
             foreach(List<Weapon> w in weapons)
             {
                 if (w.Contains(weapon))
@@ -42,13 +45,15 @@ public class ShopManager : MonoBehaviour
                     w.Remove(weapon);
                 }
             }
+            Debug.Log("bought weapon: " + weapon.Name);
+            return 1;
         }
         
-        CoinManager.RemoveCoin(item.Price);
+        CoinManager.RemoveCoin(item.Value);
         inventory.AddItem(item);
 
         
-        Debug.Log("bought Item");
+        Debug.Log("bought item: " + item.Name);
         return 1;
     }
 
