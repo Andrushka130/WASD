@@ -51,6 +51,8 @@ public class CreateAccount : MonoBehaviour
             }
 
             _playerData.LoggedIn = true;
+            _playerData.SavePlayerTag();
+            _playerData.SaveLoginStatus();
             loginScreen.OpenMainMenu();
             
         }));

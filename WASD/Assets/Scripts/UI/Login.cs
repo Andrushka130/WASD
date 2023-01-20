@@ -10,8 +10,6 @@ public class Login : MonoBehaviour
     [SerializeField] private GameObject loginImage;
 
     [SerializeField] private LoginScreen loginScreen;
-    //[SerializeField] private GameObject logoutImage;
-    
 
     private static PlayerData _playerData;
 
@@ -44,6 +42,8 @@ public class Login : MonoBehaviour
                 return;
             }
             _playerData.LoggedIn = true;
+            _playerData.SavePlayerTag();
+            _playerData.SaveLoginStatus();
             loginScreen.OpenMainMenu();
             //loginImage.SetActive(false);
             //logoutImage.SetActive(true);

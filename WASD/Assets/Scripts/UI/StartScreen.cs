@@ -7,6 +7,13 @@ public class StartScreen : MonoBehaviour
 {
     public void OpenLogin()
     {
-        SceneManager.LoadSceneAsync("LoginScreen");
+        if(!PlayerData.Instance.LoggedIn)
+        {
+            SceneManager.LoadSceneAsync("LoginScreen");
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync("MainMenu");
+        }
     }
 }
