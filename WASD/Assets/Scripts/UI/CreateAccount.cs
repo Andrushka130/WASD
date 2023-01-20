@@ -50,6 +50,7 @@ public class CreateAccount : MonoBehaviour
                 return; 
             }
 
+            _playerData.LoggedIn = true;
             loginScreen.OpenMainMenu();
             
         }));
