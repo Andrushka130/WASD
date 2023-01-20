@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:WASD/Assets/Scripts/CoinManager.cs.meta
+guid: 3955874c168a80b48a16ae53f0eb4171
+========
+guid: d330830fbc416d6418929e604ddf01db
+>>>>>>>> WeaponFactory:WASD/Assets/Scripts/WeaponAmmunition/GorillaArm/GorillaArmAttack_lvl1.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
