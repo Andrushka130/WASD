@@ -5,13 +5,16 @@ using UnityEngine;
 public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
 {
     public override string Name => "GorillaArms";
+    public override string Description => "Funny description";
+    public override int WeaponLevel => 1;
+    public override int Value => 7;
     public override float Dmg => 4;
-    protected override float CritDmg => 1.5f;
-    protected override int CritChance => 20;
-    protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 1.5f;    
-    protected override Rarity RarityType => Rarity.Uncommon;
-    public override int WeaponLevel => 1;   
+    public override float CritDmg => 1.5f;
+    public override int CritChance => 20;
+    public override float Lifesteal => 0;
+    public override float AtkSpeed => 1.5f;    
+    public override Rarity RarityType => Rarity.Uncommon;
+      
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
 

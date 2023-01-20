@@ -5,8 +5,8 @@ using UnityEngine;
 using System;
 
 public class ShopManager : MonoBehaviour
-{
-    /* private static Inventory inventory;
+{/*
+    private static Inventory inventory;
     private static ItemFactory itemFactory;
     private static WeaponStorage weaponStorage;
 
@@ -22,16 +22,19 @@ public class ShopManager : MonoBehaviour
         weapons = weaponStorage.GetWeaponTypeList();
     }
 
-    public void BuyItem(object item)
+    public int BuyItem(object item)
     {
         if(CoinManager.Coins < item.Price)
         {
-            return;
+            return 0;
         }
         if(item is Weapon)
         {
             Weapon weapon = (Weapon) item;
-            weaponHandler.InsertNewWeapon(weapon);
+            if(!weaponHandler.InsertNewWeapon(weapon))
+            {
+                return -1;
+            }
             foreach(List<Weapon> w in weapons)
             {
                 if (w.Contains(weapon))
@@ -46,7 +49,7 @@ public class ShopManager : MonoBehaviour
 
         
         Debug.Log("bought Item");
-        return;
+        return 1;
     }
 
     public List<object> GetItems(int ammount)
