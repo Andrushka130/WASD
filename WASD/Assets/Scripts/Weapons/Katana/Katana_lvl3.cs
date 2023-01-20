@@ -10,7 +10,7 @@ public class Katana_lvl3 : Weapon, IMeleeWeapon
     protected override int CritChance => 20;
     protected override float Lifesteal => 0;
     protected override float AtkSpeed => 0.5f;    
-    protected override rarity RarityType => rarity.common;
+    protected override Rarity RarityType => Rarity.Common;
     public override int WeaponLevel => 3;
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }

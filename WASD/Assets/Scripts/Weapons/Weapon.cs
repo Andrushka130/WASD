@@ -11,7 +11,7 @@ public abstract class Weapon : MonoBehaviour
     protected abstract int CritChance { get; }
     protected abstract float Lifesteal { get; }
     protected abstract float AtkSpeed { get; }    
-    protected abstract rarity RarityType { get; }
+    protected abstract Rarity RarityType { get; }
 
     private System.Random rnd = new System.Random();
     /*private PlayerAttribute _playerAttribute = new PlayerAttribute();*/
@@ -35,14 +35,4 @@ public abstract class Weapon : MonoBehaviour
     {
         return AtkSpeed /* * _playerAttribute.Attackspeed*/;
     }
-
-    public enum rarity
-    {
-        common,
-        uncommon,
-        rare,
-        epic,
-        legendary
-    }
-    
 }

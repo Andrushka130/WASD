@@ -10,7 +10,7 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
     protected override int CritChance => 20;
     protected override float Lifesteal => 0;
     protected override float AtkSpeed => 0.5f;    
-    protected override rarity RarityType => rarity.common;
+    protected override Rarity RarityType => Rarity.Common;
     public override int WeaponLevel => 3;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }

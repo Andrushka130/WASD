@@ -10,7 +10,7 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
     protected override int CritChance => 10;
     protected override float Lifesteal => 0;
     protected override float AtkSpeed => 2f;
-    protected override rarity RarityType => rarity.rare;
+    protected override Rarity RarityType => Rarity.Rare;
     public override int WeaponLevel => 1;
 
     public GameObject BulletPrefab { get; set; }

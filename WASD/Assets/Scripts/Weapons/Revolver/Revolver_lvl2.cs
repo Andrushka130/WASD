@@ -10,7 +10,7 @@ public class Revolver_lvl2 : Weapon, IRangedWeapon
     protected override int CritChance => 15;
     protected override float Lifesteal => 0;
     protected override float AtkSpeed => 1f;    
-    protected override rarity RarityType => rarity.rare;
+    protected override Rarity RarityType => Rarity.Rare;
     public override int WeaponLevel => 2;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }
