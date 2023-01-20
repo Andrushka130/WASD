@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WeaponHandler 
 {
-    private WeaponStorage storage;
-    private int maximumSizeOfWeaponInventory = 4;   
+    private WeaponInventory inventory = WeaponInventory.GetInstance();
+    private int maximumSizeOfWeaponInventory = 6;   
     private GameObject weapon;
 
     public bool InserNewWeapon(Weapon newWeapon){
@@ -21,18 +21,16 @@ public class WeaponHandler
     private void InsertNewWeaponIntoWeaponList(Weapon boughtWeapon){
         
             DeleteFormerUpgradeLevelFromList(boughtWeapon); 
-            storage.GetWeapons().Add(boughtWeapon);     
+            inventory.GetWeapons().Add(boughtWeapon);     
                            
     }
 
-    private void DeleteFormerUpgradeLevelFromList(Weapon boughtWeapon){
+    private void DeleteFormerUpgradeLevelFromList(Weapon boughtWeapon){             
 
-        storage = GameObject.Find("WeaponStorage").GetComponent<WeaponStorage>();        
-
-        for(int i = 0; i < storage.GetWeapons().Count; i++){
-            Weapon currentWeapon = storage.GetWeapons()[i];
+        for(int i = 0; i < inventory.GetWeapons().Count; i++){
+            Weapon currentWeapon = inventory.GetWeapons()[i];
             if(IsWeaponLevelAndNameEqual(currentWeapon, boughtWeapon)){
-                storage.GetWeapons().Remove(storage.GetWeapons()[i]);
+                inventory.GetWeapons().Remove(inventory.GetWeapons()[i]);
             }
         }
     }
@@ -60,8 +58,7 @@ public class WeaponHandler
 
     private bool CheckWeaponListSize(){
 
-        storage = GameObject.Find("WeaponStorage").GetComponent<WeaponStorage>();
-        if(storage.GetWeapons().Count == maximumSizeOfWeaponInventory){
+        if(inventory.GetWeapons().Count == maximumSizeOfWeaponInventory){
             return false;
         }   
         return true;
