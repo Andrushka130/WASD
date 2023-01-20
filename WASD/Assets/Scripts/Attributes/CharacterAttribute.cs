@@ -2,28 +2,85 @@ using UnityEngine;
 
 public class CharacterAttribute : MonoBehaviour
 {
-    public int maxHealth;
-    public int currentHealth {get; private set; }
+    private int maxHealth;
+    public int CurrentHealth {get; private set; }
     
-    public Attribute attack;
-    public Attribute critChance;
-    public Attribute critDamage;
-    public Attribute attackSpeed;
+    private Attribute damage;
+    private Attribute critChance;
+    private Attribute critDamage;
+    private Attribute attackSpeed;
 
-    public Attribute armor;
-    public Attribute dodge;
-    public Attribute shield;
-    public Attribute healthRegen;
-    public Attribute lifesteal;
+    private Attribute armor;
+    private Attribute dodge;
+    private Attribute shield;
+    private Attribute healthRegen;
+    private Attribute lifesteal;
 
-    public Attribute luck;
-    public Attribute movementSpeed;
-    public Attribute range;
-    public Attribute psychoLevel;
+    private Attribute luck;
+    private Attribute movementSpeed;
+    private Attribute range;
+    private Attribute psychoLevel;
+
+    public int MaxHealth
+    {
+        get {return maxHealth;}
+    }
+    public int Damage
+    {
+        get {return damage.GetValue();}
+    }
+    public int CritChance
+    {
+        get {return critChance.GetValue();}
+    }
+    public int CritDamage
+    {
+        get {return critDamage.GetValue();}
+    }
+    public int AttackSpeed
+    {
+        get {return attackSpeed.GetValue();}
+    }
+    public int Armor
+    {
+        get {return armor.GetValue();}
+    }
+    public int Dodge
+    {
+        get {return dodge.GetValue();}
+    }
+    public int Shield
+    {
+        get {return shield.GetValue();}
+    }
+    public int HealthRegen
+    {
+        get {return healthRegen.GetValue();}
+    }
+    public int Lifesteal
+    {
+        get {return lifesteal.GetValue();}
+    }
+    public int Luck
+    {
+        get {return luck.GetValue();}
+    }
+    public int MovementSpeed
+    {
+        get {return movementSpeed.GetValue();}
+    }
+    public int Range
+    {
+        get {return range.GetValue();}
+    }
+    public int PsychoLevel
+    {
+        get {return psychoLevel.GetValue();}
+    }
 
     void Awake()
     {
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 
     void Update()
@@ -37,10 +94,10 @@ public class CharacterAttribute : MonoBehaviour
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        currentHealth -= damage;
+        CurrentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }
