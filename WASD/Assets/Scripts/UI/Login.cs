@@ -41,6 +41,8 @@ public class Login : MonoBehaviour
                 alertText.text = result;
                 return;
             }
+            _playerData.Password = "";
+            _playerData.Email = "";
             _playerData.LoggedIn = true;
             _playerData.SavePlayerTag();
             _playerData.SaveLoginStatus();

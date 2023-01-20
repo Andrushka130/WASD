@@ -50,6 +50,8 @@ public class CreateAccount : MonoBehaviour
                 return; 
             }
 
+            _playerData.Password = "";
+            _playerData.Email = "";
             _playerData.LoggedIn = true;
             _playerData.SavePlayerTag();
             _playerData.SaveLoginStatus();
