@@ -16,12 +16,12 @@ public class CoinManager : MonoBehaviour
         wallet = 0;
     }
 
-    public static void AddCoin( int coins)
+    public static void AddMoney( int money)
     {
-        wallet += coins;
+        wallet += money;
     }
 
-    public static void RemoveCoin(int amount)
+    public static void RemoveMoney(int amount)
     {
         wallet -= amount;
     }

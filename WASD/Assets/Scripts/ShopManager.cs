@@ -34,7 +34,7 @@ public class ShopManager : MonoBehaviour
                 Debug.Log("Weapon inventory is full");
                 return -1;
             }
-            CoinManager.RemoveCoin(weapon.Value);
+            CoinManager.RemoveMoney(weapon.Value);
             foreach(List<Weapon> w in weapons)
             {
                 if (w.Contains(weapon))
@@ -47,11 +47,11 @@ public class ShopManager : MonoBehaviour
         }
         
         Item passiveItem = (Item) item;
-        CoinManager.RemoveCoin(passiveItem.Value);
+        CoinManager.RemoveMoney(passiveItem.value);
         inventory.AddItem(passiveItem);
 
         
-        Debug.Log("bought item: " + passiveItem.Name);
+        Debug.Log("bought item: " + passiveItem.name);
         return 1;
     }
 
@@ -85,7 +85,18 @@ public class ShopManager : MonoBehaviour
                 } 
                 else 
                 {
-                    List<object> itemsOfSameRarity = shopItems.Select(item => (int) item.RarityType == probabilities[a]);
+                    List<object> itemsOfSameRarity = (List<object>)shopItems.Select(item => {
+                        if(item is Weapon)
+                        {
+                            Weapon weapon = (Weapon) item;
+                            return (int) weapon.RarityType == probabilities[a];
+                        }
+                        else
+                        {
+                            Item passiveItem = (Item) item;
+                            return (int) passiveItem.RarityType == probabilities[a];
+                        }
+                    });
                     int randomIndex = rnd.Next(0, itemsOfSameRarity.Count);
                     randomItems.Add(itemsOfSameRarity[randomIndex]);
                     break;
