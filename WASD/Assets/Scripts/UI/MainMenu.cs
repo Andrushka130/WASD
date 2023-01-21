@@ -13,13 +13,7 @@ public class MainMenu : MonoBehaviour
      void Awake()
     {
         PlayerData _playerData = PlayerData.Instance;
-        if(_playerData.LoggedIn)
-        {
-           CheckHighscore(_playerData);
-        }
-        
-        highscoreText.text = _playerData.Highscore.ToString();
-        
+        highscoreText.text = _playerData.Highscore.ToString();     
     }
 
 
@@ -47,21 +41,5 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    private void CheckHighscore(PlayerData _playerData)
-    {
-        StartCoroutine(Database.GetHighscore(_playerData.PlayerTag, result => {
-
-            if(_playerData.Highscore < PlayerData.Parse(result).Highscore)
-            {
-                _playerData.Highscore = PlayerData.Parse(result).Highscore;
-                _playerData.SaveHighscore();
-            }
-            else
-            {
-                StartCoroutine(Database.UpdateHighscore(_playerData, result => {
-                    Debug.Log(result);
-                }));
-            }
-        }));
-    }
+    
 }

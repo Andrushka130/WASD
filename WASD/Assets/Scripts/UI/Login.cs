@@ -46,7 +46,9 @@ public class Login : MonoBehaviour
             _playerData.LoggedIn = true;
             _playerData.SavePlayerTag();
             _playerData.SaveLoginStatus();
+            CheckHighscore();
             loginScreen.OpenMainMenu();
+            
             //loginImage.SetActive(false);
             //logoutImage.SetActive(true);
         }));
@@ -57,5 +59,23 @@ public class Login : MonoBehaviour
         _playerData.LoggedIn = false;
         //logoutImage.SetActive(false);
         loginImage.SetActive(true);
+    }
+
+    private void CheckHighscore()
+    {
+        StartCoroutine(Database.GetHighscore(_playerData.PlayerTag, result => {
+
+            if(_playerData.Highscore < PlayerData.Parse(result).Highscore)
+            {
+                _playerData.Highscore = PlayerData.Parse(result).Highscore;
+                _playerData.SaveHighscore();
+            }
+            else
+            {
+                StartCoroutine(Database.UpdateHighscore(_playerData, result => {
+                    Debug.Log(result);
+                }));
+            }
+        }));
     }
 }
