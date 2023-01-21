@@ -47,6 +47,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenLoginScreen()
     {
+        _playerData.LoggedIn = !_playerData.LoggedIn;
         SceneManager.LoadSceneAsync("LoginScreen");
     }
 

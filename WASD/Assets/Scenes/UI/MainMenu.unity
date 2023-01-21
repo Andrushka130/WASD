@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LOG in
+  m_text: LOG out
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 519949200e50d1c4aa798c4248d6db1a, type: 2}
   m_sharedMaterial: {fileID: -9076473312810661018, guid: 519949200e50d1c4aa798c4248d6db1a, type: 2}
@@ -1759,8 +1759,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1903,7 +1903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1085936897
 RectTransform:
   m_ObjectHideFlags: 0
