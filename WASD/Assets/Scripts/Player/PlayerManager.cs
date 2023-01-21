@@ -5,9 +5,14 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public PlayerAnimationManager playerAnimationManager;    
+    public PlayerAnimationManager playerAnimationManager;
+
+    private void Awake() 
+    {
+        PlayerData.Instance.LoadPlayerData();
+    }
     
-    void Update()
+    private void Update()
     {
         playerMovement.getMovementInput();
         playerAnimationManager.setSpeed(playerMovement.movementVector);

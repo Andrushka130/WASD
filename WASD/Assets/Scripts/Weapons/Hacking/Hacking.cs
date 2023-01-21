@@ -5,13 +5,15 @@ using UnityEngine;
 public class Hacking : Weapon, IRangedWeapon
 {
     public override string Name => "Hacking";
-    public override float Dmg => 3;
-    protected override float CritDmg => 1.3f;
-    protected override int CritChance => 30;
-    protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 1f;    
-    protected override Rarity RarityType => Rarity.Common;
+    public override string Description => "Flood your enemy's brains with disgusting pictures of you only wearing a bib and sitting in a bathtub filled to the brim with chicken nuggets";
     public override int WeaponLevel => 1;
+    public override int Value => 5;
+    public override float Dmg => 3;
+    public override float CritDmg => 1.3f;
+    public override int CritChance => 30;
+    public override float Lifesteal => 0;
+    public override float AtkSpeed => 1f;    
+    public override Rarity RarityType => Rarity.Common;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }  
     public GameObject BulletPrefab { get; set; }
