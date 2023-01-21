@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject leaderboard;
-    private bool leaderboardIsNotActive = true;
+    [SerializeField] private GameObject leaderboard;
+    [SerializeField] private bool leaderboardIsNotActive;
+    [SerializeField] private TextMeshProUGUI highscoreText;
+
+     void Awake()
+    {
+        PlayerData _playerData = PlayerData.Instance;
+        highscoreText.text = _playerData.Highscore.ToString();     
+    }
+
+
 
     public void StartGame()
     {
@@ -31,4 +40,6 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Exit Game");
         Application.Quit();
     }
+
+    
 }
