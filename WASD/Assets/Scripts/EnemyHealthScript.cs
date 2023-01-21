@@ -41,5 +41,4 @@ public class EnemyHealthScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

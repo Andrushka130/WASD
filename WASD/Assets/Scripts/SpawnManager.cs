@@ -61,7 +61,5 @@ public class SpawnManager : MonoBehaviour
             }
             yield return new WaitForSeconds(waveCoolDown);
         }
-
-        
     }
 }
