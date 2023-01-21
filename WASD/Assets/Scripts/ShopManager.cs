@@ -5,10 +5,9 @@ using UnityEngine;
 using System;
 
 public class ShopManager : MonoBehaviour
-{/*
+{
     private static Inventory inventory;
-    private static ItemFactory itemFactory;
-    private static WeaponStorage weaponStorage;
+    private static WeaponInventory weaponInventory;
 
     private static WeaponHandler weaponHandler;
     private static List<Item> items;
@@ -16,16 +15,14 @@ public class ShopManager : MonoBehaviour
 
     private void Awake()
     {
-        itemFactory = new ItemFactory();
         inventory = Inventory.Instance;
-        items = itemFactory.GetItems();
-        weapons = weaponStorage.GetWeaponTypeList();
-        Debug.Log("Initialized items and weapons list for shop")
+        items = ItemList.List;
+        weapons = weaponInventory.GetWeaponTypeList();
     }
 
     public int BuyItem(object item)
     {
-        if(CoinManager.Coins < item.Price)
+        if(CoinManager.Coins < item.Value)
         {
             return 0;
         }
@@ -50,7 +47,7 @@ public class ShopManager : MonoBehaviour
         }
         
         CoinManager.RemoveCoin(item.Value);
-        inventory.AddItem(item);
+        inventory.AddItem((Item) item);
 
         
         Debug.Log("bought item: " + item.Name);
@@ -114,7 +111,7 @@ public class ShopManager : MonoBehaviour
         }
 
         return nextWeaponLevels;
-    } */
+    }
 
     //Say you have 4 events
 

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ItemList : MonoBehaviour
 {
-    public List<Item> itemList;
+    private static List<Item> itemList;
+
+    public static List<Item> List
+    {
+        get {return itemList;}
+    }
 
     void Start()
     {
