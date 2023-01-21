@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4102308923894230744}
   - component: {fileID: 2670490612336684849}
   - component: {fileID: -6642008620943813778}
-  - component: {fileID: 4102308923894230750}
+  - component: {fileID: 5315855555821842263}
   - component: {fileID: 7677949910105972105}
   m_Layer: 0
   m_Name: Eurodollar
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.135
---- !u!114 &4102308923894230750
+--- !u!114 &5315855555821842263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,13 +134,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4102308923894230746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff96a964f9b05542b4634e7f7a95149, type: 3}
+  m_Script: {fileID: 11500000, guid: 746797e8fd00aff4cad1577e3899c41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  currentExp: 0
-  requiredExp: 0
-  expBar: {fileID: 0}
+  money: 0
 --- !u!114 &7677949910105972105
 MonoBehaviour:
   m_ObjectHideFlags: 0

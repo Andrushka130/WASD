@@ -26,7 +26,7 @@ public class ShopManager : MonoBehaviour
         if(item is Weapon)
         {
             Weapon weapon = (Weapon) item;
-            if(CoinManager.Wallet < weapon.Value)
+            if(WalletManager.Wallet < weapon.Value)
             {
                 return 0;
             }
@@ -35,7 +35,7 @@ public class ShopManager : MonoBehaviour
                 Debug.Log("Weapon inventory is full");
                 return -1;
             }
-            CoinManager.RemoveMoney(weapon.Value);
+            WalletManager.RemoveMoney(weapon.Value);
             foreach(List<Weapon> w in weapons)
             {
                 if (w.Contains(weapon))
@@ -48,11 +48,11 @@ public class ShopManager : MonoBehaviour
         }
         
         Item passiveItem = (Item) item;
-        if(CoinManager.Wallet < passiveItem.value)
+        if(WalletManager.Wallet < passiveItem.value)
         {
             return 0;
         }
-        CoinManager.RemoveMoney(passiveItem.value);
+        WalletManager.RemoveMoney(passiveItem.value);
         _inventory.AddItem(passiveItem);
 
         
