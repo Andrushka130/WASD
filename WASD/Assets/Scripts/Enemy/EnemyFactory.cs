@@ -6,18 +6,20 @@ using UnityEngine;
 public class EnemyFactory : MonoBehaviour
 {
 
+    public GameObject meleeEnemy;
+    public GameObject rangedEnemy;
+    public GameObject boss1;
+
     public float maxSpawnRadius = 20f;
     public float minPlayerDistance = 5f;
-    public int meleeSpawnRate = 10;
-    public int rangedSpawnRate = 5;
     public float waveCoolDown = 10f;
     public float startWaveSpawn = 10f;
-    public float waveSpawn;
     public float spawnIncrease = 1.2f;
-    private float spawnSpace;
-    public int waveCounter;
-    public int currentWave;
     public bool enemySpawning;
+    private float waveSpawn;
+    private float spawnSpace;
+    protected int waveCounter;
+    protected int currentWave;
     private Transform spawnOrigin;
     private float spawnPointX;
     private float spawnPointY;
@@ -31,75 +33,72 @@ public class EnemyFactory : MonoBehaviour
         currentWave = waveCounter;
         enemySpawning = true;
         spawnSpace = waveSpawn;
-        StartCoroutine(EnemySpawn());
     }
 
-    IEnumerator EnemySpawn()
-    {
-
-        while(enemySpawning == true)
+        public void SpawnEnemy(string enemy)
         {
-
-        while (spawnSpace > 0) 
-        {
-
+            //Create random spawnPoint with distance to player
             spawnOrigin = GameObject.FindWithTag("Player").transform;
         
-        spawnPointX = (Random.Range(0, 2) * 2 - 1) * Random.Range(0, maxSpawnRadius);
-        spawnPointY = ((Random.Range(0, 2) * 2 - 1) * Random.Range(0, maxSpawnRadius))/2;
-
-        spawnOriginX = spawnOrigin.transform.position.x;
-        spawnOriginY = spawnOrigin.transform.position.y;
-
-
-        while(spawnOriginX - spawnPointX < minPlayerDistance && spawnOriginY - spawnPointY < minPlayerDistance)
-        {
             spawnPointX = (Random.Range(0, 2) * 2 - 1) * Random.Range(0, maxSpawnRadius);
             spawnPointY = ((Random.Range(0, 2) * 2 - 1) * Random.Range(0, maxSpawnRadius))/2;
-            //Debug.Log("SpawnPoint reset.");
-        }
 
-            int randEnemy = Random.Range(0, 1);
-            switch (randEnemy) 
+            spawnOriginX = spawnOrigin.transform.position.x;
+            spawnOriginY = spawnOrigin.transform.position.y;
+
+
+            while(spawnOriginX - spawnPointX < minPlayerDistance && spawnOriginY - spawnPointY < minPlayerDistance)
             {
-                case 0:
+                spawnPointX = (Random.Range(0, 2) * 2 - 1) * Random.Range(0, maxSpawnRadius);
+                spawnPointY = ((Random.Range(0, 2) * 2 - 1) * Random.Range(0, maxSpawnRadius))/2;
+            }
 
-                    Enemy<Melee> meleeEnemy = new Enemy<Melee>("MeleeEnemy");
-                    meleeEnemy.ScriptComponent.Initialize
-            (
-                position : new Vector2(spawnPointX, spawnPointY)
-            );
-                spawnSpace -= 1;
+            switch(enemy)
+            {
+                case "Melee":
 
-                    yield return new WaitForSeconds(0.3f);
-                    Debug.Log("MeleeEnemy spawned");
+                //Enemy<Melee> meleeEnemy = new Enemy<Melee>("MeleeEnemy");
+                    Instantiate
+                        (
+                            meleeEnemy,
+                            new Vector2(spawnPointX, spawnPointY),
+                            Quaternion.identity
+                        );
 
                 break;
 
-                case 1:
-                    Enemy<Ranged> rangedEnemy = new Enemy<Ranged>("RangedEnemy");
-                    rangedEnemy.ScriptComponent.Initialize
-                    (
-                        position : new Vector2(spawnPointX, spawnPointY)
-                    );
-                        spawnSpace -= 2;
+                case "Ranged":
 
-                    yield return new WaitForSeconds(0.3f);
-                    Debug.Log("RangedEnemy spawned");
+                //Enemy<Ranged> rangedEnemy = new Enemy<Ranged>("RangedEnemy");
+                    Instantiate
+                        (
+                            rangedEnemy,
+                            new Vector2(spawnPointX, spawnPointY),
+                            Quaternion.identity
+                        );
+
+                break; 
+                
+                case "Boss1":
+
+                //Enemy<Boss1> boss1 = new Enemy<Boss1>("Boss1");
+                    Instantiate
+                        (
+                            boss1,
+                            new Vector2(spawnPointX, spawnPointY),
+                            Quaternion.identity
+                        );
+
                 break;
             }
+
+           
         }
-        yield return new WaitForSeconds(waveCoolDown);
-        waveCounter++;
-        currentWave = waveCounter;
-        waveSpawn = waveSpawn * spawnIncrease;
-        spawnSpace = waveSpawn;
-        while(GameObject.FindWithTag("Enemy") != null)
-        {
-            yield return new WaitForSeconds(1);
-        }
-        }
-        }
-}
+
+
+                    
+
+    }
+
     
 

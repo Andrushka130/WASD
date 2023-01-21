@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class PlayerController : PlayerAttribute1
+public class PlayerController : PlayerAttribute
 {
     public Rigidbody2D rb;
     public Weapon weapon;

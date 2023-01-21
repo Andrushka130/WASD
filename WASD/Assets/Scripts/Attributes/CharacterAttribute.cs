@@ -48,8 +48,9 @@ public class CharacterAttribute : MonoBehaviour
 
     public virtual void Die()
     {
-        //Die in some way
-        //This method is meant to be overritten
-        Debug.Log(transform.name + " died.");
+        Debug.Log("Player died");
+        currentHealth = maxHealth;
+        
+        GameObject.FindWithTag("Canvas").GetComponent<GameOver>().GameOverScreen();
     }
 }

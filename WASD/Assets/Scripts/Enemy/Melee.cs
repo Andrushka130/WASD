@@ -5,77 +5,61 @@ using UnityEngine;
 public class Melee : Enemy
 {
 
-    public float speed = 2f;
-    public float checkRadius = 20f;
-    public float attackRadius = 1f;
-
-    public bool shouldRotate = false;
+    public float speed = 1f;
+    public float checkRadius = 30f;
+    public float attackRadius = 7f;
+    public float attackDelay = 1f;
+    public int maxHealth = 5;
+    public int damage = 1;
 
     private Transform target;
-    private Rigidbody2D rb;
     private Vector2 movement;
-    public Vector3 dir;
-
-    private bool inChaseRange;
-    private bool inAttackRange;
-    private int maxHealth = 10;
+    private Vector2 dir;
+    private float timeSinceLastAttack;
+    private Vector2 directionToPlayer;
 
     void Start()
     {
-        Collider.radius = 0.5f;
-        transform.localScale = new Vector2(1.0f, 1.0f);
         target = GameObject.FindWithTag("Player").transform;
         this.currentHealth = maxHealth;
-        
     }
 
     void FixedUpdate()
     {
-        MovementPattern();
         HealthUpdate(maxHealth);
+        MovementPattern();
     }
 
     protected override void MovementPattern()
     {
-        Body.gravityScale = 0;
-        Collider2D[] detectColliderArray = Physics2D.OverlapCircleAll(transform.position, checkRadius);
-            foreach (Collider2D collider2D in detectColliderArray)
-            {
-                if (collider2D.TryGetComponent<PlayerController>(out PlayerController playerController))
-                {
-                    inChaseRange = true;
-                }
 
-            }
-        Collider2D[] attackColliderArray = Physics2D.OverlapCircleAll(transform.position, attackRadius);
-            foreach (Collider2D collider2D in attackColliderArray)
+        Vector2 directionToPlayer = target.position - transform.position;
+
+        if (directionToPlayer.magnitude > attackRadius - 0.5f)
+        {
+            movement = directionToPlayer.normalized * speed;
+        }
+        else if(directionToPlayer.magnitude <= attackRadius - 0.5f)
             {
-                if (collider2D.TryGetComponent<PlayerController>(out PlayerController playerController))
-                {
-                    inAttackRange = true;
-                }
-            else
-                {
-                    inAttackRange = false;
-                }
+                movement = Vector2.zero;
             }
 
-        dir = (Vector2)target.position - Body.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        dir.Normalize();
-        movement = dir;
-
-        if (inChaseRange && !inAttackRange)
+        if(directionToPlayer.magnitude <= attackRadius)
         {
-            Body.MovePosition(Body.position + movement * speed * Time.fixedDeltaTime);
-        }
-        if (inAttackRange)
-        {
-            Body.velocity = Vector2.zero;
-
-            //Enemy attack to be added
+            timeSinceLastAttack += Time.deltaTime;
+            if(timeSinceLastAttack >= attackDelay)
+            {
+                timeSinceLastAttack = 0f;
+                Attack();
+            }
         }
 
-    
+        Body.MovePosition((Vector2)transform.position + movement * Time.fixedDeltaTime);
+    }
+
+    void Attack()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+        target.GetComponent<PlayerController>().TakeDamage(damage);
     }
 }
