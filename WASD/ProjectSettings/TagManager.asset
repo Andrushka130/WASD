@@ -6,8 +6,12 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+<<<<<<< HEAD
   - EnemyProjectile
   - SpawnManager
+=======
+  - Object
+>>>>>>> develop
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - Attack
+  - Enemy
   - 
   - 
   - 
