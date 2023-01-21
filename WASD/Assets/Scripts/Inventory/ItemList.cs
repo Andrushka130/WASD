@@ -14,6 +14,6 @@ public class ItemList : MonoBehaviour
     void Start()
     {
         //Create a List, containing all Items that are in the Resources Folder
-        itemList = new List<Item>(Resources.LoadAll<Item>("Assets/Scripts/Inventory/Items"));
+        itemList = new List<Item>(Resources.LoadAll<Item>("Items"));
     }
 }

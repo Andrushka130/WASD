@@ -6,18 +6,19 @@ using System;
 
 public class ShopManager : MonoBehaviour
 {
-    private static Inventory inventory;
-    private static WeaponInventory weaponInventory;
-
-    private static WeaponHandler weaponHandler;
+    private static PlayerAttribute _playerAttribute;
+    private static Inventory _inventory;
+    private static WeaponInventory _weaponInventory;
+    private static WeaponHandler _weaponHandler;
     private static List<Item> items;
     private static List<List<Weapon>> weapons;
-
-    private void Awake()
-    {
-        inventory = Inventory.Instance;
+    private void Start() {
+        _playerAttribute = PlayerAttribute.Instance;
+        _inventory = Inventory.Instance;
+        _weaponHandler = new WeaponHandler();
+        _weaponInventory = WeaponInventory.GetInstance();
         items = ItemList.List;
-        weapons = weaponInventory.GetWeaponTypeList();
+        weapons  = _weaponInventory.GetWeaponTypeList();
     }
 
     public int BuyItem(object item)
@@ -29,7 +30,7 @@ public class ShopManager : MonoBehaviour
             {
                 return 0;
             }
-            if(!weaponHandler.InsertNewWeapon(weapon))
+            if(!_weaponHandler.InsertNewWeapon(weapon))
             {
                 Debug.Log("Weapon inventory is full");
                 return -1;
@@ -47,8 +48,12 @@ public class ShopManager : MonoBehaviour
         }
         
         Item passiveItem = (Item) item;
+        if(CoinManager.Wallet < passiveItem.value)
+        {
+            return 0;
+        }
         CoinManager.RemoveMoney(passiveItem.value);
-        inventory.AddItem(passiveItem);
+        _inventory.AddItem(passiveItem);
 
         
         Debug.Log("bought item: " + passiveItem.name);
@@ -70,6 +75,14 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < ammount; i++)
         {
             int rarity = rnd.Next(1, 101);
+            if((rarity + _playerAttribute.LuckValue) > 100)
+            {
+                rarity = 100;
+            }
+            else
+            {
+                rarity += _playerAttribute.LuckValue;
+            }
 
             for(int a = 0; a < rarityCount; a++)
             {

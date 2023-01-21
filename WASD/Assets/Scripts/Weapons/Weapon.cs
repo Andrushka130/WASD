@@ -16,7 +16,7 @@ public abstract class Weapon : MonoBehaviour
     public abstract Rarity RarityType { get; }
 
     private System.Random rnd = new System.Random();
-    /*private PlayerAttribute _playerAttribute = new PlayerAttribute();*/
+    private PlayerAttribute _playerAttribute = PlayerAttribute.Instance;
     
 
     public abstract void Attack();
@@ -26,15 +26,15 @@ public abstract class Weapon : MonoBehaviour
     public float GetDamage()
     {
         int random = rnd.Next(1, 101);
-        if(random < CritChance /*(CritChance * _playerAttribute.CritChance)*/ )
+        if(random < (CritChance * _playerAttribute.CritChanceValue) )
         {
-            return Dmg * CritDmg /* + _playerAttribute.Damage*/;
+            return Dmg * CritDmg  + _playerAttribute.CritDamageValue;
         }
-        return Dmg /* + _playerAttribute.Damage*/;
+        return Dmg + _playerAttribute.AttackValue;
     }
 
     public float GetCooldown()
     {
-        return AtkSpeed /* * _playerAttribute.Attackspeed*/;
+        return AtkSpeed * _playerAttribute.AttackSpeedValue;
     }
 }

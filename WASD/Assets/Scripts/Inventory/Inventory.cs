@@ -4,41 +4,32 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private static Inventory instance = null;
-    private static readonly object padlock = new object();
-    private static PlayerAttribute1 player;
+    private static Inventory instance;
+    private static PlayerAttribute player;
     private List<Item> passiveItems;
-
-    private Inventory()
-    {
-    }
 
     public static Inventory Instance
     {
-        get
-        {
-            lock (padlock)
-            {
-                if (instance == null)
-                {
-                    instance = new Inventory();
-                }
-                return instance;
-            }
-        }
+        get { return instance; }
     }
 
-    public List<Item> Items
+    void Awake ()
     {
-        get { return passiveItems; }
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of Inventory found!");
+            return;
+        }
+        instance = this;
+        player = PlayerAttribute.Instance;
     }
-    
+
     void Start()
     {
-        // Initialize the lists
         passiveItems = new List<Item>();
     }
 
+    // Adds an item to the inventory
     public bool AddItem(Item item)
     {
         passiveItems.Add(item);
