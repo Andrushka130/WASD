@@ -9,10 +9,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject leaderboard;
     [SerializeField] private bool leaderboardIsNotActive;
     [SerializeField] private TextMeshProUGUI highscoreText;
+    [SerializeField] private GameObject loginButton;
+    [SerializeField] private TMP_Text logInfo;
+
+    private PlayerData _playerData;
 
      void Awake()
     {
-        PlayerData _playerData = PlayerData.Instance;
+        _playerData = PlayerData.Instance;
         highscoreText.text = _playerData.Highscore.ToString();     
     }
 
@@ -27,12 +31,23 @@ public class MainMenu : MonoBehaviour
     public void ManageLeaderboard()
     {
        leaderboard.SetActive(leaderboardIsNotActive);
+       if (_playerData.LoggedIn){
+         logInfo.text = "LogOut";
+       } else {
+         logInfo.text = "LogIn";
+       }
+       loginButton.SetActive(leaderboardIsNotActive);
        leaderboardIsNotActive = !leaderboardIsNotActive;
     }
 
     public void OpenOptions()
     {
         SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
+    }
+
+    public void OpenLoginScreen()
+    {
+        SceneManager.LoadSceneAsync("LoginScreen");
     }
 
     public void ExitGame()
