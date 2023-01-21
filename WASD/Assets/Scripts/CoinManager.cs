@@ -4,25 +4,25 @@ using System.Collections.Generic;
 
 public class CoinManager : MonoBehaviour
 {
-    private static int coins;
+    private static int wallet;
 
-    public static int Coins
+    public static int Wallet
     {
-        get { return coins; }
+        get { return wallet; }
     }
 
     private static void Awake()
     {
-        coins = 0;
+        wallet = 0;
     }
 
-    public static void AddCoin()
+    public static void AddCoin( int coins)
     {
-        coins++;
+        wallet += coins;
     }
 
     public static void RemoveCoin(int amount)
     {
-        coins -= amount;
+        wallet -= amount;
     }
 }

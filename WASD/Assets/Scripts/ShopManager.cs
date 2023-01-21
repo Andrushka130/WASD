@@ -22,19 +22,19 @@ public class ShopManager : MonoBehaviour
 
     public int BuyItem(object item)
     {
-        if(CoinManager.Coins < item.Value)
-        {
-            return 0;
-        }
         if(item is Weapon)
         {
             Weapon weapon = (Weapon) item;
+            if(CoinManager.Wallet < weapon.Value)
+            {
+                return 0;
+            }
             if(!weaponHandler.InsertNewWeapon(weapon))
             {
-                Debug.Log("Weapon inventory is full")
+                Debug.Log("Weapon inventory is full");
                 return -1;
             }
-            Coinmanager.RemoveCoin(weapon.Value);
+            CoinManager.RemoveCoin(weapon.Value);
             foreach(List<Weapon> w in weapons)
             {
                 if (w.Contains(weapon))
@@ -46,11 +46,12 @@ public class ShopManager : MonoBehaviour
             return 1;
         }
         
-        CoinManager.RemoveCoin(item.Value);
-        inventory.AddItem((Item) item);
+        Item passiveItem = (Item) item;
+        CoinManager.RemoveCoin(passiveItem.Value);
+        inventory.AddItem(passiveItem);
 
         
-        Debug.Log("bought item: " + item.Name);
+        Debug.Log("bought item: " + passiveItem.Name);
         return 1;
     }
 
