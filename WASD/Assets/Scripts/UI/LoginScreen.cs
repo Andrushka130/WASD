@@ -10,7 +10,7 @@ public class LoginScreen : MonoBehaviour
 
     public void OpenMainMenu()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     public void ShowLogin(){
