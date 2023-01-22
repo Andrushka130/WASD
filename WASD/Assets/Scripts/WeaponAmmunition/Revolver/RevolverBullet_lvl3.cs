@@ -39,7 +39,7 @@ public class RevolverBullet_lvl3 : MonoBehaviour
             testIfLifeIs0(life);
             life--;
 
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(bulletDamage);
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(bulletDamage);
 
             reflectBullet(collision);
         }

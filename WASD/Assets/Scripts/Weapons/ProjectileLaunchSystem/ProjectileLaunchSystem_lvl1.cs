@@ -27,11 +27,11 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
 
     public void FireBullet()
     {
-        Collider2D enemy;
-        enemy = EnemyDetectionCircle.getFirstEnemyAroundPlayer(10f);       
+        Collider2D enemyDetector;
+        enemyDetector = EnemyDetectionCircle.getFirstEnemyAroundPlayer(10f);       
 
-        if(enemy.TryGetComponent<EnemyAI>(out EnemyAI enemyAI)){
-            GameObject bullet = Instantiate(BulletPrefab, enemy.transform.position, enemy.transform.rotation);
+        if(enemyDetector.TryGetComponent<Enemy>(out Enemy enemy)){
+            GameObject bullet = Instantiate(BulletPrefab, enemyDetector.transform.position, enemyDetector.transform.rotation);
             Destroy(bullet, 0.25f);
         }              
         

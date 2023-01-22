@@ -24,7 +24,7 @@ public class RevolverBullet_lvl1 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {            
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(revolver.GetDamage());            
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(revolver.GetDamage());            
             Destroy(gameObject);
         }
 
