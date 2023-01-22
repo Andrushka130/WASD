@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class CurrencySystem : MonoBehaviour
 {
-    public int money;
 
-    //Textanzeige in UI ergänzen
+    //Textanzeige in UI ergï¿½nzen
 
     void OnDestroy()
     {
         //UpdateMoney();
-        GainMoney(20);
+        WalletManager.AddMoney(20);
     }
 
-    //Erhöhen der Anzeige, wenn Geld eingesammelt wird
-    /*public void UpdateMoney()
-    {
-       
-    }*/
+    //Erhï¿½hen der Anzeige, wenn Geld eingesammelt wird
+    //public void UpdateMoney()
 
-    public void GainMoney(int moneyGained)
-    {
-        money += moneyGained;
-    }
 }

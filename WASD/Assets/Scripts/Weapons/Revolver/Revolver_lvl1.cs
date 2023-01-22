@@ -8,13 +8,15 @@ using System.Text;
 public class Revolver_lvl1 : Weapon, IRangedWeapon
 {
     public override string Name => "Revolver";
-    public override float Dmg => 5;
-    protected override float CritDmg => 1.5f;
-    protected override int CritChance => 20;
-    protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 1.3f;    
-    protected override Rarity RarityType => Rarity.Uncommon;
+    public override string Description => "I can't see my forehead >:(";
     public override int WeaponLevel => 1;
+    public override int Value => 7;
+    public override float Dmg => 5;
+    public override float CritDmg => 1.5f;
+    public override int CritChance => 20;
+    public override float Lifesteal => 0;
+    public override float AtkSpeed => 1.3f;    
+    public override Rarity RarityType => Rarity.Uncommon;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }
     public GameObject BulletPrefab { get; set; }

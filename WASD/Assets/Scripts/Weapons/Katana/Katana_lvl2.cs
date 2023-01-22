@@ -5,13 +5,15 @@ using UnityEngine;
 public class Katana_lvl2 : Weapon, IMeleeWeapon
 {
     public override string Name => "Katana";
-    public override float Dmg => 6;
-    protected override float CritDmg => 1.5f;
-    protected override int CritChance => 25;
-    protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.75f;
-    protected override Rarity RarityType => Rarity.Common;
+    public override string Description => "Not a good back scratcher";
     public override int WeaponLevel => 2;
+    public override int Value => 7;
+    public override float Dmg => 6;
+    public override float CritDmg => 1.5f;
+    public override int CritChance => 25;
+    public override float Lifesteal => 0;
+    public override float AtkSpeed => 0.75f;
+    public override Rarity RarityType => Rarity.Uncommon;
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
 

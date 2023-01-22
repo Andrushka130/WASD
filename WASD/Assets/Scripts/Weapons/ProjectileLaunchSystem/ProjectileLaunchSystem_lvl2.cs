@@ -5,13 +5,15 @@ using UnityEngine;
 public class ProjectileLaunchSystem_lvl2 : Weapon, IProjectileLaunchWeapon
 {
     public override string Name => "ProjectileLaunchSystem";
-    public override float Dmg => 20;
-    protected override float CritDmg => 2.5f;
-    protected override int CritChance => 7;
-    protected override float Lifesteal => 0f;
-    protected override float AtkSpeed => 1.5f;
-    protected override Rarity RarityType => Rarity.Epic;
+    public override string Description => "BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM";
     public override int WeaponLevel => 2;
+    public override int Value => 15;
+    public override float Dmg => 20;
+    public override float CritDmg => 2.5f;
+    public override int CritChance => 7;
+    public override float Lifesteal => 0f;
+    public override float AtkSpeed => 1.5f;
+    public override Rarity RarityType => Rarity.Epic;
 
     public GameObject BulletPrefab { get; set; }
     public EnemyDetectionCircle EnemyDetectionCircle { get; set; }

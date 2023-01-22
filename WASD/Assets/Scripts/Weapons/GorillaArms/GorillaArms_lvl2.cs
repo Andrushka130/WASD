@@ -6,13 +6,15 @@ using static Weapon;
 public class GorillaArms_lvl2 : Weapon, IMeleeWeapon
 {
     public override string Name => "GorillaArms";
+    public override string Description => "I am going to use Lorem ipsum from now on...";
+    public override int WeaponLevel => 2;
+    public override int Value => 10;
     public override float Dmg => 12;
-    protected override float CritDmg => 1.75f;
-    protected override int CritChance => 15;
-    protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 1.2f;
-    protected override Rarity RarityType => Rarity.Uncommon;
-    public override int WeaponLevel => 1;
+    public override float CritDmg => 1.75f;
+    public override int CritChance => 15;
+    public override float Lifesteal => 0;
+    public override float AtkSpeed => 1.2f;
+    public override Rarity RarityType => Rarity.Rare;
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
 

@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ItemList : MonoBehaviour
 {
-    public List<Item> itemList;
+    private static List<Item> itemList;
+
+    public static List<Item> List
+    {
+        get {return itemList;}
+    }
 
     void Start()
     {
         //Create a List, containing all Items that are in the Resources Folder
-        itemList = new List<Item>(Resources.LoadAll<Item>("Assets/Scripts/Inventory/Items"));
+        itemList = new List<Item>(Resources.LoadAll<Item>("Items"));
     }
 }
