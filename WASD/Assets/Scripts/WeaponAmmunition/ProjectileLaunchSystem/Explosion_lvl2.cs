@@ -23,7 +23,7 @@ public class Explosion_lvl2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(projectileLaunchSystemDamage);
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(projectileLaunchSystemDamage);
         }
     }
 }

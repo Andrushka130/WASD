@@ -27,7 +27,7 @@ public class Bulllet2 : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(hacking.GetDamage());            
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(hacking.GetDamage());            
             Destroy(gameObject);
             
         }
