@@ -6,58 +6,43 @@ using System;
 
 public class ShopManager : MonoBehaviour
 {
-    private static PlayerAttribute _playerAttribute;
-    private static Inventory _inventory;
-    private static WeaponInventory _weaponInventory;
-    private static WeaponHandler _weaponHandler;
+    /* private static Inventory inventory;
+    private static ItemFactory itemFactory;
+    private static WeaponFactory weaponFactory;
     private static List<Item> items;
     private static List<List<Weapon>> weapons;
-    private void Start() {
-        _playerAttribute = PlayerAttribute.Instance;
-        _inventory = Inventory.Instance;
-        _weaponHandler = new WeaponHandler();
-        _weaponInventory = WeaponInventory.GetInstance();
-        items = ItemList.List;
-        weapons  = _weaponInventory.GetWeaponTypeList();
+
+    private void Awake()
+    {
+        itemFactory = new ItemFactory();
+        weaponFactory = new WeaponFactory();
+        inventory = Inventory.Instance;
+        items = itemFactory.GetItems();
+        weapons = weaponFactory.GetWeapons();
     }
 
-    public int BuyItem(object item)
+    public void BuyItem(object item)
     {
+        if(CoinManager.Coins < item.Price)
+        {
+            return;
+        }
+        
+        CoinManager.RemoveCoin(item.Price);
+        inventory.AddItem(item);
+
         if(item is Weapon)
         {
-            Weapon weapon = (Weapon) item;
-            if(WalletManager.Wallet < weapon.Value)
+            foreach(List<Weapon> weapon in weapons)
             {
-                return 0;
-            }
-            if(!_weaponHandler.InsertNewWeapon(weapon))
-            {
-                Debug.Log("Weapon inventory is full");
-                return -1;
-            }
-            WalletManager.RemoveMoney(weapon.Value);
-            foreach(List<Weapon> w in weapons)
-            {
-                if (w.Contains(weapon))
+                if (weapon.Contains(item))
                 {
-                    w.Remove(weapon);
+                    weapon.Remove((Weapon)item);
                 }
             }
-            Debug.Log("bought weapon: " + weapon.Name);
-            return 1;
         }
-        
-        Item passiveItem = (Item) item;
-        if(WalletManager.Wallet < passiveItem.value)
-        {
-            return 0;
-        }
-        WalletManager.RemoveMoney(passiveItem.value);
-        _inventory.AddItem(passiveItem);
-
-        
-        Debug.Log("bought item: " + passiveItem.name);
-        return 1;
+        Debug.Log("bought Item");
+        return;
     }
 
     public List<object> GetItems(int ammount)
@@ -75,14 +60,6 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < ammount; i++)
         {
             int rarity = rnd.Next(1, 101);
-            if((rarity + _playerAttribute.LuckValue) > 100)
-            {
-                rarity = 100;
-            }
-            else
-            {
-                rarity += _playerAttribute.LuckValue;
-            }
 
             for(int a = 0; a < rarityCount; a++)
             {
@@ -98,18 +75,7 @@ public class ShopManager : MonoBehaviour
                 } 
                 else 
                 {
-                    List<object> itemsOfSameRarity = (List<object>)shopItems.Select(item => {
-                        if(item is Weapon)
-                        {
-                            Weapon weapon = (Weapon) item;
-                            return (int) weapon.RarityType == probabilities[a];
-                        }
-                        else
-                        {
-                            Item passiveItem = (Item) item;
-                            return (int) passiveItem.RarityType == probabilities[a];
-                        }
-                    });
+                    List<object> itemsOfSameRarity = shopItems.Select(item => (int) item.RarityType == probabilities[a]);
                     int randomIndex = rnd.Next(0, itemsOfSameRarity.Count);
                     randomItems.Add(itemsOfSameRarity[randomIndex]);
                     break;
@@ -137,6 +103,7 @@ public class ShopManager : MonoBehaviour
 
         return nextWeaponLevels;
     }
+ */
 
     //Say you have 4 events
 

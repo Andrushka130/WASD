@@ -5,8 +5,6 @@ using UnityEngine.Networking;
 
 public class WebRequest
 {
-
-    private static string networkError = "Network Error!";
     public static IEnumerator Download(string url, string method, System.Action<string> callback = null)
     {
         using (UnityWebRequest request = new UnityWebRequest(url, method))
@@ -19,7 +17,7 @@ public class WebRequest
                 Debug.Log(request.error);
                 if (callback != null)
                 {
-                    callback.Invoke(networkError);
+                    callback.Invoke(null);
                 }
             }
             else
@@ -47,7 +45,7 @@ public class WebRequest
                 Debug.Log(request.error);
                 if(callback != null) 
                 {
-                    callback.Invoke(networkError);
+                    callback.Invoke(request.downloadHandler.text);
                 }
             }
             else
