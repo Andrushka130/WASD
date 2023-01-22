@@ -12,6 +12,7 @@ public class GorillaArmAttack_lvl1 : MonoBehaviour
     {
         gorillaArm = GameObject.Find("Weapon").GetComponent<GorillaArms_lvl1>();
         pushForce = 120f;
+        pushVector = new Vector2();
         ignorePhysicsOfPlayerAndAttacks();
     }
     private void ignorePhysicsOfPlayerAndAttacks()

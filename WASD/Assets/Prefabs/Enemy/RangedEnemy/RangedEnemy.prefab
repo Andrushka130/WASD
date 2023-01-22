@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b80e1bddb96e28d4696ea208d24496b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   Body: {fileID: 2029246817300155159}
   Sprite: {fileID: 2029246817300155162}
   Collider: {fileID: 0}
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-3786788956096574685
+--- !u!114 &379252336104159369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,9 +144,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2029246817300155158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844f4bbc7f9ee48459947bf3377281c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: 6d323187e30d20a4888a374bddc02077, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
   experience: {fileID: 4102308923894230746, guid: 238c0530b3dbf2f479d357b21dbfb821, type: 3}
   currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
   expAmount: 4
@@ -193,7 +193,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -207,5 +207,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d267f598a7e6394e9d13339e97e044d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:

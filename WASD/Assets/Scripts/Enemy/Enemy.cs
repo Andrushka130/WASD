@@ -21,6 +21,7 @@ public abstract class Enemy : MonoBehaviour
         maxHealth = currentHealth;
         if (maxHealth <= 0)
         {
+            gameObject.GetComponent<DropManager>().Drop();
             Destroy(gameObject);
         }
     }

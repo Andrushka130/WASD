@@ -18,9 +18,9 @@ public class SpawnManager : MonoBehaviour
     private float spawnSpace;
     private float bossWaveSpawn;
     private float bossSpawnSpace;
-    public int waveCounter;
+    public ulong waveCounter;
     protected int bossWaveCountDown;
-    protected int currentWave;
+    protected ulong currentWave;
     private EnemyFactory enemyFactory;
 
     void Awake()

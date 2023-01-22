@@ -10,27 +10,27 @@ public class Melee : Enemy
     public float attackRadius = 7f;
     public float attackDelay = 1f;
     public float maxHealth = 5f;
-    public float damage = 1f;
+    public int damage = 1;
 
     private Transform target;
     private Vector2 movement;
     private Vector2 dir;
     private float timeSinceLastAttack;
     private Vector2 directionToPlayer;
-    private CharacterAttribute playerDamage;   
-    
+    private CharacterAttribute playerDamage;
+
 
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
-        this.currentHealth = maxHealth;        
+        this.currentHealth = maxHealth;
     }
 
     void FixedUpdate()
     {
         HealthUpdate(maxHealth);
         MovementPattern();
-    }    
+    }
 
     protected override void MovementPattern()
     {
@@ -64,5 +64,14 @@ public class Melee : Enemy
         target = GameObject.FindWithTag("Player").transform;
         //playerDamage = target.GetComponent<CharacterAttribute>();
         //playerDamage.TakeDamage((int)damage);
-    }   
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("hit" + collision.gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damage);
+        }
+    }
 }

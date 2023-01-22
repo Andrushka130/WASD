@@ -22,7 +22,6 @@ public class EnemyProjectile : MonoBehaviour
         enemyProjectile.layer = LayerMask.NameToLayer("Player");
 
         transform.localScale = new Vector2(0.3f, 0.3f);
-
     }
 
     public void Initialize(Vector3 position)
@@ -32,14 +31,13 @@ public class EnemyProjectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
-
-        if(collision.gameObject.tag == "Player")
+    
+        Debug.Log("hit" + collision.gameObject);
+        if (collision.gameObject.tag == "Player")
         {
-            //collision.gameObject.GetComponent<CharacterAttributes>().TakeDamage(projectileDamage);
-            //GameObject.FindWithTag("Player").GetComponent<CharacterAttribute>().TakeDamage(projectileDamage);
+            collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(projectileDamage);
         }
-        
+        Destroy(gameObject);
     }
 
     void Update()
