@@ -133,10 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 10197846}
   - component: {fileID: 10197849}
-  - component: {fileID: 10197848}
   - component: {fileID: 10197847}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: ShopManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,18 +166,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de11dd7cb07fc6c4989b5a23220fecdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &10197848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10197844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebcd74dcc071460468c3f8c2e8a564a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &10197849
@@ -5726,7 +5713,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498408805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ef8c5fe9d03a849a69654f2ee0ed7f, type: 3}
+  m_Script: {fileID: 11500000, guid: ebcd74dcc071460468c3f8c2e8a564a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1546795775

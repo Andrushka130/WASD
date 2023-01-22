@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CharacterAttribute
 {
-    private Attribute maxHealth = new Attribute(1);
-    public int CurrentHealth {get; private set; }
-    
+    private Attribute maxHealth = new Attribute(30);
     private Attribute attack = new Attribute(1);
     private Attribute critChance = new Attribute(1);
     private Attribute critDamage = new Attribute(1);

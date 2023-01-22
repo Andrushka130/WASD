@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     public float speed;
+    public int damage;
+    private float pushForce = 20f;
     public float checkRadius;
     public float attackRadius;
 
@@ -14,6 +16,7 @@ public class EnemyAI : MonoBehaviour
 
     private Transform target;
     private Rigidbody2D rb;
+    private Vector2 pushVector;
     private Vector2 movement;
     public Vector3 dir;
 
@@ -71,5 +74,16 @@ public class EnemyAI : MonoBehaviour
             //Enemy attack to be added
         }
 
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("hit" + collision.gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            pushVector = transform.right * 80;
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(pushVector * pushForce);
+            collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damage);
+        }
     }
 }
