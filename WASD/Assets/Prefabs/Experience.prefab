@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -9111257564668609963}
   - component: {fileID: -6642008620943813778}
   - component: {fileID: 6492286197692685176}
-  - component: {fileID: -7883900861424370731}
   - component: {fileID: 3480622758038788292}
   m_Layer: 9
   m_Name: Experience
@@ -144,23 +143,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   dir: {x: 0, y: 0, z: 0}
---- !u!114 &-7883900861424370731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4102308923894230746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922a89c1755d1a841972a13611e6f77e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  skillPoints: 0
-  currentExp: 0
-  requiredExp: 0
-  expBar: {fileID: 0}
 --- !u!114 &3480622758038788292
 MonoBehaviour:
   m_ObjectHideFlags: 0
