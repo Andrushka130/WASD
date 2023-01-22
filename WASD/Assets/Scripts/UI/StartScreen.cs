@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class StartScreen : MonoBehaviour
 {
-    public void OpenLogin()
+    private void Awake() {
+        PlayerData.Instance.LoadPlayerData();
+    }
+
+    public void OpenMainMenu()
     {
-        
         SceneManager.LoadSceneAsync("MainMenu");
-        
     }
 }

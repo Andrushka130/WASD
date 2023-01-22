@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 4102308923894230744}
   - component: {fileID: 2670490612336684849}
   - component: {fileID: -6642008620943813778}
-  - component: {fileID: 4102308923894230750}
-  - component: {fileID: 7677949910105972105}
+  - component: {fileID: 115274681213554296}
   m_Layer: 9
   m_Name: Eurodollar
   m_TagString: Experience
@@ -125,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.135
---- !u!114 &4102308923894230750
+--- !u!114 &115274681213554296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,28 +133,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4102308923894230746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff96a964f9b05542b4634e7f7a95149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  currentExp: 0
-  requiredExp: 0
-  expBar: {fileID: 0}
---- !u!114 &7677949910105972105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4102308923894230746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6296522cdba63d746906bdadf63631bc, type: 3}
+  m_Script: {fileID: 11500000, guid: cd6fdf4870dc38a4883076efea5c9fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
   checkRadius: 1.5
   selectPlayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   dir: {x: 0, y: 0, z: 0}

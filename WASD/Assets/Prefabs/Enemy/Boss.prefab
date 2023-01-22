@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6778105959962344719}
   - component: {fileID: 8868595652080855794}
   - component: {fileID: 1722693351084817930}
-  - component: {fileID: 8585327937689171339}
+  - component: {fileID: 6535384990994538028}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
@@ -151,7 +151,7 @@ MonoBehaviour:
   maxHealth: 30
   currentProjectile: {fileID: 2810979712154586069, guid: a4913313593256d4b835b3da04c52d99, type: 3}
   firePoint: {fileID: 5701684532895511276}
---- !u!114 &8585327937689171339
+--- !u!114 &6535384990994538028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,10 +160,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6209759378914004540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844f4bbc7f9ee48459947bf3377281c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d323187e30d20a4888a374bddc02077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   experience: {fileID: 4102308923894230746, guid: 238c0530b3dbf2f479d357b21dbfb821, type: 3}
   currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
-  expAmount: 7
+  expAmount: 10
   curAmount: 5
