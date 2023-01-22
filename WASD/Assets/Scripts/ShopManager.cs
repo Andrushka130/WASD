@@ -21,7 +21,7 @@ public class ShopManager : MonoBehaviour
         weapons  = _weaponInventory.GetWeaponTypeList();
     }
 
-    public int BuyItem(object item)
+    public static int BuyItem(object item)
     {
         if(item is Weapon)
         {
@@ -60,7 +60,7 @@ public class ShopManager : MonoBehaviour
         return 1;
     }
 
-    public List<object> GetItems(int ammount)
+    public static List<object> GetItems(int ammount)
     {
         System.Random rnd = new System.Random();
 
@@ -119,7 +119,7 @@ public class ShopManager : MonoBehaviour
         return randomItems;
     }
 
-    private List<object> GetShopItems()
+    private static List<object> GetShopItems()
     {
         List<object> shopItems = (from x in items select (object) x).ToList();
         shopItems.AddRange((from x in GetNextWeaponLevel() select (object) x).ToList());
@@ -127,7 +127,7 @@ public class ShopManager : MonoBehaviour
         return shopItems;
     }
 
-    private List<Weapon> GetNextWeaponLevel()
+    private static List<Weapon> GetNextWeaponLevel()
     {
         List<Weapon> nextWeaponLevels = new List<Weapon>();
         foreach(List<Weapon> weapon in weapons)

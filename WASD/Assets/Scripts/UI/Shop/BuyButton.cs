@@ -4,15 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class TabButton : MonoBehaviour, IPointerClickHandler
+public class BuyButton : MonoBehaviour, IPointerClickHandler
 {
    [SerializeField]
-   private Options options;
+   private object item;
    
    public void OnPointerClick(PointerEventData eventData)
    {
-      options.SwapPages(this);
+      ShopManager.BuyItem(item);
    }
+
+    public object Item
+  {
+    set { item = value; }
+  }
+
+
    
 
 }

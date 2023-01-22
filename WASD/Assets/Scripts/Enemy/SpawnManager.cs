@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -108,6 +109,8 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         yield return new WaitForSeconds(waveCoolDown);
+        Time.timeScale = 0f;
+        SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Additive);
 
         }
         
