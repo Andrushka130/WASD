@@ -6,12 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Bullet
-<<<<<<< HEAD
-  - EnemyProjectile
-  - SpawnManager
-=======
+  - Experience
   - Object
->>>>>>> develop
   layers:
   - Default
   - TransparentFX
