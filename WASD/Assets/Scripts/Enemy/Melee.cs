@@ -10,7 +10,7 @@ public class Melee : Enemy
     public float attackRadius = 7f;
     public float attackDelay = 1f;
     public float maxHealth = 5f;
-    public float damage = 1f;
+    public int damage = 1;
 
     private Transform target;
     private Vector2 movement;
@@ -63,5 +63,14 @@ public class Melee : Enemy
         target = GameObject.FindWithTag("Player").transform;
         //playerDamage = target.GetComponent<CharacterAttribute>();
         //playerDamage.TakeDamage((int)damage);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("hit" + collision.gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damage);
+        }
     }
 }

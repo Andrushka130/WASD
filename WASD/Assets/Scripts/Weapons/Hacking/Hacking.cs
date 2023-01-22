@@ -29,6 +29,7 @@ public class Hacking : Weapon, IRangedWeapon
 
     public void FireBullet()
     {
+        FirePoint = GameObject.Find("firePoint").transform;
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
     }

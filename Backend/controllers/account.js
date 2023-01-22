@@ -80,10 +80,6 @@ async function changeAccount(req, res, next) {
   const connection = db.getConnection();
 
   try {
-    // const { playerTag } = req.params;
-    // const data = req.body;
-    // const query = { playerTag };
-
     const { playerTag, email, password } = req.body;
     const query = { $or: [{ playerTag }, { email }] };
     const fields = { projection: { _id: 0, playerTag: 1, email: 1 } };
@@ -115,39 +111,6 @@ async function changeAccount(req, res, next) {
       const update = { $set: { playerTag: newPlayerTag } };
       await connection.collection(dbName).updateOne(query, update);
     }
-
-    // if (data.password != "") {
-    //   const password = req.body.password;
-    //   const update = { $set: { password } };
-    //   await connection.collection(dbName).updateOne(query, update);
-    // }
-    // if (data.email != "") {
-    //   const email = req.body.email;
-    //   const update = { $set: { email } };
-    //   await connection.collection(dbName).updateOne(query, update);
-    // }
-    // if (data.playerTag != "") {
-    //   const newPlayerTag = req.body.playerTag;
-    //   const update = { $set: { playerTag: newPlayerTag } };
-    //   await connection.collection(dbName).updateOne(query, update);
-    // }
-
-    /*if (data.hasOwnProperty("password")) {
-      const password = req.body.password;
-      const update = { $set: { password } };
-      await connection.collection(dbName).updateOne(query, update);
-    }
-    if (data.hasOwnProperty("email")) {
-      const email = req.body.email;
-      const update = { $set: { email } };
-      await connection.collection(dbName).updateOne(query, update);
-    }
-    if (data.hasOwnProperty("playerTag")) {
-      const newPlayerTag = req.body.playerTag;
-      const update = { $set: { newPlayerTag } };
-      await connection.collection(dbName).updateOne(query, update);
-    }*/
-
     res.status(200).send(`PlayerData of ${playerTag} updated`);
   } catch (err) {
     next(err);
