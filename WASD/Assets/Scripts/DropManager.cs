@@ -21,15 +21,20 @@ public class DropManager : MonoBehaviour
     {
         if (!isQuitting)
         {
-            if (gameObject.name == "Enemy(Clone)")
+            if (gameObject.name == "MeeleEnemy(Clone)")
             {
                 expAmount = 3;
                 curAmount = 1;
             }
+            else if (gameObject.name == "RangeEnemy(Clone)")
+            {
+                expAmount = 4;
+                curAmount = 2;
+            }
             else if (gameObject.name == "Boss(Clone)")
             {
-                expAmount = 5;
-                curAmount = 3;
+                expAmount = 7;
+                curAmount = 5;
             }
             spawnOriginX = gameObject.transform.position.x;
             spawnOriginY = gameObject.transform.position.y;
