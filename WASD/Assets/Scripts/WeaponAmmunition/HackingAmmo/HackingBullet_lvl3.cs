@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet3 : MonoBehaviour
+public class HackingBullet_lvl3 : MonoBehaviour
 {
     public GameObject hitEffect;
     public float fadeOutTime = 0.25f;
