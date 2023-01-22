@@ -11,7 +11,6 @@ public class DropCollect : MonoBehaviour
             if(collider.gameObject.CompareTag("Experience"))
             {
                 WalletManager.AddMoney(20);
-                Debug.Log(WalletManager.Wallet);
             }
             Destroy(collider.gameObject);
         }

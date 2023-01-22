@@ -5930,7 +5930,7 @@ MonoBehaviour:
   skillPoints: 0
   currentExp: 0
   requiredExp: 0
-  expBar: {fileID: 0}
+  expBar: {fileID: 1649834937}
 --- !u!1 &1530779269
 GameObject:
   m_ObjectHideFlags: 0
