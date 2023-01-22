@@ -141,7 +141,7 @@ MonoBehaviour:
   checkRadius: 1.5
   selectPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   dir: {x: 0, y: 0, z: 0}
 --- !u!114 &1169636297163844066
 MonoBehaviour:

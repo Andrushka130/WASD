@@ -8,10 +8,9 @@ public class StartScreen : MonoBehaviour
     private void Awake() {
         PlayerData.Instance.LoadPlayerData();
     }
-    public void OpenLogin()
+
+    public void OpenMainMenu()
     {
-        
         SceneManager.LoadSceneAsync("MainMenu");
-        
     }
 }
