@@ -12,7 +12,7 @@ public class DropManager : MonoBehaviour
     private float spawnOriginY;
     private bool isQuitting = false;
 
-    private void OnApplicationQuit()
+    /* private void OnApplicationQuit()
     {
         isQuitting = true;
     }
@@ -51,5 +51,5 @@ public class DropManager : MonoBehaviour
                 GameObject newCur = (GameObject)Instantiate(currency, curSpawn, Quaternion.identity);
             }
         }
-    }
+    } */
 }
