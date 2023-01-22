@@ -12,12 +12,11 @@ public class CreateAccount : MonoBehaviour
     [SerializeField] private TextMeshProUGUI alertText;
    
     [SerializeField] private LoginScreen loginScreen;
-  
-    
 
+    private Database db = new Database();
     private PlayerData _playerData;
 
-    public void OnCreateAccountClick()
+    public async void OnCreateAccountClick()
     {
         alertText.text = "";
 
@@ -43,20 +42,19 @@ public class CreateAccount : MonoBehaviour
         _playerData.Password = passwordInputField.text;
 
 
-        StartCoroutine(Database.CreateAccount(_playerData, result => {
-            if(result != _playerData.PlayerTag + " inserted ...")
-            {
-                alertText.text = result;
-                return; 
-            }
+        string result = await db.CreateAccount(_playerData);
+        
+        if(result != _playerData.PlayerTag + " inserted ...")
+        {
+            alertText.text = result;
+            return; 
+        }
 
-            _playerData.Password = "";
-            _playerData.Email = "";
-            _playerData.LoggedIn = true;
-            _playerData.SavePlayerTag();
-            _playerData.SaveLoginStatus();
-            loginScreen.OpenMainMenu();
-            
-        }));
+        _playerData.Password = "";
+        _playerData.Email = "";
+        _playerData.LoggedIn = true;
+        _playerData.SavePlayerTag();
+        _playerData.SaveLoginStatus();
+        loginScreen.OpenMainMenu();
     }
 }
