@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StartScreen : MonoBehaviour
 {
-    public void OpenLogin()
+    public void OpenMainMenu()
     {
         
         SceneManager.LoadSceneAsync("MainMenu");
