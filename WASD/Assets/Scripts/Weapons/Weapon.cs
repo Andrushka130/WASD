@@ -5,16 +5,18 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     public abstract string Name { get; }
+    public abstract string Description { get; }
     public abstract int WeaponLevel { get; }
+    public abstract int Value { get; }
     public abstract float Dmg { get; }
-    protected abstract float CritDmg { get; }
-    protected abstract int CritChance { get; }
-    protected abstract float Lifesteal { get; }
-    protected abstract float AtkSpeed { get; }    
-    protected abstract Rarity RarityType { get; }
+    public abstract float CritDmg { get; }
+    public abstract int CritChance { get; }
+    public abstract float Lifesteal { get; }
+    public abstract float AtkSpeed { get; }    
+    public abstract Rarity RarityType { get; }
 
     private System.Random rnd = new System.Random();
-    /*private PlayerAttribute _playerAttribute = new PlayerAttribute();*/
+    private PlayerAttribute _playerAttribute = PlayerAttribute.Instance;
     
 
     public abstract void Attack();
@@ -24,15 +26,15 @@ public abstract class Weapon : MonoBehaviour
     public float GetDamage()
     {
         int random = rnd.Next(1, 101);
-        if(random < CritChance /*(CritChance * _playerAttribute.CritChance)*/ )
+        if(random < (CritChance * _playerAttribute.CritChanceValue) )
         {
-            return Dmg * CritDmg /* + _playerAttribute.Damage*/;
+            return Dmg * CritDmg  + _playerAttribute.CritDamageValue;
         }
-        return Dmg /* + _playerAttribute.Damage*/;
+        return Dmg + _playerAttribute.AttackValue;
     }
 
     public float GetCooldown()
     {
-        return AtkSpeed /* * _playerAttribute.Attackspeed*/;
+        return AtkSpeed * _playerAttribute.AttackSpeedValue;
     }
 }

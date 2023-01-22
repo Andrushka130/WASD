@@ -5,13 +5,15 @@ using UnityEngine;
 public class Hacking_lvl2 : Weapon, IRangedWeapon
 {
     public override string Name => "Hacking";
-    public override float Dmg => 6;
-    protected override float CritDmg => 1.5f;
-    protected override int CritChance => 25;
-    protected override float Lifesteal => 0;
-    protected override float AtkSpeed => 0.75f;    
-    protected override Rarity RarityType => Rarity.Common;
+    public override string Description => "Even killing is a remote job now";
     public override int WeaponLevel => 2;
+    public override int Value => 7;
+    public override float Dmg => 6;
+    public override float CritDmg => 1.5f;
+    public override int CritChance => 25;
+    public override float Lifesteal => 0;
+    public override float AtkSpeed => 0.75f;    
+    public override Rarity RarityType => Rarity.Uncommon;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }
     public GameObject BulletPrefab { get; set; }
