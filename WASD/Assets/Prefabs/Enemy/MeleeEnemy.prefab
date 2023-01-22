@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 3046980416095835444}
   - component: {fileID: 3046980416095835447}
   - component: {fileID: -8042434585803302672}
-  - component: {fileID: 5679149641163016529}
-  - component: {fileID: -2510595005900437408}
+  - component: {fileID: 3443750570744965796}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,17 +118,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3046980416095835446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e46b130ee4cbe4aa318b600c26b773, type: 3}
+  m_Script: {fileID: 11500000, guid: 353004dc121f47643aa27345cfd7251c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  checkRadius: 10
-  attackRadius: 0.5
-  shouldRotate: 0
-  selectPlayer:
-    serializedVersion: 2
-    m_Bits: 64
-  dir: {x: 0, y: 0, z: 0}
+  Body: {fileID: 3046980416095835444}
+  Sprite: {fileID: 3046980416095835445}
+  Collider: {fileID: -8042434585803302672}
+  currentHealth: 0
+  speed: 1.8
+  checkRadius: 30
+  attackRadius: 1.7
+  attackDelay: 1
+  maxHealth: 10
+  damage: 1
 --- !u!58 &-8042434585803302672
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,20 +147,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5679149641163016529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3046980416095835446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035f795468b9fe346b82d2f77e54b460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
---- !u!114 &-2510595005900437408
+--- !u!114 &3443750570744965796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,5 +161,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: {fileID: 4102308923894230746, guid: 238c0530b3dbf2f479d357b21dbfb821, type: 3}
   currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
-  expAmount: 0
-  curAmount: 0
+  expAmount: 3
+  curAmount: 1

@@ -21,7 +21,7 @@ public class Explosion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(projectileLaunchSystem.GetDamage());
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(projectileLaunchSystem.GetDamage());
         }
     }
 }

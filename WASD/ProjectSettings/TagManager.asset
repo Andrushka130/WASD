@@ -8,6 +8,9 @@ TagManager:
   - Bullet
   - Experience
   - Object
+  - EnemyProjectile
+  - Canvas
+  - SpawnManager
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Player
   - Attack
   - Enemy
-  - 
+  - Drops
   - 
   - 
   - 

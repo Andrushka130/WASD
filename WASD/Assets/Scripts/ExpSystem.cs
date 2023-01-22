@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ExpSystem : MonoBehaviour
 {
     public int level;
+    public int skillPoints;
     public float currentExp;
     public float requiredExp;
 
@@ -14,14 +15,13 @@ public class ExpSystem : MonoBehaviour
 
     [Header("UI")]
     public Image expBar;
-    // Start is called before the first frame update
+ 
     void Start()
     {
         expBar.fillAmount = currentExp / requiredExp;
         requiredExp = CalculateRequiredExp();
     }
 
-    // Update is called once per frame
     void OnDestroy()
     {
         UpdateExp();
@@ -52,9 +52,15 @@ public class ExpSystem : MonoBehaviour
     public void LevelUp()
     {
         level++;
+        skillPoints++;
         expBar.fillAmount = 0f;
         currentExp = Mathf.RoundToInt(currentExp - requiredExp);
         requiredExp = CalculateRequiredExp();
+    }
+
+    public void SpentSkillPoints()
+    {
+        skillPoints--;
     }
 
     private int CalculateRequiredExp()
