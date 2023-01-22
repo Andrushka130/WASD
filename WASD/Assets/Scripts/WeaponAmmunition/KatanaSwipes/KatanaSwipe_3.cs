@@ -21,7 +21,7 @@ public class KatanaSwipe_3 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(katana.GetDamage());
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(katana.GetDamage());
         }
 
     }

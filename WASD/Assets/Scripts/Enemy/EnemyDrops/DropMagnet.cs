@@ -45,5 +45,9 @@ public class DropMagnet : MonoBehaviour
         {
             rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         }
+        else
+        {
+            rb.MovePosition(rb.position + movement * 1/150 * speed * Time.fixedDeltaTime);
+        }
     }
 }

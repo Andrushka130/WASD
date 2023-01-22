@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 public class PlayerHealthManager : MonoBehaviour
 {
     private static int currentHealth;
-    private PlayerAttribute _playerAttribute;
+    private static PlayerAttribute _playerAttribute;
+    private static Database _db = new Database();
 
     public int CurrentHealth 
     {
@@ -24,8 +25,18 @@ public class PlayerHealthManager : MonoBehaviour
         currentHealth -= damage;
     }
 
-    private void Die() 
+    private async void Die() 
     {
+        ulong wave = GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().waveCounter;
+        if(PlayerData.Instance.Highscore < wave)
+        {
+            PlayerData.Instance.Highscore = wave;
+            PlayerData.Instance.SaveHighscore();
+            if(PlayerData.Instance.LoggedIn)
+            {
+                Debug.Log(await _db.UpdateHighscore(PlayerData.Instance));
+            }
+        }
         SceneManager.LoadSceneAsync("MainMenu");
     }
 }

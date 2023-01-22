@@ -12,6 +12,7 @@ public class GorillaArmAttack_lvl1 : MonoBehaviour
     {
         gorillaArm = GameObject.Find("Weapon").GetComponent<GorillaArms_lvl1>();
         pushForce = 120f;
+        pushVector = new Vector2();
         ignorePhysicsOfPlayerAndAttacks();
     }
     private void ignorePhysicsOfPlayerAndAttacks()
@@ -27,7 +28,7 @@ public class GorillaArmAttack_lvl1 : MonoBehaviour
         {
             pushVector = transform.right * 80;
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(pushVector * pushForce);
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(gorillaArm.GetDamage());
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(gorillaArm.GetDamage());
         }
     }
 
