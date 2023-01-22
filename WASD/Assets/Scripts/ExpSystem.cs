@@ -45,11 +45,7 @@ public class ExpSystem : MonoBehaviour
             /*
              * lerpTimer += Time.deltaTime;
              * float percentComplete = lerpTimer / 3;
-<<<<<<< Updated upstream
              * expBar.fillAmount = Mathf.Lerp(expFillAmount, expFraction, percentComplete);
-=======
-             * expBar.fillAmount = Mathf.Lerp(expFillAmount, expFraction, percentComplete); 
->>>>>>> Stashed changes
              */
             expBar.fillAmount = expFraction;
         }
