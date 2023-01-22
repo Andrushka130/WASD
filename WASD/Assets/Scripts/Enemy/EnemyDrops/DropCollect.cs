@@ -8,6 +8,11 @@ public class DropCollect : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Experience")|| collider.gameObject.CompareTag("Eurodollar"))
         {
+            if(collider.gameObject.CompareTag("Experience"))
+            {
+                WalletManager.AddMoney(20);
+                Debug.Log(WalletManager.Wallet);
+            }
             Destroy(collider.gameObject);
         }
     }
