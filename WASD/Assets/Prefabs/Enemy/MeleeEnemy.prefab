@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3046980416095835444}
   - component: {fileID: 3046980416095835447}
   - component: {fileID: -8042434585803302672}
-  m_Layer: 0
+  - component: {fileID: 3443750570744965796}
+  m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,3 +147,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3443750570744965796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046980416095835446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844f4bbc7f9ee48459947bf3377281c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experience: {fileID: 4102308923894230746, guid: 238c0530b3dbf2f479d357b21dbfb821, type: 3}
+  currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
+  expAmount: 3
+  curAmount: 1

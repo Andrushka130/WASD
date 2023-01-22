@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2029246817300155161}
   - component: {fileID: 2029246817300155160}
   - component: {fileID: 2029246817300155159}
-  m_Layer: 0
+  - component: {fileID: -3786788956096574685}
+  m_Layer: 8
   m_Name: RangedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -148,3 +149,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-3786788956096574685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029246817300155158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844f4bbc7f9ee48459947bf3377281c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experience: {fileID: 4102308923894230746, guid: 238c0530b3dbf2f479d357b21dbfb821, type: 3}
+  currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
+  expAmount: 4
+  curAmount: 2
