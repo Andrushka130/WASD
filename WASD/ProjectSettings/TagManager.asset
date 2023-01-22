@@ -9,6 +9,9 @@ TagManager:
   - Experience
   - Object
   - GameMusic
+  - EnemyProjectile
+  - Canvas
+  - SpawnManager
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Player
   - Attack
   - Enemy
-  - 
+  - Drops
   - 
   - 
   - 

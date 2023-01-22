@@ -32,7 +32,7 @@ public class ProjectileLaunchSystem_lvl3 : Weapon, IProjectileLaunchWeapon
         enemys = EnemyDetectionCircle.getEnemysAroundPlayer(20f);                    
 
         for(int numberOfEnemys = 0; numberOfEnemys <= 2; numberOfEnemys++){
-            if(enemys[numberOfEnemys].TryGetComponent<EnemyAI>(out EnemyAI enemyAI)){
+            if(enemys[numberOfEnemys].TryGetComponent<Enemy>(out Enemy enemyAI)){
                 GameObject bullet = Instantiate(BulletPrefab, enemys[numberOfEnemys].transform.position, enemys[numberOfEnemys].transform.rotation);
                 Destroy(bullet, 0.25f);
             }

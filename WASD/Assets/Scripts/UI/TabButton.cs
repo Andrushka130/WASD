@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class TabButton : MonoBehaviour, IPointerClickHandler
 {
    [SerializeField]
-   public Options options;
+   private Options options;
    
    public void OnPointerClick(PointerEventData eventData)
    {

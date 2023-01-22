@@ -6,28 +6,33 @@ using UnityEngine.UI;
 public class ExpSystem : MonoBehaviour
 {
     public int level;
+    public int skillPoints;
     public float currentExp;
     public float requiredExp;
 
-    private float lerpTimer;
-    private float delayTimer;
+    //private float lerpTimer;
+    //private float delayTimer;
 
     [Header("UI")]
     public Image expBar;
-    // Start is called before the first frame update
+ 
     void Start()
     {
-        expBar.fillAmount = currentExp / requiredExp;
+        currentExp = 0;
         requiredExp = CalculateRequiredExp();
+        expBar.fillAmount = currentExp / requiredExp;
     }
 
-    // Update is called once per frame
-    void OnDestroy()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        UpdateExp();
-        GainExperience(20);
-        if (currentExp > requiredExp)
-            LevelUp();
+        if (collider.gameObject.CompareTag("Experience"))
+        {
+            GainExperience(5);
+            UpdateExp();
+            if (currentExp > requiredExp)
+                LevelUp();
+            Destroy(collider.gameObject);
+        }
     }
 
     public void UpdateExp()
@@ -37,24 +42,34 @@ public class ExpSystem : MonoBehaviour
 
         if(expFillAmount < expFraction)
         {
-            lerpTimer += Time.deltaTime;
-            float percentComplete = lerpTimer / 3;
-            expBar.fillAmount = Mathf.Lerp(expFillAmount, expFraction, percentComplete); 
+            /*
+             * lerpTimer += Time.deltaTime;
+             * float percentComplete = lerpTimer / 3;
+             * expBar.fillAmount = Mathf.Lerp(expFillAmount, expFraction, percentComplete);
+             */
+            expBar.fillAmount = expFraction;
         }
     }
 
     public void GainExperience(float expGained)
     {
         currentExp += expGained;
-        lerpTimer = 0f;
+        //lerpTimer = 0f;
     }
 
     public void LevelUp()
     {
         level++;
+        skillPoints++;
         expBar.fillAmount = 0f;
         currentExp = Mathf.RoundToInt(currentExp - requiredExp);
         requiredExp = CalculateRequiredExp();
+        UpdateExp();
+    }
+
+    public void SpentSkillPoints()
+    {
+        skillPoints--;
     }
 
     private int CalculateRequiredExp()
@@ -62,7 +77,7 @@ public class ExpSystem : MonoBehaviour
         int solveForRequiredExp = 40;
         for(int levelCycle = 1; levelCycle <= level; levelCycle++)
         {
-            solveForRequiredExp += (int)Mathf.Floor(solveForRequiredExp * 2 - 30);
+            solveForRequiredExp = (int)Mathf.Floor(solveForRequiredExp * 2 - 30);
         }
         return solveForRequiredExp;
     }
