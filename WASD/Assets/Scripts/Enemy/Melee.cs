@@ -61,7 +61,7 @@ public class Melee : Enemy
     void Attack()
     {
         target = GameObject.FindWithTag("Player").transform;
-        playerDamage = target.GetComponent<CharacterAttribute>();
-        playerDamage.TakeDamage((int)damage);
+        //playerDamage = target.GetComponent<CharacterAttribute>();
+        //playerDamage.TakeDamage((int)damage);
     }
 }
