@@ -58,26 +58,4 @@ public class Database : WebRequest
         string method = "GET";
         return PlayerData.Parse(await db.AsyncDownload(url, method));
     }
-
-    public async Task<string> InitTestData()
-    {
-        try
-        {
-            StreamReader r = new StreamReader("Assets/Scripts/Database/DatabaseTestData.json");
-        
-            string json = r.ReadToEnd();
-            PlayerData[] testData = PlayerData.ParseAll(json).Items;
-
-            foreach(PlayerData item in testData)
-            {
-                return await CreateAccount(item);
-            }
-        } 
-        catch (FileNotFoundException e) 
-        {
-            Debug.Log(e.Message);
-            return e.Message;
-        } 
-        return "Something went wrong!: InitTestData()";
-    }
 }
