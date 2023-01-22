@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
-{
-    public GameObject hitEffect;
-    public float fadeOutTime = 0.25f;
+{    
     private Hacking hacking;    
 
     private void Start()
@@ -25,16 +23,13 @@ public class Bullet : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemy")
         {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            collision.gameObject.GetComponent<Enemy>().DamageEnemy(hacking.GetDamage());
-            Destroy(effect, fadeOutTime);
+            
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(hacking.GetDamage());            
             Destroy(gameObject);
         }        
 
         if (collision.gameObject.tag == "Object")
-        {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, fadeOutTime);
+        {            
             Destroy(gameObject);
         }        
 
