@@ -37,7 +37,7 @@ public class EnemyProjectile : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             //collision.gameObject.GetComponent<CharacterAttributes>().TakeDamage(projectileDamage);
-            GameObject.FindWithTag("Player").GetComponent<PlayerController>().TakeDamage(projectileDamage);
+            GameObject.FindWithTag("Player").GetComponent<CharacterAttribute>().TakeDamage(projectileDamage);
         }
         
     }

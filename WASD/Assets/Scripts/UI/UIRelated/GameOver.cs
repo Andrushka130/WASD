@@ -20,11 +20,11 @@ public class GameOver : MonoBehaviour
     {
         //add here reference to Player Health
 
-        if(GameObject.FindWithTag("Player").GetComponent<CharacterAttribute>().currentHealth <= 0)
+        /*if(GameObject.FindWithTag("Player").GetComponent<CharacterAttribute>().CurrentHealth <= 0)
         {
             GameOverScreen();
         }
-        
+        */
     }
 
     public void GameOverScreen()

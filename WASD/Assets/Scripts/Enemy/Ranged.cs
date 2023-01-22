@@ -10,7 +10,7 @@ public class Ranged : Enemy
     public float attackRadius = 7f;
     public float attackDelay = 1f;
     public float projectileSpeed = 2f;
-    public int maxHealth = 5;
+    public float maxHealth = 5f;
     public GameObject currentProjectile;
     public Transform firePoint;
 

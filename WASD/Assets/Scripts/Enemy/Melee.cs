@@ -9,14 +9,15 @@ public class Melee : Enemy
     public float checkRadius = 30f;
     public float attackRadius = 7f;
     public float attackDelay = 1f;
-    public int maxHealth = 5;
-    public int damage = 1;
+    public float maxHealth = 5f;
+    public float damage = 1f;
 
     private Transform target;
     private Vector2 movement;
     private Vector2 dir;
     private float timeSinceLastAttack;
     private Vector2 directionToPlayer;
+    private CharacterAttribute playerDamage;
 
     void Start()
     {
@@ -60,6 +61,7 @@ public class Melee : Enemy
     void Attack()
     {
         target = GameObject.FindWithTag("Player").transform;
-        target.GetComponent<PlayerController>().TakeDamage(damage);
+        playerDamage = target.GetComponent<CharacterAttribute>();
+        playerDamage.TakeDamage((int)damage);
     }
 }

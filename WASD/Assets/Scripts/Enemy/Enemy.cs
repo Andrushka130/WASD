@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
     public Rigidbody2D Body;
     public SpriteRenderer Sprite;
     public CircleCollider2D Collider;
-    public int currentHealth;
+    public float currentHealth;
 
     protected abstract void MovementPattern();
 
@@ -16,7 +16,7 @@ public abstract class Enemy : MonoBehaviour
         transform.position = position;
     }
 
-    public void HealthUpdate(int maxHealth)
+    public void HealthUpdate(float maxHealth)
     {
         maxHealth = currentHealth;
         if (maxHealth <= 0)
@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
     
-    public void DamageEnemy(int bulletDamage)
+    public void DamageEnemy(float bulletDamage)
     {
         currentHealth -= bulletDamage;
     }

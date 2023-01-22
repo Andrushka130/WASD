@@ -106,7 +106,7 @@ public class CharacterAttribute : MonoBehaviour
     public virtual void Die()
     {
         Debug.Log("Player died");
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
         
         GameObject.FindWithTag("Canvas").GetComponent<GameOver>().GameOverScreen();
     }

@@ -142,9 +142,11 @@ MonoBehaviour:
   currentHealth: 0
   speed: 0.6
   checkRadius: 30
-  attackRadius: 9
-  attackDelay: 5
+  attackRadius: 5
+  attackDelay: 0.3
   projectileSpeed: 5
+  barrageAmount: 0
+  barrageTimer: 0.1
   maxHealth: 30
   currentProjectile: {fileID: 2810979712154586069, guid: a4913313593256d4b835b3da04c52d99, type: 3}
   firePoint: {fileID: 5701684532895511276}
