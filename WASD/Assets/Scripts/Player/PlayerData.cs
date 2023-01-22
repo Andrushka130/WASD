@@ -51,20 +51,20 @@ public class PlayerData
     set { loggedIn = value; }
   }
 
-    public static PlayerData Instance
+  public static PlayerData Instance
+  {
+    get
     {
-        get
+      lock (padlock)
+      {
+        if (instance == null)
         {
-            lock (padlock)
-            {
-                if (instance == null)
-                {
-                    instance = new PlayerData();
-                }
-                return instance;
-            }
+          instance = new PlayerData();
         }
+        return instance;
+      }
     }
+  }
 
     public string Stringify() 
     {
