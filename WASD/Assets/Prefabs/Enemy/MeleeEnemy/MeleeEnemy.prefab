@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 3046980416095835445}
   - component: {fileID: 3046980416095835444}
   - component: {fileID: 3046980416095835447}
-  - component: {fileID: -8042434585803302672}
   - component: {fileID: 3443750570744965796}
+  - component: {fileID: -448781734122725038}
+  - component: {fileID: 2954683554009974130}
+  - component: {fileID: -2137515614423976961}
   m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -76,8 +78,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -520767664, guid: 32c9f8bdb4689924b9644d6617fbf912, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 3046980416095835444}
   Sprite: {fileID: 3046980416095835445}
-  Collider: {fileID: -8042434585803302672}
+  Collider: {fileID: 0}
   currentHealth: 0
   speed: 1.8
   checkRadius: 30
@@ -131,22 +133,6 @@ MonoBehaviour:
   attackDelay: 1
   maxHealth: 10
   damage: 1
---- !u!58 &-8042434585803302672
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3046980416095835446}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &3443750570744965796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +149,61 @@ MonoBehaviour:
   currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
   expAmount: 3
   curAmount: 1
+--- !u!61 &-448781734122725038
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046980416095835446}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.7857143}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3125, y: 1.5625}
+  m_EdgeRadius: 0
+--- !u!95 &2954683554009974130
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046980416095835446}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a221c4da427964d41b5ee698e236b09c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2137515614423976961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046980416095835446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d267f598a7e6394e9d13339e97e044d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

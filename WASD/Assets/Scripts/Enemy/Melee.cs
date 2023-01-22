@@ -17,19 +17,20 @@ public class Melee : Enemy
     private Vector2 dir;
     private float timeSinceLastAttack;
     private Vector2 directionToPlayer;
-    private CharacterAttribute playerDamage;
+    private CharacterAttribute playerDamage;   
+    
 
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
-        this.currentHealth = maxHealth;
+        this.currentHealth = maxHealth;        
     }
 
     void FixedUpdate()
     {
         HealthUpdate(maxHealth);
         MovementPattern();
-    }
+    }    
 
     protected override void MovementPattern()
     {
@@ -63,5 +64,5 @@ public class Melee : Enemy
         target = GameObject.FindWithTag("Player").transform;
         //playerDamage = target.GetComponent<CharacterAttribute>();
         //playerDamage.TakeDamage((int)damage);
-    }
+    }   
 }
