@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(hacking.GetDamage());
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(hacking.GetDamage());
             Destroy(effect, fadeOutTime);
             Destroy(gameObject);
         }        

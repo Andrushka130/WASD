@@ -29,7 +29,7 @@ public class GorillaArmAttack_lvl3 : MonoBehaviour
         {
             pushVector = transform.right * 120;
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(pushVector * pushForce);
-            collision.gameObject.GetComponent<EnemyHealthScript>().DamageEnemy(gorillaArmDamage);
+            collision.gameObject.GetComponent<Enemy>().DamageEnemy(gorillaArmDamage);
         }
     }
 }
