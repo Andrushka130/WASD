@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     private static WeaponHandler _weaponHandler;
     private static List<Item> items;
     private static List<List<Weapon>> weapons;
+    
     private void Start() {
         _playerAttribute = PlayerAttribute.Instance;
         _inventory = Inventory.Instance;
