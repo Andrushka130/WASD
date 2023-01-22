@@ -562,7 +562,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974910077}
         m_TargetAssemblyTypeName: StartScreen, Assembly-CSharp
-        m_MethodName: OpenLogin
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
