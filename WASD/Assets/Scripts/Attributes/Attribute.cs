@@ -10,11 +10,6 @@ public class Attribute
 
     private List<int> modifiers = new List<int>();
 
-    public Attribute(int value)
-    {
-        baseValue = value;
-    }
-
     public int GetValue()
     {
         int finalValue = baseValue;

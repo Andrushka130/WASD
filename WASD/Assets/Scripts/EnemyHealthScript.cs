@@ -6,7 +6,7 @@ public class EnemyHealthScript : MonoBehaviour
 {
     [SerializeField]
     public int health = 5;
-    private float currentHealth;
+    private int currentHealth;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class EnemyHealthScript : MonoBehaviour
         return this.health;
     }
 
-    public void DamageEnemy(float damage)
+    public void DamageEnemy(int damage)
     {
         currentHealth -= damage;
     }
@@ -41,4 +41,5 @@ public class EnemyHealthScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
