@@ -8,7 +8,7 @@ async function getAllPlayerData(req, res, next) {
   try {
     const query = {};
     const fields = { projection: { _id: 0, playerTag: 1, highscore: 1 } };
-    const sorting = { highscore: -1 };
+    const sorting = { highscore: 1 };
     const data = await connection
       .collection(dbName)
       .find(query, fields)
