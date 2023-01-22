@@ -7,14 +7,14 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class EnemyAnimationHandler : MonoBehaviour
 {
     private Vector2 posLastFrame;
-    private Vector2 newPosition;
+    private Vector2 newPosition;        
 
     private void Update()
     {
-        flipSprite();
+        flipSprite();        
     }
 
-    public void flipSprite()
+    private void flipSprite()
     {
         posLastFrame = newPosition;
         newPosition = transform.position;
@@ -26,5 +26,5 @@ public class EnemyAnimationHandler : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-    }
+    }    
 }
