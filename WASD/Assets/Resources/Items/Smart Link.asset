@@ -19,7 +19,7 @@ MonoBehaviour:
   value: 40
   description: This item harbors secrets that the developer will reveal soon.
   attack: 0
-  critChance: 8
+  critChance: 1
   critDamage: 8
   attackSpeed: 0
   armor: 0
