@@ -19,6 +19,7 @@ public class Melee : Enemy
     private Vector2 directionToPlayer;
     private CharacterAttribute playerDamage;
 
+
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
