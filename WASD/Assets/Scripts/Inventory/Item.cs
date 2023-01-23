@@ -24,6 +24,4 @@ public class Item : ScriptableObject
     public int luck;
     public int movementSpeed;
     public int psychoLevel;
-
 }
-

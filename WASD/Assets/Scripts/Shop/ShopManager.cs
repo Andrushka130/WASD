@@ -20,8 +20,13 @@ public class ShopManager : MonoBehaviour
         _weaponInventory = WeaponInventory.GetInstance();
         items = ItemList.List;
         weapons  = _weaponInventory.GetWeaponTypeList();
+        Debug.Log(GetItems(4));
     }
 
+
+    //returns 0 if not enough money
+    //returns 1 if item bought
+    //returns -1 if weapon inventory full
     public int BuyItem(object item)
     {
         if(item is Weapon)
@@ -61,7 +66,8 @@ public class ShopManager : MonoBehaviour
         return 1;
     }
 
-    public  List<object> GetItems(int ammount)
+
+    public List<object> GetItems(int ammount)
     {
         System.Random rnd = new System.Random();
 
@@ -75,7 +81,7 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < ammount; i++)
         {
-            int rarity = rnd.Next(1, 101);
+            float rarity = rnd.Next(1, 101);
             if((rarity + _playerAttribute.LuckValue) > 100)
             {
                 rarity = 100;
@@ -119,12 +125,14 @@ public class ShopManager : MonoBehaviour
                             }
                         }
                     }
+                    
 
                     if(itemsOfSameRarity.Count == 0)
                     {
                         i--;
                         break;
                     }
+                
                     int randomIndex = rnd.Next(0, itemsOfSameRarity.Count);
 
                     if(itemsOfSameRarity[randomIndex] is Weapon)
