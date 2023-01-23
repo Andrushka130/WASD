@@ -16,6 +16,8 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
     public override Rarity RarityType => Rarity.Rare;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }
+
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Hacking");
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
     public Transform FirePointLeft { get; set; }

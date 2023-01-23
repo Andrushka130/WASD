@@ -15,7 +15,7 @@ MonoBehaviour:
   name: RAM-Upgrade
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 2
+  RarityType: 15
   value: 20
   description: This item harbors secrets that the developer will reveal soon.
   attack: 0

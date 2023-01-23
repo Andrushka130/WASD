@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Adrenaline Booster
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 4
+  RarityType: 40
   value: 80
   description: This item harbors secrets that the developer will reveal soon.
   attack: 6

@@ -15,6 +15,8 @@ public class ProjectileLaunchSystem_lvl2 : Weapon, IProjectileLaunchWeapon
     public override float AtkSpeed => 1.5f;
     public override Rarity RarityType => Rarity.Epic;
 
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Launched");
+
     public GameObject BulletPrefab { get; set; }
     public EnemyDetectionCircle EnemyDetectionCircle { get; set; }
     public float Timer { get; set; }

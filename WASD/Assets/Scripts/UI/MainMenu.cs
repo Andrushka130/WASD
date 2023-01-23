@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Started Game");
+        Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
