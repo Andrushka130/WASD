@@ -23,6 +23,9 @@ public class ShopManager : MonoBehaviour
         Debug.Log(GetItems(4));
     }
 
+    //returns 0 if not enough money
+    //returns 1 if item bought
+    //returns -1 if weapon inventory full
     public int BuyItem(object item)
     {
         if(item is Weapon)
