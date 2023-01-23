@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Dakimakura
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 4
+  RarityType: 5
   value: 80
   description: This item harbors secrets that the developer will reveal soon.
   attack: 0

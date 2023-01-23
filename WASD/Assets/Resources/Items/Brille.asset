@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Brille
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 0
+  RarityType: 40
   value: 5
   description: This item harbors secrets that the developer will reveal soon.
   attack: 0
