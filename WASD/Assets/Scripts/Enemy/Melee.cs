@@ -11,8 +11,8 @@ public class Melee : Enemy
     public float attackDelay = 1f;
     public float maxHealth = 5f;
     public int damage = 1;
-    [SerializeField] private float attackFrequency, maxAttackFrequency = 1f;
-    [SerializeField] private float attackCooldown, maxAttackCooldown = 1f;
+    [SerializeField] private float attackFrequency, maxAttackFrequency = 0.5f;
+    [SerializeField] private float attackCooldown, maxAttackCooldown = 0.5f;
     private bool collision = false;
 
     private Transform target;
@@ -71,6 +71,7 @@ public class Melee : Enemy
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damage);
+            collision.gameObject.GetComponent<PlayerHealthManager>().UpdateHealth();
         }
     }
 

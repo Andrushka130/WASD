@@ -1,18 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerHealthManager : MonoBehaviour
 {
-    private static int currentHealth;
+    private static float currentHealth;
+    [SerializeField] private Image healthBar;
     private static PlayerAttribute _playerAttribute;
     private static Database _db = new Database();
 
-    public int CurrentHealth 
+    public float CurrentHealth 
     {
         get { return currentHealth; }
     }
     private void Start() {
         _playerAttribute = PlayerAttribute.Instance;
         currentHealth = _playerAttribute.MaxHealthValue;
+    }
+
+    public void UpdateHealth()
+    {
+        healthBar.fillAmount = currentHealth / _playerAttribute.MaxHealthValue;
     }
 
     public void DamagePlayer(int damage)

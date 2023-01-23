@@ -76,7 +76,7 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < ammount; i++)
         {
-            int rarity = rnd.Next(1, 101);
+            float rarity = rnd.Next(1, 101);
             if((rarity + _playerAttribute.LuckValue) > 100)
             {
                 rarity = 100;
