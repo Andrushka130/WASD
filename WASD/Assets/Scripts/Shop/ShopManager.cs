@@ -20,9 +20,10 @@ public class ShopManager : MonoBehaviour
         _weaponInventory = WeaponInventory.GetInstance();
         items = ItemList.List;
         weapons  = _weaponInventory.GetWeaponTypeList();
+        Debug.Log(GetItems(4));
     }
 
-    public static int BuyItem(object item)
+    public int BuyItem(object item)
     {
         if(item is Weapon)
         {
@@ -61,7 +62,7 @@ public class ShopManager : MonoBehaviour
         return 1;
     }
 
-    public static List<object> GetItems(int ammount)
+    public List<object> GetItems(int ammount)
     {
         System.Random rnd = new System.Random();
 
@@ -99,19 +100,43 @@ public class ShopManager : MonoBehaviour
                 } 
                 else 
                 {
-                    List<object> itemsOfSameRarity = (List<object>)shopItems.Select(item => {
+                    List<object> itemsOfSameRarity = new List<object>();
+
+                    foreach(object item in shopItems)
+                    {
                         if(item is Weapon)
                         {
                             Weapon weapon = (Weapon) item;
-                            return (int) weapon.RarityType == probabilities[a];
+                            if((int) weapon.RarityType == probabilities[a])
+                            {
+                                itemsOfSameRarity.Add((object) weapon);
+                            }
                         }
                         else
                         {
                             Item passiveItem = (Item) item;
-                            return (int) passiveItem.RarityType == probabilities[a];
+                            if((int) passiveItem.RarityType == probabilities[a])
+                            {
+                                itemsOfSameRarity.Add((object) passiveItem);
+                            }
                         }
-                    });
+                    }
+                    
+                    if(itemsOfSameRarity.Count == 0)
+                    {
+                        i--;
+                        break;
+                    }
+                
                     int randomIndex = rnd.Next(0, itemsOfSameRarity.Count);
+                    if(itemsOfSameRarity[randomIndex] is Weapon)
+                    {
+                        if(randomItems.Contains(itemsOfSameRarity[randomIndex]))
+                        {
+                            i--;
+                            break;
+                        }
+                    }
                     randomItems.Add(itemsOfSameRarity[randomIndex]);
                     break;
                 }
@@ -120,7 +145,7 @@ public class ShopManager : MonoBehaviour
         return randomItems;
     }
 
-    private static List<object> GetShopItems()
+    private List<object> GetShopItems()
     {
         List<object> shopItems = (from x in items select (object) x).ToList();
         shopItems.AddRange((from x in GetNextWeaponLevel() select (object) x).ToList());
@@ -128,7 +153,7 @@ public class ShopManager : MonoBehaviour
         return shopItems;
     }
 
-    private static List<Weapon> GetNextWeaponLevel()
+    private List<Weapon> GetNextWeaponLevel()
     {
         List<Weapon> nextWeaponLevels = new List<Weapon>();
         foreach(List<Weapon> weapon in weapons)

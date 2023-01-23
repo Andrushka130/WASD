@@ -6,18 +6,18 @@ using UnityEngine;
 public class Attribute
 {
     [SerializeField]
-    private int baseValue;
+    private float baseValue;
 
     private List<int> modifiers = new List<int>();
 
-    public Attribute(int value)
+    public Attribute(float value)
     {
         baseValue = value;
     }
 
-    public int GetValue()
+    public float GetValue()
     {
-        int finalValue = baseValue;
+        float finalValue = baseValue;
         modifiers.ForEach(x => finalValue += x);
         return finalValue;
     }

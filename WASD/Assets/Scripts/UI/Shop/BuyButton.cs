@@ -11,7 +11,7 @@ public class BuyButton : MonoBehaviour, IPointerClickHandler
    
    public void OnPointerClick(PointerEventData eventData)
    {
-      ShopManager.BuyItem(item);
+      GameObject.Find("GameManager").GetComponent<ShopManager>().BuyItem(item);
    }
 
     public object Item
