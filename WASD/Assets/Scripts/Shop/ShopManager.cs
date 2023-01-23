@@ -23,6 +23,7 @@ public class ShopManager : MonoBehaviour
         Debug.Log(GetItems(4));
     }
 
+
     //returns 0 if not enough money
     //returns 1 if item bought
     //returns -1 if weapon inventory full
@@ -64,6 +65,7 @@ public class ShopManager : MonoBehaviour
         Debug.Log("bought item: " + passiveItem.name);
         return 1;
     }
+
 
     public List<object> GetItems(int ammount)
     {
@@ -124,6 +126,7 @@ public class ShopManager : MonoBehaviour
                         }
                     }
                     
+
                     if(itemsOfSameRarity.Count == 0)
                     {
                         i--;
@@ -131,6 +134,7 @@ public class ShopManager : MonoBehaviour
                     }
                 
                     int randomIndex = rnd.Next(0, itemsOfSameRarity.Count);
+
                     if(itemsOfSameRarity[randomIndex] is Weapon)
                     {
                         if(randomItems.Contains(itemsOfSameRarity[randomIndex]))
@@ -139,6 +143,7 @@ public class ShopManager : MonoBehaviour
                             break;
                         }
                     }
+
                     randomItems.Add(itemsOfSameRarity[randomIndex]);
                     break;
                 }
