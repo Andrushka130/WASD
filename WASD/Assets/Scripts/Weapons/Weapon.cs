@@ -15,6 +15,10 @@ public abstract class Weapon : MonoBehaviour
     public abstract float AtkSpeed { get; }    
     public abstract Rarity RarityType { get; }
 
+    public abstract Sprite Icon { get; }
+
+
+
     private System.Random rnd = new System.Random();
     private PlayerAttribute _playerAttribute = PlayerAttribute.Instance;
     

@@ -18,6 +18,8 @@ public class Revolver_lvl1 : Weapon, IRangedWeapon
     public override float AtkSpeed => 1.3f;    
     public override Rarity RarityType => Rarity.Uncommon;
     public bool BulletIsTravelthrough { get; } = false;
+
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Revolver");
     public float Timer { get; set; }
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }

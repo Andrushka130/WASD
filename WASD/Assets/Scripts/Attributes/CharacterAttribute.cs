@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class CharacterAttribute
 {
-    private Attribute maxHealth = new Attribute(1);
-    public int CurrentHealth {get; private set; }
-    
+    private Attribute maxHealth = new Attribute(20);
     private Attribute attack = new Attribute(1);
-    private Attribute critChance = new Attribute(1);
-    private Attribute critDamage = new Attribute(1);
-    private Attribute attackSpeed = new Attribute(1);
+    private Attribute critChance = new Attribute(1.02f);
+    private Attribute critDamage = new Attribute(2);
+    private Attribute attackSpeed = new Attribute(0.98f);
 
-    private Attribute armor = new Attribute(1);
-    private Attribute dodge = new Attribute(1);
-    private Attribute shield = new Attribute(1);
-    private Attribute healthRegen = new Attribute(1);
-    private Attribute lifesteal = new Attribute(1);
+    private Attribute armor = new Attribute(2);
+    private Attribute dodge = new Attribute(4);
+    private Attribute shield = new Attribute(10);
+    private Attribute healthRegen = new Attribute(5);
+    private Attribute lifesteal = new Attribute(2);
 
-    private Attribute luck = new Attribute(1);
-    private Attribute movementSpeed = new Attribute(1);
-    private Attribute range = new Attribute(1);
+    private Attribute luck = new Attribute(4);
+    private Attribute movementSpeed = new Attribute(13);
+    private Attribute range = new Attribute(3);
     private Attribute psychoLevel = new Attribute(1);
 
     protected Attribute MaxHealth
@@ -79,59 +77,59 @@ public class CharacterAttribute
     {
         get {return psychoLevel;}
     }
-    public int MaxHealthValue
+    public float MaxHealthValue
     {
         get {return maxHealth.GetValue();}
     }
-    public int AttackValue
+    public float AttackValue
     {
         get {return attack.GetValue();}
     }
-    public int CritChanceValue
+    public float CritChanceValue
     {
         get {return critChance.GetValue();}
     }
-    public int CritDamageValue
+    public float CritDamageValue
     {
         get {return critDamage.GetValue();}
     }
-    public int AttackSpeedValue
+    public float AttackSpeedValue
     {
         get {return attackSpeed.GetValue();}
     }
-    public int ArmorValue
+    public float ArmorValue
     {
         get {return armor.GetValue();}
     }
-    public int DodgeValue
+    public float DodgeValue
     {
         get {return dodge.GetValue();}
     }
-    public int ShieldValue
+    public float ShieldValue
     {
         get {return shield.GetValue();}
     }
-    public int HealthRegenValue
+    public float HealthRegenValue
     {
         get {return healthRegen.GetValue();}
     }
-    public int LifestealValue
+    public float LifestealValue
     {
         get {return lifesteal.GetValue();}
     }
-    public int LuckValue
+    public float LuckValue
     {
         get {return luck.GetValue();}
     }
-    public int MovementSpeedValue
+    public float MovementSpeedValue
     {
         get {return movementSpeed.GetValue();}
     }
-    public int RangeValue
+    public float RangeValue
     {
         get {return range.GetValue();}
     }
-    public int PsychoLevelValue
+    public float PsychoLevelValue
     {
         get {return psychoLevel.GetValue();}
     }

@@ -10,7 +10,10 @@ public class Melee : Enemy
     public float attackRadius = 7f;
     public float attackDelay = 1f;
     public float maxHealth = 5f;
-    public float damage = 1f;
+    public int damage = 1;
+    [SerializeField] private float attackFrequency, maxAttackFrequency = 0.5f;
+    [SerializeField] private float attackCooldown, maxAttackCooldown = 0.5f;
+    private bool collision = false;
 
     private Transform target;
     private Vector2 movement;
@@ -18,6 +21,7 @@ public class Melee : Enemy
     private float timeSinceLastAttack;
     private Vector2 directionToPlayer;
     private CharacterAttribute playerDamage;
+
 
     void Start()
     {
@@ -51,17 +55,57 @@ public class Melee : Enemy
             if(timeSinceLastAttack >= attackDelay)
             {
                 timeSinceLastAttack = 0f;
-                Attack();
+                //Attack();
             }
         }
 
         Body.MovePosition((Vector2)transform.position + movement * Time.fixedDeltaTime);
     }
 
-    void Attack()
+    void Attack(Collision2D collision)
     {
-        target = GameObject.FindWithTag("Player").transform;
+        Debug.Log("Hit Player!");
+        //target = GameObject.FindWithTag("Player").transform;
         //playerDamage = target.GetComponent<CharacterAttribute>();
         //playerDamage.TakeDamage((int)damage);
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damage);
+            collision.gameObject.GetComponent<PlayerHealthManager>().UpdateHealth();
+        }
+    }
+
+     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && this.attackCooldown == this.maxAttackCooldown)
+        {
+            Attack(collision);
+        }
+
+        this.collision = true;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (this.attackFrequency > 0)
+            {
+                this.attackFrequency -= Time.deltaTime;
+            }
+            else
+            {
+                Attack(collision);
+                this.attackFrequency = this.maxAttackFrequency;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            this.attackFrequency = this.maxAttackFrequency;
+        }
     }
 }

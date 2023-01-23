@@ -22,6 +22,7 @@ public class MusicPlayerScript : MonoBehaviour
       {
          volumeSlider.value = musicVolume;
       }
+
    }
 
    private void Update()

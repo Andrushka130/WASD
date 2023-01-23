@@ -16,6 +16,8 @@ public class Hacking : Weapon, IRangedWeapon
     public override Rarity RarityType => Rarity.Common;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }  
+
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Hacking");
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; } 
     public float FireForce => 5f;
@@ -29,6 +31,7 @@ public class Hacking : Weapon, IRangedWeapon
 
     public void FireBullet()
     {
+        FirePoint = GameObject.Find("firePoint").transform;
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
     }
