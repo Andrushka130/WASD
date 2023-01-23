@@ -21,6 +21,8 @@ public class Hacking_lvl2 : Weapon, IRangedWeapon
     public Transform FirePointLeft { get; set; }    
     public float FireForce => 6f;
 
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Hacking");
+
 
     private void Start()
     {

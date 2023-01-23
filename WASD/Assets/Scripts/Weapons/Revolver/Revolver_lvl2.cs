@@ -15,6 +15,8 @@ public class Revolver_lvl2 : Weapon, IRangedWeapon
     public override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Rare;
     public bool BulletIsTravelthrough { get; } = false;
+
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Revolver");
     public float Timer { get; set; }
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
