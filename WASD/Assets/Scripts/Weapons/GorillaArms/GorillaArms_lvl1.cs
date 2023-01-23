@@ -14,6 +14,8 @@ public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1.5f;    
     public override Rarity RarityType => Rarity.Uncommon;
+
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Gorilla");
       
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }

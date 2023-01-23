@@ -18,6 +18,8 @@ public class Katana_lvl3 : Weapon, IMeleeWeapon
     public Transform FirePoint { get; set; }
     public Transform FirePointBack { get; set; }
 
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Katana");
+
     public float Timer { get; set; }
 
     private float lifeTime = 0.25f;

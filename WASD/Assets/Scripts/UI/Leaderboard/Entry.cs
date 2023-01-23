@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class EntryController : MonoBehaviour
+public class Entry : MonoBehaviour
 {
     [SerializeField] private Transform entryTemplate;
     [SerializeField] private Transform entryContainer;
@@ -27,6 +27,8 @@ public class EntryController : MonoBehaviour
             entry.gameObject.SetActive(true);       
         }
     }
+
+   
 
 
 }

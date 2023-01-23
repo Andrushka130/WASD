@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Smart Link
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 3
+  RarityType: 10
   value: 40
   description: This item harbors secrets that the developer will reveal soon.
   attack: 0

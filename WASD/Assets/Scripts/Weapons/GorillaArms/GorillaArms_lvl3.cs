@@ -18,6 +18,8 @@ public class GorillaArms_lvl3 : Weapon, IMeleeWeapon
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
 
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Gorilla");
+
     public float Timer { get; set; }
 
     private float lifeTime = 0.25f;

@@ -104,7 +104,6 @@ public class ShopManager : MonoBehaviour
                 else 
                 {
                     List<object> itemsOfSameRarity = new List<object>();
-
                     foreach(object item in shopItems)
                     {
                         if(item is Weapon)

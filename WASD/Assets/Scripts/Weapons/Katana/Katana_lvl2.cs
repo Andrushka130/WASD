@@ -17,6 +17,8 @@ public class Katana_lvl2 : Weapon, IMeleeWeapon
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
 
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Katana");
+
     public float Timer { get; set; }
 
     private float lifeTime = 0.25f;
