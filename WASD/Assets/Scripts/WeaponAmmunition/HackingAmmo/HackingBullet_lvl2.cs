@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bulllet2 : MonoBehaviour
+public class HackingBullet_lvl2 : MonoBehaviour
 {
     
     public float fadeOutTime = 0.25f;

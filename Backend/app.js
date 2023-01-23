@@ -37,8 +37,12 @@ async function run() {
   playerDataRouter.put(param, PlayerDataController.updateHighscore);
   playerDataRouter.patch(param, PlayerDataController.updateHighscore);
 
+  const testDataRouter = express.Router();
+  testDataRouter.post("", AccountController.insertTestData);
+
   app.use("/account", accountsRouter);
   app.use("/playerData", playerDataRouter);
+  app.use("/insertTestData", testDataRouter);
   app.use(ErrorMiddleware.handleServerErrors);
   app.use(ErrorMiddleware.handleNotFoundErrors);
   
