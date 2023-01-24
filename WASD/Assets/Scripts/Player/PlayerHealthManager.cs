@@ -16,18 +16,34 @@ public class PlayerHealthManager : MonoBehaviour
     private void Start() {
         currentChar = CharactersManager.CurrentChar;
         currentHealth = currentChar.MaxHealthValue;
+    }
 
-        List<Attribute> a = currentChar.GetAllAttributes();
-        foreach(Attribute aa in a)
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Health"))
         {
-            Debug.Log(aa);
-            Debug.Log(aa.GetValue());
+            if (currentHealth + 1 > currentChar.MaxHealthValue)
+            {
+                currentHealth = currentChar.MaxHealthValue;
+            } 
+            else 
+            {
+                GainHealth(1);
+            }
+            UpdateHealth();
+            Destroy(collider.gameObject);
         }
     }
 
     public void UpdateHealth()
     {
         healthBar.fillAmount = currentHealth / currentChar.MaxHealthValue;
+    }
+
+    public void GainHealth(float healthGained)
+    {
+        currentHealth += healthGained;
+        //lerpTimer = 0f;
     }
 
     public void DamagePlayer(int damage)

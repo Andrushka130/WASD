@@ -70,7 +70,7 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    public List<object> GetItems(int ammount)
+    public List<object> GetItems(int amount)
     {
         System.Random rnd = new System.Random();
 
@@ -82,7 +82,7 @@ public class ShopManager : MonoBehaviour
         List<object> randomItems = new List<object>();
         
 
-        for (int i = 0; i < ammount; i++)
+        for (int i = 0; i < amount; i++)
         {
             float rarity = rnd.Next(1, 101);
             if((rarity + currentChar.LuckValue) > 100)
