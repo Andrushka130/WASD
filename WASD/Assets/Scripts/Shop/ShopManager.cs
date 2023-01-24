@@ -6,7 +6,7 @@ using System;
 
 public class ShopManager : MonoBehaviour
 {
-    private static PlayerAttribute _playerAttribute;
+    private static Characters currentChar;
     private static Inventory _inventory;
     private static WeaponInventory _weaponInventory;
     private static WeaponHandler _weaponHandler;
@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
     private static List<List<Weapon>> weapons;
     
     private void Start() {
-        _playerAttribute = PlayerAttribute.Instance;
+        currentChar = CharactersManager.CurrentChar;
         _inventory = Inventory.Instance;
         _weaponHandler = new WeaponHandler();
         _weaponInventory = WeaponInventory.GetInstance();
@@ -27,19 +27,19 @@ public class ShopManager : MonoBehaviour
     //returns 0 if not enough money
     //returns 1 if item bought
     //returns -1 if weapon inventory full
-    public int BuyItem(object item)
+    public EShop BuyItem(object item)
     {
         if(item is Weapon)
         {
             Weapon weapon = (Weapon) item;
             if(WalletManager.Wallet < weapon.Value)
             {
-                return 0;
+                return EShop.NotEnoughMoney;
             }
             if(!_weaponHandler.InsertNewWeapon(weapon))
             {
                 Debug.Log("Weapon inventory is full");
-                return -1;
+                return EShop.WeaponInventoryFull;
             }
             WalletManager.RemoveMoney(weapon.Value);
             foreach(List<Weapon> w in weapons)
@@ -50,20 +50,23 @@ public class ShopManager : MonoBehaviour
                 }
             }
             Debug.Log("bought weapon: " + weapon.Name);
-            return 1;
+            return EShop.BoughtItem;
         }
         
         Item passiveItem = (Item) item;
-        if(WalletManager.Wallet < passiveItem.value)
-        {
-            return 0;
-        }
-        WalletManager.RemoveMoney(passiveItem.value);
-        _inventory.AddItem(passiveItem);
+        if((currentChar.CurrentPsychoLevelValue + passiveItem.psychoLevel) <= currentChar.MaxPsychoLevelValue)
+        {    if(WalletManager.Wallet < passiveItem.value)
+            {
+                return EShop.NotEnoughMoney;
+            }
+            WalletManager.RemoveMoney(passiveItem.value);
+            _inventory.AddItem(passiveItem);
 
         
-        Debug.Log("bought item: " + passiveItem.name);
-        return 1;
+            Debug.Log("bought item: " + passiveItem.name);
+            return EShop.BoughtItem;
+        }
+        return EShop.PsychoLevelToHigh;
     }
 
 
@@ -82,13 +85,13 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < ammount; i++)
         {
             float rarity = rnd.Next(1, 101);
-            if((rarity + _playerAttribute.LuckValue) > 100)
+            if((rarity + currentChar.LuckValue) > 100)
             {
                 rarity = 100;
             }
             else
             {
-                rarity += _playerAttribute.LuckValue;
+                rarity += currentChar.LuckValue;
             }
 
             for(int a = 0; a < rarityCount; a++)

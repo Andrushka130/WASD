@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -5,7 +6,7 @@ public class PlayerHealthManager : MonoBehaviour
 {
     private static float currentHealth;
     [SerializeField] private Image healthBar;
-    private static PlayerAttribute _playerAttribute;
+    private static Characters currentChar;
     private static Database _db = new Database();
 
     public float CurrentHealth 
@@ -13,13 +14,20 @@ public class PlayerHealthManager : MonoBehaviour
         get { return currentHealth; }
     }
     private void Start() {
-        _playerAttribute = PlayerAttribute.Instance;
-        currentHealth = _playerAttribute.MaxHealthValue;
+        currentChar = CharactersManager.CurrentChar;
+        currentHealth = currentChar.MaxHealthValue;
+
+        List<Attribute> a = currentChar.GetAllAttributes();
+        foreach(Attribute aa in a)
+        {
+            Debug.Log(aa);
+            Debug.Log(aa.GetValue());
+        }
     }
 
     public void UpdateHealth()
     {
-        healthBar.fillAmount = currentHealth / _playerAttribute.MaxHealthValue;
+        healthBar.fillAmount = currentHealth / currentChar.MaxHealthValue;
     }
 
     public void DamagePlayer(int damage)

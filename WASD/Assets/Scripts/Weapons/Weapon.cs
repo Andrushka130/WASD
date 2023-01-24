@@ -20,7 +20,7 @@ public abstract class Weapon : MonoBehaviour
 
 
     private System.Random rnd = new System.Random();
-    private PlayerAttribute _playerAttribute = PlayerAttribute.Instance;
+    private Characters currentChar = CharactersManager.CurrentChar;
     
 
     public abstract void Attack();
@@ -30,15 +30,15 @@ public abstract class Weapon : MonoBehaviour
     public float GetDamage()
     {
         int random = rnd.Next(1, 101);
-        if(random < (CritChance * _playerAttribute.CritChanceValue) )
+        if(random < (CritChance * currentChar.CritChanceValue) )
         {
-            return Dmg * CritDmg  + _playerAttribute.CritDamageValue;
+            return Dmg * CritDmg  + currentChar.CritDamageValue;
         }
-        return Dmg + _playerAttribute.AttackValue;
+        return Dmg + currentChar.AttackValue;
     }
 
     public float GetCooldown()
     {
-        return AtkSpeed * _playerAttribute.AttackSpeedValue;
+        return AtkSpeed * currentChar.AttackSpeedValue;
     }
 }
