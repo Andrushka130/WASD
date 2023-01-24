@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,12 +9,14 @@ public class Attribute
 {
     [SerializeField]
     private float baseValue;
+    private Sprite icon;
 
     private List<int> modifiers = new List<int>();
 
-    public Attribute(float value)
+    public Attribute(float value, string iconName)
     {
         baseValue = value;
+        icon = Resources.Load<Sprite>(iconName);
     }
 
     public float GetValue()
@@ -32,5 +36,10 @@ public class Attribute
     {
         if (modifier != 0)
             modifiers.Remove(modifier);
+    }
+
+    public void ChangeAttribute(int ammount)
+    {
+        baseValue += ammount;
     }
 }
