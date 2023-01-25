@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WeaponResources;
 
 public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
 {
-    public override string Name => "ProjectileLaunchSystem";
+    public override string Name => WeaponName.ProjectileLauncherSystem + WeaponName.Lvl_1;
     public override string Description => "\"Projectile\" leaves room for imagination";
     public override int WeaponLevel => 1;
     public override int Value => 10;
@@ -15,7 +16,7 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
     public override float AtkSpeed => 2f;
     public override Rarity RarityType => Rarity.Rare;
 
-    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Launched");
+    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.ProjectileLauncherSystemIcon);
 
     public GameObject BulletPrefab { get; set; }
     public EnemyDetectionCircle EnemyDetectionCircle { get; set; }
@@ -24,7 +25,7 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
     private void Start()
     {
         EnemyDetectionCircle = new EnemyDetectionCircle();
-        BulletPrefab = Resources.Load("Bullets/ProjectileLaunchSystemProjectile/ProjectileExplosion") as GameObject;
+        BulletPrefab = Resources.Load(WeaponAttacks.ProjectileLaunchSystem) as GameObject;
     }
 
     public void FireBullet()
