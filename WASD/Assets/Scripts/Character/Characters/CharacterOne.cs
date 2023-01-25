@@ -8,9 +8,9 @@ public class CharacterOne : Characters
     public override Sprite CharSprite => Resources.Load<Sprite>("");
     public override Attribute MaxHealth => new Attribute(20, "");
     public override Attribute Attack => new Attribute(1, "");
-    public override Attribute CritChance => new Attribute(1.02f, "");
+    public override Attribute CritChance => new Attribute(2, "");
     public override Attribute CritDamage => new Attribute(2, "");
-    public override Attribute AttackSpeed => new Attribute(0.98f, "");
+    public override Attribute AttackSpeed => new Attribute(3, "");
     public override Attribute Luck => new Attribute(4, "");
     public override Attribute MovementSpeed => new Attribute(13, "");
     public override Attribute MaxPsychoLevel => new Attribute(20, "");
