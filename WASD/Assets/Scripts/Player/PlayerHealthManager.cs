@@ -1,18 +1,49 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerHealthManager : MonoBehaviour
 {
-    private static int currentHealth;
-    private static PlayerAttribute _playerAttribute;
+    private static float currentHealth;
+    [SerializeField] private Image healthBar;
+    private static Characters currentChar;
     private static Database _db = new Database();
 
-    public int CurrentHealth 
+    public float CurrentHealth 
     {
         get { return currentHealth; }
     }
     private void Start() {
-        _playerAttribute = PlayerAttribute.Instance;
-        currentHealth = _playerAttribute.MaxHealthValue;
+        currentChar = CharactersManager.CurrentChar;
+        currentHealth = currentChar.MaxHealthValue;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Health"))
+        {
+            if (currentHealth + 1 > currentChar.MaxHealthValue)
+            {
+                currentHealth = currentChar.MaxHealthValue;
+            } 
+            else 
+            {
+                GainHealth(1);
+            }
+            UpdateHealth();
+            Destroy(collider.gameObject);
+        }
+    }
+
+    public void UpdateHealth()
+    {
+        healthBar.fillAmount = currentHealth / currentChar.MaxHealthValue;
+    }
+
+    public void GainHealth(float healthGained)
+    {
+        currentHealth += healthGained;
+        //lerpTimer = 0f;
     }
 
     public void DamagePlayer(int damage)

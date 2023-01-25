@@ -224,7 +224,7 @@ MonoBehaviour:
   passwordInputField: {fileID: 1823422195}
   alertText: {fileID: 1451273015}
   loginImage: {fileID: 1160856119}
-  loginScreen: {fileID: 369557327}
+  loginScreen: {fileID: 0}
 --- !u!1 &65884701
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +860,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000061035156}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &369557325
 MonoBehaviour:
@@ -1970,7 +1970,7 @@ RectTransform:
   m_GameObject: {fileID: 781695406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0414937, y: 1.0414937, z: 1.0414937}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 858416878}
@@ -1987,7 +1987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 458.00894, y: -16.2323}
+  m_AnchoredPosition: {x: 477.0134, y: -16.9058}
   m_SizeDelta: {x: 835.1439, y: 801.6053}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781695408
@@ -2655,7 +2655,7 @@ RectTransform:
   m_GameObject: {fileID: 1160856119}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0414938, y: 1.0414938, z: 1.0414938}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 308758278}
@@ -2668,7 +2668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 469, y: 0.000050618146}
+  m_AnchoredPosition: {x: 488.4606, y: 0.000050364884}
   m_SizeDelta: {x: 537.1048, y: 654.2684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160856122
@@ -5316,7 +5316,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 40
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -5629,17 +5629,17 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1805666505}
   - {fileID: 2033461161}
   m_Father: {fileID: 369557324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -471.00006, y: 0.000061035156}
-  m_SizeDelta: {x: -1323.1545, y: -485.6045}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 469.45648, y: 0.000061035156}
+  m_SizeDelta: {x: 556.8456, y: 607.0873}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2142857639
 MonoBehaviour:

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 115274681213554296}
   m_Layer: 9
   m_Name: Eurodollar
-  m_TagString: Experience
+  m_TagString: Eurodollar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,5 +140,5 @@ MonoBehaviour:
   checkRadius: 1.5
   selectPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   dir: {x: 0, y: 0, z: 0}

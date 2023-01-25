@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WeaponResources;
 
 public class Revolver_lvl2 : Weapon, IRangedWeapon
 {
-    public override string Name => "Revolver";
+    public override string Name => WeaponName.Revolver + WeaponName.Lvl_2;
     public override string Description => "Next up: some random animal fact";
     public override int WeaponLevel => 2;
     public override int Value => 10;
@@ -15,6 +16,8 @@ public class Revolver_lvl2 : Weapon, IRangedWeapon
     public override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Rare;
     public bool BulletIsTravelthrough { get; } = false;
+
+    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.RevolverIcon);
     public float Timer { get; set; }
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
@@ -22,8 +25,8 @@ public class Revolver_lvl2 : Weapon, IRangedWeapon
 
     private void Start()
     {
-        BulletPrefab = Resources.Load("Bullets/RevolverBullets/RevolverBullet_lvl2") as GameObject;
-        FirePoint = GameObject.Find("firePoint").transform;
+        BulletPrefab = Resources.Load(WeaponAttacks.Revolver + WeaponAttacks.Lvl_2) as GameObject;
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
     }
 
     public void FireBullet()

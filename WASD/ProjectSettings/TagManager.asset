@@ -12,6 +12,8 @@ TagManager:
   - EnemyProjectile
   - Canvas
   - SpawnManager
+  - Health
+  - Eurodollar
   layers:
   - Default
   - TransparentFX

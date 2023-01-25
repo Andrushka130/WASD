@@ -15,8 +15,12 @@ public abstract class Weapon : MonoBehaviour
     public abstract float AtkSpeed { get; }    
     public abstract Rarity RarityType { get; }
 
+    public abstract Sprite Icon { get; }
+
+
+
     private System.Random rnd = new System.Random();
-    private PlayerAttribute _playerAttribute = PlayerAttribute.Instance;
+    private Characters currentChar = CharactersManager.CurrentChar;
     
 
     public abstract void Attack();
@@ -26,15 +30,20 @@ public abstract class Weapon : MonoBehaviour
     public float GetDamage()
     {
         int random = rnd.Next(1, 101);
-        if(random < (CritChance * _playerAttribute.CritChanceValue) )
+        if(random < (CritChance * currentChar.CritChanceValue) )
         {
-            return Dmg * CritDmg  + _playerAttribute.CritDamageValue;
+            return CritDmg * GetPercentage(currentChar.CritDamageValue);
         }
-        return Dmg + _playerAttribute.AttackValue;
+        return Dmg * GetPercentage(currentChar.AttackValue);
     }
 
     public float GetCooldown()
     {
-        return AtkSpeed * _playerAttribute.AttackSpeedValue;
+        return AtkSpeed / GetPercentage(currentChar.AttackSpeedValue);
+    }
+
+    private float GetPercentage(int value)
+    {
+        return (value + 100) / 100;
     }
 }

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WeaponResources;
 
 public class Hacking : Weapon, IRangedWeapon
 {
-    public override string Name => "Hacking";
+    public override string Name => WeaponName.Hacking + WeaponName.Lvl_1;
     public override string Description => "Flood your enemy's brains with disgusting pictures of you only wearing a bib and sitting in a bathtub filled to the brim with chicken nuggets";
     public override int WeaponLevel => 1;
     public override int Value => 5;
@@ -16,6 +17,8 @@ public class Hacking : Weapon, IRangedWeapon
     public override Rarity RarityType => Rarity.Common;
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }  
+
+    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.HackingIcon);
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; } 
     public float FireForce => 5f;
@@ -23,13 +26,13 @@ public class Hacking : Weapon, IRangedWeapon
 
     private void Start()
     {
-        BulletPrefab = Resources.Load("Bullets/HackingBullets/HackingBullet_1") as GameObject;
-        FirePoint = GameObject.Find("firePoint").transform;
+        BulletPrefab = Resources.Load(WeaponAttacks.Hacking) as GameObject;
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
     }
 
     public void FireBullet()
     {
-        FirePoint = GameObject.Find("firePoint").transform;
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
     }
