@@ -14,13 +14,19 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private Transform itemContainer;
 
+    [SerializeField] private Transform iconTemplate;
+
+    [SerializeField] private Transform weaponIconContainer;
+
+    [SerializeField] private Transform itemsIconContainer;
+
     [SerializeField] private Sprite commonSprite;
     [SerializeField] private Sprite uncommonSprite;
     [SerializeField] private Sprite rareSprite;
     [SerializeField] private Sprite epicSprite;
     [SerializeField] private Sprite legendarySprite;
 
-    [SerializeField] private List<Transform> shopItems;
+    private List<Transform> shopItems = new List<Transform>();
 
 
 
@@ -32,6 +38,9 @@ public class Shop : MonoBehaviour
    
     void Awake()
     {
+        /* WeaponInventory weaponInventory = WeaponInventory.GetInstance();
+        List<object> weapon =  weaponInventory.GetWeapons(); */
+        //HelperUI.FillImageIcon( weapon, iconTemplate, weaponIconContainer);
         InitializeItemShop(4);
     }
 
@@ -48,7 +57,7 @@ public class Shop : MonoBehaviour
       foreach (Object item in buyableItems)
       {
         Transform itemUI = Instantiate(itemTemplate, itemContainer); 
-       // itemUI.Find("BuyButton").
+      
        if(item is Weapon)
         {
           Weapon weapon = (Weapon) item;
@@ -69,11 +78,11 @@ public class Shop : MonoBehaviour
 
         }   
 
-        itemUI.Find("BuyButton").GetComponent<BuyButton>().Item = item;
-        itemUI.Find("BuyButton").GetComponent<BuyButton>().ItemUI = itemUI;
-
         itemUI.gameObject.SetActive(true); 
         shopItems.Add(itemUI);
+
+        itemUI.Find("BuyButton").GetComponent<BuyButton>().Item = item;
+        itemUI.Find("BuyButton").GetComponent<BuyButton>().ItemUI = itemUI;
 
       }
 
