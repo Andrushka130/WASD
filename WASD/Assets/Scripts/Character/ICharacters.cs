@@ -16,15 +16,15 @@ public interface ICharacters
     public Attribute CurrentPsychoLevel { get; }
 
     
-    public float MaxHealthValue { get; }
-    public float AttackValue { get; }
-    public float CritChanceValue { get; }
-    public float CritDamageValue { get; }
-    public float AttackSpeedValue { get; }
-    public float LuckValue { get; }
-    public float MovementSpeedValue { get; }
-    public float MaxPsychoLevelValue { get; }
-    public float CurrentPsychoLevelValue { get; }
+    public int MaxHealthValue { get; }
+    public int AttackValue { get; }
+    public int CritChanceValue { get; }
+    public int CritDamageValue { get; }
+    public int AttackSpeedValue { get; }
+    public int LuckValue { get; }
+    public int MovementSpeedValue { get; }
+    public int MaxPsychoLevelValue { get; }
+    public int CurrentPsychoLevelValue { get; }
 
     public List<Attribute> GetAttributes();
 }
