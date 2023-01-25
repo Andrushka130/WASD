@@ -15,15 +15,15 @@ public abstract class Characters : ICharacters
     public abstract Attribute MaxPsychoLevel { get; }
     public Attribute CurrentPsychoLevel => new Attribute(0, "");
     
-    public float MaxHealthValue { get { return MaxHealth.GetValue(); } }
-    public float AttackValue { get {return Attack.GetValue();} }
-    public float CritChanceValue { get {return CritChance.GetValue();} }
-    public float CritDamageValue { get {return CritDamage.GetValue();} }
-    public float AttackSpeedValue { get {return AttackSpeed.GetValue();} }
-    public float LuckValue { get {return Luck.GetValue();} }
-    public float MovementSpeedValue { get {return MovementSpeed.GetValue();} }
-    public float MaxPsychoLevelValue { get {return MaxPsychoLevel.GetValue();} }
-    public float CurrentPsychoLevelValue { get { return CurrentPsychoLevel.GetValue(); ; } }
+    public int MaxHealthValue { get { return MaxHealth.GetValue(); } }
+    public int AttackValue { get {return Attack.GetValue();} }
+    public int CritChanceValue { get {return CritChance.GetValue();} }
+    public int CritDamageValue { get {return CritDamage.GetValue();} }
+    public int AttackSpeedValue { get {return AttackSpeed.GetValue();} }
+    public int LuckValue { get {return Luck.GetValue();} }
+    public int MovementSpeedValue { get {return MovementSpeed.GetValue();} }
+    public int MaxPsychoLevelValue { get {return MaxPsychoLevel.GetValue();} }
+    public int CurrentPsychoLevelValue { get { return CurrentPsychoLevel.GetValue(); ; } }
 
     public abstract List<Attribute> GetAttributes();
 }

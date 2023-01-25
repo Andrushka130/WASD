@@ -8,20 +8,20 @@ using UnityEngine;
 public class Attribute
 {
     [SerializeField]
-    private float baseValue;
+    private int baseValue;
     private Sprite icon;
 
     private List<int> modifiers = new List<int>();
 
-    public Attribute(float value, string iconName)
+    public Attribute(int value, string iconName)
     {
         baseValue = value;
         icon = Resources.Load<Sprite>(iconName);
     }
 
-    public float GetValue()
+    public int GetValue()
     {
-        float finalValue = baseValue;
+        int finalValue = baseValue;
         modifiers.ForEach(x => finalValue += x);
         return finalValue;
     }

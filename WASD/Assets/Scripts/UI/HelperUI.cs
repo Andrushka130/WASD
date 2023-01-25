@@ -12,7 +12,7 @@ public class HelperUI : MonoBehaviour
         foreach (object item in equippedItems)
       {
         Transform itemUI = Instantiate(iconTemplate, container); 
-       // itemUI.Find("BuyButton").
+    
        if(item is Weapon)
         {
           Weapon weapon = (Weapon) item;

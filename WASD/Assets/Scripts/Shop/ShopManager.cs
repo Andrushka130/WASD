@@ -157,6 +157,7 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
+        Debug.Log(randomItems.Count);
         return randomItems;
     }
 

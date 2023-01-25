@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WeaponResources;
 
 public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
 {
-    public override string Name => "GorillaArms";
+    public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_1;
     public override string Description => "Funny description";
     public override int WeaponLevel => 1;
     public override int Value => 7;
@@ -15,7 +16,7 @@ public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
     public override float AtkSpeed => 1.5f;    
     public override Rarity RarityType => Rarity.Uncommon;
 
-    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Gorilla");
+    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.GorillaArmsIcon);
       
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
@@ -27,8 +28,8 @@ public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
 
     private void Start()
     {
-        AttackPrefab = Resources.Load("MeleeAttacks/GorillaArm/GorillaArm") as GameObject;
-        FirePoint = GameObject.Find("firePointMelee").transform;
+        AttackPrefab = Resources.Load(WeaponAttacks.GorillaArm) as GameObject;
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
     }
 
     public void SwingWeapon()
