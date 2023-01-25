@@ -38,7 +38,7 @@ namespace WeaponResources
 
     public static class WeaponFirePoints
     {
-        public static readonly string FirePoint = "firepoint";
+        public static readonly string FirePoint = "firePoint";
         public static readonly string FirePointLeft = "firePointLeft";
         public static readonly string FirePointUp = "firePointUp";
         public static readonly string FirePointDown = "firePointDown";
