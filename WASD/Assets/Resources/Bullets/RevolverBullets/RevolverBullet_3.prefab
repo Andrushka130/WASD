@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2421291379941843059}
   - component: {fileID: -8279975665822928559}
   m_Layer: 7
-  m_Name: RevolverBullet_lvl3
+  m_Name: RevolverBullet_3
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
