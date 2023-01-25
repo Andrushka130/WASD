@@ -42,4 +42,10 @@ public class Attribute
     {
         baseValue += ammount;
     }
+
+    public Sprite Icon
+    {
+        get { return icon; }
+    }
+    
 }

@@ -6,12 +6,17 @@ using System;
 
 public class ShopManager : MonoBehaviour
 {
-    private static Characters currentChar;
+    private static ICharacters currentChar;
     private static Inventory _inventory;
     private static WeaponInventory _weaponInventory;
     private static WeaponHandler _weaponHandler;
     private static List<Item> items;
     private static List<List<Weapon>> weapons;
+
+
+    [SerializeField] private ExpSystem expSystem;
+
+    
     
     private void Start() {
         currentChar = CharactersManager.CurrentChar;
@@ -172,6 +177,15 @@ public class ShopManager : MonoBehaviour
         }
 
         return nextWeaponLevels;
+    }
+
+    public void SkillAttribute(Attribute attribute)
+    {
+        if(expSystem.skillPoints > 0){
+            attribute.ChangeAttribute(1);
+            expSystem.skillPoints--;
+        }
+
     }
 
     //Say you have 4 events
