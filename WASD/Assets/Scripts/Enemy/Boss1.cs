@@ -5,14 +5,14 @@ using UnityEngine;
 public class Boss1 : Enemy
 {
 
-    public float speed = 1f;
-    public float checkRadius = 30f;
-    public float attackRadius = 7f;
-    public float attackDelay = 1f;
-    public float projectileSpeed = 2f;
-    public float barrageAmount = 5f;
-    public float barrageTimer = 0.1f;
-    public int maxHealth = 5;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float checkRadius = 30f;
+    [SerializeField] private float attackRadius = 7f;
+    [SerializeField] private float attackDelay = 1f;
+    [SerializeField] private float projectileSpeed = 2f;
+    [SerializeField] private float barrageAmount = 5f;
+    [SerializeField] private float barrageTimer = 0.1f;
+    [SerializeField] private int maxHealth = 5;
     public GameObject currentProjectile;
     public Transform firePoint;
 
@@ -76,6 +76,7 @@ public class Boss1 : Enemy
 
     void Attack()
     {
+        Debug.Log("Attacked!");
         target = GameObject.FindWithTag("Player").transform;
         GameObject projectile = Instantiate(currentProjectile, (Vector2)firePoint.position + (Vector2)(target.position - transform.position).normalized * 1.5f, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce((Vector2)(target.position - transform.position).normalized * projectileSpeed, ForceMode2D.Impulse);

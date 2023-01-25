@@ -6,7 +6,13 @@ public class PlayerAnimationManager : MonoBehaviour
 {
     public Animator animator;
 
-    public SpriteRenderer spriteRenderer;    
+    public SpriteRenderer spriteRenderer;
+    private Characters currentChar;
+
+    private void Start() {
+        currentChar = CharactersManager.CurrentChar;
+        spriteRenderer.sprite = currentChar.CharSprite;
+    }
 
     public void flipSprite(Vector2 movement)
     {

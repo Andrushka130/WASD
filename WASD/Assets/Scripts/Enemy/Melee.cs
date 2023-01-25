@@ -20,7 +20,6 @@ public class Melee : Enemy
     private Vector2 dir;
     private float timeSinceLastAttack;
     private Vector2 directionToPlayer;
-    private CharacterAttribute playerDamage;
 
 
     void Start()

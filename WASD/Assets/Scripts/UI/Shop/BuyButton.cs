@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,8 +22,8 @@ public class BuyButton : MonoBehaviour, IPointerClickHandler
    
    public void OnPointerClick(PointerEventData eventData)
    {
-      int result = GameObject.Find("GameManager").GetComponent<ShopManager>().BuyItem(item);
-      if (result == 1)
+      EShop result = GameObject.Find("GameManager").GetComponent<ShopManager>().BuyItem(item);
+      if (result == EShop.BoughtItem)
       {
         shop.RemoveShopItem(itemUI);
         Destroy(itemUI.gameObject);

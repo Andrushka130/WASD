@@ -15,9 +15,6 @@ public class Item : ScriptableObject
     public int critChance;
     public int critDamage;
     public int attackSpeed;
-    public int armor;
-    public int dodge;
-    public int shield;
     public int maxHealth;
     public int healthRegen;
     public int lifesteal;
