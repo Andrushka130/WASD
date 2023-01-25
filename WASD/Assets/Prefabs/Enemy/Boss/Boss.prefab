@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 718821431876995941}
   - component: {fileID: 6778105959962344719}
   - component: {fileID: 1722693351084817930}
-  - component: {fileID: 8585327937689171339}
   - component: {fileID: 1668337656517885932}
   - component: {fileID: 4859294542147127048}
   - component: {fileID: 5083010535268309823}
+  - component: {fileID: 6535384990994538028}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
@@ -121,38 +121,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4ecd8a05bb99c64385c13367896f198, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Body: {fileID: 6778105959962344719}
   Sprite: {fileID: 718821431876995941}
   Collider: {fileID: 0}
   currentHealth: 0
-  speed: 0.6
+  speed: 1
   checkRadius: 30
-  attackRadius: 5
-  attackDelay: 0.3
-  projectileSpeed: 5
-  barrageAmount: 0
+  attackRadius: 7
+  attackDelay: 1
+  projectileSpeed: 2
+  barrageAmount: 5
   barrageTimer: 0.1
   maxHealth: 30
   currentProjectile: {fileID: 2810979712154586069, guid: a4913313593256d4b835b3da04c52d99, type: 3}
   firePoint: {fileID: 5701684532895511276}
---- !u!114 &6535384990994538028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6209759378914004540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d323187e30d20a4888a374bddc02077, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  experience: {fileID: 4102308923894230746, guid: 238c0530b3dbf2f479d357b21dbfb821, type: 3}
-  currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
-  expAmount: 10
-  curAmount: 5
 --- !u!61 &1668337656517885932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,7 +154,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.75, y: 4.9166665}
+    oldSize: {x: 3.8, y: 3.9333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -195,7 +179,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -209,5 +193,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d267f598a7e6394e9d13339e97e044d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6535384990994538028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6209759378914004540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d323187e30d20a4888a374bddc02077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experience: {fileID: 4102308923894230746, guid: 238c0530b3dbf2f479d357b21dbfb821, type: 3}
+  currency: {fileID: 4102308923894230746, guid: d89197e1e6d8c814a92bfd9ab8d59f42, type: 3}
+  health: {fileID: 7580768289748690182, guid: fcd19a73984f5b643ac873d7a659e64b, type: 3}
+  expAmount: 10
+  curAmount: 5
+  healtAmount: 5

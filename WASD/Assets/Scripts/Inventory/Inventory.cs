@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     private static Inventory instance;
-    private static PlayerAttribute player;
+    private static Characters currentChar;
     private List<Item> passiveItems;
 
     public static Inventory Instance
@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
             return;
         }
         instance = this;
-        player = PlayerAttribute.Instance;
+        currentChar = CharactersManager.CurrentChar;
     }
 
     void Start()
@@ -33,7 +33,24 @@ public class Inventory : MonoBehaviour
     public bool AddItem(Item item)
     {
         passiveItems.Add(item);
-        player.OnItemAdded(item);
+        OnItemAdded(item);
         return true;
+    }
+
+    private void OnItemAdded (Item newItem)
+    {
+        if (newItem != null)
+        {
+            currentChar.MaxHealth.AddModifier(newItem.maxHealth);
+            
+            currentChar.Attack.AddModifier(newItem.attack);
+            currentChar.CritChance.AddModifier(newItem.critChance);
+            currentChar.CritDamage.AddModifier(newItem.critDamage);
+            currentChar.AttackSpeed.AddModifier(newItem.attackSpeed);
+
+            currentChar.Luck.AddModifier(newItem.luck);
+            currentChar.MovementSpeed.AddModifier(newItem.movementSpeed);
+            currentChar.CurrentPsychoLevel.AddModifier(newItem.psychoLevel);
+        }
     }
 }
