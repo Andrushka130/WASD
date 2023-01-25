@@ -6,54 +6,56 @@ using System.Threading.Tasks;
 
 public class Database : WebRequest
 {
+    private static string urlPlayerData = "http://127.0.0.1:3000/playerdata/";
+    private static string urlAccount = "http://127.0.0.1:3000/account/";
     private static Database db = new Database();
 
     public async Task<string> Login(PlayerData _playerData)
     {
-        string url = URL.UrlAccount + _playerData.PlayerTag;
-        string method = HttpMethods.Post;
+        string url = urlAccount + _playerData.PlayerTag;
+        string method = "POST";
         return await db.AsyncUpload(_playerData.Stringify(), url, method);
     }
 
     public async Task<string> UpdateHighscore(PlayerData _playerData)
     {
-        string url = URL.UrlPlayerData + _playerData.PlayerTag;
-        string method = HttpMethods.Patch;
+        string url = urlPlayerData + _playerData.PlayerTag;
+        string method = "PATCH";
         return await db.AsyncUpload(_playerData.Stringify(), url, method);
     }
 
     public async Task<string> CreateAccount(PlayerData _playerData)
     {
-        string url = URL.UrlAccount;
-        string method = HttpMethods.Post;
+        string url = urlAccount;
+        string method = "POST";
         return await db.AsyncUpload(_playerData.Stringify(), url, method);
     }
 
     public Task<string> ChangeAccount(PlayerData _playerData)
     {
-        string url = URL.UrlAccount + _playerData.PlayerTag;
-        string method = HttpMethods.Patch;
+        string url = urlAccount + _playerData.PlayerTag;
+        string method = "PATCH";
         return db.AsyncUpload(_playerData.Stringify(), url, method);
     }
 
     public async Task<string> DeleteAccount(string playerTag)
     {
-        string url = URL.UrlAccount + playerTag;
-        string method = HttpMethods.Delete;
+        string url = urlAccount + playerTag;
+        string method = "DELETE";
         return await db.AsyncDownload(url, method);
     }
 
     public async Task<PlayerData[]> GetHighscore()
     {
-        string url = URL.UrlPlayerData;
-        string method = HttpMethods.Get;
+        string url = urlPlayerData;
+        string method = "GET";
         return PlayerData.ParseAll(await db.AsyncDownload(url, method)).Items;
     }
 
     public async Task<PlayerData> GetHighscore(string playerTag)
     {
-        string url = URL.UrlPlayerData + playerTag;
-        string method = HttpMethods.Get;
+        string url = urlPlayerData + playerTag;
+        string method = "GET";
         return PlayerData.Parse(await db.AsyncDownload(url, method));
     }
 }

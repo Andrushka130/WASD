@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WeaponResources;
 
 public class Hacking_lvl2 : Weapon, IRangedWeapon
 {
-    public override string Name => WeaponName.Hacking + WeaponName.Lvl_2;
+    public override string Name => "Hacking";
     public override string Description => "Even killing is a remote job now";
     public override int WeaponLevel => 2;
     public override int Value => 7;
@@ -22,14 +21,14 @@ public class Hacking_lvl2 : Weapon, IRangedWeapon
     public Transform FirePointLeft { get; set; }    
     public float FireForce => 6f;
 
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.HackingIcon);
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Hacking");
 
 
     private void Start()
     {
-        BulletPrefab = Resources.Load(WeaponAttacks.Hacking + WeaponAttacks.Lvl_2) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
-        FirePointLeft = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
+        BulletPrefab = Resources.Load("Bullets/HackingBullets/HackingBullet_2") as GameObject;
+        FirePoint = GameObject.Find("firePoint").transform;
+        FirePointLeft = GameObject.Find("firePointLeft").transform;
                 
     }
 

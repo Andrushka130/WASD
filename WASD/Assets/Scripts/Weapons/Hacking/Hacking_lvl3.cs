@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WeaponResources;
 
 public class Hacking_lvl3 : Weapon, IRangedWeapon
 {
-    public override string Name => WeaponName.Hacking + WeaponName.Lvl_3;
+    public override string Name => "Hacking";
     public override string Description => "Think of something yourself!";
     public override int WeaponLevel => 3;
     public override int Value => 10;
@@ -18,7 +17,7 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
     public bool BulletIsTravelthrough { get; } = false;
     public float Timer { get; set; }
 
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.HackingIcon);
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Hacking");
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
     public Transform FirePointLeft { get; set; }
@@ -29,11 +28,11 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
 
     private void Start()
     {
-        BulletPrefab = Resources.Load(WeaponAttacks.Hacking + WeaponAttacks.Lvl_3) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
-        FirePointLeft = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
-        FirePointUp = GameObject.Find(WeaponFirePoints.FirePointUp).transform;
-        FirePointDown = GameObject.Find(WeaponFirePoints.FirePointDown).transform;
+        BulletPrefab = Resources.Load("Bullets/HackingBullets/HackingBullet_3") as GameObject;
+        FirePoint = GameObject.Find("firePoint").transform;
+        FirePointLeft = GameObject.Find("firePointLeft").transform;
+        FirePointUp = GameObject.Find("firePointUp").transform;
+        FirePointDown = GameObject.Find("firePointDown").transform;
     }
 
     public void FireBullet()

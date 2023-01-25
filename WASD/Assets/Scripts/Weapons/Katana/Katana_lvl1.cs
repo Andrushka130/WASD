@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WeaponResources;
 
 public class Katana_lvl1 : Weapon, IMeleeWeapon
 {
-    public override string Name => WeaponName.Katana + WeaponName.Lvl_1;
+    public override string Name => "Katana";
     public override string Description => "pointy stabby thing";
     public override int WeaponLevel => 1;
     public override int Value => 5;
@@ -18,7 +17,7 @@ public class Katana_lvl1 : Weapon, IMeleeWeapon
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
 
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.KatanaIcon);
+    public override Sprite Icon => Resources.Load<Sprite>("IconOrdner/Katana");
 
     public float Timer { get; set; }
 
@@ -27,8 +26,8 @@ public class Katana_lvl1 : Weapon, IMeleeWeapon
 
     private void Start()
     {
-        AttackPrefab = Resources.Load(WeaponAttacks.Katana) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
+        AttackPrefab = Resources.Load("MeleeAttacks/KatanaSwipes/KatanaSwipe_1") as GameObject;
+        FirePoint = GameObject.Find("firePointMelee").transform;
     }
 
     public void SwingWeapon()

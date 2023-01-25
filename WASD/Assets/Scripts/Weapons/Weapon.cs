@@ -32,18 +32,13 @@ public abstract class Weapon : MonoBehaviour
         int random = rnd.Next(1, 101);
         if(random < (CritChance * currentChar.CritChanceValue) )
         {
-            return CritDmg * GetPercentage(currentChar.CritDamageValue);
+            return Dmg * CritDmg  + currentChar.CritDamageValue;
         }
-        return Dmg * GetPercentage(currentChar.AttackValue);
+        return Dmg + currentChar.AttackValue;
     }
 
     public float GetCooldown()
     {
-        return AtkSpeed / GetPercentage(currentChar.AttackSpeedValue);
-    }
-
-    private float GetPercentage(int value)
-    {
-        return (value + 100) / 100;
+        return AtkSpeed * currentChar.AttackSpeedValue;
     }
 }
