@@ -4,7 +4,7 @@ namespace ItemResources
 {
     public static class ItemPath
     {
-        public static readonly string ItemsPath = "Item";
+        public static readonly string ItemsPath = "Items";
     }
 
     public static class ItemIcons
