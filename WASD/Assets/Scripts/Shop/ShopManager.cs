@@ -74,8 +74,13 @@ public class ShopManager : MonoBehaviour
     {
         System.Random rnd = new System.Random();
 
-        int[] probabilities = (int[])Enum.GetValues(typeof(Rarity));
+        int[] probabilities = (int[]) Enum.GetValues(typeof(Rarity));
+        Array.Reverse(probabilities);
         int rarityCount = probabilities.Length;
+        foreach(int j in probabilities)
+        {
+            Debug.Log(j);
+        }
 
         List<object> shopItems = GetShopItems();
 
@@ -84,7 +89,8 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            float rarity = rnd.Next(1, 101);
+            Debug.Log("Durchlauf: " + i);
+            float rarity = rnd.Next(1, 101);  //////////////////////////////////////////
             if((rarity + currentChar.LuckValue) > 100)
             {
                 rarity = 100;
@@ -92,17 +98,19 @@ public class ShopManager : MonoBehaviour
             else
             {
                 rarity += currentChar.LuckValue;
+                Debug.Log("Rarity at start: " + rarity); //////////////////////////////////////////
             }
 
             for(int a = 0; a < rarityCount; a++)
             {
+                Debug.Log("Rarity at run " + a + ": " + rarity);
                 //Example: rarity is 56
                 // first step: 56 is not in range of Common(1 - 40) so 56 - 40 is not smaller then 0
                 // => rarity -= 40
                 // rarity is 16
                 // second step: 16 is in range of Uncommon(1 - 30) so 16 - 30 is smaller then 0
                 // => an item with rarity Uncommon gets selected
-                if(!((rarity - probabilities[a])  < 0))
+                if(!((rarity - probabilities[a]) <= 0))
                 {
                     rarity -= probabilities[a];
                 } 
@@ -117,6 +125,7 @@ public class ShopManager : MonoBehaviour
                             if((int) weapon.RarityType == probabilities[a])
                             {
                                 itemsOfSameRarity.Add((object) weapon);
+                                Debug.Log("Weapon added");
                             }
                         }
                         else
@@ -125,6 +134,7 @@ public class ShopManager : MonoBehaviour
                             if((int) passiveItem.RarityType == probabilities[a])
                             {
                                 itemsOfSameRarity.Add((object) passiveItem);
+                                Debug.Log("Item added");
                             }
                         }
                     }
