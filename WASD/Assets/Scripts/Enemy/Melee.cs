@@ -12,7 +12,6 @@ public class Melee : Enemy
     public int damage = 1;
     [SerializeField] private float attackFrequency, maxAttackFrequency = 0.5f;
     [SerializeField] private float attackCooldown, maxAttackCooldown = 0.5f;
-    private bool collision = false;
 
     private Transform target;
     private Vector2 movement;
@@ -67,8 +66,6 @@ public class Melee : Enemy
         {
             Attack(collision);
         }
-
-        this.collision = true;
     }
 
     private void OnCollisionStay2D(Collision2D collision)

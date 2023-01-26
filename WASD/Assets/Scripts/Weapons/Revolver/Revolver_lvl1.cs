@@ -8,6 +8,7 @@ using System.Text;
 
 public class Revolver_lvl1 : Weapon, IRangedWeapon
 {
+    public override string Category => WeaponName.Revolver;
     public override string Name => WeaponName.Revolver + WeaponName.Lvl_1;
     public override string Description => "I can't see my forehead >:(";
     public override int WeaponLevel => 1;

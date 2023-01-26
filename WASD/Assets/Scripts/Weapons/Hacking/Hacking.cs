@@ -5,6 +5,7 @@ using WeaponResources;
 
 public class Hacking : Weapon, IRangedWeapon
 {
+    public override string Category => WeaponName.Hacking;
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_1;
     public override string Description => "Flood your enemy's brains with disgusting pictures of you only wearing a bib and sitting in a bathtub filled to the brim with chicken nuggets";
     public override int WeaponLevel => 1;

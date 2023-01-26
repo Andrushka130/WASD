@@ -5,6 +5,7 @@ using WeaponResources;
 
 public class Revolver_lvl3 : Weapon, IRangedWeapon
 {
+    public override string Category => WeaponName.Revolver;
     public override string Name => WeaponName.Revolver + WeaponName.Lvl_3;
     public override string Description => "Orcas are natural predators of moose";
     public override int WeaponLevel => 3;

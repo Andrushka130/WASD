@@ -74,7 +74,9 @@ public class ShopManager : MonoBehaviour
     {
         System.Random rnd = new System.Random();
 
-        int[] probabilities = (int[])Enum.GetValues(typeof(Rarity));
+        int[] probabilities = (int[]) Enum.GetValues(typeof(Rarity));
+        Array.Reverse(probabilities);
+
         int rarityCount = probabilities.Length;
 
         List<object> shopItems = GetShopItems();
@@ -102,7 +104,7 @@ public class ShopManager : MonoBehaviour
                 // rarity is 16
                 // second step: 16 is in range of Uncommon(1 - 30) so 16 - 30 is smaller then 0
                 // => an item with rarity Uncommon gets selected
-                if(!((rarity - probabilities[a])  < 0))
+                if(!((rarity - probabilities[a]) <= 0))
                 {
                     rarity -= probabilities[a];
                 } 
@@ -169,7 +171,10 @@ public class ShopManager : MonoBehaviour
         List<Weapon> nextWeaponLevels = new List<Weapon>();
         foreach(List<Weapon> weapon in weapons)
         {
-            nextWeaponLevels.Add(weapon[0]);
+            if(!(weapon.Count == 0))
+            {
+                nextWeaponLevels.Add(weapon[0]);
+            }
         }
 
         return nextWeaponLevels;

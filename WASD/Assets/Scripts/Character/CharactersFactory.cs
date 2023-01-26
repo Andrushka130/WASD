@@ -4,9 +4,9 @@ public class CharactersFactory
     {
         switch(character)
         {
-            case ECharacters.CharOne: return new CharacterOne(); break;
+            case ECharacters.CharOne: return new CharacterOne();
             
-            default: return new CharacterOne(); break;
+            default: return new CharacterOne();
         }
     }
 }

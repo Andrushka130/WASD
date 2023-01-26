@@ -50,7 +50,6 @@ public class Ranged : Enemy
             {
                 timeSinceLastAttack = 0f;
                 Attack();
-
             }
 
             if(directionToPlayer.magnitude < attackRadius - 0.3f && directionToPlayer.magnitude >= attackRadius - 2f)

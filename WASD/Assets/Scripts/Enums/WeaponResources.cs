@@ -17,11 +17,11 @@ namespace WeaponResources
 
     public static class WeaponIconPath
     {
-        public static readonly string HackingIcon = "IconOrdner/Hacking.png";
-        public static readonly string GorillaArmsIcon = "IconOrdner/Gorilla.png";
-        public static readonly string KatanaIcon = "IconOrdner/Katana.png";
-        public static readonly string RevolverIcon = "IconOrdner/Revolver.png";
-        public static readonly string ProjectileLauncherSystemIcon = "IconOrdner/Launched.png";
+        public static readonly string HackingIcon = "IconOrdner/Hacking";
+        public static readonly string GorillaArmsIcon = "IconOrdner/Gorilla";
+        public static readonly string KatanaIcon = "IconOrdner/Katana";
+        public static readonly string RevolverIcon = "IconOrdner/Revolver";
+        public static readonly string ProjectileLauncherSystemIcon = "IconOrdner/Launched";
     }
 
     public static class WeaponAttacks
@@ -38,7 +38,7 @@ namespace WeaponResources
 
     public static class WeaponFirePoints
     {
-        public static readonly string FirePoint = "firepoint";
+        public static readonly string FirePoint = "firePoint";
         public static readonly string FirePointLeft = "firePointLeft";
         public static readonly string FirePointUp = "firePointUp";
         public static readonly string FirePointDown = "firePointDown";
