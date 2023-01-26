@@ -36,7 +36,7 @@ public class ItemShop : MonoBehaviour
           Weapon weapon = (Weapon) item;
           itemUI.Find("IconBorder").Find("Icon").GetComponent<Image>().sprite = weapon.Icon;
           itemUI.Find("IconBorder").GetComponent<Image>().sprite = GetRarityBorder(weapon.RarityType);
-          itemUI.Find("TextContainer").Find("NameText").GetComponent<TextMeshProUGUI>().text = weapon.Name + " lvl " + weapon.WeaponLevel;
+          itemUI.Find("TextContainer").Find("NameText").GetComponent<TextMeshProUGUI>().text = weapon.Name;
           itemUI.Find("TextContainer").Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = weapon.Description;
           itemUI.Find("PriceTextContainer").Find("PriceValueText").GetComponent<TextMeshProUGUI>().text = weapon.Value.ToString() +" €$";
           

@@ -11,6 +11,7 @@ public class Attribute
     private int baseValue;
     private Sprite icon;
 
+    
     private List<int> modifiers = new List<int>();
 
     public Attribute(int value, string iconName)
@@ -18,6 +19,12 @@ public class Attribute
         baseValue = value;
         icon = Resources.Load<Sprite>(iconName);
     }
+
+    public Sprite Icon
+    {
+        get { return icon; }
+    }
+
 
     public int GetValue()
     {
@@ -43,9 +50,6 @@ public class Attribute
         baseValue += ammount;
     }
 
-    public Sprite Icon
-    {
-        get { return icon; }
-    }
+   
     
 }
