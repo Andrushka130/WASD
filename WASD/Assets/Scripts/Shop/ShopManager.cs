@@ -76,11 +76,8 @@ public class ShopManager : MonoBehaviour
 
         int[] probabilities = (int[]) Enum.GetValues(typeof(Rarity));
         Array.Reverse(probabilities);
+
         int rarityCount = probabilities.Length;
-        foreach(int j in probabilities)
-        {
-            Debug.Log(j);
-        }
 
         List<object> shopItems = GetShopItems();
 
@@ -89,8 +86,7 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            Debug.Log("Durchlauf: " + i);
-            float rarity = rnd.Next(1, 101);  //////////////////////////////////////////
+            float rarity = rnd.Next(1, 101);
             if((rarity + currentChar.LuckValue) > 100)
             {
                 rarity = 100;
@@ -98,12 +94,10 @@ public class ShopManager : MonoBehaviour
             else
             {
                 rarity += currentChar.LuckValue;
-                Debug.Log("Rarity at start: " + rarity); //////////////////////////////////////////
             }
 
             for(int a = 0; a < rarityCount; a++)
             {
-                Debug.Log("Rarity at run " + a + ": " + rarity);
                 //Example: rarity is 56
                 // first step: 56 is not in range of Common(1 - 40) so 56 - 40 is not smaller then 0
                 // => rarity -= 40
@@ -125,7 +119,6 @@ public class ShopManager : MonoBehaviour
                             if((int) weapon.RarityType == probabilities[a])
                             {
                                 itemsOfSameRarity.Add((object) weapon);
-                                Debug.Log("Weapon added");
                             }
                         }
                         else
@@ -134,7 +127,6 @@ public class ShopManager : MonoBehaviour
                             if((int) passiveItem.RarityType == probabilities[a])
                             {
                                 itemsOfSameRarity.Add((object) passiveItem);
-                                Debug.Log("Item added");
                             }
                         }
                     }
@@ -162,7 +154,6 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log(randomItems.Count);
         return randomItems;
     }
 
@@ -179,7 +170,10 @@ public class ShopManager : MonoBehaviour
         List<Weapon> nextWeaponLevels = new List<Weapon>();
         foreach(List<Weapon> weapon in weapons)
         {
-            nextWeaponLevels.Add(weapon[0]);
+            if(!(weapon.Count == 0))
+            {
+                nextWeaponLevels.Add(weapon[0]);
+            }
         }
 
         return nextWeaponLevels;

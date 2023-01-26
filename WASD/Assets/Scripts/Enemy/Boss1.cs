@@ -6,12 +6,10 @@ public class Boss1 : Enemy
 {
 
     [SerializeField] private float speed = 1f;
-    [SerializeField] private float checkRadius = 30f;
     [SerializeField] private float attackRadius = 7f;
     [SerializeField] private float attackDelay = 1f;
-    [SerializeField] private float projectileSpeed = 2f;
+    [SerializeField] private float projectileSpeed = 1f;
     [SerializeField] private float barrageAmount = 5f;
-    [SerializeField] private float barrageTimer = 0.1f;
     [SerializeField] private int maxHealth = 5;
     public GameObject currentProjectile;
     public Transform firePoint;

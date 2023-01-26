@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class TabButton : MonoBehaviour, IPointerClickHandler
+public class TabButtons : MonoBehaviour, IPointerClickHandler
 {
    [SerializeField]
    private Options options;

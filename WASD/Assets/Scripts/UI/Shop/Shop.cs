@@ -133,8 +133,6 @@ public class Shop : MonoBehaviour
         shopItems.Clear();        
         InitializeItemShop(itemsCount);
       }
-      
-      
     }
 
     public void RemoveShopItem(Transform item){

@@ -5,6 +5,7 @@ using WeaponResources;
 
 public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
 {
+    public override string Category => WeaponName.GorillaArms;
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_1;
     public override string Description => "Funny description";
     public override int WeaponLevel => 1;

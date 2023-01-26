@@ -5,6 +5,7 @@ using WeaponResources;
 
 public class Hacking_lvl2 : Weapon, IRangedWeapon
 {
+    public override string Category => WeaponName.Hacking;
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_2;
     public override string Description => "Even killing is a remote job now";
     public override int WeaponLevel => 2;

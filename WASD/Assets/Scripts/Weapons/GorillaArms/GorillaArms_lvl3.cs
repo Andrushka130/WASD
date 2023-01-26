@@ -6,6 +6,7 @@ using static Weapon;
 
 public class GorillaArms_lvl3 : Weapon, IMeleeWeapon
 {
+    public override string Category => WeaponName.GorillaArms;
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_3;
     public override string Description => "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.";
     public override int WeaponLevel => 3;

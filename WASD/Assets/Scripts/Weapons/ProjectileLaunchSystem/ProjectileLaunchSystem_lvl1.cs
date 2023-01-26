@@ -5,6 +5,7 @@ using WeaponResources;
 
 public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
 {
+    public override string Category => WeaponName.ProjectileLauncherSystem;
     public override string Name => WeaponName.ProjectileLauncherSystem + WeaponName.Lvl_1;
     public override string Description => "\"Projectile\" leaves room for imagination";
     public override int WeaponLevel => 1;

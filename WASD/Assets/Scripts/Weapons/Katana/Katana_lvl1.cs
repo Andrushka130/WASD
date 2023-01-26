@@ -5,6 +5,7 @@ using WeaponResources;
 
 public class Katana_lvl1 : Weapon, IMeleeWeapon
 {
+    public override string Category => WeaponName.Katana;
     public override string Name => WeaponName.Katana + WeaponName.Lvl_1;
     public override string Description => "pointy stabby thing";
     public override int WeaponLevel => 1;
