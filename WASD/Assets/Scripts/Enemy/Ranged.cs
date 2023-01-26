@@ -6,7 +6,6 @@ public class Ranged : Enemy
 {
 
     public float speed = 1f;
-    public float checkRadius = 30f;
     public float attackRadius = 7f;
     public float attackDelay = 1f;
     public float projectileSpeed = 2f;
