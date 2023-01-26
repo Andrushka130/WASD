@@ -2,9 +2,9 @@ using System;
 
 namespace CharacterResources
 {
-    public static class CharacterPath
+    public static class CharacterSprite
     {
-        public static readonly string CharOnePath = "";
+        public static readonly string CharOneSprite = "Characters/Character1";
     }
 
     public static class CharacterIcon

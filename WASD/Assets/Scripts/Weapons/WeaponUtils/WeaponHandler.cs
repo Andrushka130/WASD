@@ -66,7 +66,7 @@ public class WeaponHandler
    
    private bool IsWeaponLevelAndNameEqual(Weapon oldWeapon, Weapon newWeapon){
 
-        if(oldWeapon.WeaponLevel < newWeapon.WeaponLevel && oldWeapon.Name == newWeapon.Name){
+        if(oldWeapon.WeaponLevel < newWeapon.WeaponLevel && oldWeapon.Category == newWeapon.Category){
             return true;
         }
         return false;

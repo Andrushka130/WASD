@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AttributeResources;
+using CharacterResources;
 
 public class CharacterOne : Characters
 {
     public override Sprite Icon => Resources.Load<Sprite>("");
-    public override Sprite CharSprite => Resources.Load<Sprite>("");
+    public override Sprite CharSprite => Resources.Load<Sprite>(CharacterSprite.CharOneSprite);
     public override Attribute MaxHealth => new Attribute(20, AttributeIcons.HealthIcon);
     public override Attribute Attack => new Attribute(1, AttributeIcons.AttackIcon);
     public override Attribute CritChance => new Attribute(2, AttributeIcons.CritChanceIcon);

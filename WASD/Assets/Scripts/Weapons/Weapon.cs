@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    public abstract string Category { get; }
     public abstract string Name { get; }
     public abstract string Description { get; }
     public abstract int WeaponLevel { get; }

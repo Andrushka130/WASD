@@ -5,6 +5,7 @@ using WeaponResources;
 
 public class Revolver_lvl2 : Weapon, IRangedWeapon
 {
+    public override string Category => WeaponName.Revolver;
     public override string Name => WeaponName.Revolver + WeaponName.Lvl_2;
     public override string Description => "Next up: some random animal fact";
     public override int WeaponLevel => 2;

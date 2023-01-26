@@ -9,7 +9,7 @@ public class Options : MonoBehaviour
     [SerializeField]
     private List<GameObject> tabPages;
     
-    public void SwapPages(TabButton button)
+    public void SwapPages(TabButtons button)
     {
         int index = button.transform.GetSiblingIndex();
         for(int i = 0; i < tabPages.Count; i++ ){
