@@ -18,10 +18,12 @@ public class EnemyProjectile : MonoBehaviour
         //CharacterAttribute damagePlayer = GameObject.FindWithTag
 
         ProjectileBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        enemyProjectile.tag = "EnemyProjectile";
-        enemyProjectile.layer = LayerMask.NameToLayer("Player");
+        /* enemyProjectile.tag = "EnemyProjectile";
+        enemyProjectile.layer = LayerMask.NameToLayer("Player"); */
 
         transform.localScale = new Vector2(0.3f, 0.3f);
+
+        ignorePhysicsOfEnemyAndAttacks();
     }
 
     public void Initialize(Vector3 position)
@@ -48,6 +50,13 @@ public class EnemyProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void ignorePhysicsOfEnemyAndAttacks()
+    {
+        Physics2D.IgnoreLayerCollision(7, 10);
+        Physics2D.IgnoreLayerCollision(8, 10);
+        Physics2D.IgnoreLayerCollision(10, 10);
     }
 
 }

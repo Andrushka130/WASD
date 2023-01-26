@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AttributeResources;
+using CharacterResources;
 
 public class CharacterOne : Characters
 {
     public override Sprite Icon => Resources.Load<Sprite>("");
-    public override Sprite CharSprite => Resources.Load<Sprite>("");
-    public override Attribute MaxHealth => new Attribute(20, "");
-    public override Attribute Attack => new Attribute(1, "");
-    public override Attribute CritChance => new Attribute(1.02f, "");
-    public override Attribute CritDamage => new Attribute(2, "");
-    public override Attribute AttackSpeed => new Attribute(0.98f, "");
-    public override Attribute Luck => new Attribute(4, "");
-    public override Attribute MovementSpeed => new Attribute(13, "");
-    public override Attribute MaxPsychoLevel => new Attribute(20, "");
+    public override Sprite CharSprite => Resources.Load<Sprite>(CharacterSprite.CharOneSprite);
+    public override Attribute MaxHealth => new Attribute(20, AttributeIcons.HealthIcon);
+    public override Attribute Attack => new Attribute(1, AttributeIcons.AttackIcon);
+    public override Attribute CritChance => new Attribute(2, AttributeIcons.CritChanceIcon);
+    public override Attribute CritDamage => new Attribute(2, AttributeIcons.CritDamageIcon);
+    public override Attribute AttackSpeed => new Attribute(3, AttributeIcons.AttackSpeedIcon);
+    public override Attribute Luck => new Attribute(4, AttributeIcons.LuckIcon);
+    public override Attribute MovementSpeed => new Attribute(13, AttributeIcons.MovementSpeedIcon);
+    public override Attribute MaxPsychoLevel => new Attribute(20, AttributeIcons.PsychoLevelIcon);
 
     public override List<Attribute> GetAttributes()
     {

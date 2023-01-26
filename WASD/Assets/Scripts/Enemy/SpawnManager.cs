@@ -48,69 +48,68 @@ public class SpawnManager : MonoBehaviour
     {
         while (enemySpawning == true)
         {
-            Debug.Log(bossSpawnSpace);
-        while (spawnSpace >= 1) 
-        {
-            int randEnemy = Random.Range(0, 2);
-            switch(randEnemy)
+            while (spawnSpace >= 1) 
             {
-                case 0:
-                //Spawn MeleeEnemy with factory
-                gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Melee");
-                //enemyFactory.SpawnEnemy("Melee");
-                spawnSpace -= 1;
-                break;
+                int randEnemy = Random.Range(0, 2);
+                switch(randEnemy)
+                {
+                    case 0:
+                    //Spawn MeleeEnemy with factory
+                    gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Melee");
+                    //enemyFactory.SpawnEnemy("Melee");
+                    spawnSpace -= 1;
+                    break;
 
-                case 1:
-                //Spawn RangedEnemy with factory
-                gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Ranged");
-                //enemyFactory.SpawnEnemy("Ranged");
-                spawnSpace -= 2;
-                break;
+                    case 1:
+                    //Spawn RangedEnemy with factory
+                    gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Ranged");
+                    //enemyFactory.SpawnEnemy("Ranged");
+                    spawnSpace -= 2;
+                    break;
+                }
+                yield return new WaitForSeconds(0.3f);
+                //Debug.Log(spawnSpace);
             }
-            yield return new WaitForSeconds(0.3f);
+
+            if(bossWaveCountDown <= 0)
+            {
+                while (bossSpawnSpace >= 1)
+                {
+                    int randBoss = Random.Range(0, 1);
+                    switch(randBoss)
+                    {
+                        case 0:
+                        //Spawn first Boss with factory
+                        gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Boss1");
+                        //enemyFactory.SpawnEnemy("Boss1");
+                        //adjust for boss difficulty level
+                        bossSpawnSpace -= 1; 
+                        break;
+                    }
+                    bossWaveCountDown = bossIntervall;
+                    yield return new WaitForSeconds(0.3f);
+                }
+                bossWaveCountDown = bossIntervall;
+                bossWaveSpawn = bossWaveSpawn * bossSpawnIncrease;
+                bossSpawnSpace = bossWaveSpawn;
+            }
+
+            waveCounter++;
+            currentWave = waveCounter;
+            //Debug.Log("W"+waveSpawn);
+            waveSpawn = waveSpawn * spawnIncrease;
+            spawnSpace = waveSpawn;
             //Debug.Log(spawnSpace);
-        }
 
-        if(bossWaveCountDown <= 0)
-        {
-            while (bossSpawnSpace >= 1)
-        {
-            int randBoss = Random.Range(0, 1);
-            switch(randBoss)
+            bossWaveCountDown -= 1;
+            
+            while(GameObject.FindWithTag("Enemy") != null)
             {
-                case 0:
-                //Spawn first Boss with factory
-                gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Boss1");
-                //enemyFactory.SpawnEnemy("Boss1");
-                //adjust for boss difficulty level
-                bossSpawnSpace -= 1; 
-                break;
+                yield return new WaitForSeconds(1);
             }
-            bossWaveCountDown = bossIntervall;
-            yield return new WaitForSeconds(0.3f);
-        }
-        bossWaveCountDown = bossIntervall;
-        bossWaveSpawn = bossWaveSpawn * bossSpawnIncrease;
-        bossSpawnSpace = bossWaveSpawn;
-        }
-
-        waveCounter++;
-        currentWave = waveCounter;
-        //Debug.Log("W"+waveSpawn);
-        waveSpawn = waveSpawn * spawnIncrease;
-        spawnSpace = waveSpawn;
-        //Debug.Log(spawnSpace);
-
-        bossWaveCountDown -= 1;
-        
-        while(GameObject.FindWithTag("Enemy") != null)
-        {
-            yield return new WaitForSeconds(1);
-        }
-        yield return new WaitForSeconds(waveCoolDown);
-        Time.timeScale = 0f;
-        SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Additive);
+            yield return new WaitForSeconds(waveCoolDown);
+            Time.timeScale = 0f;
+            SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Additive);
 
         }
         

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    public abstract string Category { get; }
     public abstract string Name { get; }
     public abstract string Description { get; }
     public abstract int WeaponLevel { get; }
@@ -32,13 +33,18 @@ public abstract class Weapon : MonoBehaviour
         int random = rnd.Next(1, 101);
         if(random < (CritChance * currentChar.CritChanceValue) )
         {
-            return Dmg * CritDmg  + currentChar.CritDamageValue;
+            return CritDmg * GetPercentage(currentChar.CritDamageValue);
         }
-        return Dmg + currentChar.AttackValue;
+        return Dmg * GetPercentage(currentChar.AttackValue);
     }
 
     public float GetCooldown()
     {
-        return AtkSpeed * currentChar.AttackSpeedValue;
+        return AtkSpeed / GetPercentage(currentChar.AttackSpeedValue);
+    }
+
+    private float GetPercentage(int value)
+    {
+        return (value + 100) / 100;
     }
 }
