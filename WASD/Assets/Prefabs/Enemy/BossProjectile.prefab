@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8973639410532468888}
   - component: {fileID: 8973639410532468891}
   - component: {fileID: 8973639410532468890}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BossProjectile
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,8 @@ MonoBehaviour:
   ProjectileBody: {fileID: 8973639410532468891}
   ProjectileCollider: {fileID: 8973639410532468890}
   projectileDamage: 5
+  decayTime: 0
+  bulletAmount: 10
 --- !u!50 &8973639410532468891
 Rigidbody2D:
   serializedVersion: 4
