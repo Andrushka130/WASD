@@ -15,7 +15,7 @@ public abstract class Weapon : MonoBehaviour
     public abstract float Lifesteal { get; }
     public abstract float AtkSpeed { get; }    
     public abstract Rarity RarityType { get; }
-    protected abstract float Timer {get; set;}
+    private float Timer {get; set;}
     public abstract Sprite Icon { get; }
 
     private System.Random rnd = new System.Random();

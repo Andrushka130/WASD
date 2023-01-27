@@ -17,8 +17,7 @@ public class Revolver_lvl1 : Revolver, IRangedWeapon
     public override int CritChance => 30;
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1.3f;    
-    public override Rarity RarityType => Rarity.Uncommon;     
-    protected override float Timer { get; set; }
+    public override Rarity RarityType => Rarity.Uncommon;   
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
     public float FireForce => 30f;

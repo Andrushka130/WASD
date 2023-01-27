@@ -14,8 +14,7 @@ public class Hacking_lvl3 : Hacking, IRangedWeapon
     public override int CritChance => 20;
     public override float Lifesteal => 0;
     public override float AtkSpeed => 0.5f;    
-    public override Rarity RarityType => Rarity.Rare;    
-    protected override float Timer { get; set; }   
+    public override Rarity RarityType => Rarity.Rare;        
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
     private Transform FirePointLeft { get; set; }

@@ -8,7 +8,6 @@ using UnityEngine;
     Transform FirePoint { get; }
     float FireForce { get; }   
     
-
 }
     
 
