@@ -8,11 +8,8 @@ using UnityEngine;
 public class Attribute
 {
     private Sprite icon;
-
     private string name;
-
     private string description;
-
     private int baseValue;
 
     private List<int> modifiers = new List<int>();
@@ -54,4 +51,7 @@ public class Attribute
     {
         baseValue += ammount;
     }
+
+   
+    
 }
