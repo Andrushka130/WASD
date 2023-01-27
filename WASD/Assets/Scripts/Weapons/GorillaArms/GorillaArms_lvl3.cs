@@ -4,11 +4,10 @@ using UnityEngine;
 using WeaponResources;
 using static Weapon;
 
-public class GorillaArms_lvl3 : Weapon, IMeleeWeapon
-{
-    public override string Category => WeaponName.GorillaArms;
+public class GorillaArms_lvl3 : GorillaArms, IMeleeWeapon
+{   
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_3;
-    public override string Description => "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.";
+    public override string Description => "Upgrade: Increased push range and larger attack.";
     public override int WeaponLevel => 3;
     public override int Value => 15;
     public override float Dmg => 20;
@@ -18,14 +17,8 @@ public class GorillaArms_lvl3 : Weapon, IMeleeWeapon
     public override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Epic;
     public GameObject AttackPrefab { get; set; }
-    public Transform FirePoint { get; set; }
-
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.GorillaArmsIcon);
-
-    public float Timer { get; set; }
-
-    private float lifeTime = 0.25f;
-
+    public Transform FirePoint { get; set; }   
+    public float WeaponLifetime => 0.25f;
 
     private void Start()
     {
@@ -33,23 +26,11 @@ public class GorillaArms_lvl3 : Weapon, IMeleeWeapon
         FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
     }
 
-    public void SwingWeapon()
+    public override void InstantiateWeaponPrefab()
     {
         GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
-        Destroy(gorillaArm, lifeTime);
+        Destroy(gorillaArm, WeaponLifetime);
     }
 
-    public override void Attack()
-    {
-        Timer += Time.deltaTime;
-        if (Timer > GetCooldown())
-        {
-            SwingWeapon();
-            Timer = 0;
-        }
-    }
-
-    public override void DestroyScript(){
-        Destroy(this);
-    }
+    
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
+public class GorillaArms_lvl1 : GorillaArms, IMeleeWeapon
 {
-    public override string Category => WeaponName.GorillaArms;
+    
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_1;
-    public override string Description => "Funny description";
+    public override string Description => "Pushes the enemy away.";
     public override int WeaponLevel => 1;
     public override int Value => 7;
     public override float Dmg => 4;
@@ -15,17 +15,10 @@ public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
     public override int CritChance => 20;
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1.5f;    
-    public override Rarity RarityType => Rarity.Uncommon;
-
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.GorillaArmsIcon);
-      
+    public override Rarity RarityType => Rarity.Uncommon;        
     public GameObject AttackPrefab { get; set; }
-    public Transform FirePoint { get; set; }
-
-    public float Timer { get; set; }
-
-    private float lifeTime = 0.25f;
-
+    public Transform FirePoint { get; set; }   
+    public float WeaponLifetime => 0.25f;
 
     private void Start()
     {
@@ -33,23 +26,10 @@ public class GorillaArms_lvl1 : Weapon, IMeleeWeapon
         FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
     }
 
-    public void SwingWeapon()
+    public override void InstantiateWeaponPrefab()
     {
         GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
-        Destroy(gorillaArm, lifeTime);
+        Destroy(gorillaArm, WeaponLifetime);
     }
-
-    public override void Attack()
-    {
-        Timer += Time.deltaTime;
-        if (Timer > GetCooldown())
-        {
-            SwingWeapon();
-            Timer = 0;
-        }
-    }
-
-    public override void DestroyScript(){
-        Destroy(this);
-    }
+   
 }
