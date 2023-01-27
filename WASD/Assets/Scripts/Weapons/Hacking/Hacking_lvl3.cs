@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Hacking_lvl3 : Weapon, IRangedWeapon
-{
-    public override string Category => WeaponName.Hacking;
+public class Hacking_lvl3 : Hacking, IRangedWeapon
+{    
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_3;
-    public override string Description => "Think of something yourself!";
+    public override string Description => "Upgrade: Now fires 4 hacks at once.";
     public override int WeaponLevel => 3;
     public override int Value => 10;
     public override float Dmg => 15;
@@ -15,16 +14,13 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
     public override int CritChance => 20;
     public override float Lifesteal => 0;
     public override float AtkSpeed => 0.5f;    
-    public override Rarity RarityType => Rarity.Rare;
-    public bool BulletIsTravelthrough { get; } = false;
-    public float Timer { get; set; }
-
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.HackingIcon);
+    public override Rarity RarityType => Rarity.Rare;    
+    protected override float Timer { get; set; }   
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
-    public Transform FirePointLeft { get; set; }
-    public Transform FirePointUp { get; set; }
-    public Transform FirePointDown { get; set; }
+    private Transform FirePointLeft { get; set; }
+    private Transform FirePointUp { get; set; }
+    private Transform FirePointDown { get; set; }
     public float FireForce => 8f;
 
 
@@ -37,7 +33,7 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
         FirePointDown = GameObject.Find(WeaponFirePoints.FirePointDown).transform;
     }
 
-    public void FireBullet()
+    public override void InstantiateWeaponPrefab()
     {
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         GameObject bulletLeft = Instantiate(BulletPrefab, FirePointLeft.position, FirePointLeft.rotation);
@@ -48,19 +44,5 @@ public class Hacking_lvl3 : Weapon, IRangedWeapon
         bulletLeft.GetComponent<Rigidbody2D>().AddForce(-FirePointLeft.right * FireForce, ForceMode2D.Impulse);
         bulletUp.GetComponent<Rigidbody2D>().AddForce(FirePointUp.up * FireForce, ForceMode2D.Impulse);
         bulletDown.GetComponent<Rigidbody2D>().AddForce(-FirePoint.up * FireForce, ForceMode2D.Impulse);
-    }
-
-    public override void Attack()
-    {
-        Timer += Time.deltaTime;
-        if (Timer > GetCooldown())
-        {
-            FireBullet();
-            Timer = 0;
-        }
-    }
-
-    public override void DestroyScript(){
-        Destroy(this);
     }
 }
