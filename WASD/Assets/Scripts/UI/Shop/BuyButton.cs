@@ -11,23 +11,30 @@ public class BuyButton : MonoBehaviour, IPointerClickHandler
    private object item;
    private Transform itemUI;
 
-   [SerializeField] private Shop shop;
+   [SerializeField] private ItemShop itemShop;
 
   
-
-
-
-
-
    
    public void OnPointerClick(PointerEventData eventData)
    {
       EShop result = GameObject.Find("GameManager").GetComponent<ShopManager>().BuyItem(item);
       if (result == EShop.BoughtItem)
       {
-        shop.RemoveShopItem(itemUI);
+        itemShop.RemoveShopItem(itemUI);
         Destroy(itemUI.gameObject);
-        shop.UpdateCoins();
+        itemShop.UpdateCoins();
+      } 
+      else if (result == EShop.NotEnoughMoney)
+      {
+        itemShop.SetAlertText("Not enough money!");
+      }
+      else if (result == EShop.WeaponInventoryFull)
+      {
+        itemShop.SetAlertText("You can only have four Weapon!");
+      }
+      else if (result == EShop.PsychoLevelToHigh)
+      {
+        itemShop.SetAlertText("Psycho level is too high. Please skill in psycho level.");
       }
       
       
@@ -43,8 +50,7 @@ public class BuyButton : MonoBehaviour, IPointerClickHandler
     set { itemUI = value; }
   }
 
-  
-
+ 
 
    
 

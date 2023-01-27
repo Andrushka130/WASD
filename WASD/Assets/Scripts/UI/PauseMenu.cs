@@ -7,12 +7,17 @@ public class PauseMenu : MonoBehaviour
 {
     
     private static bool GameIsPaused = false;
-    [SerializeField]
-    private GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI;
+
+    [SerializeField] private Transform attributeTemplate;
+
+    [SerializeField] private Transform attributeContainer;
     
     void Start()
     {
         pauseMenuUI.SetActive(false);
+        HelperUI.FillAttributes(attributeTemplate, attributeContainer);
+
     }
 
     void Update()
