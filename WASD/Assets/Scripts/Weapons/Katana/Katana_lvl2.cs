@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Katana_lvl2 : Weapon, IMeleeWeapon
-{
-    public override string Category => WeaponName.Katana;
+public class Katana_lvl2 : Katana, IMeleeWeapon
+{    
     public override string Name => WeaponName.Katana + WeaponName.Lvl_2;
-    public override string Description => "Not a good back scratcher";
+    public override string Description => "Upgrade: Increased area of attack.";
     public override int WeaponLevel => 2;
     public override int Value => 7;
     public override float Dmg => 6;
@@ -17,13 +16,8 @@ public class Katana_lvl2 : Weapon, IMeleeWeapon
     public override float AtkSpeed => 0.75f;
     public override Rarity RarityType => Rarity.Uncommon;
     public GameObject AttackPrefab { get; set; }
-    public Transform FirePoint { get; set; }
-
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.KatanaIcon);
-
-    public float Timer { get; set; }
-
-    private float lifeTime = 0.25f;
+    public Transform FirePoint { get; set; }    
+    public float WeaponLifetime => 0.25f;
 
 
     private void Start()
@@ -32,24 +26,10 @@ public class Katana_lvl2 : Weapon, IMeleeWeapon
         FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
     }
 
-    public void SwingWeapon()
+    public override void InstantiateWeaponPrefab()
     {
         GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
-        Destroy(blade, lifeTime);
-    }
-
-    public override void Attack()
-    {
-        Timer += Time.deltaTime;
-        if (Timer > GetCooldown())
-        {
-            SwingWeapon();
-            Timer = 0;
-        }
-    }
-
-    public override void DestroyScript(){
-        Destroy(this);
-    }
+        Destroy(blade, WeaponLifetime);
+    }   
 
 }
