@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using AttributeResources;
 
 public abstract class Characters : ICharacters
 {
@@ -13,7 +14,7 @@ public abstract class Characters : ICharacters
     public abstract Attribute Luck { get; }
     public abstract Attribute MovementSpeed { get; }
     public abstract Attribute MaxPsychoLevel { get; }
-    public Attribute CurrentPsychoLevel => new Attribute(0, "");
+    public Attribute CurrentPsychoLevel => new Attribute(0, "", AttributeNames.CurrentPsychoLevel, AttributeDes.CurrentPsychoLevelDes);
     
     public int MaxHealthValue { get { return MaxHealth.GetValue(); } }
     public int AttackValue { get {return Attack.GetValue();} }

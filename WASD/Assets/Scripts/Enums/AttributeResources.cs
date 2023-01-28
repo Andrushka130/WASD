@@ -24,6 +24,7 @@ namespace AttributeResources
         public static readonly string Luck = "Luck";
         public static readonly string MovementSpeed = "MovementSpeed";
         public static readonly string PsychoLevel = "PsychoLevel";
+        public static readonly string CurrentPsychoLevel = "CurrentPsychoLevel";
     }
 
     public static class AttributeDes
@@ -36,5 +37,6 @@ namespace AttributeResources
         public static readonly string LuckDes = "Increase your chance of getting items and weapons with higher rarity";
         public static readonly string MovementSpeedDes = "Move faster";
         public static readonly string PsychoLevelDes = "You can carry more items";
+        public static readonly string CurrentPsychoLevelDes = "Certain items will increase this value";
     }
 }
