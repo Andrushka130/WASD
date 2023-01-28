@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Hacking_lvl2 : Hacking, IRangedWeapon
+public class Hacking_lvl2 : Hacking, IRangedWeapon, IBuyable
 {    
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_2;
     public override string Description => "Upgrade: Now fires 2 hacks at once. Even killing is a remote job now";

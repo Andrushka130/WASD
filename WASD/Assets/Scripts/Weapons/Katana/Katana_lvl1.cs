@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Katana_lvl1 : Katana, IMeleeWeapon
+public class Katana_lvl1 : Katana, IMeleeWeapon, IBuyable
 {    
     public override string Name => WeaponName.Katana + WeaponName.Lvl_1;
     public override string Description => "Attacks in an area in front.";

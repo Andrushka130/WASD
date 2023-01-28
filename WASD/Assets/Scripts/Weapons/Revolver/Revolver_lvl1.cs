@@ -6,7 +6,7 @@ using System;
 using System.Text;
 
 
-public class Revolver_lvl1 : Revolver, IRangedWeapon
+public class Revolver_lvl1 : Revolver, IRangedWeapon, IBuyable
 {    
     public override string Name => WeaponName.Revolver + WeaponName.Lvl_1;
     public override string Description => "A normal Revolver. Has increased crit chance.";
@@ -20,7 +20,7 @@ public class Revolver_lvl1 : Revolver, IRangedWeapon
     public override Rarity RarityType => Rarity.Uncommon;   
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
-    public float FireForce => 30f;
+    public float FireForce => 30f;        
 
     private void Start()
     {

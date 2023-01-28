@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Revolver_lvl3 : Revolver, IRangedWeapon
+public class Revolver_lvl3 : Revolver, IRangedWeapon, IBuyable
 {    
     public override string Name => WeaponName.Revolver + WeaponName.Lvl_3;
     public override string Description => "Upgrade: Bullet now bounces 5 times.";
@@ -17,7 +17,7 @@ public class Revolver_lvl3 : Revolver, IRangedWeapon
     public override Rarity RarityType => Rarity.Epic;    
     public GameObject BulletPrefab { get; set; }
     public Transform FirePoint { get; set; }
-    public float FireForce => 20f;
+    public float FireForce => 20f;     
 
     private void Start()
     {

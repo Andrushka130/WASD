@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Hacking_lvl1 : Hacking, IRangedWeapon
+public class Hacking_lvl1 : Hacking, IRangedWeapon, IBuyable
 {    
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_1;
     public override string Description => "Hacks into the enemies system and fries them.";

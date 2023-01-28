@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class GorillaArms_lvl1 : GorillaArms, IMeleeWeapon
+public class GorillaArms_lvl1 : GorillaArms, IMeleeWeapon, IBuyable
 {
     
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_1;

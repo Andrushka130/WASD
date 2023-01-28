@@ -8,7 +8,6 @@ public class WeaponInventory
     private static List<List<Weapon>> weaponTypeList = new List<List<Weapon>>();
     private WeaponFetcher fetcher;
     private static List<Weapon> equipedWeapons = new List<Weapon>(); 
-
     private static WeaponInventory instance = new WeaponInventory();   
 
     private WeaponInventory(){

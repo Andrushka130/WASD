@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Katana_lvl2 : Katana, IMeleeWeapon
+public class Katana_lvl2 : Katana, IMeleeWeapon, IBuyable
 {    
     public override string Name => WeaponName.Katana + WeaponName.Lvl_2;
     public override string Description => "Upgrade: Increased area of attack.";

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IProjectileLaunchWeapon
+public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IProjectileLaunchWeapon, IBuyable
 {    
     public override string Name => WeaponName.ProjectileLauncherSystem + WeaponName.Lvl_3;
     public override string Description => "Upgrade: Increased size of explosion.";

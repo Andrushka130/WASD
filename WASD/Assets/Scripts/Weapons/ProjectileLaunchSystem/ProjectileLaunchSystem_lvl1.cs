@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class ProjectileLaunchSystem_lvl1 : ProjectileLaunchSystem, IProjectileLaunchWeapon
+public class ProjectileLaunchSystem_lvl1 : ProjectileLaunchSystem, IProjectileLaunchWeapon, IBuyable
 {    
     public override string Name => WeaponName.ProjectileLauncherSystem + WeaponName.Lvl_1;
     public override string Description => "Shoots out explosions to one enemy near the player.";

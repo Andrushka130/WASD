@@ -6,6 +6,6 @@ using WeaponResources;
 public abstract class Revolver : Weapon
 {
     public override string Category => WeaponName.Revolver;
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.RevolverIcon);
-
+    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.RevolverIcon);   
+    
 }

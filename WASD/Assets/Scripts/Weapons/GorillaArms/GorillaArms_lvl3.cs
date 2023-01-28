@@ -4,7 +4,7 @@ using UnityEngine;
 using WeaponResources;
 using static Weapon;
 
-public class GorillaArms_lvl3 : GorillaArms, IMeleeWeapon
+public class GorillaArms_lvl3 : GorillaArms, IMeleeWeapon, IBuyable
 {   
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_3;
     public override string Description => "Upgrade: Increased push range and larger attack.";
