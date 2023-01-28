@@ -17,7 +17,7 @@ public class Katana_lvl3 : Katana, IMeleeWeapon
     public override Rarity RarityType => Rarity.Rare;
     public GameObject AttackPrefab { get; set; }
     public Transform FirePoint { get; set; }
-    public Transform FirePointBack { get; set; }      
+    public Transform FirePointBack { get; set; }     
 
     public float WeaponLifetime => 0.25f;
     private void Start()
