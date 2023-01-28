@@ -16,7 +16,10 @@ public class Attribute
 
     public Attribute(int value, string iconName, string name, string description)
     {
-        icon = Resources.Load<Sprite>(iconName);
+        if(!(iconName == ""))
+        {
+            icon = Resources.Load<Sprite>(iconName);
+        }
         this.name = name;
         this.description = description;
         baseValue = value;
