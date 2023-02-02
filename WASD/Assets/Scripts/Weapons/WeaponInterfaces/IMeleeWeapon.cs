@@ -4,10 +4,8 @@ using UnityEngine;
 
 interface IMeleeWeapon 
 {
-    GameObject AttackPrefab { get; }
-    public void SwingWeapon();
-
-    Transform FirePoint { get; }
-   
+    GameObject AttackPrefab { get; }    
+    Transform FirePoint { get; }   
+    float WeaponLifetime { get; }
 
 }

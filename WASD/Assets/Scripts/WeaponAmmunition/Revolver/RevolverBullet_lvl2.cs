@@ -11,7 +11,7 @@ public class RevolverBullet_lvl2 : MonoBehaviour
     private void Start()
     {
         revolver = GameObject.Find("Weapon").GetComponent<Revolver_lvl2>();
-        life = 1;
+        life = 2;
         IgnorePhysicsOfPlayerAndAttacks();
         
     }
@@ -32,12 +32,12 @@ public class RevolverBullet_lvl2 : MonoBehaviour
     private void handleEnemyCollision(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
-        {
-            TestIfLifeIs0(life);
-            life--;
-
-            collision.gameObject.GetComponent<Enemy>().DamageEnemy(revolver.GetDamage());
-
+        {     
+            life--;  
+            TestIfLifeIs0(life);  
+                        
+            DamageEnemies(collision);
+                       
             reflectBullet(collision);
         }
     }
@@ -46,27 +46,40 @@ public class RevolverBullet_lvl2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Object")
         {
-            TestIfLifeIs0(life);
             life--;
+            TestIfLifeIs0(life);            
             reflectBullet(collision);
         }
     }
 
     private void reflectBullet(Collision2D collision)
-    {
-        Vector2 inDirection = revolver.BulletPrefab.GetComponent<Rigidbody2D>().velocity;
-        Vector2 inNormal = collision.contacts[0].normal;
-        Vector2 newReflectedBulletVelocity = Vector2.Reflect(inNormal, inDirection);
-        gameObject.GetComponent<Rigidbody2D>().AddForce(newReflectedBulletVelocity * revolver.FireForce, ForceMode2D.Impulse);
+    {               
+        if(collision.contacts.Length > 0){        
+            Vector2 inDirection = revolver.BulletPrefab.GetComponent<Rigidbody2D>().velocity;
+            Vector2 inNormal = collision.contacts[0].normal;
+            Vector2 newReflectedBulletVelocity = Vector2.Reflect(inNormal, inDirection);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(newReflectedBulletVelocity * revolver.FireForce, ForceMode2D.Impulse);
+        }
     }
 
     private void TestIfLifeIs0(int life)
     {
-        if(life == 0)
+        if(life <= 0)
         {
             Destroy(gameObject);
             return;
-        }
-        
+        }       
     }
+
+    private void DamageEnemies(Collision2D collision){
+
+        Enemy[] enemies = collision.gameObject.GetComponents<Enemy>();            
+
+            foreach(Enemy enemy in enemies){
+                enemy.DamageEnemy(revolver.GetDamage());
+            }
+            
+    }
+
+    
 }
