@@ -17,14 +17,11 @@ MonoBehaviour:
   icon: {fileID: 0}
   RarityType: 40
   value: 80
-  description: This item harbors secrets that the developer will reveal soon.
+  description: '+ 6 Attack, + 6 Crit Chance, + 12 Crit Damage, + 18 Psycho Level '
   attack: 6
-  critChance: 1
+  critChance: 6
   critDamage: 12
   attackSpeed: 0
-  armor: 0
-  dodge: 0
-  shield: 0
   maxHealth: 0
   healthRegen: 0
   lifesteal: 0
