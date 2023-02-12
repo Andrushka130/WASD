@@ -17,15 +17,12 @@ MonoBehaviour:
   icon: {fileID: 0}
   RarityType: 15
   value: 20
-  description: This item harbors secrets that the developer will reveal soon.
+  description: '+ 4 Max Health, + 4 Life Steal, + 8 Psycho Level '
   attack: 0
-  critChance: 1
+  critChance: 0
   critDamage: 0
   attackSpeed: 0
-  armor: 0
-  dodge: 0
-  shield: 4
-  maxHealth: 0
+  maxHealth: 4
   healthRegen: 0
   lifesteal: 4
   luck: 0

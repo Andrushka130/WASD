@@ -5,8 +5,6 @@ using UnityEngine;
 interface IProjectileLaunchWeapon
 {
     GameObject BulletPrefab { get; set; }
-    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }
-    float Timer { get; set; }  
-    public void FireBullet();
+    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }    
     
 }

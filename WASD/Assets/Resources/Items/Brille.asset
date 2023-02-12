@@ -12,22 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
   m_Name: Brille
   m_EditorClassIdentifier: 
-  name: Brille
+  name: Glasses
   isPassiveItem: 1
   icon: {fileID: 0}
   RarityType: 40
   value: 5
-  description: This item harbors secrets that the developer will reveal soon.
+  description: '+ 2 Crit Chance, + 1 Luck '
   attack: 0
-  critChance: 1
+  critChance: 2
   critDamage: 0
   attackSpeed: 0
-  armor: 0
-  dodge: 1
-  shield: 0
   maxHealth: 0
   healthRegen: 0
   lifesteal: 0
-  luck: 0
+  luck: 1
   movementSpeed: 0
   psychoLevel: 0

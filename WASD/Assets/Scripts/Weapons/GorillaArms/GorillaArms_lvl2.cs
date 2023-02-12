@@ -4,11 +4,10 @@ using UnityEngine;
 using WeaponResources;
 using static Weapon;
 
-public class GorillaArms_lvl2 : Weapon, IMeleeWeapon
-{
-    public override string Category => WeaponName.GorillaArms;
+public class GorillaArms_lvl2 : GorillaArms, IMeleeWeapon, IBuyable
+{   
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_2;
-    public override string Description => "I am going to use Lorem ipsum from now on...";
+    public override string Description => "Upgrade: Increased push range and larger attack.";
     public override int WeaponLevel => 2;
     public override int Value => 10;
     public override float Dmg => 12;
@@ -16,18 +15,10 @@ public class GorillaArms_lvl2 : Weapon, IMeleeWeapon
     public override int CritChance => 15;
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1.2f;
-    public override Rarity RarityType => Rarity.Rare;
-
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.GorillaArmsIcon);
-
-    
+    public override Rarity RarityType => Rarity.Rare;       
     public GameObject AttackPrefab { get; set; }
-    public Transform FirePoint { get; set; }
-
-    public float Timer { get; set; }
-
-    private float lifeTime = 0.25f;
-
+    public Transform FirePoint { get; set; }    
+    public float WeaponLifetime => 0.25f;
 
     private void Start()
     {
@@ -35,22 +26,9 @@ public class GorillaArms_lvl2 : Weapon, IMeleeWeapon
         FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
     }
 
-    public void SwingWeapon()
+    public override void InstantiateWeaponPrefab()
     {
         GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
-        Destroy(gorillaArm, lifeTime);
-    }
-
-    public override void Attack()
-    {
-        Timer += Time.deltaTime;
-        if (Timer > GetCooldown())
-        {
-            SwingWeapon();
-            Timer = 0;
-        }
-    }
-    public override void DestroyScript(){
-        Destroy(this);
-    }
+        Destroy(gorillaArm, WeaponLifetime);
+    }    
 }
