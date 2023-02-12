@@ -1,0 +1,82 @@
+@host = http://127.0.0.1:3000
+
+###create database and collection
+
+GET {{host}}/create HTTP/1.1
+
+### insert test data
+
+POST {{host}}/insertTestData HTTP/1.1
+
+### get all player data
+
+GET {{host}}/playerdata HTTP/1.1
+
+### get all account data
+
+GET {{host}}/account HTTP/1.1
+
+### insert account
+
+POST {{host}}/account HTTP/1.1
+Content-Type: application/json
+
+{
+    "playerTag": "Test2",
+    "password": "1234",
+    "email": "adfdf",
+    "highscore": 6
+}
+
+### get player data of Test2
+
+GET {{host}}/playerdata/Test2 HTTP/1.1
+
+### update highscore of Test2
+
+PUT {{host}}/playerdata/Test2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "highscore": 2
+}
+
+### update highscore of Test2
+
+PATCH {{host}}/playerdata/Test2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "highscore": 3
+}
+
+### Login Test2
+
+POST {{host}}/account/Test2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "password": "1234"
+}
+
+### update email of Test2
+
+PUT {{host}}/account/Test2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "kgfjgj"
+}
+
+### update password of Test2
+
+PATCH {{host}}/account/Test2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "password": "hdf38"
+}
+
+### delete Test2
+
+DELETE {{host}}/account/Test2 HTTP/1.1

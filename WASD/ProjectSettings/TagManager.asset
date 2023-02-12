@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Experience
+  - Object
+  - GameMusic
+  - EnemyProjectile
+  - Canvas
+  - SpawnManager
+  - Health
+  - Eurodollar
   layers:
   - Default
   - TransparentFX
@@ -14,10 +22,10 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
-  - 
-  - 
+  - Attack
+  - Enemy
+  - Drops
+  - EnemyProjectile
   - 
   - 
   - 
