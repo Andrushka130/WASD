@@ -17,15 +17,13 @@ MonoBehaviour:
   icon: {fileID: 0}
   RarityType: 10
   value: 40
-  description: This item harbors secrets that the developer will reveal soon.
+  description: '+ 10 Max Health, + 10 Health Regeneration, - 8 Attack Speed, - 8
+    Movement Speed '
   attack: 0
-  critChance: 1
+  critChance: 0
   critDamage: 0
-  attackSpeed: 0
-  armor: 0
-  dodge: 0
-  shield: 10
-  maxHealth: 0
+  attackSpeed: -8
+  maxHealth: 10
   healthRegen: 10
   lifesteal: 0
   luck: 0

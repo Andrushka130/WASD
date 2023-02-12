@@ -17,16 +17,13 @@ MonoBehaviour:
   icon: {fileID: 0}
   RarityType: 40
   value: 5
-  description: This item harbors secrets that the developer will reveal soon.
+  description: '+ 3 Health Regeneration '
   attack: 0
-  critChance: 1
+  critChance: 0
   critDamage: 0
   attackSpeed: 0
-  armor: 0
-  dodge: 0
-  shield: 0
-  maxHealth: 3
-  healthRegen: 0
+  maxHealth: 0
+  healthRegen: 3
   lifesteal: 0
   luck: 0
   movementSpeed: 0
