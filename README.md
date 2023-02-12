@@ -50,6 +50,7 @@ Your **goal** is to survive all enemy waves as long as you can to get the best h
 
 ### 6.	Node.js:
   -	Download and run installer https://nodejs.org/en/
+  <br><br> ![Screenshot test.http file](https://github.com/Andrushka130/WASD/blob/feature/CI-CD/Images/README/Node_js.png)
 
 ### 7.	Express.js:
   -	Open project in Visual Studio Code
