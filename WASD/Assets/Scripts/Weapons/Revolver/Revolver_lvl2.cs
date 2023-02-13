@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Revolver_lvl2 : Revolver, IRangedWeapon, IBuyable
+public class Revolver_lvl2 : Revolver, IBuyable
 {    
     public override string Name => WeaponName.Revolver + WeaponName.Lvl_2;
     public override string Description => "Upgrade: Bullet now bounces 2 times.";

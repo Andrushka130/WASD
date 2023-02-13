@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Hacking_lvl1 : Hacking, IRangedWeapon, IBuyable
+public class Hacking_lvl1 : Hacking, IBuyable
 {    
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_1;
     public override string Description => "Hacks into the enemies system and fries them.";
@@ -15,9 +15,9 @@ public class Hacking_lvl1 : Hacking, IRangedWeapon, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Common;          
-    public GameObject BulletPrefab { get; set; }
-    public Transform FirePoint { get; set; } 
-    public float FireForce => 5f;
+    public override GameObject BulletPrefab { get; set; }
+    public override Transform FirePoint { get; set; } 
+    public override float FireForce => 5f;
 
     private void Start()
     {

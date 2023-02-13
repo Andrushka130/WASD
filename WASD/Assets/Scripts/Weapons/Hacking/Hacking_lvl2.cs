@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Hacking_lvl2 : Hacking, IRangedWeapon, IBuyable
+public class Hacking_lvl2 : Hacking, IBuyable
 {    
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_2;
     public override string Description => "Upgrade: Now fires 2 hacks at once. Even killing is a remote job now";
@@ -15,10 +15,10 @@ public class Hacking_lvl2 : Hacking, IRangedWeapon, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 0.75f;    
     public override Rarity RarityType => Rarity.Uncommon;        
-    public GameObject BulletPrefab { get; set; }
-    public Transform FirePoint { get; set; }
+    public override GameObject BulletPrefab { get; set; }
+    public override Transform FirePoint { get; set; }
     public Transform FirePointLeft { get; set; }    
-    public float FireForce => 6f;    
+    public override float FireForce => 6f;    
 
     private void Start()
     {
