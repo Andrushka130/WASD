@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Coffee
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 30
+  rarityType: 30
   value: 10
   description: '+ 8 Luck, - 3 Max Health '
   attack: 0

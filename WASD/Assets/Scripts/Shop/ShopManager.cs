@@ -29,10 +29,7 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    //returns 0 if not enough money
-    //returns 1 if item bought
-    //returns -1 if weapon inventory full
-    public EShop BuyItem(object item)
+    public EShop BuyItem(IBuyable item)
     {
         if(item is Weapon)
         {
@@ -75,7 +72,7 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    public List<object> GetItems(int amount)
+    public List<IBuyable> GetItems(int amount)
     {
         System.Random rnd = new System.Random();
 
@@ -84,9 +81,9 @@ public class ShopManager : MonoBehaviour
 
         int rarityCount = probabilities.Length;
 
-        List<object> shopItems = GetShopItems();
+        List<IBuyable> shopItems = GetShopItems();
 
-        List<object> randomItems = new List<object>();
+        List<IBuyable> randomItems = new List<IBuyable>();
         
 
         for (int i = 0; i < amount; i++)
@@ -115,24 +112,12 @@ public class ShopManager : MonoBehaviour
                 } 
                 else 
                 {
-                    List<object> itemsOfSameRarity = new List<object>();
-                    foreach(object item in shopItems)
+                    List<IBuyable> itemsOfSameRarity = new List<IBuyable>();
+                    foreach(IBuyable item in shopItems)
                     {
-                        if(item is Weapon)
+                        if((int) item.RarityType == probabilities[a])
                         {
-                            Weapon weapon = (Weapon) item;
-                            if((int) weapon.RarityType == probabilities[a])
-                            {
-                                itemsOfSameRarity.Add((object) weapon);
-                            }
-                        }
-                        else
-                        {
-                            Item passiveItem = (Item) item;
-                            if((int) passiveItem.RarityType == probabilities[a])
-                            {
-                                itemsOfSameRarity.Add((object) passiveItem);
-                            }
+                            itemsOfSameRarity.Add(item);
                         }
                     }
                     
@@ -163,10 +148,10 @@ public class ShopManager : MonoBehaviour
         return randomItems;
     }
 
-    private List<object> GetShopItems()
+    private List<IBuyable> GetShopItems()
     {
-        List<object> shopItems = (from x in items select (object) x).ToList();
-        shopItems.AddRange((from x in GetNextWeaponLevel() select (object) x).ToList());
+        List<IBuyable> shopItems = (from x in items select (IBuyable) x).ToList();
+        shopItems.AddRange((from x in GetNextWeaponLevel() select (IBuyable) x).ToList());
 
         return shopItems;
     }
@@ -190,54 +175,7 @@ public class ShopManager : MonoBehaviour
         if(expSystem.skillPoints > 0){
             attribute.ChangeAttribute(1);
             expSystem.skillPoints--;
-            Debug.Log(CharactersManager.CurrentChar.Attack.GetValue() +"actual value" );
-            Debug.Log(attribute.GetValue());
-           
         }
 
     }
-
-    //Say you have 4 events
-
-    //event A, relative probability: 4
-    //event B, relative probability: 1
-    //event C, relative probability: 1
-    //event D, relative probability: 10
-
-    //The sum of relative probabilities is 16, so generate a random number X in the range [0,16). Four of those numbers should map to A, one to B, etc.
-
-    //subtract 4 from X. If X is now negative, pick event A.
-    //else, subtract 1 from X. If X is now negative, pick event B.
-    //else, subtract 1 from X. If X is now negative, pick event C.
-    //else, Pick event D.
-
-    /* public List<Item> GetShopItems(int number)
-    {
-        System.Random rnd = new System.Random();
-        List<Item> randomItems = new List<Item>();
-        
-        int rarityCount = Enum.GetNames(typeof(itemRarety)).Length;
-        int sumOfProbabilities = 0;
-
-        for(int i = 1; i <= rarityCount; i++)
-        {
-            sumOfProbabilities += i;
-        }
-        
-        for(int i = 0; i < number; i++)
-        {
-            int rarity = rnd.Next(0, sumOfProbabilities);
-            for(int a = rarityCount; a > 0; a--)
-            {
-                if((rarity - a) < 0)
-                {
-                    List<Item> itemsOfSameRarity = shopItems.Select(item => Array.IndexOf(Enum.GetValues(item.RarityType.GetType()), item.RarityType) == (rarityCount - a));
-                    int randomIndex = rnd.Next(0, itemsOfSameRarity.Length);
-                    randomItems.Add(itemsOfSameRarity[randomIndex]);
-                }
-                rarity -= a;
-            }
-        }
-        return randomItems;
-    }  */
 }

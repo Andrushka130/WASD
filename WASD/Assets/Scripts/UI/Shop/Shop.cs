@@ -22,43 +22,26 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private Transform skillPointsText;
 
-
     [SerializeField] private ItemShop itemShop;
 
     private List<Transform> attributes;
 
-   
-
   
 
 
-
-
-
-
+   
 
 
    
     void Awake()
     {
-        /*WeaponInventory weaponInventory = WeaponInventory.GetInstance();
-        List<IBuyable> weapons =  weaponInventory.GetWeapons(); 
-        HelperUI.FillItemsIcon( weapons, iconTemplate, weaponsIconContainer);
-
-        Inventory itemInventory = Inventory.Instance;
-        List<IBuyable> items = itemInventory.PassiveItems;
-        HelperUI.FillItemsIcon( items, iconTemplate, itemsIconContainer);
-        */
-
+      HelperUI.FilltItemIcon(iconTemplate, weaponsIconContainer, itemsIconContainer);
         
+      itemShop.FillItemShop(4);
 
-
-        
-        itemShop.FillItemShop(4);
-
-        UpdateSkillPoints();
-              
-        attributes = HelperUI.FillAttributes( attributeTemplate, attributeContainer, true);
+      UpdateSkillPoints();
+            
+      attributes = HelperUI.FillAttributes( attributeTemplate, attributeContainer, true);
     }
 
     public void ContinueGame()
@@ -80,6 +63,14 @@ public class Shop : MonoBehaviour
       }
       
 
+    }
+
+    public void UpdateShop()
+    {
+      UpdateSkillPoints();
+      HelperUI.UpdateAttributes(attributes);
+      HelperUI.FilltItemIcon(iconTemplate, weaponsIconContainer, itemsIconContainer);
+      
     }
 
     

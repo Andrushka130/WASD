@@ -15,7 +15,7 @@ MonoBehaviour:
   name: RGB Lights from Nazer
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 15
+  rarityType: 15
   value: 20
   description: '+ 12 Luck, - 4 Health Regeneration '
   attack: 0

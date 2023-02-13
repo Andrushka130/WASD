@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Blood Pump
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 30
+  rarityType: 30
   value: 10
   description: '+ 2 Max Health, + 3 Life Steal, + 5 Psycho Level '
   attack: 0

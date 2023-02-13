@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Heal on Kill
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 10
+  rarityType: 10
   value: 40
   description: '+ 12 Life Steal, -12 Psycho Level '
   attack: 0

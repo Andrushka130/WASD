@@ -15,7 +15,7 @@ MonoBehaviour:
   name: "Nutella-Wurst-K\xE4se Brot"
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 10
+  rarityType: 10
   value: 40
   description: '+ 10 Max Health, + 10 Health Regeneration, - 8 Attack Speed, - 8
     Movement Speed '
