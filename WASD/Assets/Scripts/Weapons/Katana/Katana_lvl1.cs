@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Katana_lvl1 : Katana, IMeleeWeapon, IBuyable
+public class Katana_lvl1 : Katana, IBuyable
 {    
     public override string Name => WeaponName.Katana + WeaponName.Lvl_1;
     public override string Description => "Attacks in an area in front.";
@@ -15,9 +15,9 @@ public class Katana_lvl1 : Katana, IMeleeWeapon, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Common;
-    public GameObject AttackPrefab { get; set; }
-    public Transform FirePoint { get; set; }      
-    public float WeaponLifetime => 0.25f;
+    protected override GameObject AttackPrefab { get; set; }
+    protected override Transform FirePoint { get; set; }    
+    protected override float WeaponLifetime => 0.25f;
 
     private void Start()
     {

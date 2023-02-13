@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class GorillaArms_lvl1 : GorillaArms, IMeleeWeapon, IBuyable
+public class GorillaArms_lvl1 : GorillaArms, IBuyable
 {
     
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_1;
@@ -16,9 +16,9 @@ public class GorillaArms_lvl1 : GorillaArms, IMeleeWeapon, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1.5f;    
     public override Rarity RarityType => Rarity.Uncommon;        
-    public GameObject AttackPrefab { get; set; }
-    public Transform FirePoint { get; set; }   
-    public float WeaponLifetime => 0.25f;
+    protected override GameObject AttackPrefab { get; set; }
+    protected override Transform FirePoint { get; set; }   
+    protected override float WeaponLifetime => 0.25f;
 
     private void Start()
     {

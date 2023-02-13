@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IProjectileLaunchWeapon, IBuyable
+public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IBuyable
 {    
     public override string Name => WeaponName.ProjectileLauncherSystem + WeaponName.Lvl_3;
     public override string Description => "Upgrade: Increased size of explosion.";
@@ -15,8 +15,8 @@ public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IProjectileLa
     public override float Lifesteal => 0f;
     public override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Legendary;   
-    public GameObject BulletPrefab { get; set; }
-    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }    
+    protected override GameObject BulletPrefab { get; set; }
+    protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }    
 
     private void Start()
     {
