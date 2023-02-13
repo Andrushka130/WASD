@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class Hacking_lvl3 : Hacking, IRangedWeapon, IBuyable
+public class Hacking_lvl3 : Hacking, IBuyable
 {    
     public override string Name => WeaponName.Hacking + WeaponName.Lvl_3;
     public override string Description => "Upgrade: Now fires 4 hacks at once.";
@@ -15,12 +15,12 @@ public class Hacking_lvl3 : Hacking, IRangedWeapon, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 0.5f;    
     public override Rarity RarityType => Rarity.Rare;        
-    public GameObject BulletPrefab { get; set; }
-    public Transform FirePoint { get; set; }
+    protected override GameObject BulletPrefab { get; set; }
+    protected override Transform FirePoint { get; set; }
     private Transform FirePointLeft { get; set; }
     private Transform FirePointUp { get; set; }
     private Transform FirePointDown { get; set; }
-    public float FireForce => 8f;
+    protected override float FireForce => 8f;
 
 
     private void Start()
@@ -43,5 +43,6 @@ public class Hacking_lvl3 : Hacking, IRangedWeapon, IBuyable
         bulletLeft.GetComponent<Rigidbody2D>().AddForce(-FirePointLeft.right * FireForce, ForceMode2D.Impulse);
         bulletUp.GetComponent<Rigidbody2D>().AddForce(FirePointUp.up * FireForce, ForceMode2D.Impulse);
         bulletDown.GetComponent<Rigidbody2D>().AddForce(-FirePoint.up * FireForce, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("Hacking");
     }
 }

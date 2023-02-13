@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IProjectileLaunchWeapon, IBuyable
+public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IBuyable
 {
     
     public override string Name => WeaponName.ProjectileLauncherSystem + WeaponName.Lvl_2;
@@ -16,8 +16,8 @@ public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IProjectileLa
     public override float Lifesteal => 0f;
     public override float AtkSpeed => 1.5f;
     public override Rarity RarityType => Rarity.Epic;    
-    public GameObject BulletPrefab { get; set; }
-    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }
+    protected override GameObject BulletPrefab { get; set; }
+    protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }
    
 
     private void Start()
@@ -34,6 +34,7 @@ public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IProjectileLa
         for(int numberOfEnemys = 0; numberOfEnemys <= 1; numberOfEnemys++){
             if(enemys[numberOfEnemys].TryGetComponent<Enemy>(out Enemy enemy)){
                 GameObject bullet = Instantiate(BulletPrefab, enemys[numberOfEnemys].transform.position, enemys[numberOfEnemys].transform.rotation);
+                FindObjectOfType<AudioManager>().Play("Launcher");
                 Destroy(bullet, 0.25f);
             }
         }   
