@@ -1,9 +1,5 @@
 @host = http://127.0.0.1:3000
 
-###create database and collection
-
-GET {{host}}/create HTTP/1.1
-
 ### insert test data
 
 POST {{host}}/insertTestData HTTP/1.1
