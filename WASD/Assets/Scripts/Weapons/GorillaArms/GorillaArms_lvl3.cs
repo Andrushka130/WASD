@@ -4,7 +4,7 @@ using UnityEngine;
 using WeaponResources;
 using static Weapon;
 
-public class GorillaArms_lvl3 : GorillaArms, IMeleeWeapon, IBuyable
+public class GorillaArms_lvl3 : GorillaArms, IBuyable
 {   
     public override string Name => WeaponName.GorillaArms + WeaponName.Lvl_3;
     public override string Description => "Upgrade: Increased push range and larger attack.";
@@ -16,9 +16,9 @@ public class GorillaArms_lvl3 : GorillaArms, IMeleeWeapon, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Epic;
-    public GameObject AttackPrefab { get; set; }
-    public Transform FirePoint { get; set; }   
-    public float WeaponLifetime => 0.25f;
+    protected override GameObject AttackPrefab { get; set; }
+    protected override Transform FirePoint { get; set; }   
+    protected override float WeaponLifetime => 0.25f;
 
     private void Start()
     {
@@ -29,6 +29,7 @@ public class GorillaArms_lvl3 : GorillaArms, IMeleeWeapon, IBuyable
     public override void InstantiateWeaponPrefab()
     {
         GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
+        FindObjectOfType<AudioManager>().Play("GorillaArms");
         Destroy(gorillaArm, WeaponLifetime);
     }
 

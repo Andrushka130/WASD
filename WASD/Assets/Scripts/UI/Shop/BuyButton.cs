@@ -20,6 +20,7 @@ public class BuyButton : MonoBehaviour, IPointerClickHandler
    public void OnPointerClick(PointerEventData eventData)
    {
       EShop result = GameObject.Find("GameManager").GetComponent<ShopManager>().BuyItem(item);
+      FindObjectOfType<AudioManager>().Play("BuyingItem");
       if (result == EShop.BoughtItem)
       {
         itemShop.RemoveShopItem(itemUI);
