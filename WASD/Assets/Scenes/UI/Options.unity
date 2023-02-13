@@ -3184,7 +3184,7 @@ GameObject:
   - component: {fileID: 897999139}
   - component: {fileID: 897999138}
   - component: {fileID: 897999137}
-  - component: {fileID: 897999140}
+  - component: {fileID: 897999141}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -3307,7 +3307,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897999135}
   m_CullTransparentMesh: 1
---- !u!114 &897999140
+--- !u!114 &897999141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3316,7 +3316,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 897999135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9387af32b77f74c8e042109caa1d66, type: 3}
+  m_Script: {fileID: 11500000, guid: 08956f49c35c8a640828ecb9b111db8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   options: {fileID: 999647880}
@@ -5637,7 +5637,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1788854211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9387af32b77f74c8e042109caa1d66, type: 3}
+  m_Script: {fileID: 11500000, guid: 08956f49c35c8a640828ecb9b111db8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   options: {fileID: 999647880}
@@ -5960,7 +5960,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1869405236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9387af32b77f74c8e042109caa1d66, type: 3}
+  m_Script: {fileID: 11500000, guid: 08956f49c35c8a640828ecb9b111db8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   options: {fileID: 999647880}

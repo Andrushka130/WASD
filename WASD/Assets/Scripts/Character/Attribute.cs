@@ -7,17 +7,29 @@ using UnityEngine;
 [System.Serializable]
 public class Attribute
 {
-    [SerializeField]
-    private int baseValue;
     private Sprite icon;
+    private string name;
+    private string description;
+    private int baseValue;
 
     private List<int> modifiers = new List<int>();
 
-    public Attribute(int value, string iconName)
+    public Attribute(int value, string iconName, string name, string description)
     {
+        if(!(iconName == ""))
+        {
+            icon = Resources.Load<Sprite>(iconName);
+        }
+        this.name = name;
+        this.description = description;
         baseValue = value;
-        icon = Resources.Load<Sprite>(iconName);
     }
+
+    public Sprite Icon { get { return icon; }}
+
+    public string Name { get { return name; }}
+
+    public string Description { get { return description; }}
 
     public int GetValue()
     {
@@ -42,4 +54,7 @@ public class Attribute
     {
         baseValue += ammount;
     }
+
+   
+    
 }

@@ -1,1 +1,111 @@
-Filler
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.1.0-alphaMVP] - 06.12.2022
+
+### Added 
+
+- Movable Character with W A S D keys
+- Character shoots automatically in mouse direction
+- Enemies spwaning around the character
+- Pause Menu
+- Sprite placeholders
+
+### Changed
+
+- 
+
+### Fixed
+
+- 
+
+
+## [0.2.0] - 22.12.2022
+
+### Added
+
+- Character Sprite with Animation
+- Startmenu
+- Option menu
+- Leaderboard menu
+- Weapon system
+- Attribute system
+- DataBase Connection
+- ShopSystem
+- Bullet sprites
+- Exp. and Currency system
+- Wave System
+
+### Changed
+
+- Pause menu
+
+### Fixed
+
+- Enemy Spawning system, enemies aren't spawing in the character anymore
+
+
+
+## [0.3.0] - 22.01.2023
+
+### Added
+
+- Enemy sprites and animation
+- Boss spwans in the 3rd Wave 
+- Boss sprites and animation
+- Selfcreated Music Theme
+- Slider Volume for Music
+- Floor in game
+- Login and create Account function
+- view highscore
+- Health bar
+- Exp bar
+- Enemies drop Currency and Exp
+- Health script for Character
+- actication.yml
+- Item proabillity
+- different Weapon lvls
+- bullet sprites
+
+### Changed
+
+- singleton pattern for Weapon Inventory
+- Weapon system (added weapon fetcher and superclasses)
+
+### Fixed
+
+- Redudancy in weapon system
+
+## [0.4.0] - 12.02.2023
+
+### Added
+
+- attribute leveling
+- icons for attribues
+- leveling attributes
+- path constants
+- clean codes -> readonly clrasses for string constants
+- factories, interface, abstract class for character
+
+### Changed 
+
+- balanced currency drop from enemies
+- balanced shop prices and reroll prices
+- value calculation for weapons
+
+### Fixed 
+
+- legendary items never showed up in Shop
+- weapons were not removed in shop
+- exp and currency collect range
+
+## [1.0.0] - 13.02.2023
+
+### Changed
+
+
+

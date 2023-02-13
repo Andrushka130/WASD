@@ -3,25 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using WeaponResources;
 
-public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
-{
-    public override string Category => WeaponName.ProjectileLauncherSystem;
+public class ProjectileLaunchSystem_lvl1 : ProjectileLaunchSystem, IProjectileLaunchWeapon, IBuyable
+{    
     public override string Name => WeaponName.ProjectileLauncherSystem + WeaponName.Lvl_1;
-    public override string Description => "\"Projectile\" leaves room for imagination";
+    public override string Description => "Shoots out explosions to one enemy near the player.";
     public override int WeaponLevel => 1;
     public override int Value => 10;
     public override float Dmg => 10;
     public override float CritDmg => 2f;
     public override int CritChance => 10;
     public override float Lifesteal => 0;
-    public override float AtkSpeed => 2f;
-    public override Rarity RarityType => Rarity.Rare;
-
-    public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.ProjectileLauncherSystemIcon);
-
+    public override float AtkSpeed => 1f;
+    public override Rarity RarityType => Rarity.Rare;   
     public GameObject BulletPrefab { get; set; }
-    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }
-    public float Timer { get; set; }
+    public EnemyDetectionCircle EnemyDetectionCircle { get; set; }   
 
     private void Start()
     {
@@ -29,7 +24,7 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
         BulletPrefab = Resources.Load(WeaponAttacks.ProjectileLaunchSystem) as GameObject;
     }
 
-    public void FireBullet()
+    public override void InstantiateWeaponPrefab()
     {
         Collider2D enemyDetector;
         enemyDetector = EnemyDetectionCircle.getFirstEnemyAroundPlayer(10f);       
@@ -39,20 +34,5 @@ public class ProjectileLaunchSystem_lvl1 : Weapon, IProjectileLaunchWeapon
             Destroy(bullet, 0.25f);
         }              
         
-    }
-
-    public override void Attack()
-    {
-        Timer += Time.deltaTime;
-        if (Timer > GetCooldown())
-        {
-            FireBullet();
-            Timer = 0;
-        }
-    }  
-
-    public override void DestroyScript(){
-        Destroy(this);
-    }
-    
+    }       
 }
