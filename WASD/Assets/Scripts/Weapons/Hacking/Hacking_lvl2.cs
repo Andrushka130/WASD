@@ -15,10 +15,10 @@ public class Hacking_lvl2 : Hacking, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 0.75f;    
     public override Rarity RarityType => Rarity.Uncommon;        
-    public override GameObject BulletPrefab { get; set; }
-    public override Transform FirePoint { get; set; }
-    public Transform FirePointLeft { get; set; }    
-    public override float FireForce => 6f;    
+    protected override GameObject BulletPrefab { get; set; }
+    protected override Transform FirePoint { get; set; }
+    private Transform FirePointLeft { get; set; }    
+    protected override float FireForce => 6f;    
 
     private void Start()
     {

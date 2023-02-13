@@ -16,7 +16,7 @@ public class Revolver_lvl3 : Revolver, IBuyable
     public override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Epic;    
     public override GameObject BulletPrefab { get; set; }
-    public override Transform FirePoint { get; set; }
+    protected override Transform FirePoint { get; set; }
     public override float FireForce => 20f;     
 
     private void Start()
