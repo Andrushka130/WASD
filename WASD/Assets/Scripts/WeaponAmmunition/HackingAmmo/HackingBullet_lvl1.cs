@@ -9,7 +9,7 @@ public class HackingBullet_lvl1 : HackingBullet
     private void Start()
     {
         hacking = GameObject.Find("Weapon").GetComponent<Hacking_lvl1>();
-        ignorePhysicsOfPlayerAndAttacks();
+        IgnorePhysicsOfPlayerAndAttacks();
     }   
 
     protected override void OnCollisionEnter2D(Collision2D collision)

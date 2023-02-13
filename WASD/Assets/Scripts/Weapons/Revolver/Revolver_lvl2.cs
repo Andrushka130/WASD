@@ -15,9 +15,9 @@ public class Revolver_lvl2 : Revolver, IRangedWeapon, IBuyable
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Rare;        
-    public GameObject BulletPrefab { get; set; }
-    public Transform FirePoint { get; set; }
-    public float FireForce => 30f;  
+    public override GameObject BulletPrefab { get; set; }
+    public override Transform FirePoint { get; set; }
+    public override float FireForce => 30f;  
 
     private void Start()
     {
