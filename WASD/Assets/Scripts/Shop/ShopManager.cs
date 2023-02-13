@@ -60,15 +60,15 @@ public class ShopManager : MonoBehaviour
         
         Item passiveItem = (Item) item;
         if((currentChar.CurrentPsychoLevelValue + passiveItem.psychoLevel) <= currentChar.MaxPsychoLevelValue)
-        {    if(WalletManager.Wallet < passiveItem.value)
+        {    if(WalletManager.Wallet < passiveItem.Value)
             {
                 return EShop.NotEnoughMoney;
             }
-            WalletManager.RemoveMoney(passiveItem.value);
+            WalletManager.RemoveMoney(passiveItem.Value);
             _inventory.AddItem(passiveItem);
 
         
-            Debug.Log("bought item: " + passiveItem.name);
+            Debug.Log("bought item: " + passiveItem.Name);
             return EShop.BoughtItem;
         }
         return EShop.PsychoLevelToHigh;
@@ -190,6 +190,9 @@ public class ShopManager : MonoBehaviour
         if(expSystem.skillPoints > 0){
             attribute.ChangeAttribute(1);
             expSystem.skillPoints--;
+            Debug.Log(CharactersManager.CurrentChar.Attack.GetValue() +"actual value" );
+            Debug.Log(attribute.GetValue());
+           
         }
 
     }

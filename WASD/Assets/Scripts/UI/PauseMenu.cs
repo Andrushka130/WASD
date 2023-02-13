@@ -12,11 +12,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Transform attributeTemplate;
 
     [SerializeField] private Transform attributeContainer;
+
+    private List<Transform> attributes;
     
     void Start()
     {
         pauseMenuUI.SetActive(false);
-        HelperUI.FillAttributes(attributeTemplate, attributeContainer);
+        attributes = HelperUI.FillAttributes(attributeTemplate, attributeContainer);
 
     }
 
@@ -44,6 +46,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        HelperUI.UpdateAttributes(attributes);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;

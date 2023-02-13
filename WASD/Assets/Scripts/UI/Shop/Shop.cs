@@ -12,7 +12,7 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private Transform iconTemplate;
 
-    [SerializeField] private Transform weaponIconContainer;
+    [SerializeField] private Transform weaponsIconContainer;
 
     [SerializeField] private Transform itemsIconContainer;
 
@@ -24,6 +24,8 @@ public class Shop : MonoBehaviour
 
 
     [SerializeField] private ItemShop itemShop;
+
+    private List<Transform> attributes;
 
    
 
@@ -39,15 +41,24 @@ public class Shop : MonoBehaviour
    
     void Awake()
     {
-        /* WeaponInventory weaponInventory = WeaponInventory.GetInstance();
-        List<object> weapon =  weaponInventory.GetWeapons(); */
-        //HelperUI.FillImageIcon( weapon, iconTemplate, weaponIconContainer);
+        /*WeaponInventory weaponInventory = WeaponInventory.GetInstance();
+        List<IBuyable> weapons =  weaponInventory.GetWeapons(); 
+        HelperUI.FillItemsIcon( weapons, iconTemplate, weaponsIconContainer);
+
+        Inventory itemInventory = Inventory.Instance;
+        List<IBuyable> items = itemInventory.PassiveItems;
+        HelperUI.FillItemsIcon( items, iconTemplate, itemsIconContainer);
+        */
+
+        
+
+
         
         itemShop.FillItemShop(4);
 
         UpdateSkillPoints();
               
-        HelperUI.FillAttributes( attributeTemplate, attributeContainer, true);
+        attributes = HelperUI.FillAttributes( attributeTemplate, attributeContainer, true);
     }
 
     public void ContinueGame()

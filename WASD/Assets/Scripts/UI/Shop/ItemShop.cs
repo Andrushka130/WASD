@@ -45,9 +45,9 @@ public class ItemShop : MonoBehaviour
         {
           Item passiveItem = (Item) item;
           itemUI.Find("IconBorder").GetComponent<Image>().sprite = GetRarityBorder(passiveItem.RarityType);
-          itemUI.Find("TextContainer").Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = passiveItem.description;
-          itemUI.Find("TextContainer").Find("NameText").GetComponent<TextMeshProUGUI>().text = passiveItem.name;
-          itemUI.Find("PriceTextContainer").Find("PriceValueText").GetComponent<TextMeshProUGUI>().text = passiveItem.value.ToString()+" €$";
+          itemUI.Find("TextContainer").Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = passiveItem.Description;
+          itemUI.Find("TextContainer").Find("NameText").GetComponent<TextMeshProUGUI>().text = passiveItem.Name;
+          itemUI.Find("PriceTextContainer").Find("PriceValueText").GetComponent<TextMeshProUGUI>().text = passiveItem.Value.ToString()+" €$";
 
         }   
 

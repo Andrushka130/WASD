@@ -53,4 +53,6 @@ public class Inventory : MonoBehaviour
             currentChar.CurrentPsychoLevel.AddModifier(newItem.psychoLevel);
         }
     }
+
+    public List<Item> PassiveItems{ get { return passiveItems; }}
 }
