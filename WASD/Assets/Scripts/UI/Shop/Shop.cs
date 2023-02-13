@@ -48,6 +48,8 @@ public class Shop : MonoBehaviour
         UpdateSkillPoints();
               
         HelperUI.FillAttributes( attributeTemplate, attributeContainer, true);
+
+        FindObjectOfType<AudioManager>().Play("ShopOpen");
     }
 
     public void ContinueGame()

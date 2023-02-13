@@ -30,6 +30,7 @@ public class Hacking_lvl1 : Hacking, IBuyable
         FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("Hacking");
     }
 
 }
