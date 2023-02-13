@@ -127,14 +127,15 @@ MonoBehaviour:
   Sprite: {fileID: 718821431876995941}
   Collider: {fileID: 0}
   currentHealth: 0
-  speed: 1
-  checkRadius: 30
-  attackRadius: 10
-  attackDelay: 3
-  projectileSpeed: 5
-  maxHealth: 30
   currentProjectile: {fileID: 8973639410532468869, guid: 6f3866414f569c64f99589a1fd79d94b, type: 3}
   firePoint: {fileID: 5701684532895511276}
+  speed: 1
+  attackRadius: 10
+  attackDelay: 1.7
+  projectileSpeed: 5
+  maxHealth: 30
+  speedScaling: 1.1
+  healthScaling: 1.1
 --- !u!61 &1668337656517885932
 BoxCollider2D:
   m_ObjectHideFlags: 0

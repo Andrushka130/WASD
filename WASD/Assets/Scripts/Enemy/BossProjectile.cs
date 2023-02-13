@@ -9,19 +9,23 @@ public class BossProjectile : MonoBehaviour
     public SpriteRenderer ProjectileSprite;
     public Rigidbody2D ProjectileBody;
     public CircleCollider2D ProjectileCollider;
-    [SerializeField] private int projectileDamage;
+    [SerializeField] private float projectileDamage;
     [SerializeField] private float decayTime;
-    [SerializeField] private int bulletAmount = 10;
+    [SerializeField] private int bulletAmount = 20;
+    [SerializeField] private float dmgScaling = 1.1f;
+    [SerializeField] private float bulletSpreadScaling = 1.5f;
+    [SerializeField] private int maxBulletSpread = 20;
 
     
 
-    void Awake()
+    void Start()
     {
-        //CharacterAttribute damagePlayer = GameObject.FindWithTag
-
         ProjectileBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         enemyProjectile.tag = "EnemyProjectile";
-        enemyProjectile.layer = LayerMask.NameToLayer("Player");
+        enemyProjectile.layer = LayerMask.NameToLayer("EnemyProjectile");
+
+        ignorePhysicsOfEnemyAndAttacks();
+        //UpdateStats();
 
         transform.localScale = new Vector2(0.6f, 0.6f);
     }
@@ -64,9 +68,33 @@ public class BossProjectile : MonoBehaviour
     void Update()
     {
         decayTime += Time.deltaTime;
-        if(decayTime > 3f)
+        if(decayTime > 6f)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void ignorePhysicsOfEnemyAndAttacks()
+    {
+        Physics2D.IgnoreLayerCollision(7, 10);
+        Physics2D.IgnoreLayerCollision(8, 10);
+        Physics2D.IgnoreLayerCollision(10, 10);
+    }
+
+    public void UpdateStats()
+    {
+        float currentScale = GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().waveCounter;
+
+        if(currentScale > 0f)
+        {
+            this.projectileDamage = projectileDamage * (currentScale * dmgScaling);
+            this.bulletAmount = bulletAmount * (int)(currentScale * bulletSpreadScaling);
+        }
+        
+
+        if(bulletAmount >= maxBulletSpread)
+        {
+            bulletAmount = maxBulletSpread;
         }
     }
 

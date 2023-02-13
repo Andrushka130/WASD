@@ -5,13 +5,16 @@ using UnityEngine;
 public class Melee : Enemy
 {
 
-    public float speed = 1f;
-    public float attackRadius = 7f;
     public float attackDelay = 1f;
-    public float maxHealth = 5f;
-    public int damage = 1;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float attackRadius = 7f;
+    [SerializeField] private float maxHealth = 5f;
+    [SerializeField] private float damage = 1f;
     [SerializeField] private float attackFrequency, maxAttackFrequency = 0.5f;
     [SerializeField] private float attackCooldown, maxAttackCooldown = 0.5f;
+    [SerializeField] private float speedScaling = 1.1f;
+    [SerializeField] private float dmgScaling = 1.1f;
+    [SerializeField] private float healthScaling = 1.1f;
 
     private Transform target;
     private Vector2 movement;
@@ -24,6 +27,8 @@ public class Melee : Enemy
     {
         target = GameObject.FindWithTag("Player").transform;
         this.currentHealth = maxHealth;
+        UpdateStats();
+        
     }
 
     void FixedUpdate()
@@ -90,5 +95,18 @@ public class Melee : Enemy
         {
             this.attackFrequency = this.maxAttackFrequency;
         }
+    }
+
+    public void UpdateStats()
+    {
+        float currentScale = GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().waveCounter;
+
+        if(currentScale > 0f)
+        {
+            this.speed = speed * (currentScale * speedScaling);
+            this.maxHealth = maxHealth * (currentScale * healthScaling);
+            this.damage = damage * (currentScale * dmgScaling);
+        }
+        
     }
 }

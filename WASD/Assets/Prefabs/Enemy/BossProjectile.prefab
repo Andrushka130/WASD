@@ -106,7 +106,10 @@ MonoBehaviour:
   ProjectileCollider: {fileID: 8973639410532468890}
   projectileDamage: 5
   decayTime: 0
-  bulletAmount: 10
+  bulletAmount: 6
+  dmgScaling: 0
+  bulletSpreadScaling: 0
+  maxBulletSpread: 30
 --- !u!50 &8973639410532468891
 Rigidbody2D:
   serializedVersion: 4

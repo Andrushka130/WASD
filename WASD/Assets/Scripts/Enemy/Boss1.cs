@@ -5,13 +5,17 @@ using UnityEngine;
 public class Boss1 : Enemy
 {
 
+    public GameObject currentProjectile;
+    public Transform firePoint;
+    
     [SerializeField] private float speed = 1f;
     [SerializeField] private float attackRadius = 6f;
     [SerializeField] private float attackDelay = 1f;
     [SerializeField] private float projectileSpeed = 2f;
-    [SerializeField] private int maxHealth = 5;
-    public GameObject currentProjectile;
-    public Transform firePoint;
+    [SerializeField] private float maxHealth = 5;
+    [SerializeField] private float speedScaling = 1.1f;
+    [SerializeField] private float healthScaling = 1.1f;
+    [SerializeField] private float attackSpeedScaling = 1.1f;
 
     private Transform target;
     private Vector2 movement;
@@ -23,6 +27,7 @@ public class Boss1 : Enemy
     {
         target = GameObject.FindWithTag("Player").transform;
         this.currentHealth = maxHealth;
+        UpdateStats();
     }
 
     void FixedUpdate()
@@ -71,5 +76,18 @@ public class Boss1 : Enemy
         target = GameObject.FindWithTag("Player").transform;
         GameObject projectile = Instantiate(currentProjectile, (Vector2)firePoint.position + (Vector2)(target.position - transform.position).normalized * 3.5f, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce((Vector2)(target.position - transform.position).normalized * projectileSpeed, ForceMode2D.Impulse);
+    }
+
+    public void UpdateStats()
+    {
+        float currentScale = GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().waveCounter;
+
+        if(currentScale > 0f)
+        {
+            this.speed = speed * (currentScale * speedScaling);
+            this.maxHealth = maxHealth * (currentScale * healthScaling);
+            this.attackDelay = attackDelay * (currentScale * attackSpeedScaling);
+        }
+        
     }
 }
