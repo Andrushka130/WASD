@@ -29,6 +29,7 @@ public class Revolver_lvl3 : Revolver, IRangedWeapon, IBuyable
     {
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("Revolver");
     }
 
   

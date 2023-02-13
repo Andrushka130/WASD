@@ -29,6 +29,7 @@ public class Katana_lvl2 : Katana, IMeleeWeapon, IBuyable
     public override void InstantiateWeaponPrefab()
     {
         GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
+        FindObjectOfType<AudioManager>().Play("Katana");
         Destroy(blade, WeaponLifetime);
     }   
 

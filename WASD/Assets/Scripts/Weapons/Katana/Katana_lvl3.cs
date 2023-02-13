@@ -30,6 +30,7 @@ public class Katana_lvl3 : Katana, IMeleeWeapon, IBuyable
     {
         GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
         GameObject blade2 = Instantiate(AttackPrefab, FirePointBack.position, FirePointBack.rotation);
+        FindObjectOfType<AudioManager>().Play("Katana");
         Destroy(blade, WeaponLifetime);
         Destroy(blade2, WeaponLifetime);
     }

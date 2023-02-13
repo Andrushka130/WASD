@@ -81,6 +81,7 @@ public class SpawnManager : MonoBehaviour
                         case 0:
                         //Spawn first Boss with factory
                         gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Boss1");
+                        FindObjectOfType<AudioManager>().Play("BossSpawns");
                         //enemyFactory.SpawnEnemy("Boss1");
                         //adjust for boss difficulty level
                         bossSpawnSpace -= 1; 

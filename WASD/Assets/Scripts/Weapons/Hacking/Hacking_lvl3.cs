@@ -43,5 +43,6 @@ public class Hacking_lvl3 : Hacking, IRangedWeapon, IBuyable
         bulletLeft.GetComponent<Rigidbody2D>().AddForce(-FirePointLeft.right * FireForce, ForceMode2D.Impulse);
         bulletUp.GetComponent<Rigidbody2D>().AddForce(FirePointUp.up * FireForce, ForceMode2D.Impulse);
         bulletDown.GetComponent<Rigidbody2D>().AddForce(-FirePoint.up * FireForce, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("Hacking");
     }
 }
