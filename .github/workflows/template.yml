@@ -60,6 +60,8 @@ jobs:
         with:
           targetPlatform: WebGL
           projectPath: ${{ matrix.projectPath }}
+          allowDirtyBuild: true
+          unityVersion: 2021.3.12f1
 
       # Output
       - uses: actions/upload-artifact@v2
