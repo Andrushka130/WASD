@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Eye Modification
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 40
+  rarityType: 40
   value: 0
   description: '+ 5 Crit Chance, + 5 Psycho Level '
   attack: 0

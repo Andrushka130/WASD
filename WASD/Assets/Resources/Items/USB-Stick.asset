@@ -15,7 +15,7 @@ MonoBehaviour:
   name: USB-Stick
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 40
+  rarityType: 40
   value: 5
   description: '+ 3 Psycho Level '
   attack: 0
