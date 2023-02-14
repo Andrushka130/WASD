@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Reflex Tuner
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 15
+  rarityType: 15
   value: 20
   description: '+ 8 Luck, + 8 Psycho Level '
   attack: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Cigar
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 40
+  rarityType: 40
   value: 5
   description: '+ 5 Luck, - 2 Max Health '
   attack: 0

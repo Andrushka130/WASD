@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Dakimakura
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 5
+  rarityType: 5
   value: 80
   description: '+ 18 Luck, + 9 Max Health, - 3 Health Regeneration, - 18 Psycho Level '
   attack: 0
