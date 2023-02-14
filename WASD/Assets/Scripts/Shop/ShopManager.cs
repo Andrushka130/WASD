@@ -176,6 +176,5 @@ public class ShopManager : MonoBehaviour
             attribute.ChangeAttribute(1);
             expSystem.skillPoints--;
         }
-
     }
 }

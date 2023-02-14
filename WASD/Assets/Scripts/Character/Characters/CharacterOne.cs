@@ -6,6 +6,8 @@ using CharacterResources;
 
 public class CharacterOne : Characters
 {
+    private Sprite icon = Resources.Load<Sprite>("");
+    private Sprite charSprite = Resources.Load<Sprite>(CharacterSprite.CharOneSprite);
     private Attribute maxHealth = new Attribute(20, AttributeIcons.HealthIcon, AttributeNames.Health, AttributeDes.HealthDes);
     private Attribute attack = new Attribute(1, AttributeIcons.AttackIcon, AttributeNames.Attack, AttributeDes.AttackDes);
     private Attribute critChance = new Attribute(2, AttributeIcons.CritChanceIcon, AttributeNames.CritChance, AttributeDes.CritChanceDes);
@@ -15,8 +17,8 @@ public class CharacterOne : Characters
     private Attribute movementSpeed = new Attribute(13, AttributeIcons.MovementSpeedIcon, AttributeNames.MovementSpeed, AttributeDes.MovementSpeedDes);
     private Attribute maxPsychoLevel = new Attribute(20, AttributeIcons.PsychoLevelIcon, AttributeNames.PsychoLevel, AttributeDes.PsychoLevelDes);
 
-    public override Sprite Icon => Resources.Load<Sprite>("");
-    public override Sprite CharSprite => Resources.Load<Sprite>(CharacterSprite.CharOneSprite);
+    public override Sprite Icon => icon;
+    public override Sprite CharSprite => charSprite;
     public override Attribute MaxHealth => maxHealth;
     public override Attribute Attack => attack;
     public override Attribute CritChance => critChance;

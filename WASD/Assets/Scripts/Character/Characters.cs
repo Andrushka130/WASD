@@ -4,6 +4,7 @@ using AttributeResources;
 
 public abstract class Characters : ICharacters
 {
+    private Attribute currentPsychoLevel = new Attribute(0, "", AttributeNames.CurrentPsychoLevel, AttributeDes.CurrentPsychoLevelDes);
     public abstract Sprite Icon { get; }
     public abstract Sprite CharSprite { get; }
     public abstract Attribute MaxHealth { get; }
@@ -14,7 +15,7 @@ public abstract class Characters : ICharacters
     public abstract Attribute Luck { get; }
     public abstract Attribute MovementSpeed { get; }
     public abstract Attribute MaxPsychoLevel { get; }
-    public Attribute CurrentPsychoLevel => new Attribute(0, "", AttributeNames.CurrentPsychoLevel, AttributeDes.CurrentPsychoLevelDes);
+    public Attribute CurrentPsychoLevel => currentPsychoLevel;
     
     public int MaxHealthValue { get { return MaxHealth.GetValue(); } }
     public int AttackValue { get {return Attack.GetValue();} }
