@@ -68,6 +68,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+        projectPath:
+          - WASD
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -99,6 +102,7 @@ jobs:
 
       - uses: webbertakken/unity-builder@v2
         with:
+          projectPath: ${{ matrix.projectPath}}
           targetPlatform: WebGL
 
       - uses: actions/upload-artifact@v2
@@ -143,6 +147,7 @@ jobs:
 
       - uses: webbertakken/unity-builder@v2
         with:
+          projectPath: ${{ matrix.projectPath}}
           targetPlatform: StandaloneWindows64
 
       - uses: actions/upload-artifact@v2
@@ -195,25 +200,25 @@ jobs:
 #          path: build/Android
 #
 #
-#  deployPages:
-#    needs: buildWebGL
-#    name: Deploy to Github Pages 🚀
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - uses: actions/download-artifact@v2
-#        with:
-#          name: build-WebGL
-#          path: build
-#
-#      - name: Display structure of root files
-#        run: ls -R
-#        working-directory: build/WebGL
-#
-#      - name: Deploy 🚀
-#        uses: JamesIves/github-pages-deploy-action@4.1.4
-#        with:
-#          branch: gh-pages
-#          folder: build/WebGL
+  deployPages:
+    needs: buildWebGL
+    name: Deploy to Github Pages 🚀
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-WebGL
+          path: build
+
+      - name: Display structure of root files
+        run: ls -R
+        working-directory: build/WebGL
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: build/WebGL
