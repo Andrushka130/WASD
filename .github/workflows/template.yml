@@ -53,7 +53,7 @@ jobs:
           key: Library-${{ matrix.projectPath }}
           restore-keys: |
             Library-
-      - uses: webbertakken/unity-test-runner@v2
+      - uses: game-ci/unity-test-runner@v2
         id: testRunner
         with:
           projectPath: ${{ matrix.projectPath }}
@@ -63,7 +63,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Test results (${{ matrix.testMode }})
+          name: Test results
           path: ${{ steps.testRunner.outputs.artifactsPath }}
 
   buildWebGL:
@@ -104,7 +104,7 @@ jobs:
           restore-keys: |
             Library-build-
             Library-
-      - uses: webbertakken/unity-builder@v2
+      - uses: game-ci/unity-builder@v2
         with:
           projectPath: ${{ matrix.projectPath}}
           targetPlatform: WebGL
@@ -153,7 +153,7 @@ jobs:
           restore-keys: |
             Library-build-
             Library-
-      - uses: webbertakken/unity-builder@v2
+      - uses: game-ci/unity-builder@v2
         with:
           projectPath: ${{ matrix.projectPath }}
           targetPlatform: StandaloneWindows64
