@@ -48,6 +48,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+          projectPath: ${{ matrix.projectPath }}
 
       # Build
       - name: Build project
