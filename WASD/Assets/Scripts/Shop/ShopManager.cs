@@ -12,11 +12,10 @@ public class ShopManager : MonoBehaviour
     private static WeaponHandler _weaponHandler;
     private static List<Item> items;
     private static List<List<Weapon>> weapons;
-
+    private static System.Random rnd;
 
     [SerializeField] private ExpSystem expSystem;
 
-    
     
     private void Start() {
         currentChar = CharactersManager.CurrentChar;
@@ -25,7 +24,7 @@ public class ShopManager : MonoBehaviour
         _weaponInventory = WeaponInventory.GetInstance();
         items = ItemList.List;
         weapons  = _weaponInventory.GetWeaponTypeList();
-        Debug.Log(GetItems(4));
+        rnd = new System.Random();
     }
 
 
@@ -33,49 +32,19 @@ public class ShopManager : MonoBehaviour
     {
         if(item is Weapon)
         {
-            Weapon weapon = (Weapon) item;
-            if(WalletManager.Wallet < weapon.Value)
-            {
-                return EShop.NotEnoughMoney;
-            }
-            if(!_weaponHandler.InsertNewWeapon(weapon))
-            {
-                Debug.Log("Weapon inventory is full");
-                return EShop.WeaponInventoryFull;
-            }
-            WalletManager.RemoveMoney(weapon.Value);
-            foreach(List<Weapon> w in weapons)
-            {
-                if (w.Contains(weapon))
-                {
-                    w.Remove(weapon);
-                }
-            }
-            Debug.Log("bought weapon: " + weapon.Name);
-            return EShop.BoughtItem;
+            return BuyWeapon(item);
         }
-        
-        Item passiveItem = (Item) item;
-        if((currentChar.CurrentPsychoLevelValue + passiveItem.psychoLevel) <= currentChar.MaxPsychoLevelValue)
-        {    if(WalletManager.Wallet < passiveItem.Value)
-            {
-                return EShop.NotEnoughMoney;
-            }
-            WalletManager.RemoveMoney(passiveItem.Value);
-            _inventory.AddItem(passiveItem);
 
-        
-            Debug.Log("bought item: " + passiveItem.Name);
-            return EShop.BoughtItem;
+        if(item is Item)
+        {
+            return BuyPassiveItem(item);
         }
-        return EShop.PsychoLevelToHigh;
+        
+        return EShop.NotWeaponOrItem;
     }
-
 
     public List<IBuyable> GetItems(int amount)
     {
-        System.Random rnd = new System.Random();
-
         int[] probabilities = (int[]) Enum.GetValues(typeof(Rarity));
         Array.Reverse(probabilities);
 
@@ -88,15 +57,7 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            float rarity = rnd.Next(1, 101);
-            if((rarity + currentChar.LuckValue) > 100)
-            {
-                rarity = 100;
-            }
-            else
-            {
-                rarity += currentChar.LuckValue;
-            }
+            float rarity =  GetRndRarity();
 
             for(int a = 0; a < rarityCount; a++)
             {
@@ -112,16 +73,8 @@ public class ShopManager : MonoBehaviour
                 } 
                 else 
                 {
-                    List<IBuyable> itemsOfSameRarity = new List<IBuyable>();
-                    foreach(IBuyable item in shopItems)
-                    {
-                        if((int) item.RarityType == probabilities[a])
-                        {
-                            itemsOfSameRarity.Add(item);
-                        }
-                    }
+                    List<IBuyable> itemsOfSameRarity = GetItemsOfSameRarity(shopItems, probabilities[a]);
                     
-
                     if(itemsOfSameRarity.Count == 0)
                     {
                         i--;
@@ -144,8 +97,73 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log(randomItems.Count);
         return randomItems;
+    }
+
+    private EShop BuyPassiveItem(IBuyable item)
+    {
+        Item passiveItem = (Item) item;
+        if(!((currentChar.CurrentPsychoLevelValue + passiveItem.psychoLevel) <= currentChar.MaxPsychoLevelValue))
+        {   
+            return EShop.PsychoLevelToHigh;
+        }
+        
+        if(WalletManager.Wallet < passiveItem.Value)
+        {
+            return EShop.NotEnoughMoney;
+        }
+        WalletManager.RemoveMoney(passiveItem.Value);
+        _inventory.AddItem(passiveItem);
+
+        return EShop.BoughtItem;
+    }
+
+    private EShop BuyWeapon(IBuyable item)
+    {
+        Weapon weapon = (Weapon) item;
+        if(WalletManager.Wallet < weapon.Value)
+        {
+            return EShop.NotEnoughMoney;
+        }
+        if(!_weaponHandler.InsertNewWeapon(weapon))
+        {
+            return EShop.WeaponInventoryFull;
+        }
+        WalletManager.RemoveMoney(weapon.Value);
+        foreach(List<Weapon> w in weapons)
+        {
+            if (w.Contains(weapon))
+            {
+                w.Remove(weapon);
+            }
+        }
+        return EShop.BoughtItem;
+    }
+
+    private float GetRndRarity()
+    {
+        float rarity = rnd.Next(1, 101);
+        if((rarity + currentChar.LuckValue) > 100)
+        {
+            return 100;
+        }
+        else
+        {
+            return rarity + currentChar.LuckValue;
+        }
+    }
+
+    private List<IBuyable> GetItemsOfSameRarity(List<IBuyable> shopItems, int probability)
+    {
+        List<IBuyable> itemsOfSameRarity = new List<IBuyable>();
+        foreach(IBuyable item in shopItems)
+        {
+            if((int) item.RarityType == probability)
+            {
+                itemsOfSameRarity.Add(item);
+            }
+        }
+        return itemsOfSameRarity;
     }
 
     private List<IBuyable> GetShopItems()
