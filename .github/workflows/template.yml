@@ -1,6 +1,6 @@
 name: GameCI Template 🎮
 
-on: push
+on: [push, pull_request]
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -18,6 +18,10 @@ jobs:
     needs: checkLicense
     name: Test all modes 📝
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        projectPath:
+          - WASD
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -50,6 +54,7 @@ jobs:
       - uses: webbertakken/unity-test-runner@v2
         id: testRunner
         with:
+          projectPath: ${{ matrix.projectPath }}
           testMode: all
 
       - uses: actions/upload-artifact@v2
