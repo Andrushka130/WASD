@@ -54,6 +54,7 @@ jobs:
           checkName: ${{ matrix.testMode }} Test Results
 
   buildForWebGL:
+    needs: testRunner
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
     strategy:
