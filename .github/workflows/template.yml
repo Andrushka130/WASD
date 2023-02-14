@@ -1,6 +1,7 @@
-name: GameCI Template 🎮
+name: Testing/Build/Deployment 🎮
 
 on: push
+
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -66,8 +67,9 @@ jobs:
           name: Test results
           path: ${{ steps.testRunner.outputs.artifactsPath }}
 
-  buildWebGL:
+  buildWebGL:        
     needs: testRunner
+    if: ${{ github.ref == 'refs/heads/main' }}
     name: Build for WebGL 🖥️
     runs-on: ubuntu-latest
     strategy:
@@ -117,6 +119,7 @@ jobs:
 
   buildWindows:
     needs: testRunner
+    if: ${{ github.ref == 'refs/heads/main' }}
     name: Build for Windows 🖥️
     runs-on: ubuntu-latest
     strategy:
