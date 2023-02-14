@@ -116,6 +116,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+        projectPath:
+          - WASD
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -147,7 +150,7 @@ jobs:
 
       - uses: webbertakken/unity-builder@v2
         with:
-          projectPath: ${{ matrix.projectPath}}
+          projectPath: ${{ matrix.projectPath }}
           targetPlatform: StandaloneWindows64
 
       - uses: actions/upload-artifact@v2
