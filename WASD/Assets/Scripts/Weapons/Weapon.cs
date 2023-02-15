@@ -57,6 +57,6 @@ public abstract class Weapon : MonoBehaviour, IBuyable
 
     private float GetPercentage(int value)
     {
-        return (value + 100) / 100;
+        return ((float) value + 100) / 100;
     }
 }

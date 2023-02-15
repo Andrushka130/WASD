@@ -102,7 +102,7 @@ public class ShopManager : MonoBehaviour
     private EShop BuyPassiveItem(IBuyable item)
     {
         Item passiveItem = (Item) item;
-        if(!((currentChar.CurrentPsychoLevelValue + passiveItem.psychoLevel) <= currentChar.MaxPsychoLevelValue))
+        if(!((currentChar.CurrentPsychoLevelValue + passiveItem.PsychoLevel) <= currentChar.MaxPsychoLevelValue))
         {   
             return EShop.PsychoLevelToHigh;
         }
@@ -193,6 +193,5 @@ public class ShopManager : MonoBehaviour
             attribute.ChangeAttribute(1);
             expSystem.skillPoints--;
         }
-
     }
 }

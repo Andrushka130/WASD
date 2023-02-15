@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
   m_Name: Blood Pump
   m_EditorClassIdentifier: 
-  name: Blood Pump
   isPassiveItem: 1
+  value: 10
+  description: '+ 2 Max Health, + 5 Psycho Level '
+  name: Blood Pump
   icon: {fileID: 0}
   rarityType: 30
-  value: 10
-  description: '+ 2 Max Health, + 3 Life Steal, + 5 Psycho Level '
   attack: 0
   critChance: 0
   critDamage: 0
   attackSpeed: 0
   maxHealth: 2
-  healthRegen: 0
-  lifesteal: 3
   luck: 0
   movementSpeed: 0
   psychoLevel: 5
+  maxPsychoLevel: 0

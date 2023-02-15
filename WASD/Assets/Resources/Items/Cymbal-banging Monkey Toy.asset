@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
-  m_Name: Heal on Kill
+  m_Name: Cymbal-banging Monkey Toy
   m_EditorClassIdentifier: 
-  name: Heal on Kill
   isPassiveItem: 1
+  value: 40
+  description: ' -12 Psycho Level '
+  name: Cymbal-banging Monkey Toy
   icon: {fileID: 0}
   rarityType: 10
-  value: 40
-  description: '+ 12 Life Steal, -12 Psycho Level '
   attack: 0
   critChance: 0
   critDamage: 0
   attackSpeed: 0
   maxHealth: 0
-  healthRegen: 0
-  lifesteal: 12
   luck: 0
   movementSpeed: 0
   psychoLevel: -12
+  maxPsychoLevel: 0

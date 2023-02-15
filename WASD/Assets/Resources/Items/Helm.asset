@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
   m_Name: Helm
   m_EditorClassIdentifier: 
-  name: Helm
   isPassiveItem: 1
-  icon: {fileID: 0}
-  rarityType: 40
   value: 5
   description: '+ 3 Max Health '
+  name: Helm
+  icon: {fileID: 0}
+  rarityType: 40
   attack: 0
   critChance: 0
   critDamage: 0
   attackSpeed: 0
-  maxHealth: 0
-  healthRegen: 0
-  lifesteal: 0
+  maxHealth: 3
   luck: 0
   movementSpeed: 0
   psychoLevel: 0
+  maxPsychoLevel: 0

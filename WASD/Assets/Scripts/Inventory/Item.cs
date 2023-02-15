@@ -3,29 +3,37 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewItem", menuName = "Inventory/Item")]
 public class Item : ScriptableObject, IBuyable
 {
-    [SerializeField] new private string name = "New Item";
     public bool isPassiveItem = true;
+    [SerializeField] private int value;
+    [SerializeField] private string description = "This item harbors secrets that the developer will reveal soon."; //Default Text
+    [SerializeField] new private string name = "New Item";
     [SerializeField] private Sprite icon = null;
     [SerializeField] private Rarity rarityType;
-    [SerializeField] private int value;
-    [SerializeField] private string description = "This item harbors secrets that the developer will reveal soon.";       //Default Text
-
+    
     // Attributes for every item
-    public int attack;
-    public int critChance;
-    public int critDamage;
-    public int attackSpeed;
-    public int maxHealth;
-    public int healthRegen;
-    public int lifesteal;
-    public int luck;
-    public int movementSpeed;
-    public int psychoLevel;
+    [SerializeField] private int attack;
+    [SerializeField] private int critChance;
+    [SerializeField] private int critDamage;
+    [SerializeField] private int attackSpeed;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int luck;
+    [SerializeField] private int movementSpeed;
+    [SerializeField] private int psychoLevel;
+    [SerializeField] private int maxPsychoLevel;
 
    
-    public string Name { get { return name; }}
-    public Sprite Icon { get { return icon; }}
-    public Rarity RarityType { get { return rarityType; }}
-    public int Value { get { return value; }}
-    public string Description { get { return description; }}
+    public int Value => value; 
+    public string Description => description; 
+    public string Name => name; 
+    public Sprite Icon => icon; 
+    public Rarity RarityType => rarityType; 
+    public int Attack => attack;
+    public int CritChance => critChance;
+    public int CritDamage => critDamage;
+    public int AttackSpeed => attackSpeed;
+    public int MaxHealth => maxHealth;
+    public int Luck => luck;
+    public int MovementSpeed => movementSpeed;
+    public int PsychoLevel => psychoLevel;
+    public int MaxPsychoLevel => maxPsychoLevel;
 }
