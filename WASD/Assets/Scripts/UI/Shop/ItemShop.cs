@@ -25,31 +25,19 @@ public class ItemShop : MonoBehaviour
     public void FillItemShop(int count)
      {
       UpdateCoins();
-      List<object> buyableItems = GameObject.Find("GameManager").GetComponent<ShopManager>().GetItems(count);
+      List<IBuyable> buyableItems = GameObject.Find("GameManager").GetComponent<ShopManager>().GetItems(count);
 
-      foreach (Object item in buyableItems)
+      foreach (IBuyable item in buyableItems)
       {
         Transform itemUI = Instantiate(itemTemplate, itemContainer); 
       
-       if(item is Weapon)
-        {
-          Weapon weapon = (Weapon) item;
-          itemUI.Find("IconBorder").Find("Icon").GetComponent<Image>().sprite = weapon.Icon;
-          itemUI.Find("IconBorder").GetComponent<Image>().sprite = GetRarityBorder(weapon.RarityType);
-          itemUI.Find("TextContainer").Find("NameText").GetComponent<TextMeshProUGUI>().text = weapon.Name;
-          itemUI.Find("TextContainer").Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = weapon.Description;
-          itemUI.Find("PriceTextContainer").Find("PriceValueText").GetComponent<TextMeshProUGUI>().text = weapon.Value.ToString() +" €$";
-          
-        } 
-        else
-        {
-          Item passiveItem = (Item) item;
-          itemUI.Find("IconBorder").GetComponent<Image>().sprite = GetRarityBorder(passiveItem.RarityType);
-          itemUI.Find("TextContainer").Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = passiveItem.description;
-          itemUI.Find("TextContainer").Find("NameText").GetComponent<TextMeshProUGUI>().text = passiveItem.name;
-          itemUI.Find("PriceTextContainer").Find("PriceValueText").GetComponent<TextMeshProUGUI>().text = passiveItem.value.ToString()+" €$";
 
-        }   
+        itemUI.Find("IconBorder").Find("Icon").GetComponent<Image>().sprite = item.Icon;
+        itemUI.Find("IconBorder").GetComponent<Image>().sprite = GetRarityBorder(item.RarityType);
+        itemUI.Find("TextContainer").Find("NameText").GetComponent<TextMeshProUGUI>().text = item.Name;
+        itemUI.Find("TextContainer").Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = item.Description;
+        itemUI.Find("PriceTextContainer").Find("PriceValueText").GetComponent<TextMeshProUGUI>().text = item.Value.ToString() +" €$";
+        
 
         itemUI.gameObject.SetActive(true); 
         shopItems.Add(itemUI);

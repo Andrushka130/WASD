@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour, IBuyable
 {
     public abstract string Category { get; }
     public abstract string Name { get; }
@@ -18,8 +18,13 @@ public abstract class Weapon : MonoBehaviour
     private float Timer {get; set;}
     public abstract Sprite Icon { get; }
 
-    private System.Random rnd = new System.Random();
-    private Characters currentChar = CharactersManager.CurrentChar;
+    private System.Random rnd;
+    private Characters currentChar;
+
+    void Awake(){
+        rnd = new System.Random();
+        currentChar = CharactersManager.CurrentChar;
+    }
     
     public abstract void InstantiateWeaponPrefab();
     public  void Attack() {
@@ -52,6 +57,6 @@ public abstract class Weapon : MonoBehaviour
 
     private float GetPercentage(int value)
     {
-        return (value + 100) / 100;
+        return ((float) value + 100) / 100;
     }
 }

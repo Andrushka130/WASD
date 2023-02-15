@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
   m_Name: Dakimakura
   m_EditorClassIdentifier: 
-  name: Dakimakura
   isPassiveItem: 1
-  icon: {fileID: 0}
-  RarityType: 5
   value: 80
-  description: '+ 18 Luck, + 9 Max Health, - 3 Health Regeneration, - 18 Psycho Level '
+  description: '+ 18 Luck, + 9 Max Health, - 18 Psycho Level '
+  name: Dakimakura
+  icon: {fileID: 0}
+  rarityType: 5
   attack: 0
   critChance: 0
   critDamage: 0
   attackSpeed: 0
   maxHealth: 9
-  healthRegen: -3
-  lifesteal: 0
   luck: 18
   movementSpeed: 0
   psychoLevel: -18
+  maxPsychoLevel: 0

@@ -7,34 +7,42 @@ using TMPro;
 public class HelperUI : MonoBehaviour
 {
     
-    public static void FillItemsIcon (List<object> equippedItems, Transform iconTemplate, Transform container)
+    private static void FillIcons (IEnumerable<IBuyable> equippedItems, Transform iconTemplate, Transform container)
     {
-        foreach (object item in equippedItems)
+      int childs = container.childCount;
+        for (int i = childs - 1; i > 0; i--)
+        {
+            GameObject.Destroy(container.GetChild(i).gameObject);
+        }
+
+      foreach (IBuyable item in equippedItems)
       {
         Transform itemUI = Instantiate(iconTemplate, container); 
-       // itemUI.Find("BuyButton").
-       if(item is Weapon)
-        {
-          Weapon weapon = (Weapon) item;
-          itemUI.GetComponent<Image>().sprite = weapon.Icon;
-          
-          
-        } 
-        else
-        {
-          Item passiveItem = (Item) item;
-          itemUI.GetComponent<Image>().sprite = passiveItem.icon;
-
-        }   
-
-
-    }
+        itemUI.GetComponent<Image>().sprite = item.Icon;
+        itemUI.gameObject.SetActive(true);
+      }
     }
 
-    public static void FillAttributes ( Transform template, Transform container, bool isShop = false){
+    public static void FilltItemIcon(Transform iconTemplate, Transform weaponsContainer, Transform itemsContainer)
+    {
+      WeaponInventory weaponInventory = WeaponInventory.GetInstance();
+      IEnumerable<IBuyable> weapons =  weaponInventory.GetWeapons(); 
+      FillIcons( weapons, iconTemplate, weaponsContainer);
+
+      Inventory itemInventory = Inventory.Instance;
+      IEnumerable<IBuyable> items = itemInventory.PassiveItems;
+      FillIcons( items, iconTemplate, itemsContainer);
+    }
+
+   
+
+    
+
+    public static List<Transform> FillAttributes ( Transform template, Transform container, bool isShop = false){
 
       ICharacters character = CharactersManager.CurrentChar; 
       List<Attribute> attributes = character.GetAttributes();
+      List<Transform> attributeUIs = new List<Transform>();
 
       foreach(Attribute attribute in attributes)
       {
@@ -44,14 +52,29 @@ public class HelperUI : MonoBehaviour
 
         if(isShop)
         {
-          attributeUI.Find("PlusButton").GetComponent<PlusButton>().Attribute = attribute;
+          attributeUI.Find("PlusButton").GetComponent<PlusButton>().Attribute =  attribute;
           attributeUI.Find("PlusButton").GetComponent<PlusButton>().AttributeUI = attributeUI;
         }
 
-        attributeUI.gameObject.SetActive(true); 
-        
-
-      }
+        attributeUI.gameObject.SetActive(true);
+        attributeUIs.Add(attributeUI);
       
+      }
+      return attributeUIs;
+      
+    }
+
+    public static void UpdateAttributes(List<Transform> attributeUIs){
+      ICharacters character = CharactersManager.CurrentChar; 
+      List<Attribute> attributes = character.GetAttributes();
+      int i = 0;
+      foreach(Attribute attribute in attributes)
+      {
+        attributeUIs[i].Find("TextAttributLevel").GetComponent<TextMeshProUGUI>().text = attribute.GetValue().ToString();
+        Debug.Log(attribute.Name + attribute.GetValue().ToString());
+        i++;
+        
+      }
+             
     }
 }

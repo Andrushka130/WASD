@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Finger Modification
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 30
+  rarityType: 30
   value: 10
   description: '+ 10 Attack Speed, + 5 Psycho Level '
   attack: 0
