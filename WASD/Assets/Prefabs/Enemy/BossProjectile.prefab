@@ -108,7 +108,7 @@ MonoBehaviour:
   decayTime: 0
   bulletAmount: 6
   dmgScaling: 0.1
-  bulletSpreadScaling: 0.5
+  bulletSpreadScaling: 1
   maxBulletSpread: 30
 --- !u!50 &8973639410532468891
 Rigidbody2D:

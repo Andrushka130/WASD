@@ -25,7 +25,7 @@ public class BossProjectile : MonoBehaviour
         enemyProjectile.layer = LayerMask.NameToLayer("EnemyProjectile");
 
         ignorePhysicsOfEnemyAndAttacks();
-        //UpdateStats();
+        UpdateStats();
 
         transform.localScale = new Vector2(0.6f, 0.6f);
     }

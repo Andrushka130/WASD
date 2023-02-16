@@ -137,8 +137,8 @@ MonoBehaviour:
   attackCooldown: 0
   maxAttackCooldown: 0.5
   speedScaling: 0.1
-  dmgScaling: 0.1
-  healthScaling: 0.1
+  dmgScaling: 0.3
+  healthScaling: 0.5
 --- !u!114 &3443750570744965796
 MonoBehaviour:
   m_ObjectHideFlags: 0

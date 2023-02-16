@@ -5147,7 +5147,7 @@ MonoBehaviour:
   waveCoolDown: 4
   startWaveSpawn: 5
   bossIntervall: 2
-  spawnIncrease: 1.05
+  spawnIncrease: 1.2
   bossSpawnIncrease: 1.1
   enemySpawning: 0
   bossSpawning: 0

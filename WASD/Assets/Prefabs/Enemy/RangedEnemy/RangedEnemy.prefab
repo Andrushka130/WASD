@@ -113,8 +113,8 @@ MonoBehaviour:
   attackDelay: 1
   projectileSpeed: 5
   maxHealth: 3
-  speedScaling: 0.1
-  healthScaling: 0.1
+  speedScaling: 0.3
+  healthScaling: 0.5
 --- !u!50 &2029246817300155159
 Rigidbody2D:
   serializedVersion: 4
