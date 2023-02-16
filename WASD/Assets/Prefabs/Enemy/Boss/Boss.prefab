@@ -134,8 +134,9 @@ MonoBehaviour:
   attackDelay: 1.7
   projectileSpeed: 5
   maxHealth: 30
-  speedScaling: 1.1
-  healthScaling: 1.1
+  speedScaling: 0.1
+  healthScaling: 0.1
+  attackSpeedScaling: 0.1
 --- !u!61 &1668337656517885932
 BoxCollider2D:
   m_ObjectHideFlags: 0

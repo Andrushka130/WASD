@@ -64,7 +64,7 @@ public class EnemyProjectile : MonoBehaviour
 
         if(currentScale > 0f)
         {
-            this.projectileDamage = projectileDamage * (currentScale * dmgScaling);
+            this.projectileDamage = projectileDamage + (currentScale * dmgScaling);
         }
         
     }

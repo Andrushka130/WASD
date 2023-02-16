@@ -87,8 +87,8 @@ public class BossProjectile : MonoBehaviour
 
         if(currentScale > 0f)
         {
-            this.projectileDamage = projectileDamage * (currentScale * dmgScaling);
-            this.bulletAmount = bulletAmount * (int)(currentScale * bulletSpreadScaling);
+            this.projectileDamage = projectileDamage + (currentScale * dmgScaling);
+            this.bulletAmount = bulletAmount + (int)(currentScale * bulletSpreadScaling);
         }
         
 

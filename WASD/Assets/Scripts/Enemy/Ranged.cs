@@ -13,7 +13,6 @@ public class Ranged : Enemy
     [SerializeField] private float maxHealth = 5f;
     [SerializeField] private float speedScaling = 1.1f;
     [SerializeField] private float healthScaling = 1.1f;
-    [SerializeField] private float attackSpeedScaling = 1.1f;
 
     private Transform target;
     private Vector2 movement;
@@ -81,9 +80,8 @@ public class Ranged : Enemy
 
         if(currentScale > 0f)
         {
-            this.speed = speed * (currentScale * speedScaling);
-            this.maxHealth = maxHealth * (currentScale * healthScaling);
-            this.attackDelay = attackDelay * (currentScale * attackSpeedScaling);
+            this.speed = speed + (currentScale * speedScaling);
+            this.maxHealth = maxHealth + (currentScale * healthScaling);
         }
         
     }

@@ -104,7 +104,8 @@ MonoBehaviour:
   ProjectileBody: {fileID: 2810979712154586071}
   ProjectileCollider: {fileID: 2810979712154586070}
   projectileDamage: 1
-  dmgScaling: 1.1
+  decayTime: 0
+  dmgScaling: 0.1
 --- !u!50 &2810979712154586071
 Rigidbody2D:
   serializedVersion: 4

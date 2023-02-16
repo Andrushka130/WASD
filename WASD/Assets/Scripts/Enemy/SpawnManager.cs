@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SpawnManager : MonoBehaviour
 {
 
-    [SerializeField] private float waveCoolDown = 10f;
+    [SerializeField] private float waveCoolDown = 3f;
     [SerializeField] private float startWaveSpawn = 10f;
     [SerializeField] private int bossIntervall = 2;
     [SerializeField] private float spawnIncrease = 1.2f;
@@ -44,22 +44,24 @@ public class SpawnManager : MonoBehaviour
     {
         while (enemySpawning == true)
         {
-            Debug.Log(bossSpawnSpace);
-            while (spawnSpace >= 1) 
+
+            while(spawnSpace > 0f)
             {
                 int randEnemy = Random.Range(0, 2);
+
                 switch(randEnemy)
                 {
-                case 0:
-                gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Melee");
-                spawnSpace -= 1;
-                break;
+                    case 0:
+                    gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Melee");
+                    spawnSpace -= 1;
+                    break;
 
-                case 1:
-                gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Ranged");
-                spawnSpace -= 2;
-                break;
+                    case 1:
+                    gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Ranged");
+                    spawnSpace -= 2;
+                    break;
                 }
+
                 yield return new WaitForSeconds(0.3f);
             }
 
@@ -70,10 +72,11 @@ public class SpawnManager : MonoBehaviour
                     int randBoss = Random.Range(0, 1);
                     switch(randBoss)
                     {
-                    case 0:
-                    gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Boss1");
-                    bossSpawnSpace -= 1; 
-                    break;
+                        case 0:
+                        gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Boss1");
+                        FindObjectOfType<AudioManager>().Play("BossSpawns");
+                        bossSpawnSpace -= 1; 
+                        break;
                     }
                     bossWaveCountDown = bossIntervall;
                     yield return new WaitForSeconds(0.3f);
@@ -92,7 +95,7 @@ public class SpawnManager : MonoBehaviour
         
             while(GameObject.FindWithTag("Enemy") != null)
             {
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(waveCoolDown);
             Time.timeScale = 0f;
@@ -123,4 +126,5 @@ public class SpawnManager : MonoBehaviour
         
         enemySpawning = true;
     }
+
 }

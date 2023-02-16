@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Boss1 : Enemy
 {
-
     public GameObject currentProjectile;
     public Transform firePoint;
-    
     [SerializeField] private float speed = 1f;
     [SerializeField] private float attackRadius = 6f;
     [SerializeField] private float attackDelay = 1f;
     [SerializeField] private float projectileSpeed = 2f;
-    [SerializeField] private float maxHealth = 5;
+    [SerializeField] private float maxHealth = 5f;
     [SerializeField] private float speedScaling = 1.1f;
     [SerializeField] private float healthScaling = 1.1f;
-    [SerializeField] private float attackSpeedScaling = 1.1f;
 
     private Transform target;
     private Vector2 movement;
@@ -84,9 +81,8 @@ public class Boss1 : Enemy
 
         if(currentScale > 0f)
         {
-            this.speed = speed * (currentScale * speedScaling);
-            this.maxHealth = maxHealth * (currentScale * healthScaling);
-            this.attackDelay = attackDelay * (currentScale * attackSpeedScaling);
+            this.speed = speed + (currentScale * speedScaling);
+            this.maxHealth = maxHealth + (currentScale * healthScaling);
         }
         
     }

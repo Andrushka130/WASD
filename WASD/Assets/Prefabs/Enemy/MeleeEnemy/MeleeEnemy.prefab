@@ -127,18 +127,18 @@ MonoBehaviour:
   Sprite: {fileID: 3046980416095835445}
   Collider: {fileID: 0}
   currentHealth: 1
+  attackDelay: 1
   speed: 1.8
   attackRadius: 1.7
-  attackDelay: 1
-  maxHealth: 10
+  maxHealth: 5
   damage: 1
   attackFrequency: 0
   maxAttackFrequency: 0.5
   attackCooldown: 0
   maxAttackCooldown: 0.5
-  speedScaling: 1.1
-  dmgScaling: 1.1
-  healthScaling: 1.1
+  speedScaling: 0.1
+  dmgScaling: 0.1
+  healthScaling: 0.1
 --- !u!114 &3443750570744965796
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -103,9 +103,9 @@ public class Melee : Enemy
 
         if(currentScale > 0f)
         {
-            this.speed = speed * (currentScale * speedScaling);
-            this.maxHealth = maxHealth * (currentScale * healthScaling);
-            this.damage = damage * (currentScale * dmgScaling);
+            this.speed = speed + (currentScale * speedScaling);
+            this.maxHealth = maxHealth + (currentScale * healthScaling);
+            this.damage = damage + (currentScale * dmgScaling);
         }
         
     }
