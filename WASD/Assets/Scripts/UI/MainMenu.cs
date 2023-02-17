@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour
         {
            _playerData.LoggedIn = false;
            _playerData.SaveLoginStatus();
+           deleteAccountButton.SetActive(false);
            UpdateLoginText();
         }
         else
@@ -64,6 +65,9 @@ public class MainMenu : MonoBehaviour
        string result = await db.DeleteAccount(_playerData.PlayerTag);
        _playerData.LoggedIn = false;
        deleteAccountButton.SetActive(false);
+       leaderboard.SetActive(false);  
+       leaderboard.SetActive(true); // Einträge werden neugeladen
+
        UpdateLoginText();
     }
 
