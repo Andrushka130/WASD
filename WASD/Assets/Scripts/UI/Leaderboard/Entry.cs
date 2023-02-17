@@ -20,7 +20,6 @@ public class Entry : MonoBehaviour
         for(int i = 0; i < result.Length; i++)
         {
             Transform entry = Instantiate(entryTemplate, entryContainer);
-            Debug.Log("Instantiate");
             entry.Find("TextPos").GetComponent<TextMeshProUGUI>().text = (i+1).ToString();
             entry.Find("TextName").GetComponent<TextMeshProUGUI>().text = result[i].PlayerTag;
             entry.Find("TextScore").GetComponent<TextMeshProUGUI>().text  = result[i].Highscore.ToString();

@@ -33,11 +33,7 @@ public class MainMenu : MonoBehaviour
     public void ManageLeaderboard()
     {
        leaderboard.SetActive(leaderboardIsNotActive);
-       if (_playerData.LoggedIn){
-         logInfo.text = "LogOut";
-       } else {
-         logInfo.text = "LogIn";
-       }
+       UpdateLoginText();
        loginButton.SetActive(leaderboardIsNotActive);
        deleteAccountButton.SetActive(leaderboardIsNotActive && _playerData.LoggedIn);
        leaderboardIsNotActive = !leaderboardIsNotActive;
@@ -49,23 +45,40 @@ public class MainMenu : MonoBehaviour
     }
 
     public void OpenLoginScreen()
-    {
-        SceneManager.LoadSceneAsync("LoginScreen");
+    {        
+        if (_playerData.LoggedIn)
+        {
+           _playerData.LoggedIn = false;
+           UpdateLoginText();
+        }
+        else
+        {
+           SceneManager.LoadSceneAsync("LoginScreen");
+        }
     }
 
     public async void DeleteAccount()
     {
        Database db = new Database();
        string result = await db.DeleteAccount(_playerData.PlayerTag);
-       Debug.Log(result);
        _playerData.LoggedIn = false;
-
+       deleteAccountButton.SetActive(false);
+       UpdateLoginText();
     }
 
     public void ExitGame()
     {
         Debug.Log("Exit Game");
         Application.Quit();
+    }
+
+    private void  UpdateLoginText()
+    {
+       if (_playerData.LoggedIn){
+         logInfo.text = "LogOut";
+       } else {
+         logInfo.text = "LogIn";
+       }
     }
 
     

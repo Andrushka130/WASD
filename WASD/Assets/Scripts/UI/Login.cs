@@ -52,11 +52,6 @@ public class Login : MonoBehaviour
         loginScreen.OpenMainMenu();
     }
 
-    public void OnLogoutClick()
-    {
-        _playerData.LoggedIn = false;
-        loginImage.SetActive(true);
-    }
 
     private async void CheckHighscore()
     {
