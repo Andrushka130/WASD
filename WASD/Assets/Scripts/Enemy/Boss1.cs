@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss1 : Enemy
@@ -62,14 +60,11 @@ public class Boss1 : Enemy
             }
         }
 
-        
-
         Body.MovePosition((Vector2)transform.position + movement * Time.fixedDeltaTime);
     }
 
     void Attack()
     {
-        Debug.Log("Attacked!");
         target = GameObject.FindWithTag("Player").transform;
         GameObject projectile = Instantiate(currentProjectile, (Vector2)firePoint.position + (Vector2)(target.position - transform.position).normalized * 3.5f, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce((Vector2)(target.position - transform.position).normalized * projectileSpeed, ForceMode2D.Impulse);
@@ -84,6 +79,5 @@ public class Boss1 : Enemy
             this.speed = speed + (currentScale * speedScaling);
             this.maxHealth = maxHealth + (currentScale * healthScaling);
         }
-        
     }
 }

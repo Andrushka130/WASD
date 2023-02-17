@@ -183,13 +183,13 @@ public class ShopManager : MonoBehaviour
                 nextWeaponLevels.Add(weapon[0]);
             }
         }
-
         return nextWeaponLevels;
     }
 
     public void SkillAttribute(Attribute attribute)
     {
-        if(expSystem.skillPoints > 0){
+        if(expSystem.skillPoints > 0)
+        {
             attribute.ChangeAttribute(1);
             expSystem.skillPoints--;
         }

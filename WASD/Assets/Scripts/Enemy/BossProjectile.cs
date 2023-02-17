@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossProjectile : MonoBehaviour
@@ -38,7 +36,6 @@ public class BossProjectile : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
     
-        Debug.Log("hit" + collision.gameObject);
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(projectileDamage);
@@ -97,5 +94,4 @@ public class BossProjectile : MonoBehaviour
             bulletAmount = maxBulletSpread;
         }
     }
-
 }

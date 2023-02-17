@@ -1,5 +1,3 @@
-using System;
-
 namespace AttributeResources
 {
     public static class AttributeIcons

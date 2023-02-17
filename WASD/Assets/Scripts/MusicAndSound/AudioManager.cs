@@ -1,5 +1,3 @@
-using UnityEngine.Audio;
-using UnityEngine.UI;
 using System;
 using UnityEngine;
 
@@ -9,7 +7,8 @@ public class AudioManager : MonoBehaviour
    
    public static AudioManager instance;
    
-    void Awake() {
+    void Awake()
+    {
         
         if(instance == null)
         {
@@ -31,7 +30,6 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-
     }
 
     void Start()
@@ -73,5 +71,4 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-
 }
