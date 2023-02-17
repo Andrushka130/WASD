@@ -11,8 +11,7 @@ public class Katana_lvl3 : Katana, IBuyable
     public override int Value => 10;
     public override float Dmg => 10;
     public override float CritDmg => 1.75f;
-    public override int CritChance => 20;
-    public override float Lifesteal => 0;
+    public override int CritChance => 20;    
     public override float AtkSpeed => 0.5f;    
     public override Rarity RarityType => Rarity.Rare;
     protected override GameObject AttackPrefab { get; set; }
@@ -21,12 +20,12 @@ public class Katana_lvl3 : Katana, IBuyable
     protected override float WeaponLifetime => 0.25f;
     private void Start()
     {
-        AttackPrefab = Resources.Load(WeaponAttacks.Katana + WeaponAttacks.Lvl_3) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
-        FirePointBack = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
+        AttackPrefab = Resources.Load(WeaponAttacks.Katana + WeaponAttacks.Lvl_3) as GameObject;        
     }
     public override void InstantiateWeaponPrefab()
     {
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
+        FirePointBack = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
         GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
         GameObject blade2 = Instantiate(AttackPrefab, FirePointBack.position, FirePointBack.rotation);
         FindObjectOfType<AudioManager>().Play("Katana");

@@ -11,8 +11,7 @@ public class Hacking_lvl1 : Hacking, IBuyable
     public override int Value => 5;
     public override float Dmg => 3;
     public override float CritDmg => 1.3f;
-    public override int CritChance => 20;
-    public override float Lifesteal => 0;
+    public override int CritChance => 20;    
     public override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Common;          
     protected override GameObject BulletPrefab { get; set; }
@@ -21,8 +20,7 @@ public class Hacking_lvl1 : Hacking, IBuyable
 
     private void Start()
     {
-        BulletPrefab = Resources.Load(WeaponAttacks.Hacking) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
+        BulletPrefab = Resources.Load(WeaponAttacks.Hacking) as GameObject;        
     }
 
     public override void InstantiateWeaponPrefab()

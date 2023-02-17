@@ -15,8 +15,8 @@ public class EnemyDetectionCircle
     }
 
     public Collider2D getFirstEnemyAroundPlayer(float circleRadius)
-    {             
-        enemyAroundPlayer = Physics2D.OverlapCircle(player.transform.position, circleRadius);
+    {   
+        enemyAroundPlayer = Physics2D.OverlapCircle(player.transform.position, circleRadius);       
         return enemyAroundPlayer;
     }
 }

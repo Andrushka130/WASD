@@ -12,8 +12,7 @@ public class GorillaArms_lvl1 : GorillaArms, IBuyable
     public override int Value => 7;
     public override float Dmg => 4;
     public override float CritDmg => 1.5f;
-    public override int CritChance => 20;
-    public override float Lifesteal => 0;
+    public override int CritChance => 20;    
     public override float AtkSpeed => 1.5f;    
     public override Rarity RarityType => Rarity.Uncommon;        
     protected override GameObject AttackPrefab { get; set; }
@@ -22,15 +21,7 @@ public class GorillaArms_lvl1 : GorillaArms, IBuyable
 
     private void Start()
     {
-        AttackPrefab = Resources.Load(WeaponAttacks.GorillaArm) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
-    }
-
-    public override void InstantiateWeaponPrefab()
-    {
-        GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
-        FindObjectOfType<AudioManager>().Play("GorillaArms");
-        Destroy(gorillaArm, WeaponLifetime);
-    }
+        AttackPrefab = Resources.Load(WeaponAttacks.GorillaArm) as GameObject;        
+    }  
    
 }

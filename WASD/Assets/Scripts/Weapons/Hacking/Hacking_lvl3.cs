@@ -11,8 +11,7 @@ public class Hacking_lvl3 : Hacking, IBuyable
     public override int Value => 10;
     public override float Dmg => 15;
     public override float CritDmg => 1.75f;
-    public override int CritChance => 20;
-    public override float Lifesteal => 0;
+    public override int CritChance => 20;    
     public override float AtkSpeed => 0.5f;    
     public override Rarity RarityType => Rarity.Rare;        
     protected override GameObject BulletPrefab { get; set; }
@@ -25,15 +24,16 @@ public class Hacking_lvl3 : Hacking, IBuyable
 
     private void Start()
     {
-        BulletPrefab = Resources.Load(WeaponAttacks.Hacking + WeaponAttacks.Lvl_3) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
-        FirePointLeft = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
-        FirePointUp = GameObject.Find(WeaponFirePoints.FirePointUp).transform;
-        FirePointDown = GameObject.Find(WeaponFirePoints.FirePointDown).transform;
+        BulletPrefab = Resources.Load(WeaponAttacks.Hacking + WeaponAttacks.Lvl_3) as GameObject;        
     }
 
     public override void InstantiateWeaponPrefab()
     {
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
+        FirePointLeft = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
+        FirePointUp = GameObject.Find(WeaponFirePoints.FirePointUp).transform;
+        FirePointDown = GameObject.Find(WeaponFirePoints.FirePointDown).transform;
+
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         GameObject bulletLeft = Instantiate(BulletPrefab, FirePointLeft.position, FirePointLeft.rotation);
         GameObject bulletUp = Instantiate(BulletPrefab, FirePointUp.position, FirePointUp.rotation);

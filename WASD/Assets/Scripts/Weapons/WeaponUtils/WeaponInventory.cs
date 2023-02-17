@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class WeaponInventory
+public class WeaponInventory : MonoBehaviour
 {    
-    private static List<List<Weapon>> weaponTypeList = new List<List<Weapon>>();
+    private List<List<Weapon>> weaponTypeList = new List<List<Weapon>>();
     private WeaponFetcher fetcher;
-    private static List<Weapon> equipedWeapons = new List<Weapon>(); 
-    private static WeaponInventory instance = new WeaponInventory();   
+    private List<Weapon> equipedWeapons = new List<Weapon>(); 
+    private static WeaponInventory instance;
 
-    private WeaponInventory(){
-        fetcher = GameObject.Find("WeaponStorage").GetComponent<WeaponFetcher>();
+    void Awake(){
+        fetcher = GameObject.Find("WeaponStorage").GetComponent<WeaponFetcher>();   
         weaponTypeList = fetcher.FillWeaponTypeListFromWeaponStorage();        
         equipedWeapons.Add(fetcher.FillWeaponListWithStartingWeapon());
-    }       
-    
+    }  
+   
     public static WeaponInventory GetInstance(){
+        if(instance == null){
+            instance = FindObjectOfType<WeaponInventory>();
+            if(instance == null){
+                instance = new GameObject().AddComponent<WeaponInventory>();
+            }
+        }
         return instance;
     }
 
@@ -27,5 +32,5 @@ public class WeaponInventory
     public List<Weapon> GetWeapons(){      
         return equipedWeapons;
     }
-    
+
 }
