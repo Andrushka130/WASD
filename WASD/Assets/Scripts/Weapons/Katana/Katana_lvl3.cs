@@ -21,12 +21,12 @@ public class Katana_lvl3 : Katana, IBuyable
     protected override float WeaponLifetime => 0.25f;
     private void Start()
     {
-        AttackPrefab = Resources.Load(WeaponAttacks.Katana + WeaponAttacks.Lvl_3) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
-        FirePointBack = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
+        AttackPrefab = Resources.Load(WeaponAttacks.Katana + WeaponAttacks.Lvl_3) as GameObject;        
     }
     public override void InstantiateWeaponPrefab()
     {
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
+        FirePointBack = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
         GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
         GameObject blade2 = Instantiate(AttackPrefab, FirePointBack.position, FirePointBack.rotation);
         FindObjectOfType<AudioManager>().Play("Katana");

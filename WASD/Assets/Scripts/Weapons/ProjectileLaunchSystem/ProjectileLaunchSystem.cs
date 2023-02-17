@@ -9,4 +9,6 @@ public abstract class ProjectileLaunchSystem : Weapon
     public override Sprite Icon => Resources.Load<Sprite>(WeaponIconPath.ProjectileLauncherSystemIcon);
     protected abstract GameObject BulletPrefab { get; set; }
     protected abstract EnemyDetectionCircle EnemyDetectionCircle { get; set; } 
+    protected abstract float CircleRadius {get;}
+    
 }

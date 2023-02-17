@@ -21,16 +21,6 @@ public class Revolver_lvl3 : Revolver, IBuyable
 
     private void Start()
     {
-        BulletPrefab = Resources.Load(WeaponAttacks.Revolver + WeaponAttacks.Lvl_3) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
-    }
-
-    public override void InstantiateWeaponPrefab()
-    {
-        GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
-        FindObjectOfType<AudioManager>().Play("Revolver");
-    }
-
-  
+        BulletPrefab = Resources.Load(WeaponAttacks.Revolver + WeaponAttacks.Lvl_3) as GameObject;        
+    }      
 }

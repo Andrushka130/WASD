@@ -22,12 +22,12 @@ public class Katana_lvl2 : Katana, IBuyable
 
     private void Start()
     {
-        AttackPrefab = Resources.Load(WeaponAttacks.Katana + WeaponAttacks.Lvl_2) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
+        AttackPrefab = Resources.Load(WeaponAttacks.Katana + WeaponAttacks.Lvl_2) as GameObject;       
     }
 
     public override void InstantiateWeaponPrefab()
     {
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
         GameObject blade = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
         FindObjectOfType<AudioManager>().Play("Katana");
         Destroy(blade, WeaponLifetime);

@@ -22,15 +22,7 @@ public class GorillaArms_lvl1 : GorillaArms, IBuyable
 
     private void Start()
     {
-        AttackPrefab = Resources.Load(WeaponAttacks.GorillaArm) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
-    }
-
-    public override void InstantiateWeaponPrefab()
-    {
-        GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
-        FindObjectOfType<AudioManager>().Play("GorillaArms");
-        Destroy(gorillaArm, WeaponLifetime);
-    }
+        AttackPrefab = Resources.Load(WeaponAttacks.GorillaArm) as GameObject;        
+    }  
    
 }

@@ -14,9 +14,10 @@ public class ProjectileLaunchSystem_lvl1 : ProjectileLaunchSystem, IBuyable
     public override int CritChance => 10;
     public override float Lifesteal => 0;
     public override float AtkSpeed => 1f;
-    public override Rarity RarityType => Rarity.Rare;   
+    public override Rarity RarityType => Rarity.Common;   
     protected override GameObject BulletPrefab { get; set; }
-    protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }   
+    protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }
+    protected override float CircleRadius => 10f;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class ProjectileLaunchSystem_lvl1 : ProjectileLaunchSystem, IBuyable
     public override void InstantiateWeaponPrefab()
     {
         Collider2D enemyDetector;
-        enemyDetector = EnemyDetectionCircle.getFirstEnemyAroundPlayer(10f);       
+        enemyDetector = EnemyDetectionCircle.getFirstEnemyAroundPlayer(CircleRadius);       
 
         if(enemyDetector.TryGetComponent<Enemy>(out Enemy enemy)){
             GameObject bullet = Instantiate(BulletPrefab, enemyDetector.transform.position, enemyDetector.transform.rotation);

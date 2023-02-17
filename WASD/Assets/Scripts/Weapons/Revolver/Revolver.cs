@@ -10,5 +10,13 @@ public abstract class Revolver : Weapon
     public abstract GameObject BulletPrefab { get; set;}
     protected abstract Transform FirePoint { get; set;}
     public abstract float FireForce { get; }   
+
+    public override void InstantiateWeaponPrefab()
+    {
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
+        GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+        bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("Revolver");
+    }
     
 }

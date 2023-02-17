@@ -18,7 +18,7 @@ public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IBuyable
     public override Rarity RarityType => Rarity.Epic;    
     protected override GameObject BulletPrefab { get; set; }
     protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }
-   
+    protected override float CircleRadius => 20f;   
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IBuyable
     public override void InstantiateWeaponPrefab()
     {               
         Collider2D[] enemys;
-        enemys = EnemyDetectionCircle.getEnemysAroundPlayer(20f);                    
+        enemys = EnemyDetectionCircle.getEnemysAroundPlayer(CircleRadius);                    
 
         for(int numberOfEnemys = 0; numberOfEnemys <= 1; numberOfEnemys++){
             if(enemys[numberOfEnemys].TryGetComponent<Enemy>(out Enemy enemy)){
@@ -37,7 +37,6 @@ public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IBuyable
                 FindObjectOfType<AudioManager>().Play("Launcher");
                 Destroy(bullet, 0.25f);
             }
-        }   
-        
+        }           
     }    
 }

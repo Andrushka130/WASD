@@ -22,14 +22,16 @@ public class Hacking_lvl2 : Hacking, IBuyable
 
     private void Start()
     {
-        BulletPrefab = Resources.Load(WeaponAttacks.Hacking + WeaponAttacks.Lvl_2) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
-        FirePointLeft = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
+        BulletPrefab = Resources.Load(WeaponAttacks.Hacking + WeaponAttacks.Lvl_2) as GameObject;        
                 
     }
 
     public override void InstantiateWeaponPrefab()
     {
+
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
+        FirePointLeft = GameObject.Find(WeaponFirePoints.FirePointLeft).transform;
+        
         GameObject bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         GameObject bullet2 = Instantiate(BulletPrefab, FirePointLeft.position, FirePointLeft.rotation);        
 

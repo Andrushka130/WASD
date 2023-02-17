@@ -21,8 +21,7 @@ public class Hacking_lvl1 : Hacking, IBuyable
 
     private void Start()
     {
-        BulletPrefab = Resources.Load(WeaponAttacks.Hacking) as GameObject;
-        FirePoint = GameObject.Find(WeaponFirePoints.FirePoint).transform;
+        BulletPrefab = Resources.Load(WeaponAttacks.Hacking) as GameObject;        
     }
 
     public override void InstantiateWeaponPrefab()

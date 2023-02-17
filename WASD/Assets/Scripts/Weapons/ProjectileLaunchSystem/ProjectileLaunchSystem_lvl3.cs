@@ -16,7 +16,8 @@ public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IBuyable
     public override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Legendary;   
     protected override GameObject BulletPrefab { get; set; }
-    protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }    
+    protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }   
+    protected override float CircleRadius => 20f; 
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IBuyable
     public override void InstantiateWeaponPrefab()
     {                          
         Collider2D[] enemys;
-        enemys = EnemyDetectionCircle.getEnemysAroundPlayer(20f);                    
+        enemys = EnemyDetectionCircle.getEnemysAroundPlayer(CircleRadius);                    
 
         for(int numberOfEnemys = 0; numberOfEnemys <= 2; numberOfEnemys++){
             if(enemys[numberOfEnemys].TryGetComponent<Enemy>(out Enemy enemyAI)){
