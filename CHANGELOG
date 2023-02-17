@@ -115,8 +115,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - architecture from bullet System changed
+- renamed DirectoryNames
+
+### Fixed
+
+- fixed multiple Bugs for weapon and enemies
 
 ### Removed
 
 - MusicPlayerScript class
 - ThemeBackground class
+- removed emtpy classes
