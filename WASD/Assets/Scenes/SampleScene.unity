@@ -5144,14 +5144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7090c8bfc9a239a4599352bf9bc25632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCoolDown: 10
-  startWaveSpawn: 10
+  waveCoolDown: 4
+  startWaveSpawn: 5
   bossIntervall: 2
   spawnIncrease: 1.2
-  bossSpawnIncrese: 1.1
+  bossSpawnIncrease: 1.1
   enemySpawning: 0
   bossSpawning: 0
-  bossSpawnIncrease: 1.2
   waveCounter: 0
 --- !u!114 &904506446
 MonoBehaviour:
@@ -5169,11 +5168,7 @@ MonoBehaviour:
   rangedEnemy: {fileID: 2029246817300155158, guid: 46325ab236e05d64d9be9ee126b550e1, type: 3}
   boss1: {fileID: 6209759378914004540, guid: 441212badb32d344491a1232d25fc834, type: 3}
   maxSpawnRadius: 20
-  minPlayerDistance: 5
-  waveCoolDown: 10
-  startWaveSpawn: 10
-  spawnIncrease: 1.2
-  enemySpawning: 0
+  minPlayerDistance: 7
 --- !u!1 &947415881
 GameObject:
   m_ObjectHideFlags: 0
