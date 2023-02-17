@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +7,6 @@ public class ExpSystem : MonoBehaviour
     public int skillPoints;
     public float currentExp;
     public float requiredExp;
-
-    //private float lerpTimer;
-    //private float delayTimer;
 
     [Header("UI")]
     public Image expBar;
@@ -42,11 +37,6 @@ public class ExpSystem : MonoBehaviour
 
         if(expFillAmount < expFraction)
         {
-            /*
-             * lerpTimer += Time.deltaTime;
-             * float percentComplete = lerpTimer / 3;
-             * expBar.fillAmount = Mathf.Lerp(expFillAmount, expFraction, percentComplete);
-             */
             expBar.fillAmount = expFraction;
         }
     }
@@ -54,7 +44,6 @@ public class ExpSystem : MonoBehaviour
     public void GainExperience(float expGained)
     {
         currentExp += expGained;
-        //lerpTimer = 0f;
     }
 
     public void LevelUp()

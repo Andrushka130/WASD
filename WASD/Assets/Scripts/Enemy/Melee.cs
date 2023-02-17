@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Melee : Enemy
@@ -28,7 +26,6 @@ public class Melee : Enemy
         target = GameObject.FindWithTag("Player").transform;
         this.currentHealth = maxHealth;
         UpdateStats();
-        
     }
 
     void FixedUpdate()
@@ -56,7 +53,6 @@ public class Melee : Enemy
 
     void Attack(Collision2D collision)
     {
-        Debug.Log("Hit Player!");
         
         if (collision.gameObject.tag == "Player")
         {
@@ -107,6 +103,5 @@ public class Melee : Enemy
             this.maxHealth = maxHealth + (currentScale * healthScaling);
             this.damage = damage + (currentScale * dmgScaling);
         }
-        
     }
 }

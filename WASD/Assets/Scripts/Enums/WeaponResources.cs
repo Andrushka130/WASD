@@ -1,5 +1,3 @@
-using System;
-
 namespace WeaponResources
 {
     public static class WeaponName

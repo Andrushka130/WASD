@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -25,7 +23,6 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Started Game");
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -65,9 +62,6 @@ public class MainMenu : MonoBehaviour
        string result = await db.DeleteAccount(_playerData.PlayerTag);
        _playerData.LoggedIn = false;
        deleteAccountButton.SetActive(false);
-       leaderboard.SetActive(false);  
-       leaderboard.SetActive(true); // Einträge werden neugeladen
-
        UpdateLoginText();
     }
 
@@ -85,6 +79,4 @@ public class MainMenu : MonoBehaviour
          logInfo.text = "LogIn";
        }
     }
-
-    
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace CharacterResources
 {
     public static class CharacterSprite

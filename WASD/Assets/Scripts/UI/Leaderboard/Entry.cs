@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -13,7 +11,6 @@ public class Entry : MonoBehaviour
    
     async void Awake()
     {
-        
         entryTemplate.gameObject.SetActive(false);
 
         PlayerData[] result = await db.GetHighscore();
@@ -26,8 +23,4 @@ public class Entry : MonoBehaviour
             entry.gameObject.SetActive(true);       
         }
     }
-
-   
-
-
 }

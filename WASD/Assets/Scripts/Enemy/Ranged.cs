@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ranged : Enemy
@@ -25,7 +23,6 @@ public class Ranged : Enemy
         target = GameObject.FindWithTag("Player").transform;
         this.currentHealth = maxHealth;
         UpdateStats();
-        
     }
 
     void FixedUpdate()
@@ -83,6 +80,5 @@ public class Ranged : Enemy
             this.speed = speed + (currentScale * speedScaling);
             this.maxHealth = maxHealth + (currentScale * healthScaling);
         }
-        
     }
 }

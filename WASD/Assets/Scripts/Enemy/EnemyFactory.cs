@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -20,64 +18,64 @@ public class EnemyFactory : MonoBehaviour
 
     
     public void SpawnEnemy(string enemy)
-        {
-            spawnOrigin = GameObject.FindWithTag("Player").transform;
+    {
+        spawnOrigin = GameObject.FindWithTag("Player").transform;
 
-            int randomValueX = Random.Range(0, 2);
+        int randomValueX = Random.Range(0, 2);
+        spawnPointX = (randomValueX == 0 ? -1 : 1) * Random.Range(0, maxSpawnRadius);
+
+        int randomValueY = Random.Range(0, 2);
+        spawnPointY = (randomValueY == 0 ? -1 : 1) * Random.Range(0, maxSpawnRadius/2);
+
+        spawnOriginX = spawnOrigin.transform.position.x;
+        spawnOriginY = spawnOrigin.transform.position.y;
+
+
+        while(spawnOriginX - spawnPointX < minPlayerDistance && spawnOriginY - spawnPointY < minPlayerDistance)
+        {
+            
+            randomValueX = Random.Range(0, 2);
             spawnPointX = (randomValueX == 0 ? -1 : 1) * Random.Range(0, maxSpawnRadius);
 
-            int randomValueY = Random.Range(0, 2);
+            randomValueY = Random.Range(0, 2);
             spawnPointY = (randomValueY == 0 ? -1 : 1) * Random.Range(0, maxSpawnRadius/2);
-
-            spawnOriginX = spawnOrigin.transform.position.x;
-            spawnOriginY = spawnOrigin.transform.position.y;
-
-
-            while(spawnOriginX - spawnPointX < minPlayerDistance && spawnOriginY - spawnPointY < minPlayerDistance)
-            {
-                
-                randomValueX = Random.Range(0, 2);
-                spawnPointX = (randomValueX == 0 ? -1 : 1) * Random.Range(0, maxSpawnRadius);
-
-                randomValueY = Random.Range(0, 2);
-                spawnPointY = (randomValueY == 0 ? -1 : 1) * Random.Range(0, maxSpawnRadius/2);
-            }
-
-            switch(enemy)
-            {
-                case "Melee":
-
-                    GameObject melee = Instantiate
-                        (
-                            meleeEnemy,
-                            new Vector2(spawnPointX, spawnPointY),
-                            Quaternion.identity
-                        );
-
-                break;
-
-                case "Ranged":
-
-                    GameObject ranged = Instantiate
-                        (
-                            rangedEnemy,
-                            new Vector2(spawnPointX, spawnPointY),
-                            Quaternion.identity
-                        );
-
-                break; 
-                
-                case "Boss1":
-
-                    GameObject boss = Instantiate
-                        (
-                            boss1,
-                            new Vector2(spawnPointX, spawnPointY),
-                            Quaternion.identity
-                        );
-                break;
-            }
         }
+
+        switch(enemy)
+        {
+            case "Melee":
+
+                GameObject melee = Instantiate
+                    (
+                        meleeEnemy,
+                        new Vector2(spawnPointX, spawnPointY),
+                        Quaternion.identity
+                    );
+
+            break;
+
+            case "Ranged":
+
+                GameObject ranged = Instantiate
+                    (
+                        rangedEnemy,
+                        new Vector2(spawnPointX, spawnPointY),
+                        Quaternion.identity
+                    );
+
+            break; 
+            
+            case "Boss1":
+
+                GameObject boss = Instantiate
+                    (
+                        boss1,
+                        new Vector2(spawnPointX, spawnPointY),
+                        Quaternion.identity
+                    );
+            break;
+        }
+    }
 }
 
     

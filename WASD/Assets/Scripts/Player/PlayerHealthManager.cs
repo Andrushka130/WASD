@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,7 +12,9 @@ public class PlayerHealthManager : MonoBehaviour
     {
         get { return currentHealth; }
     }
-    private void Start() {
+    
+    private void Start()
+    {
         currentChar = CharactersManager.CurrentChar;
         currentHealth = currentChar.MaxHealthValue;
     }

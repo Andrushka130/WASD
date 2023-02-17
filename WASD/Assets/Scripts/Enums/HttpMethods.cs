@@ -1,5 +1,3 @@
-using System;
-
 public static class HttpMethods
 {
     public static readonly string Get = "GET";
