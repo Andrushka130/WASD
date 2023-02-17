@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float spawnIncrease = 1.2f;
     [SerializeField] private float bossSpawnIncrease = 1.2f;
     [SerializeField] private bool enemySpawning;
+    [SerializeField] private int enemySpawnCap = 5;
     public bool bossSpawning;
     private float waveSpawn;
     private float spawnSpace;
@@ -20,6 +21,7 @@ public class SpawnManager : MonoBehaviour
     protected int bossWaveCountDown;
     public ulong waveCounter;
     protected ulong currentWave;
+    private int enemyCount;
     private EnemyFactory enemyFactory;
 
     void Awake()
@@ -39,15 +41,25 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(WaveSpawner());
     }
 
+    void Update()
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        enemyCount = enemies.Length;
+    }
 
     IEnumerator WaveSpawner()
     {
         while (enemySpawning == true)
         {
-
-            while(spawnSpace > 0f)
+            while(spawnSpace >= 1f)
             {
                 int randEnemy = Random.Range(0, 2);
+                
+                if (spawnSpace < 2f)
+                {
+                    randEnemy = 0;
+                }
+                yield return new WaitUntil(() => enemyCount < enemySpawnCap - 1);
 
                 switch(randEnemy)
                 {
@@ -61,8 +73,6 @@ public class SpawnManager : MonoBehaviour
                     spawnSpace -= 2;
                     break;
                 }
-
-                yield return new WaitForSeconds(0.3f);
             }
 
             if(bossWaveCountDown <= 0)
@@ -79,7 +89,6 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                     bossWaveCountDown = bossIntervall;
-                    yield return new WaitForSeconds(0.3f);
                 }
                 bossWaveCountDown = bossIntervall;
                 bossWaveSpawn = bossWaveSpawn * bossSpawnIncrease;
@@ -93,10 +102,8 @@ public class SpawnManager : MonoBehaviour
 
             bossWaveCountDown -= 1;
         
-            while(GameObject.FindWithTag("Enemy") != null)
-            {
-                yield return new WaitForSeconds(0.1f);
-            }
+            yield return new WaitUntil(() => enemyCount == 0);
+
             yield return new WaitForSeconds(waveCoolDown);
             Time.timeScale = 0f;
             SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Additive);

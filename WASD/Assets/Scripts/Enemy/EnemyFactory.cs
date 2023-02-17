@@ -47,7 +47,7 @@ public class EnemyFactory : MonoBehaviour
             {
                 case "Melee":
 
-                    Instantiate
+                    GameObject melee = Instantiate
                         (
                             meleeEnemy,
                             new Vector2(spawnPointX, spawnPointY),
@@ -58,7 +58,7 @@ public class EnemyFactory : MonoBehaviour
 
                 case "Ranged":
 
-                    Instantiate
+                    GameObject ranged = Instantiate
                         (
                             rangedEnemy,
                             new Vector2(spawnPointX, spawnPointY),
@@ -69,23 +69,16 @@ public class EnemyFactory : MonoBehaviour
                 
                 case "Boss1":
 
-                    Instantiate
+                    GameObject boss = Instantiate
                         (
                             boss1,
                             new Vector2(spawnPointX, spawnPointY),
                             Quaternion.identity
                         );
-
                 break;
             }
-
-           
         }
-
-
-                    
-
-    }
+}
 
     
 
