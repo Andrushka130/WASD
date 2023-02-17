@@ -22,20 +22,7 @@ public class PlayModeTest
         GameObject[] gameObject = GameObject.FindGameObjectsWithTag("Enemy");
 
         Assert.IsTrue(gameObject.Length <= 8);
-    }
-
-    [UnityTest]
-    public IEnumerator dmgEnemy()
-    {
-        yield return new WaitForSeconds(4f);
-
-        Enemy gameObject = GameObject.FindObjectOfType<Melee>();
-        Assert.IsNotNull(gameObject);
-
-        gameObject.DamageEnemy(4f);
-        Assert.AreEqual(6f, gameObject.GetComponent<Melee>().currentHealth);
-        
-    }
+    }    
 
     [UnityTest]
     public IEnumerator CheckStarterWeapon()

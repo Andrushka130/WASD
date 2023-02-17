@@ -10,4 +10,11 @@ public abstract class GorillaArms : Weapon
     protected abstract GameObject AttackPrefab { get; set;}    
     protected abstract Transform FirePoint { get; set;}   
     protected abstract float WeaponLifetime { get; }
+    public override void InstantiateWeaponPrefab()
+    {
+        FirePoint = GameObject.Find(WeaponFirePoints.FirePointMelee).transform;
+        GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
+        FindObjectOfType<AudioManager>().Play("GorillaArms");
+        Destroy(gorillaArm, WeaponLifetime);
+    }
 }
