@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Second Heart
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 15
+  RarityType: 15
   value: 0
   description: '+ 8 Crit Damage, + 8 Crit Chance, + 12 Psycho Level '
   attack: 0

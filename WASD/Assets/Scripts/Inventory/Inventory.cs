@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,19 +41,16 @@ public class Inventory : MonoBehaviour
     {
         if (newItem != null)
         {
-            currentChar.MaxHealth.AddModifier(newItem.MaxHealth);
+            currentChar.MaxHealth.AddModifier(newItem.maxHealth);
             
-            currentChar.Attack.AddModifier(newItem.Attack);
-            currentChar.CritChance.AddModifier(newItem.CritChance);
-            currentChar.CritDamage.AddModifier(newItem.CritDamage);
-            currentChar.AttackSpeed.AddModifier(newItem.AttackSpeed);
+            currentChar.Attack.AddModifier(newItem.attack);
+            currentChar.CritChance.AddModifier(newItem.critChance);
+            currentChar.CritDamage.AddModifier(newItem.critDamage);
+            currentChar.AttackSpeed.AddModifier(newItem.attackSpeed);
 
-            currentChar.Luck.AddModifier(newItem.Luck);
-            currentChar.MovementSpeed.AddModifier(newItem.MovementSpeed);
-            currentChar.MaxPsychoLevel.AddModifier(newItem.MaxPsychoLevel);
-            currentChar.CurrentPsychoLevel.AddModifier(newItem.PsychoLevel);
+            currentChar.Luck.AddModifier(newItem.luck);
+            currentChar.MovementSpeed.AddModifier(newItem.movementSpeed);
+            currentChar.CurrentPsychoLevel.AddModifier(newItem.psychoLevel);
         }
     }
-
-    public List<Item> PassiveItems => passiveItems;
 }

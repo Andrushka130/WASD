@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Sneaker
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 40
+  RarityType: 40
   value: 5
   description: '+ 6 Movement Speed '
   attack: 0

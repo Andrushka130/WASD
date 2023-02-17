@@ -106,15 +106,14 @@ MonoBehaviour:
   Sprite: {fileID: 2029246817300155162}
   Collider: {fileID: 0}
   currentHealth: 0
-  currentProjectile: {fileID: 2810979712154586069, guid: a4913313593256d4b835b3da04c52d99, type: 3}
-  firePoint: {fileID: 2029246817300155163}
   speed: 1.3
+  checkRadius: 30
   attackRadius: 7
   attackDelay: 1
   projectileSpeed: 5
-  maxHealth: 3
-  speedScaling: 0.3
-  healthScaling: 0.5
+  maxHealth: 5
+  currentProjectile: {fileID: 2810979712154586069, guid: a4913313593256d4b835b3da04c52d99, type: 3}
+  firePoint: {fileID: 2029246817300155163}
 --- !u!50 &2029246817300155159
 Rigidbody2D:
   serializedVersion: 4

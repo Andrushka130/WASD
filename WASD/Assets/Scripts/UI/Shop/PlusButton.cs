@@ -26,7 +26,8 @@ public class PlusButton : MonoBehaviour, IPointerClickHandler
      public void OnPointerClick(PointerEventData eventData)
     {
         GameObject.Find("GameManager").GetComponent<ShopManager>().SkillAttribute(attribute);
-        shop.UpdateShop();
+        attributeUI.Find("TextAttributLevel").GetComponent<TextMeshProUGUI>().text = attribute.GetValue().ToString();
+        shop.UpdateSkillPoints();
 
     }
 

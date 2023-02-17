@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Arm Modification
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 15
+  RarityType: 15
   value: 20
   description: '+ 8 Attack, + 8 Psycho Level '
   attack: 8

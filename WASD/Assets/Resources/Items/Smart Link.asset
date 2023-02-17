@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Smart Link
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 10
+  RarityType: 10
   value: 40
   description: '+ 8 Crit Damage, + 8 Crit Chance, + 12 Psycho Level '
   attack: 0

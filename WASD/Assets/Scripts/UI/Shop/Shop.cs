@@ -12,7 +12,7 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private Transform iconTemplate;
 
-    [SerializeField] private Transform weaponsIconContainer;
+    [SerializeField] private Transform weaponIconContainer;
 
     [SerializeField] private Transform itemsIconContainer;
 
@@ -22,28 +22,32 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private Transform skillPointsText;
 
+
     [SerializeField] private ItemShop itemShop;
 
-    private List<Transform> attributes;
+   
 
   
 
 
-   
+
+
+
+
 
 
    
     void Awake()
     {
-      HelperUI.FilltItemIcon(iconTemplate, weaponsIconContainer, itemsIconContainer);
+        /* WeaponInventory weaponInventory = WeaponInventory.GetInstance();
+        List<object> weapon =  weaponInventory.GetWeapons(); */
+        //HelperUI.FillImageIcon( weapon, iconTemplate, weaponIconContainer);
         
-      itemShop.FillItemShop(4);
+        itemShop.FillItemShop(4);
 
-      UpdateSkillPoints();
-            
-      attributes = HelperUI.FillAttributes( attributeTemplate, attributeContainer, true);
-
-      FindObjectOfType<AudioManager>().Play("ShopOpen");
+        UpdateSkillPoints();
+              
+        HelperUI.FillAttributes( attributeTemplate, attributeContainer, true);
     }
 
     public void ContinueGame()
@@ -65,14 +69,6 @@ public class Shop : MonoBehaviour
       }
       
 
-    }
-
-    public void UpdateShop()
-    {
-      UpdateSkillPoints();
-      HelperUI.UpdateAttributes(attributes);
-      HelperUI.FilltItemIcon(iconTemplate, weaponsIconContainer, itemsIconContainer);
-      
     }
 
     

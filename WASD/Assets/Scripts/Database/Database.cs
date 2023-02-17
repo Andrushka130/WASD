@@ -29,9 +29,9 @@ public class Database : WebRequest
         return await db.AsyncUpload(_playerData.Stringify(), url, method);
     }
 
-    public Task<string> ChangeAccount(PlayerData _playerData, string currentPlayerTag)
+    public Task<string> ChangeAccount(PlayerData _playerData)
     {
-        string url = URL.UrlAccount + currentPlayerTag;
+        string url = URL.UrlAccount + _playerData.PlayerTag;
         string method = HttpMethods.Patch;
         return db.AsyncUpload(_playerData.Stringify(), url, method);
     }

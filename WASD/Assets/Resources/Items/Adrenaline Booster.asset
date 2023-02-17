@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Adrenaline Booster
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 40
+  RarityType: 40
   value: 80
   description: '+ 6 Attack, + 6 Crit Chance, + 12 Crit Damage, + 18 Psycho Level '
   attack: 6
