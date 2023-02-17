@@ -103,39 +103,36 @@ async function changeAccount(req, res, next) {
   const connection = db.getConnection();
 
   try {
-    const {playerTag} = req.params;
-    const newPlayerTag = req.body.playerTag;
-    const { email, password } = req.body;
-    const searchQuery = { $or: [{ playerTag: newPlayerTag } , { email }] };
-    const updateQuery = { playerTag };
-    const fields = { projection: { _id: 0, playerTag: 1, email: 1, password: 1} };
-    const searchAccount = await connection.collection(dbName).findOne(searchQuery, fields);
-    const updateAccount = await connection.collection(dbName).findOne(updateQuery, fields);
+    const { playerTag, email, password } = req.body;
+    const query = { $or: [{ playerTag }, { email }] };
+    const fields = { projection: { _id: 0, playerTag: 1, email: 1 } };
+    const account = await connection.collection(dbName).findOne(query, fields);
 
-    if (searchAccount) {
-      if (searchAccount.playerTag === newPlayerTag) {
+    if (account) {
+      if (account.playerTag === playerTag) {
         res.status(400).send("Player name already exists!");
         return;
       }
-      if (searchAccount.email === email) {
+      if (account.email === email) {
         res.status(400).send("Email already exists!");
         return;
       }
     }
 
-    if (password != "" && password != updateAccount.password) {
+    if (password != "") {
       const password = req.body.password;
       const update = { $set: { password } };
-      await connection.collection(dbName).updateOne(updateQuery, update);
+      await connection.collection(dbName).updateOne(query, update);
     }
-    if (email != "" && email != updateAccount.email) {
+    if (email != "") {
       const email = req.body.email;
       const update = { $set: { email } };
-      await connection.collection(dbName).updateOne(updateQuery, update);
+      await connection.collection(dbName).updateOne(query, update);
     }
-    if (newPlayerTag != "" && newPlayerTag != updateAccount.playerTag) {
+    if (playerTag != "") {
+      const newPlayerTag = req.body.playerTag;
       const update = { $set: { playerTag: newPlayerTag } };
-      await connection.collection(dbName).updateOne(updateQuery, update);
+      await connection.collection(dbName).updateOne(query, update);
     }
     res.status(200).send(`PlayerData of ${playerTag} updated`);
   } catch (err) {

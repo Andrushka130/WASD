@@ -29,7 +29,6 @@ public class GorillaArms_lvl1 : GorillaArms, IBuyable
     public override void InstantiateWeaponPrefab()
     {
         GameObject gorillaArm = Instantiate(AttackPrefab, FirePoint.position, FirePoint.rotation);
-        FindObjectOfType<AudioManager>().Play("GorillaArms");
         Destroy(gorillaArm, WeaponLifetime);
     }
    

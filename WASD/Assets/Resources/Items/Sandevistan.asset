@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Sandevistan
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 5
+  RarityType: 5
   value: 80
   description: '+ 18 Movement Speed, + 18 Attack Speed, + 18 Psycho Level '
   attack: 0

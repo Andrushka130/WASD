@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private static ICharacters curChar;
     public float moveSpeed = 5f;   
 
     public Vector2 movementVector;
@@ -13,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        curChar = CharactersManager.CurrentChar;
         rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
@@ -25,12 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void movePlayer()
     {
-        rb.MovePosition(rb.position + movementVector * GetMoveSpeed() * Time.fixedDeltaTime);
-    }
-
-    private float GetMoveSpeed()
-    {
-        Debug.Log(moveSpeed * (((float) curChar.MovementSpeedValue + 100) / 100));
-        return moveSpeed * (((float) curChar.MovementSpeedValue + 100) / 100);
+        rb.MovePosition(rb.position + movementVector * moveSpeed * Time.fixedDeltaTime);
     }
 }

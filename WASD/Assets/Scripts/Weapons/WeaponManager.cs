@@ -17,7 +17,6 @@ public class WeaponManager : MonoBehaviour
         foreach(var weapon in weapons)
         {
             weapon.Attack();
-            
         }        
     }
 }

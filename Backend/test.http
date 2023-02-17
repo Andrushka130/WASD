@@ -1,5 +1,9 @@
 @host = http://127.0.0.1:3000
 
+###create database and collection
+
+GET {{host}}/create HTTP/1.1
+
 ### insert test data
 
 POST {{host}}/insertTestData HTTP/1.1
@@ -55,28 +59,24 @@ Content-Type: application/json
     "password": "1234"
 }
 
-### update account Test2
+### update email of Test2
 
 PUT {{host}}/account/Test2 HTTP/1.1
 Content-Type: application/json
 
 {
-    "playerTag": "TestPUT",
-    "password": "hdf38",
     "email": "kgfjgj"
 }
 
-### update account TestPUT
+### update password of Test2
 
-PATCH {{host}}/account/TestPUT HTTP/1.1
+PATCH {{host}}/account/Test2 HTTP/1.1
 Content-Type: application/json
 
 {
-    "playerTag": "TestPATCH",
-    "password": "wfdhf",
-    "email": "adgttz"
+    "password": "hdf38"
 }
 
-### delete TestPATCH
+### delete Test2
 
-DELETE {{host}}/account/TestPATCH HTTP/1.1
+DELETE {{host}}/account/Test2 HTTP/1.1

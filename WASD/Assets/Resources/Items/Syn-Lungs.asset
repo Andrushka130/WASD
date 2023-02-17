@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Syn-Lungs
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 10
+  RarityType: 10
   value: 40
   description: '+ 8 Movement Speed, + 8 Attack Speed, + 4 Luck, + 12 Psycho Level '
   attack: 0

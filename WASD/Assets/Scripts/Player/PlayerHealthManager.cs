@@ -46,7 +46,7 @@ public class PlayerHealthManager : MonoBehaviour
         //lerpTimer = 0f;
     }
 
-    public void DamagePlayer(float damage)
+    public void DamagePlayer(int damage)
     {
         if((currentHealth - damage) <= 0)
         {

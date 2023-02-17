@@ -8,21 +8,22 @@ public class EnemyProjectile : MonoBehaviour
     public SpriteRenderer ProjectileSprite;
     public Rigidbody2D ProjectileBody;
     public CircleCollider2D ProjectileCollider;
-    public float projectileDamage;
-    [SerializeField] private float decayTime;
-    [SerializeField] private float dmgScaling = 1.1f;
+    public int projectileDamage;
+    private float decayTime;
 
     
 
-    void Start()
+    void Awake()
     {
+        //CharacterAttribute damagePlayer = GameObject.FindWithTag
+
         ProjectileBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        enemyProjectile.layer = LayerMask.NameToLayer("EnemyProjectile");
+        /* enemyProjectile.tag = "EnemyProjectile";
+        enemyProjectile.layer = LayerMask.NameToLayer("Player"); */
 
         transform.localScale = new Vector2(0.3f, 0.3f);
 
         ignorePhysicsOfEnemyAndAttacks();
-        UpdateStats();
     }
 
     public void Initialize(Vector3 position)
@@ -56,17 +57,6 @@ public class EnemyProjectile : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 10);
         Physics2D.IgnoreLayerCollision(8, 10);
         Physics2D.IgnoreLayerCollision(10, 10);
-    }
-
-    public void UpdateStats()
-    {
-        float currentScale = GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().waveCounter;
-
-        if(currentScale > 0f)
-        {
-            this.projectileDamage = projectileDamage + (currentScale * dmgScaling);
-        }
-        
     }
 
 }

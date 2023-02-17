@@ -15,7 +15,7 @@ MonoBehaviour:
   name: GPU
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 30
+  RarityType: 30
   value: 10
   description: '+ 6 Crit Damage, + 2 Attack, + 5 Psycho Level '
   attack: 2

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Schutzweste
   isPassiveItem: 1
   icon: {fileID: 0}
-  rarityType: 40
+  RarityType: 40
   value: 5
   description: '+ 4 Max Health, - 2 Movement Speed '
   attack: 0

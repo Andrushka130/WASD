@@ -8,25 +8,21 @@ using UnityEngine.EventSystems;
 public class BuyButton : MonoBehaviour, IPointerClickHandler
 {
    
-   private IBuyable item;
+   private object item;
    private Transform itemUI;
 
    [SerializeField] private ItemShop itemShop;
-
-   [SerializeField] private Shop shop;
 
   
    
    public void OnPointerClick(PointerEventData eventData)
    {
       EShop result = GameObject.Find("GameManager").GetComponent<ShopManager>().BuyItem(item);
-      FindObjectOfType<AudioManager>().Play("BuyingItem");
       if (result == EShop.BoughtItem)
       {
         itemShop.RemoveShopItem(itemUI);
         Destroy(itemUI.gameObject);
         itemShop.UpdateCoins();
-        shop.UpdateShop();
       } 
       else if (result == EShop.NotEnoughMoney)
       {
@@ -44,7 +40,7 @@ public class BuyButton : MonoBehaviour, IPointerClickHandler
       
    }
 
-    public IBuyable Item
+    public object Item
   {
     set { item = value; }
   }

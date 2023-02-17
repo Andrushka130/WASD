@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8961ece74944886449abc79e2c2ae646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 1904945899944968184, guid: 4ecf7d941f90ca1479011d52ac92ae89, type: 3}
+  fadeOutTime: 0.25
 --- !u!61 &847271619481352145
 BoxCollider2D:
   m_ObjectHideFlags: 0
