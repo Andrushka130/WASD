@@ -11,8 +11,7 @@ public class Revolver_lvl3 : Revolver, IBuyable
     public override int Value => 15;
     protected override float Dmg => 15;
     protected override float CritDmg => 2f;
-    protected override int CritChance => 10;
-    public override float Lifesteal => 0;
+    protected override int CritChance => 10;    
     protected override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Epic;    
     public override GameObject BulletPrefab { get; set; }

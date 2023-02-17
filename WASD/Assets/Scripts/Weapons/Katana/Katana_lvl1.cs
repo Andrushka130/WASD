@@ -11,8 +11,7 @@ public class Katana_lvl1 : Katana, IBuyable
     public override int Value => 5;
     protected override float Dmg => 2;
     protected override float CritDmg => 1.2f;
-    protected override int CritChance => 30;
-    public override float Lifesteal => 0;
+    protected override int CritChance => 30;    
     protected override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Common;
     protected override GameObject AttackPrefab { get; set; }

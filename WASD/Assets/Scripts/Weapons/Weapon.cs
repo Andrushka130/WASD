@@ -11,8 +11,7 @@ public abstract class Weapon : MonoBehaviour, IBuyable
     public abstract int Value { get; }
     protected abstract float Dmg { get; }
     protected abstract float CritDmg { get; }
-    protected abstract int CritChance { get; }
-    public abstract float Lifesteal { get; }
+    protected abstract int CritChance { get; }   
     protected abstract float AtkSpeed { get; }    
     public abstract Rarity RarityType { get; }
     private float Timer {get; set;}

@@ -11,8 +11,7 @@ public class Hacking_lvl3 : Hacking, IBuyable
     public override int Value => 10;
     protected override float Dmg => 15;
     protected override float CritDmg => 1.75f;
-    protected override int CritChance => 20;
-    public override float Lifesteal => 0;
+    protected override int CritChance => 20;    
     protected override float AtkSpeed => 0.5f;    
     public override Rarity RarityType => Rarity.Rare;        
     protected override GameObject BulletPrefab { get; set; }

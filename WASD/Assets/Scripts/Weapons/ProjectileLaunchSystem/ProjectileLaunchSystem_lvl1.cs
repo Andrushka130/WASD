@@ -11,8 +11,7 @@ public class ProjectileLaunchSystem_lvl1 : ProjectileLaunchSystem, IBuyable
     public override int Value => 10;
     protected override float Dmg => 10;
     protected override float CritDmg => 2f;
-    protected override int CritChance => 10;
-    public override float Lifesteal => 0;
+    protected override int CritChance => 10;    
     protected override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Common;   
     protected override GameObject BulletPrefab { get; set; }

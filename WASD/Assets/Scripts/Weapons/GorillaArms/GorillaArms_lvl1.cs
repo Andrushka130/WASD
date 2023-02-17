@@ -12,8 +12,7 @@ public class GorillaArms_lvl1 : GorillaArms, IBuyable
     public override int Value => 7;
     protected override float Dmg => 4;
     protected override float CritDmg => 1.5f;
-    protected override int CritChance => 20;
-    public override float Lifesteal => 0;
+    protected override int CritChance => 20;    
     protected override float AtkSpeed => 1.5f;    
     public override Rarity RarityType => Rarity.Uncommon;        
     protected override GameObject AttackPrefab { get; set; }
