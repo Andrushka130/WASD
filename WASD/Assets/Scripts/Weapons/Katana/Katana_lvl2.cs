@@ -9,10 +9,10 @@ public class Katana_lvl2 : Katana, IBuyable
     public override string Description => "Upgrade: Increased area of attack.";
     public override int WeaponLevel => 2;
     public override int Value => 7;
-    protected override float Dmg => 6;
-    protected override float CritDmg => 1.5f;
-    protected override int CritChance => 25;    
-    protected override float AtkSpeed => 0.75f;
+    public override float Dmg => 6;
+    public override float CritDmg => 1.5f;
+    public override int CritChance => 25;    
+    public override float AtkSpeed => 0.75f;
     public override Rarity RarityType => Rarity.Uncommon;
     protected override GameObject AttackPrefab { get; set; }
     protected override Transform FirePoint { get; set; }    
