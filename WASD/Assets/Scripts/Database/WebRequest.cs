@@ -23,7 +23,6 @@ public class WebRequest
         }
         else
         {
-            Debug.Log(request.downloadHandler.text);
             return request.downloadHandler.text;
         }
     }

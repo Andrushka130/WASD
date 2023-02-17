@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private bool leaderboardIsNotActive;
     [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private GameObject loginButton;
+    [SerializeField] private GameObject deleteAccountButton;
     [SerializeField] private TMP_Text logInfo;
 
     private PlayerData _playerData;
@@ -32,12 +33,9 @@ public class MainMenu : MonoBehaviour
     public void ManageLeaderboard()
     {
        leaderboard.SetActive(leaderboardIsNotActive);
-       if (_playerData.LoggedIn){
-         logInfo.text = "LogOut";
-       } else {
-         logInfo.text = "LogIn";
-       }
+       UpdateLoginText();
        loginButton.SetActive(leaderboardIsNotActive);
+       deleteAccountButton.SetActive(leaderboardIsNotActive && _playerData.LoggedIn);
        leaderboardIsNotActive = !leaderboardIsNotActive;
     }
 
@@ -47,15 +45,45 @@ public class MainMenu : MonoBehaviour
     }
 
     public void OpenLoginScreen()
+    {        
+        if (_playerData.LoggedIn)
+        {
+           _playerData.LoggedIn = false;
+           _playerData.SaveLoginStatus();
+           deleteAccountButton.SetActive(false);
+           UpdateLoginText();
+        }
+        else
+        {
+           SceneManager.LoadSceneAsync("LoginScreen");
+        }
+    }
+
+    public async void DeleteAccount()
     {
-        _playerData.LoggedIn = !_playerData.LoggedIn;
-        SceneManager.LoadSceneAsync("LoginScreen");
+       Database db = new Database();
+       string result = await db.DeleteAccount(_playerData.PlayerTag);
+       _playerData.LoggedIn = false;
+       deleteAccountButton.SetActive(false);
+       leaderboard.SetActive(false);  
+       leaderboard.SetActive(true); // Einträge werden neugeladen
+
+       UpdateLoginText();
     }
 
     public void ExitGame()
     {
         Debug.Log("Exit Game");
         Application.Quit();
+    }
+
+    private void  UpdateLoginText()
+    {
+       if (_playerData.LoggedIn){
+         logInfo.text = "LogOut";
+       } else {
+         logInfo.text = "LogIn";
+       }
     }
 
     
