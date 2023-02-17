@@ -94,20 +94,20 @@ W - move upward <br>
 A - move left <br>
 S - move down <br>
 D - move right <br>
-Esc - Pauase/Menu <br>
+Esc - Pause/Menu <br>
 Mouse - fire directions
 
 **Shop:**
 
 - Left click with your mouse on the **buy-button** to buy an item
 - Left click on the **lock-button** to keep it for the next shop roll
-- Left click on **minus and plus buttons** to increase or decrease your attributes with your attribute points that you get from leveling
+- Left click on **minus and plus buttons** to increase or decrease your attributes with your attribute points that you get from leveling up
 - Left click on the **reroll-button** to reroll your current shop
 
-After every wave you have the possibilty to buy items and weapons. <br>
-Items improve your attributes and can give you a little extra for example a double shot! <br>
-If you already have a **weapon Lvl 1/2** you can get the better version with a bit of luck. 
-If you don't like your shop you can reroll it but this has its costs! <br>
+After every wave, you have the possibilty to buy items and weapons. <br>
+Items improve your attributes and may also give you a little extra feature - for example a double shot! <br>
+If you already have a **weapon Lvl 1/2**, you can receive the better version of it with a bit of luck. 
+In case you aren’t pleased with the offers, you can reroll the shop. Of course, this comes with extra costs! <br>
 
 <br>
 
