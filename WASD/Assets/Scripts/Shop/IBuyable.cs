@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-interface IBuyable 
+public interface IBuyable 
 {
     int Value {get;}
     string Description {get;}

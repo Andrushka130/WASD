@@ -34,7 +34,8 @@ public class Hacking_lvl2 : Hacking, IBuyable
         GameObject bullet2 = Instantiate(BulletPrefab, FirePointLeft.position, FirePointLeft.rotation);        
 
         bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * FireForce, ForceMode2D.Impulse);
-        bullet2.GetComponent<Rigidbody2D>().AddForce(-FirePointLeft.right * FireForce, ForceMode2D.Impulse);       
+        bullet2.GetComponent<Rigidbody2D>().AddForce(-FirePointLeft.right * FireForce, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("Hacking");       
 
     }
     

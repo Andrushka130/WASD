@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
   m_Name: Armor Plate
   m_EditorClassIdentifier: 
-  name: Armor Plate
   isPassiveItem: 1
-  icon: {fileID: 0}
-  RarityType: 30
   value: 10
-  description: '+ 3 Max Health, + 2 Health Regeneration, + 5 Psycho Level '
+  description: '+ 3 Max Health, + 5 Psycho Level '
+  name: Armor Plate
+  icon: {fileID: 0}
+  rarityType: 30
   attack: 0
   critChance: 0
   critDamage: 0
   attackSpeed: 0
   maxHealth: 3
-  healthRegen: 2
-  lifesteal: 0
   luck: 0
   movementSpeed: 0
   psychoLevel: 5
+  maxPsychoLevel: 0

@@ -34,6 +34,7 @@ public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IBuyable
         for(int numberOfEnemys = 0; numberOfEnemys <= 1; numberOfEnemys++){
             if(enemys[numberOfEnemys].TryGetComponent<Enemy>(out Enemy enemy)){
                 GameObject bullet = Instantiate(BulletPrefab, enemys[numberOfEnemys].transform.position, enemys[numberOfEnemys].transform.rotation);
+                FindObjectOfType<AudioManager>().Play("Launcher");
                 Destroy(bullet, 0.25f);
             }
         }   

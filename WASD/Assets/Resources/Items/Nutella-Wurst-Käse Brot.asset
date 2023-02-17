@@ -12,20 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
   m_Name: "Nutella-Wurst-K\xE4se Brot"
   m_EditorClassIdentifier: 
-  name: "Nutella-Wurst-K\xE4se Brot"
   isPassiveItem: 1
-  icon: {fileID: 0}
-  RarityType: 10
   value: 40
-  description: '+ 10 Max Health, + 10 Health Regeneration, - 8 Attack Speed, - 8
-    Movement Speed '
+  description: '+ 10 Max Health,  - 8 Attack Speed, - 8 Movement Speed '
+  name: "Nutella-Wurst-K\xE4se Brot"
+  icon: {fileID: 0}
+  rarityType: 10
   attack: 0
   critChance: 0
   critDamage: 0
   attackSpeed: -8
   maxHealth: 10
-  healthRegen: 10
-  lifesteal: 0
   luck: 0
   movementSpeed: -8
   psychoLevel: 0
+  maxPsychoLevel: 0
