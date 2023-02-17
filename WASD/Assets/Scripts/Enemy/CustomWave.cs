@@ -14,7 +14,7 @@ public class CustomWave : MonoBehaviour
         customWaveUI.SetActive(false);
         spawningActive = true;
     }
-    // Update is called once per frame
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.O))
@@ -48,10 +48,9 @@ public class CustomWave : MonoBehaviour
     {
         Time.timeScale = 1f;
         
-        // Find all enemies in the scene
+
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
-        // Destroy all enemies
         foreach (Enemy enemy in enemies)
         {
             Destroy(enemy.gameObject);

@@ -5158,11 +5158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveCoolDown: 4
-  startWaveSpawn: 5
-  bossIntervall: 2
+  startWaveSpawn: 10
+  bossIntervall: 3
   spawnIncrease: 1.2
   bossSpawnIncrease: 1.1
   enemySpawning: 0
+  enemySpawnCap: 5
   bossSpawning: 0
   waveCounter: 0
 --- !u!114 &904506446
