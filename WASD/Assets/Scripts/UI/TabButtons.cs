@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class TabButtons : MonoBehaviour, IPointerClickHandler
@@ -13,6 +10,4 @@ public class TabButtons : MonoBehaviour, IPointerClickHandler
    {
       options.SwapPages(this);
    }
-   
-
 }

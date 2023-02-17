@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Melee : Enemy
 {
 
-    public float speed = 1f;
-    public float checkRadius = 30f;
-    public float attackRadius = 7f;
     public float attackDelay = 1f;
-    public float maxHealth = 5f;
-    public int damage = 1;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float attackRadius = 7f;
+    [SerializeField] private float maxHealth = 5f;
+    [SerializeField] private float damage = 1f;
     [SerializeField] private float attackFrequency, maxAttackFrequency = 0.5f;
     [SerializeField] private float attackCooldown, maxAttackCooldown = 0.5f;
+    [SerializeField] private float speedScaling = 1.1f;
+    [SerializeField] private float dmgScaling = 1.1f;
+    [SerializeField] private float healthScaling = 1.1f;
 
     private Transform target;
     private Vector2 movement;
@@ -25,6 +25,7 @@ public class Melee : Enemy
     {
         target = GameObject.FindWithTag("Player").transform;
         this.currentHealth = maxHealth;
+        UpdateStats();
     }
 
     void FixedUpdate()
@@ -42,19 +43,9 @@ public class Melee : Enemy
         {
             movement = directionToPlayer.normalized * speed;
         }
-        else if(directionToPlayer.magnitude <= attackRadius - 0.5f)
-            {
-                movement = Vector2.zero;
-            }
-
-        if(directionToPlayer.magnitude <= attackRadius)
+        else
         {
-            timeSinceLastAttack += Time.deltaTime;
-            if(timeSinceLastAttack >= attackDelay)
-            {
-                timeSinceLastAttack = 0f;
-                //Attack();
-            }
+            movement = Vector2.zero;
         }
 
         Body.MovePosition((Vector2)transform.position + movement * Time.fixedDeltaTime);
@@ -62,10 +53,7 @@ public class Melee : Enemy
 
     void Attack(Collision2D collision)
     {
-        Debug.Log("Hit Player!");
-        //target = GameObject.FindWithTag("Player").transform;
-        //playerDamage = target.GetComponent<CharacterAttribute>();
-        //playerDamage.TakeDamage((int)damage);
+        
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damage);
@@ -102,6 +90,18 @@ public class Melee : Enemy
         if (collision.gameObject.CompareTag("Player"))
         {
             this.attackFrequency = this.maxAttackFrequency;
+        }
+    }
+
+    public void UpdateStats()
+    {
+        float currentScale = GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().waveCounter;
+
+        if(currentScale > 0f)
+        {
+            this.speed = speed + (currentScale * speedScaling);
+            this.maxHealth = maxHealth + (currentScale * healthScaling);
+            this.damage = damage + (currentScale * dmgScaling);
         }
     }
 }

@@ -103,9 +103,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - weapons were not removed in shop
 - exp and currency collect range
 
+
 ## [1.0.0] - 13.02.2023
+
+### Added
+
+- ButtonSoundManager
+- AudioManager
+- SoundClass
 
 ### Changed
 
+- architecture from bullet System changed
+- renamed DirectoryNames
 
+### Fixed
 
+- fixed multiple Bugs for weapon and enemies
+
+### Removed
+
+- MusicPlayerScript class
+- ThemeBackground class
+- removed emtpy classes

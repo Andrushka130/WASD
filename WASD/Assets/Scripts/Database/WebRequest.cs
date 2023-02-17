@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -23,7 +22,6 @@ public class WebRequest
         }
         else
         {
-            Debug.Log(request.downloadHandler.text);
             return request.downloadHandler.text;
         }
     }
@@ -48,7 +46,6 @@ public class WebRequest
         }
         else
         {
-            Debug.Log(request.downloadHandler.text);
             return request.downloadHandler.text;
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameOver : MonoBehaviour
@@ -16,16 +14,6 @@ public class GameOver : MonoBehaviour
         gameOverScreen.SetActive(false);
     }
 
-    void Update()
-    {
-        //add here reference to Player Health
-
-        /*if(GameObject.FindWithTag("Player").GetComponent<CharacterAttribute>().CurrentHealth <= 0)
-        {
-            GameOverScreen();
-        }
-        */
-    }
 
     public void GameOverScreen()
     {

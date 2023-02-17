@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,12 +11,20 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Transform attributeTemplate;
 
     [SerializeField] private Transform attributeContainer;
+
+    [SerializeField] private Transform iconTemplate;
+
+    [SerializeField] private Transform itemsContainer;
+
+    [SerializeField] private Transform weaponsContainer;
+
+
+    private List<Transform> attributes;
     
     void Start()
     {
         pauseMenuUI.SetActive(false);
-        HelperUI.FillAttributes(attributeTemplate, attributeContainer);
-
+        attributes = HelperUI.FillAttributes(attributeTemplate, attributeContainer);
     }
 
     void Update()
@@ -44,6 +51,9 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        HelperUI.UpdateAttributes(attributes);
+        HelperUI.FilltItemIcon(iconTemplate, weaponsContainer, itemsContainer);
+
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -58,6 +68,5 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
 }
 

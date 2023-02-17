@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class PlusButton : MonoBehaviour, IPointerClickHandler
 {
@@ -26,10 +23,6 @@ public class PlusButton : MonoBehaviour, IPointerClickHandler
      public void OnPointerClick(PointerEventData eventData)
     {
         GameObject.Find("GameManager").GetComponent<ShopManager>().SkillAttribute(attribute);
-        attributeUI.Find("TextAttributLevel").GetComponent<TextMeshProUGUI>().text = attribute.GetValue().ToString();
-        shop.UpdateSkillPoints();
-
+        shop.UpdateShop();
     }
-
-    
 }

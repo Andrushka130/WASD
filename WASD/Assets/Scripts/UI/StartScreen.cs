@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class StartScreen : MonoBehaviour
 {
-    private void Awake() {
+    private void Awake()
+    {
         PlayerData.Instance.LoadPlayerData();
     }
 

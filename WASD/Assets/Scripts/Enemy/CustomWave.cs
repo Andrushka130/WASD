@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomWave : MonoBehaviour
@@ -14,7 +12,7 @@ public class CustomWave : MonoBehaviour
         customWaveUI.SetActive(false);
         spawningActive = true;
     }
-    // Update is called once per frame
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.O))
@@ -48,17 +46,15 @@ public class CustomWave : MonoBehaviour
     {
         Time.timeScale = 1f;
         
-        // Find all enemies in the scene
+
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
-        // Destroy all enemies
         foreach (Enemy enemy in enemies)
         {
             Destroy(enemy.gameObject);
         }
         
         Time.timeScale = 0f;
-        Debug.Log("Enemies cleared");
     }
 
     public void ToggleWaveSpawning()
@@ -79,7 +75,6 @@ public class CustomWave : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().DisableWaveSpawning();
-        Debug.Log("Disabled Wave Spawning");
         spawningActive = false;
         Time.timeScale = 0f;
     }
@@ -88,7 +83,6 @@ public class CustomWave : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().EnableWaveSpawning();
-        Debug.Log("Enabled Wave Spawning");
         spawningActive = true;
         Time.timeScale = 0f;
     }
@@ -98,7 +92,6 @@ public class CustomWave : MonoBehaviour
         Time.timeScale = 1f;
         GameObject.FindWithTag("SpawnManager").GetComponent<EnemyFactory>().SpawnEnemy("Melee");
         Time.timeScale = 0f;
-        Debug.Log("Melee Enemy Spawned");
     }
 
     public void CustomSpawnRanged()
@@ -106,7 +99,6 @@ public class CustomWave : MonoBehaviour
         Time.timeScale = 1f;
         GameObject.FindWithTag("SpawnManager").GetComponent<EnemyFactory>().SpawnEnemy("Ranged");
         Time.timeScale = 0f;
-        Debug.Log("Ranged Enemy Spawned");
     }
 
     public void CustomSpawnBoss()
@@ -114,6 +106,5 @@ public class CustomWave : MonoBehaviour
         Time.timeScale = 1f;
         GameObject.FindWithTag("SpawnManager").GetComponent<EnemyFactory>().SpawnEnemy("Boss1");
         Time.timeScale = 0f;
-        Debug.Log("Boss Spawned");
     }
 }

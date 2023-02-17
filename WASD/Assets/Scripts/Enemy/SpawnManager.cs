@@ -1,41 +1,38 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
 
-    public float waveCoolDown = 10f;
-    public float startWaveSpawn = 10f;
-    public int bossIntervall = 2;
-    public float spawnIncrease = 1.2f;
-    public float bossSpawnIncrese = 1.1f;
-    public bool enemySpawning;
+    [SerializeField] private float waveCoolDown = 3f;
+    [SerializeField] private float startWaveSpawn = 10f;
+    [SerializeField] private int bossIntervall = 2;
+    [SerializeField] private float spawnIncrease = 1.2f;
+    [SerializeField] private float bossSpawnIncrease = 1.2f;
+    [SerializeField] private bool enemySpawning;
+    [SerializeField] private int enemySpawnCap = 5;
     public bool bossSpawning;
-    public float bossSpawnIncrease = 1.2f;
     private float waveSpawn;
     private float spawnSpace;
     private float bossWaveSpawn;
     private float bossSpawnSpace;
-    public ulong waveCounter;
     protected int bossWaveCountDown;
+    public ulong waveCounter;
     protected ulong currentWave;
+    private int enemyCount;
     private EnemyFactory enemyFactory;
 
     void Awake()
     {
-        //Wave related settings
         waveCounter = 0;
         currentWave = waveCounter;
         bossWaveCountDown = bossIntervall;
 
-        //Standart enemy related settings
         waveSpawn = startWaveSpawn;
         enemySpawning = true;
         spawnSpace = waveSpawn;
 
-        //Boss related settings
         bossWaveSpawn = 1f;
         bossSpawning = true;
         bossSpawnSpace = bossWaveSpawn;
@@ -43,32 +40,38 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(WaveSpawner());
     }
 
+    void Update()
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        enemyCount = enemies.Length;
+    }
 
     IEnumerator WaveSpawner()
     {
         while (enemySpawning == true)
         {
-            while (spawnSpace >= 1) 
+            while(spawnSpace >= 1f)
             {
                 int randEnemy = Random.Range(0, 2);
+                
+                if (spawnSpace < 2f)
+                {
+                    randEnemy = 0;
+                }
+                yield return new WaitUntil(() => enemyCount < enemySpawnCap - 1);
+
                 switch(randEnemy)
                 {
                     case 0:
-                    //Spawn MeleeEnemy with factory
                     gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Melee");
-                    //enemyFactory.SpawnEnemy("Melee");
                     spawnSpace -= 1;
                     break;
 
                     case 1:
-                    //Spawn RangedEnemy with factory
                     gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Ranged");
-                    //enemyFactory.SpawnEnemy("Ranged");
                     spawnSpace -= 2;
                     break;
                 }
-                yield return new WaitForSeconds(0.3f);
-                //Debug.Log(spawnSpace);
             }
 
             if(bossWaveCountDown <= 0)
@@ -79,15 +82,12 @@ public class SpawnManager : MonoBehaviour
                     switch(randBoss)
                     {
                         case 0:
-                        //Spawn first Boss with factory
                         gameObject.GetComponent<EnemyFactory>().SpawnEnemy("Boss1");
-                        //enemyFactory.SpawnEnemy("Boss1");
-                        //adjust for boss difficulty level
+                        FindObjectOfType<AudioManager>().Play("BossSpawns");
                         bossSpawnSpace -= 1; 
                         break;
                     }
                     bossWaveCountDown = bossIntervall;
-                    yield return new WaitForSeconds(0.3f);
                 }
                 bossWaveCountDown = bossIntervall;
                 bossWaveSpawn = bossWaveSpawn * bossSpawnIncrease;
@@ -96,23 +96,17 @@ public class SpawnManager : MonoBehaviour
 
             waveCounter++;
             currentWave = waveCounter;
-            //Debug.Log("W"+waveSpawn);
             waveSpawn = waveSpawn * spawnIncrease;
             spawnSpace = waveSpawn;
-            //Debug.Log(spawnSpace);
 
             bossWaveCountDown -= 1;
-            
-            while(GameObject.FindWithTag("Enemy") != null)
-            {
-                yield return new WaitForSeconds(1);
-            }
+        
+            yield return new WaitUntil(() => enemyCount == 0);
+
             yield return new WaitForSeconds(waveCoolDown);
             Time.timeScale = 0f;
             SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Additive);
-
         }
-        
     }
 
     public void DisableWaveSpawning()
@@ -122,17 +116,14 @@ public class SpawnManager : MonoBehaviour
 
     public void EnableWaveSpawning()
     {
-        //Wave related settings
         waveCounter = 0;
         currentWave = waveCounter;
         bossWaveCountDown = bossIntervall;
 
-        //Standart enemy related settings
         waveSpawn = startWaveSpawn;
         enemySpawning = true;
         spawnSpace = waveSpawn;
 
-        //Boss related settings
         bossWaveSpawn = 1f;
         bossSpawning = true;
         bossSpawnSpace = bossWaveSpawn;

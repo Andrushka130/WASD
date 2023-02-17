@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimationManager : MonoBehaviour
@@ -9,7 +7,8 @@ public class PlayerAnimationManager : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Characters currentChar;
 
-    private void Start() {
+    private void Start()
+    {
         currentChar = CharactersManager.CurrentChar;
         spriteRenderer.sprite = currentChar.CharSprite;
     }

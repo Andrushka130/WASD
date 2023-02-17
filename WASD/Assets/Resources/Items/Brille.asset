@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Glasses
   isPassiveItem: 1
   icon: {fileID: 0}
-  RarityType: 40
+  rarityType: 40
   value: 5
   description: '+ 2 Crit Chance, + 1 Luck '
   attack: 0

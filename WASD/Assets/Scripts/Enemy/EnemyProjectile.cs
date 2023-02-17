@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
@@ -8,22 +6,21 @@ public class EnemyProjectile : MonoBehaviour
     public SpriteRenderer ProjectileSprite;
     public Rigidbody2D ProjectileBody;
     public CircleCollider2D ProjectileCollider;
-    public int projectileDamage;
-    private float decayTime;
+    public float projectileDamage;
+    [SerializeField] private float decayTime;
+    [SerializeField] private float dmgScaling = 1.1f;
 
     
 
-    void Awake()
+    void Start()
     {
-        //CharacterAttribute damagePlayer = GameObject.FindWithTag
-
         ProjectileBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        /* enemyProjectile.tag = "EnemyProjectile";
-        enemyProjectile.layer = LayerMask.NameToLayer("Player"); */
+        enemyProjectile.layer = LayerMask.NameToLayer("EnemyProjectile");
 
         transform.localScale = new Vector2(0.3f, 0.3f);
 
         ignorePhysicsOfEnemyAndAttacks();
+        UpdateStats();
     }
 
     public void Initialize(Vector3 position)
@@ -33,8 +30,6 @@ public class EnemyProjectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-    
-        Debug.Log("hit" + collision.gameObject);
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(projectileDamage);
@@ -59,4 +54,14 @@ public class EnemyProjectile : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 10);
     }
 
+    public void UpdateStats()
+    {
+        float currentScale = GameObject.FindWithTag("SpawnManager").GetComponent<SpawnManager>().waveCounter;
+
+        if(currentScale > 0f)
+        {
+            this.projectileDamage = projectileDamage + (currentScale * dmgScaling);
+        }
+        
+    }
 }

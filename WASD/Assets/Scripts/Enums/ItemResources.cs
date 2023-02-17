@@ -1,5 +1,3 @@
-using System;
-
 namespace ItemResources
 {
     public static class ItemPath

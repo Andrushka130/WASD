@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -10,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private bool leaderboardIsNotActive;
     [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private GameObject loginButton;
+    [SerializeField] private GameObject deleteAccountButton;
     [SerializeField] private TMP_Text logInfo;
 
     private PlayerData _playerData;
@@ -24,7 +23,6 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Started Game");
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -32,12 +30,9 @@ public class MainMenu : MonoBehaviour
     public void ManageLeaderboard()
     {
        leaderboard.SetActive(leaderboardIsNotActive);
-       if (_playerData.LoggedIn){
-         logInfo.text = "LogOut";
-       } else {
-         logInfo.text = "LogIn";
-       }
+       UpdateLoginText();
        loginButton.SetActive(leaderboardIsNotActive);
+       deleteAccountButton.SetActive(leaderboardIsNotActive && _playerData.LoggedIn);
        leaderboardIsNotActive = !leaderboardIsNotActive;
     }
 
@@ -47,9 +42,27 @@ public class MainMenu : MonoBehaviour
     }
 
     public void OpenLoginScreen()
+    {        
+        if (_playerData.LoggedIn)
+        {
+           _playerData.LoggedIn = false;
+           _playerData.SaveLoginStatus();
+           deleteAccountButton.SetActive(false);
+           UpdateLoginText();
+        }
+        else
+        {
+           SceneManager.LoadSceneAsync("LoginScreen");
+        }
+    }
+
+    public async void DeleteAccount()
     {
-        _playerData.LoggedIn = !_playerData.LoggedIn;
-        SceneManager.LoadSceneAsync("LoginScreen");
+       Database db = new Database();
+       string result = await db.DeleteAccount(_playerData.PlayerTag);
+       _playerData.LoggedIn = false;
+       deleteAccountButton.SetActive(false);
+       UpdateLoginText();
     }
 
     public void ExitGame()
@@ -58,5 +71,12 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    
+    private void  UpdateLoginText()
+    {
+       if (_playerData.LoggedIn){
+         logInfo.text = "LogOut";
+       } else {
+         logInfo.text = "LogIn";
+       }
+    }
 }

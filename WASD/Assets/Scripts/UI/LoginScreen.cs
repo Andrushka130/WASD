@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,15 +11,16 @@ public class LoginScreen : MonoBehaviour
         SceneManager.LoadSceneAsync("MainMenu");
     }
 
-    public void ShowLogin(){
+    public void ShowLogin()
+    {
         containerCreateAccount.SetActive(false);
         containerLogin.SetActive(true);
     }
 
-    public void ShowCreateAccount(){
+    public void ShowCreateAccount()
+    {
         containerLogin.SetActive(false);
         containerCreateAccount.SetActive(true);
-        
     }
 }
 

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Login : MonoBehaviour
@@ -29,7 +28,6 @@ public class Login : MonoBehaviour
             return;
         }
 
-        
         _playerData = PlayerData.Instance;
         _playerData.PlayerTag = usernameInputField.text;
         _playerData.Password = passwordInputField.text;
@@ -52,11 +50,6 @@ public class Login : MonoBehaviour
         loginScreen.OpenMainMenu();
     }
 
-    public void OnLogoutClick()
-    {
-        _playerData.LoggedIn = false;
-        loginImage.SetActive(true);
-    }
 
     private async void CheckHighscore()
     {

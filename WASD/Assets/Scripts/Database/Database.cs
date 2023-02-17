@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
 using System.Threading.Tasks;
 
 public class Database : WebRequest
@@ -29,9 +25,9 @@ public class Database : WebRequest
         return await db.AsyncUpload(_playerData.Stringify(), url, method);
     }
 
-    public Task<string> ChangeAccount(PlayerData _playerData)
+    public Task<string> ChangeAccount(PlayerData _playerData, string currentPlayerTag)
     {
-        string url = URL.UrlAccount + _playerData.PlayerTag;
+        string url = URL.UrlAccount + currentPlayerTag;
         string method = HttpMethods.Patch;
         return db.AsyncUpload(_playerData.Stringify(), url, method);
     }

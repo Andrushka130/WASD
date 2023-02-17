@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
+  m_Name: Cymbal-banging Monkey Toy
+  m_EditorClassIdentifier: 
+  isPassiveItem: 1
+  value: 40
+  description: ' -12 Psycho Level '
+  name: Cymbal-banging Monkey Toy
+  icon: {fileID: 0}
+  rarityType: 10
+  attack: 0
+  critChance: 0
+  critDamage: 0
+  attackSpeed: 0
+  maxHealth: 0
+  luck: 0
+  movementSpeed: 0
+  psychoLevel: -12
+  maxPsychoLevel: 0

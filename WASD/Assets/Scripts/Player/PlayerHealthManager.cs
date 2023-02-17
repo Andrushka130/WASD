@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,7 +12,9 @@ public class PlayerHealthManager : MonoBehaviour
     {
         get { return currentHealth; }
     }
-    private void Start() {
+    
+    private void Start()
+    {
         currentChar = CharactersManager.CurrentChar;
         currentHealth = currentChar.MaxHealthValue;
     }
@@ -46,7 +47,7 @@ public class PlayerHealthManager : MonoBehaviour
         //lerpTimer = 0f;
     }
 
-    public void DamagePlayer(int damage)
+    public void DamagePlayer(float damage)
     {
         if((currentHealth - damage) <= 0)
         {

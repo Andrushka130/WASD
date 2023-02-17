@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d136e2811cda4684b6538632850e8, type: 3}
   m_Name: Eye Modification
   m_EditorClassIdentifier: 
-  name: Eye Modification
   isPassiveItem: 1
-  icon: {fileID: 0}
-  RarityType: 40
   value: 0
-  description: '+ 5 Crit Chance, + 5 Psycho Level '
+  description: '+ 5 Crit Chance, + 5  Psycho Level '
+  name: Eye Modification
+  icon: {fileID: 0}
+  rarityType: 40
   attack: 0
   critChance: 5
   critDamage: 0
   attackSpeed: 0
   maxHealth: 0
-  healthRegen: 2
-  lifesteal: 0
   luck: 0
   movementSpeed: 0
   psychoLevel: 5
+  maxPsychoLevel: 0
