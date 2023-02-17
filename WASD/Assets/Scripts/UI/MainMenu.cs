@@ -49,6 +49,7 @@ public class MainMenu : MonoBehaviour
         if (_playerData.LoggedIn)
         {
            _playerData.LoggedIn = false;
+           _playerData.SaveLoginStatus();
            UpdateLoginText();
         }
         else
