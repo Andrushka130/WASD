@@ -57,16 +57,19 @@ Your **goal** is to survive all enemy waves as long as you can to get the best h
   -	Open terminal in Visual Studio Code
   <br><br>![Screenshot VS Code terminal tab](https://github.com/Andrushka130/WASD/blob/main/Images/README/terminal.png)
   -	Navigate to Backend using ```cd .\Backend\``` in terminal
-  <br><br> ![Screenshot Vs Code terminal command cd .\Backend\](https://github.com/Andrushka130/WASD/blob/main/Images/README/navigation.png)
+  <br><br> ![Screenshot VS Code terminal command cd .\Backend\](https://github.com/Andrushka130/WASD/blob/main/Images/README/navigation.png)
   - Install Express using ```npm i express``` in terminal
-  <br><br> ![Screenshot Vs Code terminal command npm i express](https://github.com/Andrushka130/WASD/blob/main/Images/README/express.png)
- 
+  <br><br> ![Screenshot VS Code terminal command npm i express](https://github.com/Andrushka130/WASD/blob/main/Images/README/express.png)
+  
+### 8. MongoDB Driver:
+  - Install MongoDb Driver using ```npm i mongodb```
+  <br><br> ![Screenshot VS Code terminal command npm i mongodb](https://github.com/Andrushka130/WASD/blob/main/Images/README/mongodb.png)
 
-### 8.	Insert test data:
+### 9.	Insert test data:
   -	Make sure that the Docker container is running
   <br><br> ![Screenshot Docker Desktop](https://github.com/Andrushka130/WASD/blob/main/Images/README/Docker.png)
   -	Use command ```node app.js``` to start the server
-  <br><br> ![Screenshot Vs Code terminal command node app.js](https://github.com/Andrushka130/WASD/blob/main/Images/README/server_start.png)
+  <br><br> ![Screenshot VS Code terminal command node app.js](https://github.com/Andrushka130/WASD/blob/main/Images/README/server_start.png)
   -	Open file test.http in Backend
   <br><br> ![Screenshot VS Code Explorer](https://github.com/Andrushka130/WASD/blob/main/Images/README/test_öffnen.png)
   -	Send Post Request for url insertTestData with left mouse click on Send Request (REST Client plugin)
@@ -119,3 +122,4 @@ In case you aren’t pleased with the offers, you can reroll the shop. Of course
 -	REST Client for VS Code
 -	Node.js
 -	Express.js
+- MongoDB Driver for Node.js
