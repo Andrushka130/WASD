@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private bool leaderboardIsNotActive;
     [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private GameObject loginButton;
+    [SerializeField] private GameObject deleteAccountButton;
     [SerializeField] private TMP_Text logInfo;
 
     private PlayerData _playerData;
@@ -38,6 +39,7 @@ public class MainMenu : MonoBehaviour
          logInfo.text = "LogIn";
        }
        loginButton.SetActive(leaderboardIsNotActive);
+       deleteAccountButton.SetActive(leaderboardIsNotActive && _playerData.LoggedIn);
        leaderboardIsNotActive = !leaderboardIsNotActive;
     }
 
@@ -48,8 +50,16 @@ public class MainMenu : MonoBehaviour
 
     public void OpenLoginScreen()
     {
-        _playerData.LoggedIn = !_playerData.LoggedIn;
         SceneManager.LoadSceneAsync("LoginScreen");
+    }
+
+    public async void DeleteAccount()
+    {
+       Database db = new Database();
+       string result = await db.DeleteAccount(_playerData.PlayerTag);
+       Debug.Log(result);
+       _playerData.LoggedIn = false;
+
     }
 
     public void ExitGame()
