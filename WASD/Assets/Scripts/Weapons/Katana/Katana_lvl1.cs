@@ -9,11 +9,11 @@ public class Katana_lvl1 : Katana, IBuyable
     public override string Description => "Attacks in an area in front.";
     public override int WeaponLevel => 1;
     public override int Value => 5;
-    public override float Dmg => 2;
-    public override float CritDmg => 1.2f;
-    public override int CritChance => 30;
+    protected override float Dmg => 2;
+    protected override float CritDmg => 1.2f;
+    protected override int CritChance => 30;
     public override float Lifesteal => 0;
-    public override float AtkSpeed => 1f;    
+    protected override float AtkSpeed => 1f;    
     public override Rarity RarityType => Rarity.Common;
     protected override GameObject AttackPrefab { get; set; }
     protected override Transform FirePoint { get; set; }    

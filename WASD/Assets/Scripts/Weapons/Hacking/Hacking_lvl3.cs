@@ -9,11 +9,11 @@ public class Hacking_lvl3 : Hacking, IBuyable
     public override string Description => "Upgrade: Now fires 4 hacks at once.";
     public override int WeaponLevel => 3;
     public override int Value => 10;
-    public override float Dmg => 15;
-    public override float CritDmg => 1.75f;
-    public override int CritChance => 20;
+    protected override float Dmg => 15;
+    protected override float CritDmg => 1.75f;
+    protected override int CritChance => 20;
     public override float Lifesteal => 0;
-    public override float AtkSpeed => 0.5f;    
+    protected override float AtkSpeed => 0.5f;    
     public override Rarity RarityType => Rarity.Rare;        
     protected override GameObject BulletPrefab { get; set; }
     protected override Transform FirePoint { get; set; }

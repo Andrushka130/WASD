@@ -10,11 +10,11 @@ public class ProjectileLaunchSystem_lvl2 : ProjectileLaunchSystem, IBuyable
     public override string Description => "Upgrade: Shoots 2 explosions at once.";
     public override int WeaponLevel => 2;
     public override int Value => 15;
-    public override float Dmg => 20;
-    public override float CritDmg => 2.5f;
-    public override int CritChance => 7;
+    protected override float Dmg => 20;
+    protected override float CritDmg => 2.5f;
+    protected override int CritChance => 7;
     public override float Lifesteal => 0f;
-    public override float AtkSpeed => 1.5f;
+    protected override float AtkSpeed => 1.5f;
     public override Rarity RarityType => Rarity.Epic;    
     protected override GameObject BulletPrefab { get; set; }
     protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }

@@ -9,11 +9,11 @@ public class ProjectileLaunchSystem_lvl1 : ProjectileLaunchSystem, IBuyable
     public override string Description => "Shoots out explosions to one enemy near the player.";
     public override int WeaponLevel => 1;
     public override int Value => 10;
-    public override float Dmg => 10;
-    public override float CritDmg => 2f;
-    public override int CritChance => 10;
+    protected override float Dmg => 10;
+    protected override float CritDmg => 2f;
+    protected override int CritChance => 10;
     public override float Lifesteal => 0;
-    public override float AtkSpeed => 1f;
+    protected override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Common;   
     protected override GameObject BulletPrefab { get; set; }
     protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }

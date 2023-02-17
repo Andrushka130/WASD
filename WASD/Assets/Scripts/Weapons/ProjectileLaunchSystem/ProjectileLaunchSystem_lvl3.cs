@@ -9,11 +9,11 @@ public class ProjectileLaunchSystem_lvl3 : ProjectileLaunchSystem, IBuyable
     public override string Description => "Upgrade: Increased size of explosion.";
     public override int WeaponLevel => 3;
     public override int Value => 25;
-    public override float Dmg => 30;
-    public override float CritDmg => 3f;
-    public override int CritChance => 4;
+    protected override float Dmg => 30;
+    protected override float CritDmg => 3f;
+    protected override int CritChance => 4;
     public override float Lifesteal => 0f;
-    public override float AtkSpeed => 1f;
+    protected override float AtkSpeed => 1f;
     public override Rarity RarityType => Rarity.Legendary;   
     protected override GameObject BulletPrefab { get; set; }
     protected override EnemyDetectionCircle EnemyDetectionCircle { get; set; }   

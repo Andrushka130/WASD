@@ -10,11 +10,11 @@ public class GorillaArms_lvl1 : GorillaArms, IBuyable
     public override string Description => "Pushes the enemy away.";
     public override int WeaponLevel => 1;
     public override int Value => 7;
-    public override float Dmg => 4;
-    public override float CritDmg => 1.5f;
-    public override int CritChance => 20;
+    protected override float Dmg => 4;
+    protected override float CritDmg => 1.5f;
+    protected override int CritChance => 20;
     public override float Lifesteal => 0;
-    public override float AtkSpeed => 1.5f;    
+    protected override float AtkSpeed => 1.5f;    
     public override Rarity RarityType => Rarity.Uncommon;        
     protected override GameObject AttackPrefab { get; set; }
     protected override Transform FirePoint { get; set; }   

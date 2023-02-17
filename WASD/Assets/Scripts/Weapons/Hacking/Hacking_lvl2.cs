@@ -9,11 +9,11 @@ public class Hacking_lvl2 : Hacking, IBuyable
     public override string Description => "Upgrade: Now fires 2 hacks at once. Even killing is a remote job now";
     public override int WeaponLevel => 2;
     public override int Value => 7;
-    public override float Dmg => 6;
-    public override float CritDmg => 1.5f;
-    public override int CritChance => 25;
+    protected override float Dmg => 6;
+    protected override float CritDmg => 1.5f;
+    protected override int CritChance => 25;
     public override float Lifesteal => 0;
-    public override float AtkSpeed => 0.75f;    
+    protected override float AtkSpeed => 0.75f;    
     public override Rarity RarityType => Rarity.Uncommon;        
     protected override GameObject BulletPrefab { get; set; }
     protected override Transform FirePoint { get; set; }
